@@ -3,7 +3,7 @@ from functools import wraps
 # evitando problemas al usar varios decoradores juntos
 from flask import request, jsonify
 import jwt
-from auth import SECRET_KEY  # reutilizamos la misma clave secreta con la que se firman los tokens
+from config import SECRET_KEY
 
 def requiere_token(f):
     # Este decorador se coloca sobre cualquier ruta que requiera que el usuario

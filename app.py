@@ -1,7 +1,7 @@
 from flask import Flask
-from database import crear_tablas
-from routes.auth_routes import auth_bp
-from routes.users_routes import users_bp
+from models.database import crear_tablas
+from controllers.auth_controller import auth_bp
+from controllers.users_controller import users_bp
 
 # Creamos la aplicación Flask
 app = Flask(__name__)

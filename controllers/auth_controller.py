@@ -4,6 +4,7 @@ from models.rol_model import obtener_roles_de_usuario
 from utils.jwt_helper import generar_token
 from views.usuario_view import usuario_a_json
 
+
 # Un Blueprint agrupa rutas relacionadas; luego lo "registramos" en app.py
 auth_bp = Blueprint("auth", __name__)
 

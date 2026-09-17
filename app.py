@@ -2,6 +2,8 @@ from flask import Flask
 from models.database import crear_tablas
 from controllers.auth_controller import auth_bp
 from controllers.users_controller import users_bp
+from controllers.habitos_controller import habitos_bp
+from controllers.perfil_controller import perfil_bp
 
 # Creamos la aplicación Flask
 app = Flask(__name__)
@@ -9,6 +11,8 @@ app = Flask(__name__)
 # Registramos los Blueprints: le decimos a Flask "estas rutas también existen"
 app.register_blueprint(auth_bp)
 app.register_blueprint(users_bp)
+app.register_blueprint(habitos_bp)
+app.register_blueprint(perfil_bp)
 
 if __name__ == "__main__":
     # Antes de arrancar el servidor, nos aseguramos de que las tablas existan

@@ -48,3 +48,22 @@ def requiere_admin(f):
             return jsonify({"error": "Acceso prohibido: se requiere rol Administrador"}), 403
         return f(*args, **kwargs)
     return decorador
+
+def requiere_admin_o_superadmin(f):
+    # Deja pasar a cualquiera de los dos roles con privilegios
+    @wraps(f)
+    def decorador(*args, **kwargs):
+        roles = getattr(request, "roles", [])
+        if "Administrador" not in roles and "SuperAdministrador" not in roles:
+            return jsonify({"error": "Acceso prohibido: se requiere rol Administrador o SuperAdministrador"}), 403
+        return f(*args, **kwargs)
+    return decorador
+
+def requiere_superadmin(f):
+    # Solo el nivel más alto pasa por aquí
+    @wraps(f)
+    def decorador(*args, **kwargs):
+        if "SuperAdministrador" not in getattr(request, "roles", []):
+            return jsonify({"error": "Acceso prohibido: se requiere rol SuperAdministrador"}), 403
+        return f(*args, **kwargs)
+    return decorador

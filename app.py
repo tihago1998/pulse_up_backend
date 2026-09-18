@@ -20,5 +20,4 @@ if __name__ == "__main__":
 
     # host="0.0.0.0" permite que el emulador Android (vía 10.0.2.2) pueda conectarse
     # debug=True reinicia el servidor automáticamente cada vez que guardas un cambio
-    port = int(os.environ.get("PORT", 5050))  # Permite que Heroku asigne el puerto dinámicamente
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=5050, debug=True)

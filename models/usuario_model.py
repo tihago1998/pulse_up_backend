@@ -107,3 +107,37 @@ def cambiar_password(id_usuario, password_nuevo):
     cur.execute("UPDATE usuario SET password_hash = ? WHERE id_usuario = ?", (nuevo_hash, id_usuario))
     conn.commit()
     conn.close()
+
+def actualizar_perfil(id_usuario, nombre, email):
+    conn = get_connection()
+    cur = conn.cursor()
+
+    # Si el correo nuevo ya lo usa OTRO usuario, no se permite (evita duplicados)
+    cur.execute("SELECT id_usuario FROM usuario WHERE email = ? AND id_usuario != ?", (email, id_usuario))
+    if cur.fetchone():
+        conn.close()
+        return False, "Ese correo ya está en uso"
+
+    cur.execute(
+        "UPDATE usuario SET nombre = ?, email = ? WHERE id_usuario = ?",
+        (nombre, email, id_usuario)
+    )
+    conn.commit()
+    conn.close()
+    return True, None
+
+def buscar_por_id(id_usuario):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM usuario WHERE id_usuario = ?", (id_usuario,))
+    usuario = cur.fetchone()
+    conn.close()
+    return usuario
+
+def cambiar_password(id_usuario, password_nuevo):
+    conn = get_connection()
+    cur = conn.cursor()
+    nuevo_hash = generate_password_hash(password_nuevo)
+    cur.execute("UPDATE usuario SET password_hash = ? WHERE id_usuario = ?", (nuevo_hash, id_usuario))
+    conn.commit()
+    conn.close()

@@ -1,5 +1,18 @@
+# Secretos
+.env
+
+# Python
 venv/
+.venv/
 __pycache__/
 *.pyc
-pulseup.db
+
+# Bases de datos locales
+*.db
+*.sqlite3
+
+# Editor / sistema
 .vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -12,3 +12,7 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - Administración de usuarios: listar, cambiar rol, eliminar y estadísticas.
 - Módulo de hábitos: crear y listar por usuario.
 - Módulo de perfil: editar datos y cambiar contraseña.
+
+### Security
+
+- La clave de los tokens JWT ya no está escrita en el código: se lee de la variable de entorno `PULSEUP_SECRET_KEY`.

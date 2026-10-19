@@ -54,6 +54,25 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## Configuración
+
+La aplicación lee sus ajustes de variables de entorno. Copia el archivo de ejemplo y define tu propia clave:
+
+```bash
+copy .env.example .env
+python -c "import secrets; print(secrets.token_hex(32))"
+```
+
+Pega la clave generada en `PULSEUP_SECRET_KEY` dentro de `.env`. Ese archivo no se sube al repositorio. Si falta la clave, la aplicación no arranca y muestra un mensaje indicándolo.
+
+| Variable             | Obligatoria | Descripción                                            |
+| -------------------- | ----------- | ------------------------------------------------------ |
+| `PULSEUP_SECRET_KEY` | Sí          | Clave para firmar los tokens JWT                       |
+| `PULSEUP_DB_NAME`    | No          | Archivo de la base de datos (por defecto `pulseup.db`) |
+| `PULSEUP_HOST`       | No          | Dirección de escucha (por defecto `0.0.0.0`)           |
+| `PULSEUP_PORT`       | No          | Puerto (por defecto `5050`)                            |
+| `PULSEUP_DEBUG`      | No          | Modo de depuración (por defecto `true`)                |
+
 ## Ejecución
 
 ```bash

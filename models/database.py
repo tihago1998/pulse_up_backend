@@ -81,12 +81,13 @@ def crear_tablas():
     """)
 
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS habito (
+         CREATE TABLE IF NOT EXISTS habito (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             id_usuario INTEGER NOT NULL,
             descripcion TEXT NOT NULL,
             categoria TEXT NOT NULL,
             fecha TEXT NOT NULL,
+            completado INTEGER NOT NULL DEFAULT 0,
             FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
         )
     """)
@@ -96,6 +97,10 @@ def crear_tablas():
     cur.execute("INSERT OR IGNORE INTO rol (id_rol, nombre_rol) VALUES (1, 'Administrador')")
     cur.execute("INSERT OR IGNORE INTO rol (id_rol, nombre_rol) VALUES (2, 'Usuario')")
     cur.execute("INSERT OR IGNORE INTO rol (id_rol, nombre_rol) VALUES (3, 'SuperAdministrador')")
-
+    # Migración: si la tabla habito se creó antes de existir "completado", la agregamos
+    columnas = [fila["name"] for fila in cur.execute("PRAGMA table_info(habito)").fetchall()]
+    if "completado" not in columnas:
+        cur.execute("ALTER TABLE habito ADD COLUMN completado INTEGER NOT NULL DEFAULT 0")
+        
     conn.commit()  # guarda los cambios de forma permanente en el archivo .db
     conn.close()   # cierra la conexión

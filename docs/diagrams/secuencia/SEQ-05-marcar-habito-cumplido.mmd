@@ -1,0 +1,24 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant H as App Android<br/>(HomeScreen)
+    participant API as API Flask<br/>(habitos_controller)
+    participant MW as Middleware<br/>requiere_token
+    participant DB as SQLite<br/>(tabla habito)
+
+    U->>H: Toca el hábito para marcarlo (o desmarcarlo)
+    H->>API: PATCH /api/habitos/{id}/completado<br/>{completado: true/false}
+    API->>MW: Valida el token JWT
+    MW-->>API: id_usuario
+    API->>DB: UPDATE habito SET completado<br/>WHERE id = {id} AND id_usuario = token
+    alt El hábito pertenece al usuario
+        DB-->>API: Fila actualizada
+        API-->>H: Éxito {message}
+        H->>API: GET /api/habitos/resumen
+        API-->>H: Resumen por día actualizado
+        H-->>U: Actualiza el progreso y la llama del calendario<br/>si ya cumplió todos los hábitos del día
+    else Hábito inexistente o de otro usuario
+        DB-->>API: Ninguna fila coincide
+        API-->>H: Error {message}
+        H-->>U: Muestra el error
+    end

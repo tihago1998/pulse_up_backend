@@ -1,0 +1,22 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant A as App Android<br/>(LoginScreen)
+    participant S as Session<br/>(memoria de la app)
+    participant API as API Flask<br/>(auth_controller)
+    participant DB as SQLite<br/>(pulseup.db)
+
+    U->>A: Ingresa correo y contraseña
+    A->>API: POST /api/auth/login<br/>{email, password}
+    API->>DB: Busca usuario por correo y sus roles
+    DB-->>API: Usuario + hash de contraseña + roles
+    API->>API: Compara la contraseña con el hash
+    alt Credenciales correctas
+        API->>API: Genera token JWT
+        API-->>A: Éxito {token, usuario{id_usuario, nombre, email, roles}}
+        A->>S: iniciarSesion(token, usuario)<br/>y elige una frase motivadora nueva
+        A-->>U: Navega al Home
+    else Credenciales incorrectas
+        API-->>A: Error {message}
+        A-->>U: Muestra "credenciales incorrectas"
+    end

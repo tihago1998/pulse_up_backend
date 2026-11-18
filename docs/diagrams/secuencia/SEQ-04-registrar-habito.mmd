@@ -1,0 +1,25 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant H as App Android<br/>(HomeScreen)
+    participant API as API Flask<br/>(habitos_controller)
+    participant MW as Middleware<br/>requiere_token
+    participant DB as SQLite<br/>(tabla habito)
+
+    U->>H: Pulsa "+" y escribe descripción y categoría
+    Note over H: La fecha es la seleccionada en el Home<br/>(hoy, un día pasado o uno futuro)
+    H->>API: POST /api/habitos/<br/>{descripcion, categoria, fecha}
+    API->>MW: Valida el token JWT
+    MW-->>API: id_usuario
+    API->>API: Valida los campos y el formato de fecha
+    alt Datos válidos
+        API->>DB: INSERT hábito (completado = 0)
+        DB-->>API: OK
+        API-->>H: Éxito {message}
+        H->>API: GET /api/habitos/?fecha=... y GET /api/habitos/resumen
+        API-->>H: Lista y resumen actualizados
+        H-->>U: Muestra el hábito nuevo en la lista
+    else Datos inválidos
+        API-->>H: Error {message}
+        H-->>U: Muestra el error
+    end

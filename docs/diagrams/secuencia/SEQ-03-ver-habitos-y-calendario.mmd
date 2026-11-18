@@ -1,0 +1,26 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant H as App Android<br/>(HomeScreen)
+    participant API as API Flask<br/>(habitos_controller)
+    participant MW as Middleware<br/>requiere_token
+    participant DB as SQLite<br/>(tabla habito)
+
+    U->>H: Abre el Home (o selecciona otra fecha / otro mes)
+    par Hábitos del día seleccionado
+        H->>API: GET /api/habitos/?fecha=YYYY-MM-DD<br/>Authorization: Bearer token
+        API->>MW: Valida el token JWT
+        MW-->>API: id_usuario
+        API->>DB: Hábitos del usuario en esa fecha
+        DB-->>API: Lista de hábitos
+        API-->>H: {habitos:[id, descripcion, categoria, fecha, completado]}
+        H-->>U: Muestra la lista y el progreso del día
+    and Resumen para el calendario
+        H->>API: GET /api/habitos/resumen?desde=...&hasta=...<br/>(cuadrícula de 6 semanas)
+        API->>MW: Valida el token JWT
+        MW-->>API: id_usuario
+        API->>DB: Total y completados por día
+        DB-->>API: Resumen por día
+        API-->>H: {dias:[fecha, total, completados]}
+        H-->>U: Dibuja una llama morada en los días con todos los hábitos cumplidos
+    end

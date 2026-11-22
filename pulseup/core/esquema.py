@@ -27,7 +27,8 @@ TABLAS = [
         PRIMARY KEY (id_usuario, id_rol)
     )
     """,
-    # Hábitos con fecha: alimentan el calendario con llamas de la pantalla de inicio
+    # Hábitos con fecha. Ya NO alimentan las llamas del Home: estas salen del calendario de rutinas
+    # (/api/calendario/). Los endpoints de hábitos se conservan hasta migrar la app.
     """
     CREATE TABLE IF NOT EXISTS habito (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -84,14 +85,15 @@ TABLAS = [
     )
     """,
     # Plan semanal: qué rutina toca cada día (1 = lunes ... 7 = domingo). Sin fila = descanso.
-    # creado_en (YYYY-MM-DD) evita marcar como incumplidos los días anteriores a armar el plan.
+    # creado_en (YYYY-MM-DD) es solo informativo: el calendario ya usa plan_historial. No se borra
+    # porque el esquema es aditivo (nunca se eliminan columnas).
     """
     CREATE TABLE IF NOT EXISTS plan_dia (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         id_usuario INTEGER NOT NULL,
         dia_semana INTEGER NOT NULL CHECK (dia_semana BETWEEN 1 AND 7),
         id_rutina INTEGER NOT NULL,
-        creado_en TEXT NOT NULL,
+        creado_en TEXT NOT NULL,  -- informativo, ver comentario arriba
         FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
         FOREIGN KEY (id_rutina) REFERENCES rutina(id),
         UNIQUE (id_usuario, dia_semana)

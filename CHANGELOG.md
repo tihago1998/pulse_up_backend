@@ -29,6 +29,9 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - Al eliminar un usuario también se eliminan sus hábitos, su plan semanal y sus sesiones.
 - `DELETE /api/rutinas/<id>` responde 409 si la rutina está en el plan semanal.
 - Nueva dependencia `tzdata` para que las zonas horarias funcionen en Windows.
+
+### Fixed
+
 - Historial del plan semanal (`plan_historial`): el calendario, la racha y los incumplidos
   usan la rutina vigente en cada fecha. Quitar o cambiar un día ya no convierte en
   descanso los incumplidos anteriores. Los planes existentes se migran solos al arrancar.

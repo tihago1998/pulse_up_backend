@@ -1,0 +1,663 @@
+[
+ {
+  "nombre": "Flexiones",
+  "grupo_muscular": "pecho",
+  "musculos_secundarios": [
+   "triceps",
+   "hombros"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Apoya manos y puntas de los pies, cuerpo en línea recta.",
+   "Baja el pecho hasta casi tocar el suelo con los codos a 45°.",
+   "Empuja hasta extender los brazos sin bloquear los codos."
+  ]
+ },
+ {
+  "nombre": "Flexiones en rodillas",
+  "grupo_muscular": "pecho",
+  "musculos_secundarios": [
+   "triceps",
+   "hombros"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Apoya manos y rodillas, espalda recta.",
+   "Baja el pecho hacia el suelo controlando el movimiento.",
+   "Empuja hasta extender los brazos."
+  ]
+ },
+ {
+  "nombre": "Press de banca con barra",
+  "grupo_muscular": "pecho",
+  "musculos_secundarios": [
+   "triceps",
+   "hombros"
+  ],
+  "equipo": "barra",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Acuéstate en el banco con los pies firmes en el suelo.",
+   "Baja la barra controlada hasta rozar el pecho.",
+   "Empuja hacia arriba hasta extender los brazos."
+  ]
+ },
+ {
+  "nombre": "Press de pecho con mancuernas",
+  "grupo_muscular": "pecho",
+  "musculos_secundarios": [
+   "triceps",
+   "hombros"
+  ],
+  "equipo": "mancuernas",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Acuéstate con una mancuerna en cada mano a la altura del pecho.",
+   "Empuja hacia arriba juntando las mancuernas arriba.",
+   "Baja lento hasta sentir el estiramiento del pecho."
+  ]
+ },
+ {
+  "nombre": "Press inclinado con mancuernas",
+  "grupo_muscular": "pecho",
+  "musculos_secundarios": [
+   "hombros",
+   "triceps"
+  ],
+  "equipo": "mancuernas",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Ajusta el banco a unos 30-45°.",
+   "Empuja las mancuernas desde el pecho hacia arriba.",
+   "Baja controlado sin rebotar."
+  ]
+ },
+ {
+  "nombre": "Aperturas con mancuernas",
+  "grupo_muscular": "pecho",
+  "musculos_secundarios": [
+   "hombros"
+  ],
+  "equipo": "mancuernas",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Acostado, brazos extendidos arriba con codos ligeramente flexionados.",
+   "Abre los brazos en arco hasta sentir estiramiento.",
+   "Cierra apretando el pecho."
+  ]
+ },
+ {
+  "nombre": "Press en máquina de pecho",
+  "grupo_muscular": "pecho",
+  "musculos_secundarios": [
+   "triceps",
+   "hombros"
+  ],
+  "equipo": "maquina",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Ajusta el asiento para que las asas queden a la altura del pecho.",
+   "Empuja hasta extender los brazos.",
+   "Regresa lento sin soltar el peso."
+  ]
+ },
+ {
+  "nombre": "Fondos en banco",
+  "grupo_muscular": "triceps",
+  "musculos_secundarios": [
+   "pecho",
+   "hombros"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Apoya las manos en el borde de un banco, piernas al frente.",
+   "Flexiona los codos hacia atrás hasta 90°.",
+   "Empuja hasta extender los brazos."
+  ]
+ },
+ {
+  "nombre": "Extensión de tríceps con polea",
+  "grupo_muscular": "triceps",
+  "musculos_secundarios": [],
+  "equipo": "polea",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Agarra la cuerda o barra con los codos pegados al torso.",
+   "Extiende los brazos hacia abajo.",
+   "Regresa controlado sin separar los codos."
+  ]
+ },
+ {
+  "nombre": "Press francés con mancuerna",
+  "grupo_muscular": "triceps",
+  "musculos_secundarios": [],
+  "equipo": "mancuernas",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Acostado, sostén una mancuerna sobre el pecho con ambas manos.",
+   "Flexiona los codos llevándola detrás de la cabeza.",
+   "Extiende los brazos hacia arriba."
+  ]
+ },
+ {
+  "nombre": "Patada de tríceps",
+  "grupo_muscular": "triceps",
+  "musculos_secundarios": [],
+  "equipo": "mancuernas",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Inclina el torso con la espalda recta y el codo pegado al cuerpo.",
+   "Extiende el brazo hacia atrás.",
+   "Regresa lento."
+  ]
+ },
+ {
+  "nombre": "Dominadas",
+  "grupo_muscular": "espalda",
+  "musculos_secundarios": [
+   "biceps"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "avanzado",
+  "instrucciones": [
+   "Agarra la barra con las palmas al frente, algo más ancho que los hombros.",
+   "Sube hasta que la barbilla pase la barra.",
+   "Baja controlado hasta extender los brazos."
+  ]
+ },
+ {
+  "nombre": "Jalón al pecho",
+  "grupo_muscular": "espalda",
+  "musculos_secundarios": [
+   "biceps"
+  ],
+  "equipo": "polea",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Siéntate y agarra la barra ancha.",
+   "Jala hacia el pecho llevando los codos abajo.",
+   "Sube lento sin encorvarte."
+  ]
+ },
+ {
+  "nombre": "Remo con mancuerna",
+  "grupo_muscular": "espalda",
+  "musculos_secundarios": [
+   "biceps"
+  ],
+  "equipo": "mancuernas",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Apoya una mano y una rodilla en el banco, espalda recta.",
+   "Jala la mancuerna hacia la cadera.",
+   "Baja controlado."
+  ]
+ },
+ {
+  "nombre": "Remo con barra",
+  "grupo_muscular": "espalda",
+  "musculos_secundarios": [
+   "biceps",
+   "isquiotibiales"
+  ],
+  "equipo": "barra",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Inclina el torso con la espalda neutra y la barra a la altura de las rodillas.",
+   "Jala la barra hacia el abdomen.",
+   "Baja sin perder la postura."
+  ]
+ },
+ {
+  "nombre": "Remo en polea baja",
+  "grupo_muscular": "espalda",
+  "musculos_secundarios": [
+   "biceps"
+  ],
+  "equipo": "polea",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Siéntate con el pecho erguido y las rodillas ligeramente flexionadas.",
+   "Jala el agarre hacia el abdomen juntando los omóplatos.",
+   "Regresa lento."
+  ]
+ },
+ {
+  "nombre": "Remo con banda elástica",
+  "grupo_muscular": "espalda",
+  "musculos_secundarios": [
+   "biceps"
+  ],
+  "equipo": "banda elastica",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Sujeta la banda en un punto fijo a la altura del pecho.",
+   "Jala los codos hacia atrás juntando los omóplatos.",
+   "Regresa controlado."
+  ]
+ },
+ {
+  "nombre": "Superman",
+  "grupo_muscular": "espalda",
+  "musculos_secundarios": [
+   "gluteos"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Acuéstate boca abajo con los brazos extendidos al frente.",
+   "Levanta brazos y piernas a la vez.",
+   "Mantén 2 segundos y baja."
+  ]
+ },
+ {
+  "nombre": "Peso muerto rumano",
+  "grupo_muscular": "isquiotibiales",
+  "musculos_secundarios": [
+   "gluteos",
+   "espalda"
+  ],
+  "equipo": "barra",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "De pie con la barra frente a los muslos.",
+   "Lleva la cadera atrás bajando la barra pegada a las piernas.",
+   "Sube apretando los glúteos."
+  ]
+ },
+ {
+  "nombre": "Peso muerto con mancuernas",
+  "grupo_muscular": "isquiotibiales",
+  "musculos_secundarios": [
+   "gluteos",
+   "espalda"
+  ],
+  "equipo": "mancuernas",
+  "nivel": "principiante",
+  "instrucciones": [
+   "De pie con una mancuerna en cada mano.",
+   "Inclina el torso llevando la cadera atrás, espalda recta.",
+   "Vuelve a subir empujando la cadera al frente."
+  ]
+ },
+ {
+  "nombre": "Press militar con mancuernas",
+  "grupo_muscular": "hombros",
+  "musculos_secundarios": [
+   "triceps"
+  ],
+  "equipo": "mancuernas",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Sentado con las mancuernas a la altura de los hombros.",
+   "Empuja hacia arriba hasta extender los brazos.",
+   "Baja controlado."
+  ]
+ },
+ {
+  "nombre": "Elevaciones laterales",
+  "grupo_muscular": "hombros",
+  "musculos_secundarios": [],
+  "equipo": "mancuernas",
+  "nivel": "principiante",
+  "instrucciones": [
+   "De pie con una mancuerna en cada mano.",
+   "Eleva los brazos a los lados hasta la altura de los hombros.",
+   "Baja lento."
+  ]
+ },
+ {
+  "nombre": "Elevaciones frontales",
+  "grupo_muscular": "hombros",
+  "musculos_secundarios": [
+   "pecho"
+  ],
+  "equipo": "mancuernas",
+  "nivel": "principiante",
+  "instrucciones": [
+   "De pie con las mancuernas frente a los muslos.",
+   "Eleva un brazo al frente hasta la altura del hombro.",
+   "Baja y alterna."
+  ]
+ },
+ {
+  "nombre": "Pájaros con mancuernas",
+  "grupo_muscular": "hombros",
+  "musculos_secundarios": [
+   "espalda"
+  ],
+  "equipo": "mancuernas",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Inclina el torso con la espalda recta.",
+   "Abre los brazos a los lados apretando los omóplatos.",
+   "Baja controlado."
+  ]
+ },
+ {
+  "nombre": "Pike push-up",
+  "grupo_muscular": "hombros",
+  "musculos_secundarios": [
+   "triceps"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Forma una V invertida con cadera arriba.",
+   "Flexiona los codos bajando la cabeza hacia el suelo.",
+   "Empuja hasta extender los brazos."
+  ]
+ },
+ {
+  "nombre": "Curl de bíceps con mancuernas",
+  "grupo_muscular": "biceps",
+  "musculos_secundarios": [],
+  "equipo": "mancuernas",
+  "nivel": "principiante",
+  "instrucciones": [
+   "De pie con los codos pegados al torso.",
+   "Flexiona los codos subiendo las mancuernas.",
+   "Baja lento."
+  ]
+ },
+ {
+  "nombre": "Curl martillo",
+  "grupo_muscular": "biceps",
+  "musculos_secundarios": [],
+  "equipo": "mancuernas",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Agarra las mancuernas con las palmas enfrentadas.",
+   "Sube sin mover los codos.",
+   "Baja controlado."
+  ]
+ },
+ {
+  "nombre": "Curl con barra",
+  "grupo_muscular": "biceps",
+  "musculos_secundarios": [],
+  "equipo": "barra",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Agarra la barra con las palmas arriba.",
+   "Sube la barra sin balancear el cuerpo.",
+   "Baja lento."
+  ]
+ },
+ {
+  "nombre": "Curl con banda elástica",
+  "grupo_muscular": "biceps",
+  "musculos_secundarios": [],
+  "equipo": "banda elastica",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Pisa la banda con ambos pies.",
+   "Flexiona los codos llevando las manos a los hombros.",
+   "Regresa controlado."
+  ]
+ },
+ {
+  "nombre": "Sentadilla",
+  "grupo_muscular": "cuadriceps",
+  "musculos_secundarios": [
+   "gluteos"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Pies al ancho de los hombros.",
+   "Baja la cadera atrás y abajo con el pecho erguido.",
+   "Empuja con los talones para subir."
+  ]
+ },
+ {
+  "nombre": "Sentadilla con barra",
+  "grupo_muscular": "cuadriceps",
+  "musculos_secundarios": [
+   "gluteos",
+   "isquiotibiales"
+  ],
+  "equipo": "barra",
+  "nivel": "avanzado",
+  "instrucciones": [
+   "Barra sobre la parte alta de la espalda, pies al ancho de hombros.",
+   "Baja hasta que los muslos queden paralelos al suelo.",
+   "Sube empujando el suelo con todo el pie."
+  ]
+ },
+ {
+  "nombre": "Sentadilla goblet",
+  "grupo_muscular": "cuadriceps",
+  "musculos_secundarios": [
+   "gluteos"
+  ],
+  "equipo": "kettlebell",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Sostén la pesa contra el pecho.",
+   "Baja manteniendo la espalda recta y las rodillas alineadas.",
+   "Sube con fuerza."
+  ]
+ },
+ {
+  "nombre": "Zancadas",
+  "grupo_muscular": "cuadriceps",
+  "musculos_secundarios": [
+   "gluteos",
+   "isquiotibiales"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Da un paso largo al frente.",
+   "Baja la rodilla trasera hacia el suelo.",
+   "Empuja para volver y alterna la pierna."
+  ]
+ },
+ {
+  "nombre": "Zancadas con mancuernas",
+  "grupo_muscular": "cuadriceps",
+  "musculos_secundarios": [
+   "gluteos",
+   "isquiotibiales"
+  ],
+  "equipo": "mancuernas",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Sostén una mancuerna en cada mano.",
+   "Da un paso largo y baja la rodilla trasera.",
+   "Vuelve a la posición inicial y alterna."
+  ]
+ },
+ {
+  "nombre": "Prensa de piernas",
+  "grupo_muscular": "cuadriceps",
+  "musculos_secundarios": [
+   "gluteos"
+  ],
+  "equipo": "maquina",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Siéntate con la espalda apoyada y los pies al ancho de hombros.",
+   "Baja la plataforma hasta 90° en las rodillas.",
+   "Empuja sin bloquear las rodillas."
+  ]
+ },
+ {
+  "nombre": "Extensión de piernas",
+  "grupo_muscular": "cuadriceps",
+  "musculos_secundarios": [],
+  "equipo": "maquina",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Siéntate con el rodillo sobre los tobillos.",
+   "Extiende las rodillas.",
+   "Baja lento."
+  ]
+ },
+ {
+  "nombre": "Curl femoral",
+  "grupo_muscular": "isquiotibiales",
+  "musculos_secundarios": [],
+  "equipo": "maquina",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Acuéstate boca abajo con el rodillo sobre los tobillos.",
+   "Flexiona las rodillas llevando los talones a los glúteos.",
+   "Baja controlado."
+  ]
+ },
+ {
+  "nombre": "Puente de glúteos",
+  "grupo_muscular": "gluteos",
+  "musculos_secundarios": [
+   "isquiotibiales"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Acostado boca arriba con las rodillas flexionadas.",
+   "Eleva la cadera apretando los glúteos.",
+   "Baja sin tocar el suelo del todo."
+  ]
+ },
+ {
+  "nombre": "Hip thrust con barra",
+  "grupo_muscular": "gluteos",
+  "musculos_secundarios": [
+   "isquiotibiales"
+  ],
+  "equipo": "barra",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Apoya la espalda alta en un banco con la barra sobre la cadera.",
+   "Empuja la cadera hacia arriba hasta alinear torso y muslos.",
+   "Baja controlado."
+  ]
+ },
+ {
+  "nombre": "Elevación de talones",
+  "grupo_muscular": "pantorrillas",
+  "musculos_secundarios": [],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "De pie en el borde de un escalón.",
+   "Sube sobre las puntas de los pies.",
+   "Baja estirando lentamente."
+  ]
+ },
+ {
+  "nombre": "Plancha",
+  "grupo_muscular": "abdomen",
+  "musculos_secundarios": [
+   "hombros"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Apoya antebrazos y puntas de los pies.",
+   "Mantén el cuerpo recto, abdomen apretado.",
+   "Sostén el tiempo indicado."
+  ]
+ },
+ {
+  "nombre": "Abdominales crunch",
+  "grupo_muscular": "abdomen",
+  "musculos_secundarios": [],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "Acostado con las rodillas flexionadas.",
+   "Eleva los hombros del suelo contrayendo el abdomen.",
+   "Baja lento."
+  ]
+ },
+ {
+  "nombre": "Elevación de piernas",
+  "grupo_muscular": "abdomen",
+  "musculos_secundarios": [],
+  "equipo": "peso corporal",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Acostado con las piernas extendidas.",
+   "Eleva las piernas hasta 90° sin despegar la zona lumbar.",
+   "Baja sin tocar el suelo."
+  ]
+ },
+ {
+  "nombre": "Mountain climbers",
+  "grupo_muscular": "cardio",
+  "musculos_secundarios": [
+   "abdomen",
+   "hombros"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Posición de plancha alta.",
+   "Lleva las rodillas al pecho de forma alternada y rápida.",
+   "Mantén la cadera baja."
+  ]
+ },
+ {
+  "nombre": "Jumping jacks",
+  "grupo_muscular": "cardio",
+  "musculos_secundarios": [],
+  "equipo": "peso corporal",
+  "nivel": "principiante",
+  "instrucciones": [
+   "De pie con los pies juntos.",
+   "Salta abriendo piernas y brazos.",
+   "Vuelve a la posición inicial."
+  ]
+ },
+ {
+  "nombre": "Burpees",
+  "grupo_muscular": "cardio",
+  "musculos_secundarios": [
+   "pecho",
+   "cuadriceps"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "avanzado",
+  "instrucciones": [
+   "Agáchate y apoya las manos en el suelo.",
+   "Lleva los pies atrás, haz una flexión y regresa.",
+   "Salta con los brazos arriba."
+  ]
+ },
+ {
+  "nombre": "Cuerda de saltar",
+  "grupo_muscular": "cardio",
+  "musculos_secundarios": [
+   "pantorrillas"
+  ],
+  "equipo": "peso corporal",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Salta con los pies juntos y pequeños saltos.",
+   "Gira la cuerda con las muñecas.",
+   "Mantén un ritmo constante."
+  ]
+ },
+ {
+  "nombre": "Swing con kettlebell",
+  "grupo_muscular": "cuerpo completo",
+  "musculos_secundarios": [
+   "gluteos",
+   "isquiotibiales",
+   "espalda"
+  ],
+  "equipo": "kettlebell",
+  "nivel": "intermedio",
+  "instrucciones": [
+   "Pies al ancho de hombros con la pesa entre las piernas.",
+   "Empuja la cadera al frente lanzando la pesa a la altura del pecho.",
+   "Deja que regrese entre las piernas con la cadera atrás."
+  ]
+ }
+]

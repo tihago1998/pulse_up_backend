@@ -29,10 +29,10 @@ def dia_calendario_a_json(fecha, estado, rutina):
     return {"fecha": fecha.isoformat(), "dia_semana": fecha.isoweekday(), "estado": estado, "rutina": rutina}
 
 
-def incumplido_a_json(fecha, fila_plan):
+def incumplido_a_json(fecha, vigencia):
     return {
         "fecha": fecha.isoformat(),
         "dia_semana": fecha.isoweekday(),
         "nombre_dia": DIAS_SEMANA[fecha.isoweekday()],
-        "rutina": rutina_corta(fila_plan["id_rutina"], fila_plan["nombre"]),
+        "rutina": rutina_corta(vigencia["id_rutina"], vigencia["nombre_rutina"]),
     }

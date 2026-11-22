@@ -30,6 +30,12 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - `DELETE /api/rutinas/<id>` responde 409 si la rutina está en el plan semanal.
 - Nueva dependencia `tzdata` para que las zonas horarias funcionen en Windows.
 
+### Fixed
+
+- Historial del plan semanal (`plan_historial`): el calendario, la racha y los incumplidos
+  usan la rutina vigente en cada fecha. Quitar o cambiar un día ya no convierte en
+  descanso los incumplidos anteriores. Los planes existentes se migran solos al arrancar.
+
 ### Security
 
 - La clave de los tokens JWT ya no está escrita en el código: se lee de la variable de entorno `PULSEUP_SECRET_KEY`.

@@ -224,7 +224,7 @@ def test_eliminar_usuario_borra_su_plan_y_sesiones(client, db_path, fijar_hoy):
     assert client.delete(f"/api/users/{id_ana}", headers=cabeceras(token_super)).status_code == 200
 
     conn = sqlite3.connect(db_path)
-    for tabla in ("plan_dia", "sesion"):
+    for tabla in ("plan_dia", "plan_historial", "sesion"):
         assert conn.execute(f"SELECT COUNT(*) FROM {tabla} WHERE id_usuario = ?", (id_ana,)).fetchone()[0] == 0
     conn.close()
 
@@ -240,6 +240,8 @@ def test_completar_la_rutina_de_hoy(client, ana, fijar_hoy):
     assert r.status_code == 201
     sesion = r.get_json()["sesion"]
     assert sesion["fecha"] == "2026-11-16"
+    # fijar_hoy también fija la hora, en la zona de Colombia (UTC-5)
+    assert sesion["completada_en"] == "2026-11-16T18:30:00-05:00"
     assert sesion["nombre_dia"] == "lunes"
     assert sesion["rutina"]["id"] == id_r
 

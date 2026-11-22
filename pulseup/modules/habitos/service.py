@@ -1,6 +1,5 @@
 """Reglas de negocio de hábitos."""
-from datetime import date
-
+from pulseup.core import tiempo
 from pulseup.core.database import conexion
 from pulseup.core.errors import NoEncontrado, SolicitudInvalida
 from pulseup.core.validacion import exigir_fecha
@@ -21,9 +20,10 @@ def registrar(id_usuario, descripcion, categoria, fecha):
     if fecha:
         exigir_fecha(fecha)
     categoria = (categoria or "").strip() or "General"
-    # Sin fecha, el hábito es para hoy. Con fecha se pueden programar días futuros.
+    # Sin fecha, el hábito es para hoy (hora de Colombia, PULSEUP_TZ). Con fecha se pueden
+    # programar días futuros.
     with conexion() as conn:
-        return repo.crear(conn, id_usuario, descripcion, categoria, fecha or date.today().isoformat())
+        return repo.crear(conn, id_usuario, descripcion, categoria, fecha or tiempo.hoy().isoformat())
 
 
 def cambiar_completado(id_habito, id_usuario, completado):

@@ -136,6 +136,11 @@ Pega la clave generada en `PULSEUP_SECRET_KEY` dentro de `.env`. Ese archivo no 
 | `PULSEUP_TZ`         | No          | Zona horaria para decidir qué día es hoy (por defecto `America/Bogota`) |
 | `PULSEUP_DESCANSO_MUSCULAR_HORAS` | No | Horas mínimas entre dos días con el mismo grupo muscular (por defecto `48`) |
 
+PulseUp es solo para Colombia: todos los usuarios comparten la zona `PULSEUP_TZ`
+(`America/Bogota`, UTC-5, sin horario de verano). Con ella se decide qué día es "hoy" en el
+plan semanal, el calendario y los hábitos creados sin fecha, sin importar la zona horaria del
+servidor. Solo el vencimiento de los tokens usa UTC.
+
 ## Ejecución
 
 ```bash

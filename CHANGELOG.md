@@ -26,6 +26,8 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 
 - Reorganización por capas (routes → service → repository) sin cambiar los endpoints.
 - `app.py` expone `app = create_app()`; la base de datos se inicializa al arrancar.
+- Los hábitos creados sin fecha quedan en el día de Colombia (`PULSEUP_TZ`) y no en el del
+  reloj del servidor, igual que el plan semanal y el calendario.
 - Al eliminar un usuario también se eliminan sus hábitos, su plan semanal y sus sesiones.
 - `DELETE /api/rutinas/<id>` responde 409 si la rutina está en el plan semanal.
 - Nueva dependencia `tzdata` para que las zonas horarias funcionen en Windows.

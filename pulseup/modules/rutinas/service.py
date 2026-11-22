@@ -1,8 +1,9 @@
 """Reglas de negocio de rutinas."""
 from pulseup.core.database import conexion
 from pulseup.core.dominio import NIVELES, OBJETIVOS
-from pulseup.core.errors import NoEncontrado, Prohibido, SolicitudInvalida
+from pulseup.core.errors import Conflicto, NoEncontrado, Prohibido, SolicitudInvalida
 from pulseup.modules.ejercicios import repository as ejercicios_repo
+from pulseup.modules.plan import repository as plan_repo
 from pulseup.modules.rutinas import repository as repo
 from pulseup.modules.rutinas.schemas import rutina_a_json, rutina_detalle_a_json
 
@@ -83,4 +84,6 @@ def eliminar(id_rutina, id_usuario):
             raise NoEncontrado("Rutina no encontrada")
         if fila["id_usuario"] is None:
             raise Prohibido("Las rutinas del sistema no se pueden eliminar")
+        if plan_repo.rutina_en_algun_plan(conn, id_rutina):
+            raise Conflicto("La rutina está en tu plan semanal; quítala del plan antes de eliminarla")
         repo.eliminar(conn, id_rutina)

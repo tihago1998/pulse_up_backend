@@ -5,9 +5,11 @@ from flask import jsonify
 class ErrorApp(Exception):
     status = 400
 
-    def __init__(self, mensaje, status=None):
+    def __init__(self, mensaje, status=None, extra=None):
         super().__init__(mensaje)
         self.mensaje = mensaje
+        # Campos adicionales que viajan junto a "error" en el JSON (por ejemplo "conflictos")
+        self.extra = extra or {}
         if status is not None:
             self.status = status
 
@@ -35,7 +37,7 @@ class Conflicto(ErrorApp):
 def registrar_manejadores(app):
     @app.errorhandler(ErrorApp)
     def _error_app(error):
-        return jsonify({"error": error.mensaje}), error.status
+        return jsonify({**error.extra, "error": error.mensaje}), error.status
 
     @app.errorhandler(404)
     def _no_encontrado(_):

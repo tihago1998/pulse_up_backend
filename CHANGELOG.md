@@ -35,6 +35,8 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - Historial del plan semanal (`plan_historial`): el calendario, la racha y los incumplidos
   usan la rutina vigente en cada fecha. Quitar o cambiar un día ya no convierte en
   descanso los incumplidos anteriores. Los planes existentes se migran solos al arrancar.
+- Los hábitos creados sin fecha quedan en el día de Colombia (`PULSEUP_TZ`) y no en el del
+  reloj del servidor, igual que el plan semanal y el calendario.
 
 ### Security
 

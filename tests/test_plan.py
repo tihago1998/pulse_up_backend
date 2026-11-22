@@ -240,6 +240,8 @@ def test_completar_la_rutina_de_hoy(client, ana, fijar_hoy):
     assert r.status_code == 201
     sesion = r.get_json()["sesion"]
     assert sesion["fecha"] == "2026-11-16"
+    # fijar_hoy también fija la hora, en la zona de Colombia (UTC-5)
+    assert sesion["completada_en"] == "2026-11-16T18:30:00-05:00"
     assert sesion["nombre_dia"] == "lunes"
     assert sesion["rutina"]["id"] == id_r
 

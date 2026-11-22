@@ -97,13 +97,14 @@ def _mensaje_conflicto(conflictos):
 
 
 def _evaluar_asignacion(conn, id_usuario, dia_semana, id_rutina):
-    """Comprueba que la rutina sea visible y devuelve los conflictos de descanso."""
-    if rutinas_repo.buscar_visible(conn, id_rutina, id_usuario) is None:
+    """Comprueba que la rutina sea visible. Devuelve (rutina, conflictos de descanso)."""
+    rutina = rutinas_repo.buscar_visible(conn, id_rutina, id_usuario)
+    if rutina is None:
         raise NoEncontrado("Rutina no encontrada")
     plan = repo.listar(conn, id_usuario)
     grupos = repo.grupos_por_rutina(conn, [id_rutina] + [f["id_rutina"] for f in plan])
     grupos_por_dia = {f["dia_semana"]: grupos[f["id_rutina"]] for f in plan}
-    return conflictos_de_descanso(dia_semana, grupos[id_rutina], grupos_por_dia)
+    return rutina, conflictos_de_descanso(dia_semana, grupos[id_rutina], grupos_por_dia)
 
 
 # ---- Plan semanal -------------------------------------------------------------
@@ -121,11 +122,17 @@ def ver_plan(id_usuario):
 def asignar(id_usuario, dia_semana, datos):
     _exigir_dia(dia_semana)
     id_rutina = _exigir_id_rutina(datos.get("id_rutina"))
+    hoy = tiempo.hoy().isoformat()
     with conexion() as conn:
-        conflictos = _evaluar_asignacion(conn, id_usuario, dia_semana, id_rutina)
+        rutina, conflictos = _evaluar_asignacion(conn, id_usuario, dia_semana, id_rutina)
         if conflictos:
             raise Conflicto(_mensaje_conflicto(conflictos), extra={"conflictos": conflictos})
-        repo.asignar(conn, id_usuario, dia_semana, id_rutina, tiempo.hoy().isoformat())
+        actual = repo.buscar_dia(conn, id_usuario, dia_semana)
+        if actual is None or actual["id_rutina"] != id_rutina:
+            # El cambio aplica desde hoy: los días anteriores conservan la rutina que tenían
+            repo.cerrar_vigencia(conn, id_usuario, dia_semana, hoy)
+            repo.abrir_vigencia(conn, id_usuario, dia_semana, id_rutina, rutina["nombre"], hoy)
+        repo.asignar(conn, id_usuario, dia_semana, id_rutina, hoy)
         fila = repo.buscar_dia(conn, id_usuario, dia_semana)
         grupos = repo.grupos_por_rutina(conn, [id_rutina])[id_rutina]
     return dia_plan_a_json(dia_semana, fila, grupos)
@@ -134,6 +141,8 @@ def asignar(id_usuario, dia_semana, datos):
 def quitar(id_usuario, dia_semana):
     _exigir_dia(dia_semana)
     with conexion() as conn:
+        # Desde hoy el día es descanso; los días pasados siguen evaluándose con su rutina
+        repo.cerrar_vigencia(conn, id_usuario, dia_semana, tiempo.hoy().isoformat())
         repo.quitar(conn, id_usuario, dia_semana)
     return dia_plan_a_json(dia_semana)
 
@@ -143,7 +152,7 @@ def validar(id_usuario, datos):
     dia_semana = _exigir_dia(datos.get("dia_semana"))
     id_rutina = _exigir_id_rutina(datos.get("id_rutina"))
     with conexion() as conn:
-        conflictos = _evaluar_asignacion(conn, id_usuario, dia_semana, id_rutina)
+        _, conflictos = _evaluar_asignacion(conn, id_usuario, dia_semana, id_rutina)
     resultado = {"valido": not conflictos, "conflictos": conflictos}
     if conflictos:
         resultado["mensaje"] = _mensaje_conflicto(conflictos)
@@ -161,7 +170,7 @@ def completar(id_usuario, datos):
 
     with conexion() as conn:
         entrada = repo.buscar_dia(conn, id_usuario, hoy.isoweekday())
-        # Días anteriores a `creado_en` son descanso; hoy nunca lo es porque creado_en <= hoy
+        # Se usa el plan actual: es justo la vigencia abierta del historial que cubre hoy
         if entrada is None:
             raise SolicitudInvalida("Hoy es tu día de descanso")
         if "id_rutina" in datos and datos["id_rutina"] != entrada["id_rutina"]:
@@ -184,31 +193,50 @@ def completar(id_usuario, datos):
     }
 
 
-# ---- Calendario ---------------------------------------------------------------
 
-def _estado_del_dia(fecha, hoy, plan, fechas_cumplidas):
-    """Estado de una fecha según el plan actual y las sesiones registradas."""
+# ---- Calendario ---------------------------------------------------------------
+# El pasado se evalúa con el historial del plan (la rutina vigente EN cada fecha), no con el
+# plan actual: cambiar o quitar un día del plan no borra los incumplidos que ya ocurrieron.
+
+def _historial_por_dia(filas):
+    """{dia_semana: [vigencias]} para buscar rápido la rutina de una fecha."""
+    resultado = {}
+    for f in filas:
+        resultado.setdefault(f["dia_semana"], []).append(f)
+    return resultado
+
+
+def _vigencia(historial, fecha):
+    """La vigencia del plan que cubría esa fecha, o None si ese día era descanso."""
+    iso = fecha.isoformat()
+    for v in historial.get(fecha.isoweekday(), ()):
+        if v["vigente_desde"] <= iso and (v["vigente_hasta"] is None or iso < v["vigente_hasta"]):
+            return v
+    return None
+
+
+def _estado_del_dia(fecha, hoy, historial, fechas_cumplidas):
+    """Estado de una fecha según la rutina planificada para esa fecha y las sesiones registradas."""
     if fecha.isoformat() in fechas_cumplidas:
         return CUMPLIDO
-    entrada = plan.get(fecha.isoweekday())
     # Sin rutina ese día, o antes de haberla planificado: no se castiga el pasado
-    if entrada is None or fecha.isoformat() < entrada["creado_en"]:
+    if _vigencia(historial, fecha) is None:
         return DESCANSO
     return PENDIENTE if fecha >= hoy else INCUMPLIDO
 
 
-def _primer_dia_relevante(plan, fechas_cumplidas):
-    fechas = [f["creado_en"] for f in plan.values()] + list(fechas_cumplidas)
+def _primer_dia_relevante(historial, fechas_cumplidas):
+    fechas = [v["vigente_desde"] for vs in historial.values() for v in vs] + list(fechas_cumplidas)
     return date.fromisoformat(min(fechas)) if fechas else None
 
 
-def _racha(hoy, plan, fechas_cumplidas):
+def _racha(hoy, historial, fechas_cumplidas):
     """Días planificados cumplidos seguidos. El descanso no cuenta ni rompe; un incumplido rompe.
     Hoy sin marcar está pendiente: tampoco rompe la racha."""
-    dia = _primer_dia_relevante(plan, fechas_cumplidas)
+    dia = _primer_dia_relevante(historial, fechas_cumplidas)
     actual = mejor = 0
     while dia is not None and dia <= hoy:
-        estado = _estado_del_dia(dia, hoy, plan, fechas_cumplidas)
+        estado = _estado_del_dia(dia, hoy, historial, fechas_cumplidas)
         if estado == CUMPLIDO:
             actual += 1
             mejor = max(mejor, actual)
@@ -231,6 +259,18 @@ def _leer_mes(mes, hoy):
         raise SolicitudInvalida("Mes inválido, usa el formato YYYY-MM")
 
 
+def _rutina_del_dia(estado, sesion, vigencia):
+    if estado == DESCANSO:
+        return None
+    if estado == CUMPLIDO:
+        nombre = sesion["nombre"]
+        # Si la rutina ya se eliminó, se usa el nombre guardado en el historial
+        if nombre is None and vigencia is not None and vigencia["id_rutina"] == sesion["id_rutina"]:
+            nombre = vigencia["nombre_rutina"]
+        return rutina_corta(sesion["id_rutina"], nombre)
+    return rutina_corta(vigencia["id_rutina"], vigencia["nombre_rutina"])
+
+
 def calendario(id_usuario, mes=None):
     hoy = tiempo.hoy()
     anio, numero = _leer_mes(mes, hoy)
@@ -238,26 +278,19 @@ def calendario(id_usuario, mes=None):
     ultimo = date(anio, numero, calendar.monthrange(anio, numero)[1])
 
     with conexion() as conn:
-        plan = {f["dia_semana"]: f for f in repo.listar(conn, id_usuario)}
+        historial = _historial_por_dia(repo.historial(conn, id_usuario))
         sesiones = {s["fecha"]: s for s in repo.sesiones_entre(conn, id_usuario, primero.isoformat(), ultimo.isoformat())}
         fechas_cumplidas = repo.fechas_con_sesion(conn, id_usuario)
 
     dias = []
     fecha = primero
     while fecha <= ultimo:
-        estado = _estado_del_dia(fecha, hoy, plan, fechas_cumplidas)
-        if estado == CUMPLIDO:
-            s = sesiones[fecha.isoformat()]
-            rutina = rutina_corta(s["id_rutina"], s["nombre"])
-        elif estado == DESCANSO:
-            rutina = None
-        else:
-            p = plan[fecha.isoweekday()]
-            rutina = rutina_corta(p["id_rutina"], p["nombre"])
+        estado = _estado_del_dia(fecha, hoy, historial, fechas_cumplidas)
+        rutina = _rutina_del_dia(estado, sesiones.get(fecha.isoformat()), _vigencia(historial, fecha))
         dias.append(dia_calendario_a_json(fecha, estado, rutina))
         fecha += timedelta(days=1)
 
-    return {"mes": f"{anio:04d}-{numero:02d}", "dias": dias, "racha": _racha(hoy, plan, fechas_cumplidas)}
+    return {"mes": f"{anio:04d}-{numero:02d}", "dias": dias, "racha": _racha(hoy, historial, fechas_cumplidas)}
 
 
 def incumplidos(id_usuario, desde=None):
@@ -269,18 +302,19 @@ def incumplidos(id_usuario, desde=None):
     inicio = date.fromisoformat(exigir_fecha(desde)) if desde else ayer
 
     with conexion() as conn:
-        plan = {f["dia_semana"]: f for f in repo.listar(conn, id_usuario)}
+        historial = _historial_por_dia(repo.historial(conn, id_usuario))
         fechas_cumplidas = repo.fechas_con_sesion(conn, id_usuario)
 
     # Nada antes de la primera planificación puede estar incumplido: se acota el recorrido
-    if not plan:
+    primero = _primer_dia_relevante(historial, ())
+    if primero is None:
         return []
-    inicio = max(inicio, min(date.fromisoformat(f["creado_en"]) for f in plan.values()))
+    inicio = max(inicio, primero)
 
     resultado = []
     fecha = ayer
     while fecha >= inicio:
-        if _estado_del_dia(fecha, hoy, plan, fechas_cumplidas) == INCUMPLIDO:
-            resultado.append(incumplido_a_json(fecha, plan[fecha.isoweekday()]))
+        if _estado_del_dia(fecha, hoy, historial, fechas_cumplidas) == INCUMPLIDO:
+            resultado.append(incumplido_a_json(fecha, _vigencia(historial, fecha)))
         fecha -= timedelta(days=1)
     return resultado

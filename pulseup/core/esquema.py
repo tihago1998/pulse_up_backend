@@ -98,6 +98,23 @@ TABLAS = [
     )
     """,
     "CREATE INDEX IF NOT EXISTS ix_plan_dia_rutina ON plan_dia(id_rutina)",
+    # Historial del plan: qué rutina estuvo planificada cada día de la semana y durante qué fechas.
+    # vigente_hasta es excluyente y NULL mientras siga vigente. El calendario evalúa el pasado con
+    # este historial, así cambiar o quitar un día del plan no reescribe lo que ya pasó.
+    # nombre_rutina se copia para no perder el nombre si después se elimina la rutina.
+    """
+    CREATE TABLE IF NOT EXISTS plan_historial (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_usuario INTEGER NOT NULL,
+        dia_semana INTEGER NOT NULL CHECK (dia_semana BETWEEN 1 AND 7),
+        id_rutina INTEGER NOT NULL,
+        nombre_rutina TEXT NOT NULL,
+        vigente_desde TEXT NOT NULL,
+        vigente_hasta TEXT,
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS ix_plan_historial_usuario ON plan_historial(id_usuario, dia_semana)",
     # Sesiones: la rutina del día marcada como cumplida (una por usuario y fecha).
     # id_rutina no lleva FK a propósito: el historial se conserva aunque luego se borre la rutina.
     """
@@ -121,6 +138,20 @@ def crear_esquema(conn):
     columnas = [fila["name"] for fila in conn.execute("PRAGMA table_info(habito)").fetchall()]
     if "completado" not in columnas:
         conn.execute("ALTER TABLE habito ADD COLUMN completado INTEGER NOT NULL DEFAULT 0")
+    # Migración: planes creados antes de existir el historial. Cada día planificado sin vigencia
+    # abierta recibe una desde su creado_en. Es idempotente.
+    conn.execute(
+        """
+        INSERT INTO plan_historial (id_usuario, dia_semana, id_rutina, nombre_rutina, vigente_desde)
+        SELECT p.id_usuario, p.dia_semana, p.id_rutina, r.nombre, p.creado_en
+        FROM plan_dia p
+        JOIN rutina r ON r.id = p.id_rutina
+        WHERE NOT EXISTS (
+            SELECT 1 FROM plan_historial h
+            WHERE h.id_usuario = p.id_usuario AND h.dia_semana = p.dia_semana AND h.vigente_hasta IS NULL
+        )
+        """
+    )
 
 
 def sembrar_roles(conn):

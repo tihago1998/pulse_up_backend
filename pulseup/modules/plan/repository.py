@@ -30,8 +30,7 @@ def buscar_dia(conn, id_usuario, dia_semana):
 
 
 def asignar(conn, id_usuario, dia_semana, id_rutina, creado_en):
-    """Crea o reemplaza la rutina del día. Al reemplazar se conserva `creado_en`:
-    el día sigue siendo de entrenamiento desde la primera vez que se planificó."""
+    """Crea o reemplaza la rutina del día en el plan actual. El historial se lleva aparte."""
     conn.execute(
         """
         INSERT INTO plan_dia (id_usuario, dia_semana, id_rutina, creado_en)
@@ -71,6 +70,50 @@ def grupos_por_rutina(conn, ids_rutina):
     return resultado
 
 
+# ---- Historial del plan ----------------------------------------------------------
+
+def historial(conn, id_usuario):
+    """Todas las vigencias del plan del usuario, por día y en orden cronológico."""
+    return conn.execute(
+        """
+        SELECT dia_semana, id_rutina, nombre_rutina, vigente_desde, vigente_hasta
+        FROM plan_historial
+        WHERE id_usuario = ?
+        ORDER BY dia_semana, vigente_desde
+        """,
+        (id_usuario,),
+    ).fetchall()
+
+
+def abrir_vigencia(conn, id_usuario, dia_semana, id_rutina, nombre_rutina, desde):
+    conn.execute(
+        """
+        INSERT INTO plan_historial (id_usuario, dia_semana, id_rutina, nombre_rutina, vigente_desde)
+        VALUES (?, ?, ?, ?, ?)
+        """,
+        (id_usuario, dia_semana, id_rutina, nombre_rutina, desde),
+    )
+
+
+def cerrar_vigencia(conn, id_usuario, dia_semana, hasta):
+    """Termina la vigencia abierta del día en `hasta` (excluyente). Si empezó ese mismo día
+    nunca llegó a aplicarse a un día pasado, así que se borra en lugar de dejarla vacía."""
+    conn.execute(
+        """
+        DELETE FROM plan_historial
+        WHERE id_usuario = ? AND dia_semana = ? AND vigente_hasta IS NULL AND vigente_desde >= ?
+        """,
+        (id_usuario, dia_semana, hasta),
+    )
+    conn.execute(
+        """
+        UPDATE plan_historial SET vigente_hasta = ?
+        WHERE id_usuario = ? AND dia_semana = ? AND vigente_hasta IS NULL
+        """,
+        (hasta, id_usuario, dia_semana),
+    )
+
+
 # ---- Sesiones -----------------------------------------------------------------
 
 def buscar_sesion(conn, id_usuario, fecha):
@@ -108,6 +151,7 @@ def fechas_con_sesion(conn, id_usuario):
 # ---- Limpieza -----------------------------------------------------------------
 
 def eliminar_de_usuario(conn, id_usuario):
-    """Borra el plan y las sesiones del usuario (al eliminar su cuenta)."""
+    """Borra el plan, su historial y las sesiones del usuario (al eliminar su cuenta)."""
     conn.execute("DELETE FROM sesion WHERE id_usuario = ?", (id_usuario,))
+    conn.execute("DELETE FROM plan_historial WHERE id_usuario = ?", (id_usuario,))
     conn.execute("DELETE FROM plan_dia WHERE id_usuario = ?", (id_usuario,))

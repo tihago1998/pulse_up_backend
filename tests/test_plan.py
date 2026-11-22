@@ -224,7 +224,7 @@ def test_eliminar_usuario_borra_su_plan_y_sesiones(client, db_path, fijar_hoy):
     assert client.delete(f"/api/users/{id_ana}", headers=cabeceras(token_super)).status_code == 200
 
     conn = sqlite3.connect(db_path)
-    for tabla in ("plan_dia", "sesion"):
+    for tabla in ("plan_dia", "plan_historial", "sesion"):
         assert conn.execute(f"SELECT COUNT(*) FROM {tabla} WHERE id_usuario = ?", (id_ana,)).fetchone()[0] == 0
     conn.close()
 

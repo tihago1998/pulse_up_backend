@@ -92,8 +92,13 @@ rutina: el día perdido no se recupera. "Hoy" se calcula en la zona `PULSEUP_TZ`
 | `descanso`   | Sin rutina, o anterior a la fecha en que se planificó ese día     |
 
 La `racha` (`actual` y `mejor`) cuenta los días planificados cumplidos seguidos;
-los descansos no la cortan, un incumplido sí. El calendario se calcula con el plan
-**actual**: cambiar el plan cambia cómo se ven los días pasados sin sesión.
+los descansos no la cortan, un incumplido sí.
+
+**Historial del plan.** Cada día del plan guarda desde cuándo y hasta cuándo tuvo
+cada rutina (`plan_historial`). El calendario, la racha y `/incumplidos` evalúan
+cada fecha con la rutina que estaba planificada **en esa fecha**: cambiar o quitar
+un día del plan aplica desde hoy y no borra los incumplidos que ya ocurrieron.
+Cambios hechos y deshechos el mismo día no dejan rastro.
 
 ## Tecnologías
 

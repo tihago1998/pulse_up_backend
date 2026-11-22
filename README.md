@@ -31,7 +31,8 @@ token y permisos por rol, validados siempre en el servidor.
 | Hábitos                                   | Implementado |
 | Catálogo de ejercicios y rutinas          | Implementado |
 | Plan semanal, rutina del día y calendario | Implementado |
-| Sesiones de entrenamiento y progreso      | Pendiente    |
+| Progreso detallado (series y cargas)      | Pendiente    |
+| Notificación de rutinas incumplidas       | Pendiente    |
 | Alimentación                              | Pendiente    |
 | Sueño                                     | Pendiente    |
 

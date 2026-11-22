@@ -12,7 +12,6 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - Administración de usuarios: listar, cambiar rol, eliminar y estadísticas.
 - Módulo de hábitos: crear y listar por usuario.
 - Módulo de perfil: editar datos y cambiar contraseña.
-
 - Catálogo de 48 ejercicios (filtros por músculo, equipo y nivel) y 7 rutinas plantilla.
 - Rutinas propias: crear, ver y eliminar.
 - Plan semanal (`/api/plan/`): asignar, reemplazar y quitar la rutina de cada día.

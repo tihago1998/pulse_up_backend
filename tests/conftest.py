@@ -28,3 +28,18 @@ def app(db_path):
 @pytest.fixture
 def client(app):
     return app.test_client()
+
+
+@pytest.fixture
+def fijar_hoy(monkeypatch):
+    """Fija la fecha "hoy" del negocio sin depender del reloj real.
+
+    Uso: `fijar_hoy(date(2026, 11, 16))`; se puede llamar varias veces para avanzar el tiempo.
+    """
+    from pulseup.core import tiempo
+
+    def fijar(fecha):
+        monkeypatch.setattr(tiempo, "hoy", lambda: fecha)
+        return fecha
+
+    return fijar

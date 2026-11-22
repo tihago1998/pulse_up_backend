@@ -4,6 +4,7 @@ from pulseup.core.database import conexion
 from pulseup.core.errors import Conflicto, NoEncontrado, Prohibido, SolicitudInvalida
 from pulseup.core.security import hashear_password, password_correcta
 from pulseup.modules.habitos import repository as habitos_repo
+from pulseup.modules.plan import repository as plan_repo
 from pulseup.modules.rutinas import repository as rutinas_repo
 from pulseup.modules.usuarios import repository as repo
 from pulseup.modules.usuarios.schemas import usuario_a_json
@@ -47,6 +48,7 @@ def eliminar_usuario(id_solicitante, id_objetivo):
     with conexion() as conn:
         # Se limpian también los datos del usuario para no dejar registros huérfanos
         habitos_repo.eliminar_de_usuario(conn, id_objetivo)
+        plan_repo.eliminar_de_usuario(conn, id_objetivo)  # antes que las rutinas que referencia
         rutinas_repo.eliminar_de_usuario(conn, id_objetivo)
         repo.eliminar(conn, id_objetivo)
 

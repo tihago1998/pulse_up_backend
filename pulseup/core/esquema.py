@@ -83,6 +83,34 @@ TABLAS = [
         UNIQUE (id_rutina, orden)
     )
     """,
+    # Plan semanal: qué rutina toca cada día (1 = lunes ... 7 = domingo). Sin fila = descanso.
+    # creado_en (YYYY-MM-DD) evita marcar como incumplidos los días anteriores a armar el plan.
+    """
+    CREATE TABLE IF NOT EXISTS plan_dia (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_usuario INTEGER NOT NULL,
+        dia_semana INTEGER NOT NULL CHECK (dia_semana BETWEEN 1 AND 7),
+        id_rutina INTEGER NOT NULL,
+        creado_en TEXT NOT NULL,
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+        FOREIGN KEY (id_rutina) REFERENCES rutina(id),
+        UNIQUE (id_usuario, dia_semana)
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS ix_plan_dia_rutina ON plan_dia(id_rutina)",
+    # Sesiones: la rutina del día marcada como cumplida (una por usuario y fecha).
+    # id_rutina no lleva FK a propósito: el historial se conserva aunque luego se borre la rutina.
+    """
+    CREATE TABLE IF NOT EXISTS sesion (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_usuario INTEGER NOT NULL,
+        fecha TEXT NOT NULL,
+        id_rutina INTEGER NOT NULL,
+        completada_en TEXT NOT NULL,
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+        UNIQUE (id_usuario, fecha)
+    )
+    """,
 ]
 
 

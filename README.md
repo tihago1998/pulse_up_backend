@@ -27,16 +27,29 @@ token y permisos por rol, validados siempre en el servidor.
 | Roles y administración de usuarios        | Implementado |
 | Perfil (editar datos, cambiar contraseña) | Implementado |
 | Hábitos                                   | Implementado |
-| Ejercicio                                 | Pendiente    |
+| Catálogo de ejercicios y rutinas          | Implementado |
+| Sesiones de entrenamiento y progreso      | Pendiente    |
 | Alimentación                              | Pendiente    |
 | Sueño                                     | Pendiente    |
 
-Las tablas de ejercicio, alimentación y sueño ya existen en el esquema de la
-base de datos; faltan sus endpoints.
+### Endpoints de ejercicio (requieren token)
+
+| Método | Ruta                          | Descripción                                          |
+| ------ | ----------------------------- | ---------------------------------------------------- |
+| GET    | `/api/ejercicios/`            | Catálogo. Filtros: `musculo`, `equipo`, `nivel`, `q` |
+| GET    | `/api/ejercicios/filtros`     | Valores disponibles para los filtros                 |
+| GET    | `/api/ejercicios/<id>`        | Detalle con instrucciones                            |
+| GET    | `/api/rutinas/`               | Plantillas + rutinas propias. Filtros: `objetivo`, `nivel` |
+| GET    | `/api/rutinas/<id>`           | Rutina con sus ejercicios en orden                   |
+| POST   | `/api/rutinas/`               | Crear rutina propia                                  |
+| DELETE | `/api/rutinas/<id>`           | Eliminar una rutina propia (las plantillas no)       |
+
+El catálogo (48 ejercicios) y las 7 rutinas plantilla se cargan solos al
+arrancar, sin duplicarse (`pulseup/seeds/`).
 
 ## Tecnologías
 
-Python, Flask y SQLite, con arquitectura MVC. Las dependencias y sus versiones
+Python, Flask y SQLite, con arquitectura por capas (routes → service → repository). Las dependencias y sus versiones
 están en `requirements.txt`.
 
 ## Requisitos previos
@@ -84,18 +97,27 @@ primer arranque, con los roles iniciales.
 
 ## Pruebas
 
-Pendiente.
+```
+pip install -r requirements-dev.txt
+python -m pytest -q tests
+```
 
 ## Estructura
 
 ```
-app.py            Punto de entrada y registro de rutas
-config.py         Configuración
-controllers/      Lógica de cada endpoint
-models/           Acceso a datos (SQLite)
-views/            Formato de las respuestas
-middleware/       Validación de token y roles
-utils/            Utilidades (JWT)
+app.py                 Punto de entrada (app = create_app())
+config.py              Configuración desde variables de entorno
+pulseup/
+  __init__.py          Fábrica de la app y creación de tablas
+  core/                Piezas compartidas: BD, seguridad, auth, errores, roles
+  modules/
+    auth/              Registro e inicio de sesión
+    usuarios/          Usuarios, perfil y roles
+    habitos/           Hábitos y resumen del calendario
+    ejercicios/        Catálogo de ejercicios con filtros
+    rutinas/           Plantillas y rutinas propias
+    <módulo>/          routes.py (HTTP) → service.py (reglas) → repository.py (SQL)
+tests/                 Pruebas del contrato de la API
 ```
 
 ## Autores

@@ -1,0 +1,4557 @@
+[
+  {
+    "id_externo": "Pushups",
+    "nombre": "Flexiones",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "triceps",
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "Apoya las manos en el suelo un poco más abiertas que los hombros y estira las piernas hacia atrás, apoyado en las puntas de los pies.",
+      "Aprieta abdomen y glúteos para que el cuerpo forme una línea recta desde la cabeza hasta los talones.",
+      "Flexiona los codos y baja el pecho de forma controlada, con los codos a unos 45° del cuerpo, hasta quedar a pocos centímetros del suelo.",
+      "Empuja el suelo con fuerza hasta estirar los brazos sin bloquear los codos y vuelve a la posición inicial manteniendo el cuerpo recto."
+    ],
+    "respiracion": "Toma aire al bajar y suéltalo al empujar hacia arriba.",
+    "errores_comunes": [
+      "Dejar caer la cadera o levantarla demasiado.",
+      "Abrir los codos a 90° del cuerpo, lo que carga los hombros.",
+      "Hacer medio recorrido sin acercar el pecho al suelo."
+    ],
+    "variante_facil": "Flexiones con las manos apoyadas en un banco o en la pared.",
+    "variante_dificil": "Flexiones con los pies elevados o con una pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": null,
+    "nombre": "Flexiones en rodillas",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "triceps",
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 45,
+    "pasos": [
+      "Arrodíllate en una colchoneta y apoya las manos en el suelo un poco más abiertas que los hombros.",
+      "Avanza las manos hasta que rodillas, cadera y hombros queden en línea recta; cruza los tobillos si te resulta más cómodo.",
+      "Baja el pecho doblando los codos a unos 45° del cuerpo hasta quedar cerca del suelo.",
+      "Empuja hasta estirar los brazos y vuelve arriba sin doblar la cadera."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Sentarse sobre los talones en lugar de mantener la línea rodillas-cadera-hombros.",
+      "Mover solo la cabeza hacia el suelo sin bajar el pecho.",
+      "Bloquear los codos de golpe arriba."
+    ],
+    "variante_facil": "Flexiones de pie con las manos en la pared.",
+    "variante_dificil": "Flexiones completas apoyado en las puntas de los pies."
+  },
+  {
+    "id_externo": "Barbell_Bench_Press_-_Medium_Grip",
+    "nombre": "Press de banca con barra",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "triceps",
+      "hombros"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Acuéstate en el banco con los ojos bajo la barra, los pies firmes en el suelo y los omóplatos juntos y hacia abajo.",
+      "Agarra la barra un poco más abierto que el ancho de hombros, sácala del soporte y colócala sobre el pecho con los brazos estirados.",
+      "Baja la barra de forma controlada hasta rozar la parte media del pecho, con los codos a unos 45-60° del torso.",
+      "Empuja la barra hacia arriba y ligeramente hacia atrás hasta estirar los brazos, sin despegar glúteos ni hombros del banco.",
+      "Al terminar la serie, devuelve la barra al soporte con los brazos estirados."
+    ],
+    "respiracion": "Toma aire antes de bajar y mantenlo mientras desciendes; suéltalo al pasar la parte más difícil de la subida.",
+    "errores_comunes": [
+      "Rebotar la barra en el pecho.",
+      "Levantar los glúteos del banco para empujar más peso.",
+      "Entrenar pesado sin un compañero que asista."
+    ],
+    "variante_facil": "Press de pecho con mancuernas o en máquina.",
+    "variante_dificil": "Pausa de un segundo con la barra apoyada en el pecho antes de empujar."
+  },
+  {
+    "id_externo": "Dumbbell_Bench_Press",
+    "nombre": "Press de pecho con mancuernas",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "triceps",
+      "hombros"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Siéntate en el banco con una mancuerna sobre cada muslo y recuéstate llevándolas a la altura del pecho.",
+      "Con los pies firmes en el suelo, empuja las mancuernas hacia arriba hasta estirar los brazos, con las palmas mirando hacia los pies.",
+      "Baja las mancuernas despacio a los lados del pecho, con los codos a unos 45° del torso, hasta sentir un estiramiento cómodo.",
+      "Empuja de nuevo hacia arriba juntando ligeramente las mancuernas sin chocarlas."
+    ],
+    "respiracion": "Inhala al bajar las mancuernas y exhala al subirlas.",
+    "errores_comunes": [
+      "Bajar demasiado y forzar el hombro.",
+      "Chocar las mancuernas arriba y perder la tensión.",
+      "Dejar caer las mancuernas al suelo bruscamente al terminar."
+    ],
+    "variante_facil": "Usa mancuernas más ligeras o hazlo en el suelo (press de suelo) para limitar el recorrido.",
+    "variante_dificil": "Hazlo a un brazo para trabajar además la estabilidad del tronco."
+  },
+  {
+    "id_externo": "Incline_Dumbbell_Press",
+    "nombre": "Press inclinado con mancuernas",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros",
+      "triceps"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Ajusta el banco a unos 30-45° de inclinación y siéntate con una mancuerna sobre cada muslo.",
+      "Recuéstate y lleva las mancuernas a la altura de la parte alta del pecho, con los omóplatos juntos.",
+      "Empuja las mancuernas hacia arriba hasta estirar los brazos sobre la clavícula.",
+      "Bájalas despacio hasta que los codos queden un poco por debajo del banco y vuelve a empujar."
+    ],
+    "respiracion": "Toma aire al bajar y suéltalo al empujar.",
+    "errores_comunes": [
+      "Inclinar demasiado el banco, lo que convierte el ejercicio en un press de hombros.",
+      "Arquear en exceso la espalda baja.",
+      "Bajar las mancuernas sin control."
+    ],
+    "variante_facil": "Reduce la inclinación del banco y usa menos peso.",
+    "variante_dificil": "Pausa de dos segundos abajo antes de cada repetición."
+  },
+  {
+    "id_externo": "Dumbbell_Flyes",
+    "nombre": "Aperturas con mancuernas",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "Acuéstate en un banco plano con una mancuerna en cada mano, brazos estirados sobre el pecho y palmas enfrentadas.",
+      "Dobla ligeramente los codos y mantén ese ángulo durante todo el ejercicio.",
+      "Abre los brazos en arco hacia los lados hasta sentir un estiramiento en el pecho, sin pasar la línea de los hombros.",
+      "Cierra los brazos por el mismo arco, como si abrazaras un árbol, hasta volver arriba."
+    ],
+    "respiracion": "Inhala al abrir los brazos y exhala al cerrarlos.",
+    "errores_comunes": [
+      "Doblar y estirar los codos, convirtiendo el ejercicio en un press.",
+      "Bajar demasiado y forzar el hombro.",
+      "Usar mancuernas tan pesadas que no puedas controlar la bajada."
+    ],
+    "variante_facil": "Aperturas en máquina (pec deck), donde el recorrido está guiado.",
+    "variante_dificil": "Aperturas en banco inclinado con pausa en el punto de máximo estiramiento."
+  },
+  {
+    "id_externo": "Machine_Bench_Press",
+    "nombre": "Press en máquina de pecho",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "triceps",
+      "hombros"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Ajusta el asiento para que los agarres queden a la altura de la parte media del pecho y elige el peso.",
+      "Siéntate con la espalda bien apoyada en el respaldo y agarra las manijas.",
+      "Empuja hacia delante hasta estirar los brazos sin bloquear los codos.",
+      "Regresa despacio hasta que las manos queden cerca del pecho, sin dejar que el peso toque la pila."
+    ],
+    "respiracion": "Exhala al empujar e inhala al volver.",
+    "errores_comunes": [
+      "Asiento demasiado bajo o alto, que carga los hombros.",
+      "Despegar la espalda del respaldo.",
+      "Dejar que las placas golpeen entre repeticiones."
+    ],
+    "variante_facil": "Reduce el peso y el recorrido al principio.",
+    "variante_dificil": "Hazlo a un brazo o con una bajada lenta de tres segundos."
+  },
+  {
+    "id_externo": "Bench_Dips",
+    "nombre": "Fondos en banco",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [
+      "pecho",
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "Siéntate en el borde de un banco o silla firme y apoya las manos a los lados de la cadera, con los dedos hacia delante.",
+      "Desliza la cadera hacia delante fuera del banco con las piernas dobladas y los talones en el suelo.",
+      "Dobla los codos hacia atrás y baja el cuerpo hasta que los brazos formen unos 90°.",
+      "Empuja con las palmas hasta estirar los brazos y vuelve a subir manteniendo la espalda cerca del banco."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Bajar demasiado y forzar la parte delantera del hombro.",
+      "Abrir los codos hacia los lados.",
+      "Alejar la espalda del banco."
+    ],
+    "variante_facil": "Mantén las rodillas más dobladas y los pies más cerca del banco.",
+    "variante_dificil": "Estira las piernas o apoya los pies en otro banco."
+  },
+  {
+    "id_externo": "Triceps_Pushdown",
+    "nombre": "Extensión de tríceps con polea",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 60,
+    "pasos": [
+      "Colócate frente a la polea alta con una barra corta y agárrala con las palmas hacia abajo, al ancho de los hombros.",
+      "Pega los codos a los costados del cuerpo y empieza con los antebrazos paralelos al suelo.",
+      "Empuja la barra hacia abajo estirando los codos por completo, sin mover los brazos.",
+      "Vuelve despacio hasta que los antebrazos queden de nuevo paralelos al suelo."
+    ],
+    "respiracion": "Exhala al empujar hacia abajo e inhala al subir.",
+    "errores_comunes": [
+      "Separar los codos del cuerpo.",
+      "Inclinar el tronco para empujar con el peso del cuerpo.",
+      "Dejar que la barra suba de golpe."
+    ],
+    "variante_facil": "Usa un peso más ligero y haz el movimiento más lento.",
+    "variante_dificil": "Hazlo a un brazo con agarre en D."
+  },
+  {
+    "id_externo": "Standing_Dumbbell_Triceps_Extension",
+    "nombre": "Press francés con mancuerna",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie o sentado con la espalda recta, sujeta una mancuerna con las dos manos por uno de sus discos.",
+      "Llévala por encima de la cabeza con los brazos estirados y los codos apuntando al frente.",
+      "Dobla los codos y baja la mancuerna por detrás de la cabeza hasta sentir el estiramiento del tríceps.",
+      "Estira los codos para subirla, manteniendo los brazos cerca de la cabeza."
+    ],
+    "respiracion": "Inhala al bajar la mancuerna y exhala al subirla.",
+    "errores_comunes": [
+      "Abrir los codos hacia los lados.",
+      "Arquear la espalda baja para compensar.",
+      "Bajar la mancuerna demasiado rápido detrás de la cabeza."
+    ],
+    "variante_facil": "Hazlo sentado en un banco con respaldo.",
+    "variante_dificil": "Hazlo a un brazo con una mancuerna más ligera."
+  },
+  {
+    "id_externo": "Tricep_Dumbbell_Kickback",
+    "nombre": "Patada de tríceps",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "Apoya una rodilla y una mano en un banco, con la espalda recta y paralela al suelo; sujeta una mancuerna con la otra mano.",
+      "Sube el codo hasta que el brazo quede pegado al costado y paralelo al suelo, con el antebrazo colgando.",
+      "Estira el codo llevando la mancuerna hacia atrás hasta que todo el brazo quede recto.",
+      "Vuelve a doblar el codo despacio sin mover el brazo."
+    ],
+    "respiracion": "Exhala al estirar el brazo e inhala al volver.",
+    "errores_comunes": [
+      "Balancear el brazo en lugar de mover solo el codo.",
+      "Dejar caer el codo por debajo de la espalda.",
+      "Usar demasiado peso y hacer el movimiento con impulso."
+    ],
+    "variante_facil": "Usa una banda elástica o una mancuerna muy ligera.",
+    "variante_dificil": "Sostén un segundo con el brazo estirado en cada repetición."
+  },
+  {
+    "id_externo": "Pullups",
+    "nombre": "Dominadas",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "avanzado",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 120,
+    "pasos": [
+      "Cuélgate de una barra fija con las palmas hacia delante, las manos un poco más abiertas que los hombros y los brazos estirados.",
+      "Lleva los hombros hacia abajo y atrás, aprieta el abdomen y cruza los pies si te ayuda a no balancearte.",
+      "Tira con la espalda y los brazos hasta que la barbilla pase por encima de la barra.",
+      "Baja de forma controlada hasta estirar por completo los brazos antes de la siguiente repetición."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Balancearse o patear para subir.",
+      "No estirar los brazos abajo y hacer medio recorrido.",
+      "Encoger los hombros hacia las orejas."
+    ],
+    "variante_facil": "Dominadas asistidas con banda elástica o solo la fase de bajada lenta.",
+    "variante_dificil": "Dominadas con lastre o con pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Wide-Grip_Lat_Pulldown",
+    "nombre": "Jalón al pecho",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Ajusta el soporte de rodillas para que las piernas queden fijas y agarra la barra con las palmas hacia delante, más abierto que los hombros.",
+      "Siéntate con el pecho alto y una ligera inclinación hacia atrás.",
+      "Tira de la barra hacia la parte alta del pecho llevando los codos hacia abajo y atrás.",
+      "Sube la barra despacio hasta estirar los brazos, dejando que los hombros se eleven un poco al final."
+    ],
+    "respiracion": "Exhala al tirar hacia el pecho e inhala al subir la barra.",
+    "errores_comunes": [
+      "Tirar la barra por detrás de la nuca.",
+      "Echar el cuerpo muy hacia atrás para usar impulso.",
+      "Soltar el peso de golpe en la subida."
+    ],
+    "variante_facil": "Usa menos peso y agarre al ancho de los hombros.",
+    "variante_dificil": "Pausa de un segundo con la barra en el pecho y bajada de tres segundos."
+  },
+  {
+    "id_externo": "One-Arm_Dumbbell_Row",
+    "nombre": "Remo con mancuerna",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 60,
+    "pasos": [
+      "Apoya la rodilla y la mano del mismo lado en un banco, con la espalda recta y paralela al suelo.",
+      "Con la otra mano sujeta la mancuerna con el brazo estirado y la palma mirando hacia ti.",
+      "Tira de la mancuerna hacia la cadera llevando el codo hacia atrás y cerca del cuerpo.",
+      "Bájala despacio hasta estirar el brazo y repite; luego cambia de lado."
+    ],
+    "respiracion": "Exhala al subir la mancuerna e inhala al bajarla.",
+    "errores_comunes": [
+      "Girar el tronco para subir el peso.",
+      "Tirar hacia el hombro en lugar de hacia la cadera.",
+      "Redondear la espalda."
+    ],
+    "variante_facil": "Usa una mancuerna más ligera y apoya bien ambas manos en el banco si lo necesitas.",
+    "variante_dificil": "Pausa de dos segundos arriba con el omóplato apretado."
+  },
+  {
+    "id_externo": "Bent_Over_Barbell_Row",
+    "nombre": "Remo con barra",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps",
+      "isquiotibiales"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "De pie con los pies al ancho de la cadera, agarra la barra con las palmas hacia ti o hacia abajo, un poco más abierto que los hombros.",
+      "Dobla ligeramente las rodillas e inclina el torso hacia delante desde la cadera, con la espalda recta, hasta quedar casi paralelo al suelo.",
+      "Tira de la barra hacia la parte baja del pecho o el ombligo, llevando los codos hacia atrás.",
+      "Baja la barra controlada hasta estirar los brazos sin cambiar la inclinación del tronco."
+    ],
+    "respiracion": "Exhala al tirar e inhala al bajar la barra.",
+    "errores_comunes": [
+      "Redondear la espalda baja.",
+      "Levantar el torso en cada repetición para ayudarte.",
+      "Usar tanto peso que la barra no llegue al cuerpo."
+    ],
+    "variante_facil": "Remo con mancuerna apoyado en un banco.",
+    "variante_dificil": "Remo Pendlay: la barra vuelve al suelo en cada repetición y se tira de forma explosiva."
+  },
+  {
+    "id_externo": "Seated_Cable_Rows",
+    "nombre": "Remo en polea baja",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Siéntate frente a la polea baja con los pies apoyados en la plataforma y las rodillas ligeramente dobladas.",
+      "Agarra el maneral en V y siéntate con la espalda recta y los brazos estirados.",
+      "Tira del maneral hacia el abdomen llevando los codos hacia atrás y juntando los omóplatos.",
+      "Vuelve despacio estirando los brazos sin inclinar el tronco hacia delante."
+    ],
+    "respiracion": "Exhala al tirar e inhala al volver.",
+    "errores_comunes": [
+      "Balancear el tronco hacia atrás y adelante.",
+      "Encoger los hombros.",
+      "Redondear la espalda al estirar los brazos."
+    ],
+    "variante_facil": "Menos peso y pausa corta en cada repetición.",
+    "variante_dificil": "Hazlo a un brazo con agarre en D."
+  },
+  {
+    "id_externo": null,
+    "nombre": "Remo con banda elástica",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "banda elastica",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 60,
+    "pasos": [
+      "Siéntate con las piernas estiradas y pasa la banda por la planta de los pies, sujetando un extremo en cada mano.",
+      "Endereza la espalda y estira los brazos hacia delante con la banda tensa.",
+      "Tira de los extremos hacia el abdomen llevando los codos hacia atrás y juntando los omóplatos.",
+      "Vuelve despacio a estirar los brazos sin perder la postura."
+    ],
+    "respiracion": "Exhala al tirar e inhala al volver.",
+    "errores_comunes": [
+      "Encorvar la espalda.",
+      "Soltar la banda de golpe.",
+      "Encoger los hombros hacia las orejas."
+    ],
+    "variante_facil": "Usa una banda más suave o sujétala más lejos de los pies.",
+    "variante_dificil": "Usa una banda más dura o haz una pausa de dos segundos con los codos atrás."
+  },
+  {
+    "id_externo": "Superman",
+    "nombre": "Superman",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 45,
+    "pasos": [
+      "Acuéstate boca abajo sobre una colchoneta con los brazos estirados por delante de la cabeza.",
+      "Mira al suelo para mantener el cuello alineado.",
+      "Eleva a la vez brazos, pecho y piernas unos centímetros del suelo, apretando glúteos y espalda.",
+      "Sostén uno o dos segundos arriba y baja despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Echar la cabeza hacia atrás.",
+      "Subir con impulso y demasiado alto.",
+      "Doblar las rodillas."
+    ],
+    "variante_facil": "Eleva solo brazo y pierna contrarios alternando.",
+    "variante_dificil": "Sostén cinco segundos arriba en cada repetición."
+  },
+  {
+    "id_externo": "Romanian_Deadlift",
+    "nombre": "Peso muerto rumano",
+    "musculo_principal": "isquiotibiales",
+    "musculos_secundarios": [
+      "gluteos",
+      "espalda"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "De pie con los pies al ancho de la cadera, sujeta la barra delante de los muslos con las palmas hacia ti y los brazos estirados.",
+      "Dobla un poco las rodillas y mantén ese ángulo durante todo el movimiento.",
+      "Lleva la cadera hacia atrás y baja la barra pegada a las piernas, con la espalda recta, hasta media tibia o hasta sentir tensión en los isquiotibiales.",
+      "Empuja la cadera hacia delante para volver a quedar de pie, apretando los glúteos arriba."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Redondear la espalda.",
+      "Separar la barra de las piernas.",
+      "Convertirlo en una sentadilla doblando mucho las rodillas."
+    ],
+    "variante_facil": "Peso muerto rumano con mancuernas o con un palo para aprender el movimiento.",
+    "variante_dificil": "Peso muerto rumano a una pierna."
+  },
+  {
+    "id_externo": "Stiff-Legged_Dumbbell_Deadlift",
+    "nombre": "Peso muerto con mancuernas",
+    "musculo_principal": "isquiotibiales",
+    "musculos_secundarios": [
+      "gluteos",
+      "espalda"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "De pie, sujeta una mancuerna en cada mano delante de los muslos, con los pies al ancho de la cadera.",
+      "Mantén las rodillas ligeramente dobladas y la espalda recta.",
+      "Lleva la cadera hacia atrás y baja las mancuernas cerca de las piernas hasta media tibia.",
+      "Sube empujando la cadera hacia delante hasta quedar erguido."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Encorvar la espalda para llegar más abajo.",
+      "Mirar hacia arriba forzando el cuello.",
+      "Bloquear por completo las rodillas."
+    ],
+    "variante_facil": "Reduce el recorrido hasta las rodillas.",
+    "variante_dificil": "Hazlo a una pierna con una sola mancuerna."
+  },
+  {
+    "id_externo": "Dumbbell_Shoulder_Press",
+    "nombre": "Press militar con mancuernas",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "triceps"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Siéntate en un banco con respaldo vertical y sube las mancuernas a la altura de los hombros, palmas hacia delante.",
+      "Apoya bien la espalda y aprieta el abdomen.",
+      "Empuja las mancuernas hacia arriba hasta estirar los brazos, acercándolas sin chocarlas.",
+      "Bájalas despacio hasta la altura de las orejas o un poco más abajo."
+    ],
+    "respiracion": "Exhala al empujar e inhala al bajar.",
+    "errores_comunes": [
+      "Arquear mucho la espalda baja.",
+      "Bajar las mancuernas sin control.",
+      "Empujar hacia delante en lugar de hacia arriba."
+    ],
+    "variante_facil": "Press de hombros en máquina o con mancuernas más ligeras.",
+    "variante_dificil": "Hazlo de pie, sin respaldo, para exigir más estabilidad."
+  },
+  {
+    "id_externo": "Side_Lateral_Raise",
+    "nombre": "Elevaciones laterales",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "De pie, con una mancuerna en cada mano a los lados del cuerpo y los codos ligeramente doblados.",
+      "Inclina un poco el torso hacia delante y aprieta el abdomen.",
+      "Eleva los brazos hacia los lados hasta la altura de los hombros, guiando con los codos.",
+      "Bájalos despacio sin dejar que las mancuernas toquen el cuerpo."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Balancear el cuerpo para subir.",
+      "Subir las mancuernas por encima de los hombros encogiendo el trapecio.",
+      "Usar demasiado peso."
+    ],
+    "variante_facil": "Hazlo con una banda elástica o con mancuernas muy ligeras.",
+    "variante_dificil": "Pausa de dos segundos arriba o bajada de cuatro segundos."
+  },
+  {
+    "id_externo": "Front_Dumbbell_Raise",
+    "nombre": "Elevaciones frontales",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "pecho"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "De pie, sujeta una mancuerna en cada mano delante de los muslos con las palmas hacia ti.",
+      "Mantén el tronco firme y los codos ligeramente doblados.",
+      "Eleva un brazo al frente hasta la altura del hombro.",
+      "Bájalo despacio y alterna con el otro brazo."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Balancear el tronco hacia atrás.",
+      "Subir por encima de la altura de los hombros.",
+      "Mover los dos brazos con impulso."
+    ],
+    "variante_facil": "Usa un disco ligero sujeto con las dos manos.",
+    "variante_dificil": "Sube los dos brazos a la vez y sostén un segundo arriba."
+  },
+  {
+    "id_externo": "Seated_Bent-Over_Rear_Delt_Raise",
+    "nombre": "Pájaros con mancuernas",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "espalda"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Siéntate en el borde de un banco con una mancuerna en cada mano e inclina el tronco hacia delante hasta casi apoyar el pecho en los muslos.",
+      "Deja colgar las mancuernas detrás de las pantorrillas con los codos ligeramente doblados y las palmas enfrentadas.",
+      "Abre los brazos hacia los lados hasta la altura de los hombros, apretando la parte de atrás del hombro.",
+      "Baja despacio sin perder la inclinación."
+    ],
+    "respiracion": "Exhala al abrir los brazos e inhala al bajarlos.",
+    "errores_comunes": [
+      "Levantar el tronco durante el movimiento.",
+      "Juntar demasiado los omóplatos y convertirlo en remo.",
+      "Usar mancuernas pesadas con impulso."
+    ],
+    "variante_facil": "Hazlo con el pecho apoyado en un banco inclinado.",
+    "variante_dificil": "Añade una pausa de dos segundos con los brazos abiertos."
+  },
+  {
+    "id_externo": null,
+    "nombre": "Pike push-up",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "triceps"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 90,
+    "pasos": [
+      "Colócate en posición de flexión y camina con los pies hacia las manos hasta que la cadera quede alta y el cuerpo forme una V invertida.",
+      "Deja las manos al ancho de los hombros y la cabeza entre los brazos.",
+      "Dobla los codos y baja la cabeza hacia el suelo, por delante de las manos, formando un triángulo.",
+      "Empuja el suelo hasta estirar los brazos y vuelve a la V invertida."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Bajar la cadera y convertirlo en una flexión normal.",
+      "Abrir los codos hacia los lados.",
+      "Golpear la cabeza contra el suelo por bajar sin control."
+    ],
+    "variante_facil": "Haz menos recorrido o apoya las manos en un banco bajo.",
+    "variante_dificil": "Eleva los pies sobre un banco para acercarte a la flexión de pino."
+  },
+  {
+    "id_externo": "Dumbbell_Bicep_Curl",
+    "nombre": "Curl de bíceps con mancuernas",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "De pie, con una mancuerna en cada mano, los brazos estirados a los lados y las palmas hacia delante.",
+      "Pega los codos al cuerpo y mantén la espalda recta.",
+      "Dobla los codos y sube las mancuernas hacia los hombros sin mover los brazos.",
+      "Bájalas despacio hasta estirar los brazos por completo."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Balancear el cuerpo para subir el peso.",
+      "Adelantar los codos al subir.",
+      "No estirar los brazos abajo."
+    ],
+    "variante_facil": "Hazlo sentado o alternando brazos con menos peso.",
+    "variante_dificil": "Bajada lenta de cuatro segundos en cada repetición."
+  },
+  {
+    "id_externo": "Hammer_Curls",
+    "nombre": "Curl martillo",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "De pie, sujeta una mancuerna en cada mano con las palmas mirando hacia el cuerpo, como si sostuvieras un martillo.",
+      "Pega los codos a los costados.",
+      "Sube las mancuernas doblando los codos, sin girar las muñecas, hasta la altura de los hombros.",
+      "Bájalas de forma controlada hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Mover los codos hacia delante.",
+      "Usar impulso de la espalda.",
+      "Girar las muñecas durante el movimiento."
+    ],
+    "variante_facil": "Alterna los brazos con mancuernas más ligeras.",
+    "variante_dificil": "Curl martillo cruzado hacia el hombro contrario con pausa arriba."
+  },
+  {
+    "id_externo": "Barbell_Curl",
+    "nombre": "Curl con barra",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie, agarra la barra con las palmas hacia delante al ancho de los hombros, con los brazos estirados.",
+      "Pega los codos al cuerpo y aprieta el abdomen.",
+      "Sube la barra doblando los codos hasta la altura del pecho, sin mover los brazos.",
+      "Bájala despacio hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Echar el cuerpo hacia atrás para subir la barra.",
+      "Soltar la barra de golpe al bajar.",
+      "Levantar los codos al final."
+    ],
+    "variante_facil": "Curl con barra Z, más cómodo para las muñecas, o con menos peso.",
+    "variante_dificil": "Curl con pausa de dos segundos a mitad de recorrido."
+  },
+  {
+    "id_externo": null,
+    "nombre": "Curl con banda elástica",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "banda elastica",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "Pisa el centro de la banda con los pies al ancho de la cadera y sujeta un extremo en cada mano, palmas hacia delante.",
+      "Pega los codos al cuerpo con los brazos estirados.",
+      "Dobla los codos y sube las manos hacia los hombros estirando la banda.",
+      "Baja despacio resistiendo la tensión de la banda."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Dejar que la banda tire de los brazos hacia abajo de golpe.",
+      "Mover los codos hacia delante.",
+      "Inclinarse hacia atrás."
+    ],
+    "variante_facil": "Pisa la banda con un solo pie para reducir la tensión.",
+    "variante_dificil": "Usa una banda más dura o pisa la banda con los pies más separados."
+  },
+  {
+    "id_externo": "Bodyweight_Squat",
+    "nombre": "Sentadilla",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie con los pies al ancho de los hombros y las puntas un poco hacia fuera; estira los brazos al frente para equilibrarte.",
+      "Lleva la cadera hacia atrás y dobla las rodillas como si fueras a sentarte en una silla.",
+      "Baja hasta que los muslos queden paralelos al suelo o lo más abajo que puedas con la espalda recta y los talones apoyados.",
+      "Empuja el suelo con todo el pie para subir y estira cadera y rodillas arriba."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Dejar que las rodillas se vayan hacia dentro.",
+      "Levantar los talones del suelo.",
+      "Encorvar la espalda al bajar."
+    ],
+    "variante_facil": "Sentadilla a una silla: siéntate y levántate controlando el movimiento.",
+    "variante_dificil": "Sentadilla con salto o sentadilla con pausa de tres segundos abajo."
+  },
+  {
+    "id_externo": "Barbell_Squat",
+    "nombre": "Sentadilla con barra",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos",
+      "isquiotibiales"
+    ],
+    "equipo": "barra",
+    "nivel": "avanzado",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 150,
+    "pasos": [
+      "Coloca la barra en el soporte a la altura del pecho, pasa por debajo y apóyala sobre la parte alta de la espalda, no sobre el cuello.",
+      "Agarra la barra con firmeza, saca la barra del soporte y da dos pasos atrás; pies al ancho de los hombros y puntas un poco hacia fuera.",
+      "Toma aire, aprieta el abdomen y baja llevando la cadera hacia atrás y las rodillas en la dirección de los pies, hasta que los muslos queden al menos paralelos al suelo.",
+      "Sube empujando el suelo con todo el pie, manteniendo el pecho alto, hasta quedar de pie.",
+      "Al terminar, camina hacia el soporte y deja la barra con cuidado."
+    ],
+    "respiracion": "Toma aire arriba y mantenlo al bajar; suéltalo al pasar el punto más difícil de la subida.",
+    "errores_comunes": [
+      "Rodillas que se cierran hacia dentro.",
+      "Inclinar demasiado el pecho y cargar la espalda baja.",
+      "Entrenar pesado sin barras de seguridad en el rack."
+    ],
+    "variante_facil": "Sentadilla goblet con una mancuerna o kettlebell.",
+    "variante_dificil": "Sentadilla con pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": "Goblet_Squat",
+    "nombre": "Sentadilla goblet",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "kettlebell",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Sujeta una kettlebell o mancuerna con las dos manos frente al pecho, con los codos hacia abajo.",
+      "Coloca los pies un poco más abiertos que la cadera con las puntas ligeramente hacia fuera.",
+      "Baja la cadera entre los talones manteniendo el pecho alto, hasta que los codos rocen la parte interna de las rodillas.",
+      "Empuja el suelo para subir hasta quedar de pie."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Separar el peso del pecho.",
+      "Levantar los talones.",
+      "Redondear la espalda abajo."
+    ],
+    "variante_facil": "Sentadilla sin peso con los brazos al frente.",
+    "variante_dificil": "Pausa de tres segundos abajo o más peso."
+  },
+  {
+    "id_externo": "Bodyweight_Walking_Lunge",
+    "nombre": "Zancadas",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos",
+      "isquiotibiales"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie con los pies al ancho de la cadera y las manos en la cintura.",
+      "Da un paso largo al frente con una pierna.",
+      "Baja la cadera hasta que ambas rodillas formen unos 90°, con la rodilla de atrás cerca del suelo y la de delante sobre el tobillo.",
+      "Empuja con el talón de delante y vuelve a la posición inicial o avanza con la otra pierna."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Dar un paso demasiado corto y adelantar mucho la rodilla.",
+      "Dejar que la rodilla de delante se vaya hacia dentro.",
+      "Inclinar el tronco hacia delante."
+    ],
+    "variante_facil": "Zancada estática sin dar el paso, o apoyándote en una pared.",
+    "variante_dificil": "Zancadas con salto alternando piernas."
+  },
+  {
+    "id_externo": "Dumbbell_Lunges",
+    "nombre": "Zancadas con mancuernas",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos",
+      "isquiotibiales"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "De pie, sujeta una mancuerna en cada mano a los lados del cuerpo.",
+      "Da un paso largo al frente manteniendo el tronco erguido.",
+      "Baja hasta que la rodilla de atrás quede cerca del suelo y la de delante sobre el tobillo.",
+      "Empuja con el talón de la pierna adelantada para volver y alterna."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Perder el equilibrio por pisar en línea recta, como en una cuerda floja.",
+      "Golpear la rodilla de atrás contra el suelo.",
+      "Inclinar el tronco hacia delante."
+    ],
+    "variante_facil": "Zancadas sin peso o zancada estática.",
+    "variante_dificil": "Zancadas caminando con mancuernas más pesadas."
+  },
+  {
+    "id_externo": "Leg_Press",
+    "nombre": "Prensa de piernas",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Siéntate en la máquina con la espalda y la cadera bien apoyadas y coloca los pies en la plataforma al ancho de los hombros.",
+      "Empuja la plataforma y quita los seguros con los brazos.",
+      "Baja la plataforma doblando las rodillas hasta unos 90°, sin que la cadera se despegue del asiento.",
+      "Empuja con todo el pie hasta casi estirar las piernas, sin bloquear las rodillas.",
+      "Al terminar, coloca de nuevo los seguros."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Bloquear las rodillas arriba.",
+      "Bajar tanto que la cadera se despega del asiento.",
+      "Empujar solo con las puntas de los pies."
+    ],
+    "variante_facil": "Reduce el peso y el recorrido.",
+    "variante_dificil": "Prensa a una pierna o con pausa abajo."
+  },
+  {
+    "id_externo": "Leg_Extensions",
+    "nombre": "Extensión de piernas",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "Ajusta el respaldo para que tus rodillas queden alineadas con el eje de la máquina y el rodillo sobre los tobillos.",
+      "Siéntate con la espalda apoyada y sujeta las manijas laterales.",
+      "Estira las rodillas hasta que las piernas queden rectas, apretando el cuádriceps.",
+      "Baja despacio sin dejar que el peso golpee."
+    ],
+    "respiracion": "Exhala al estirar e inhala al bajar.",
+    "errores_comunes": [
+      "Subir con impulso.",
+      "Colocar el rodillo sobre las espinillas.",
+      "Despegar la cadera del asiento."
+    ],
+    "variante_facil": "Peso ligero y movimiento lento.",
+    "variante_dificil": "Hazlo a una pierna con pausa arriba."
+  },
+  {
+    "id_externo": "Lying_Leg_Curls",
+    "nombre": "Curl femoral",
+    "musculo_principal": "isquiotibiales",
+    "musculos_secundarios": [],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "Acuéstate boca abajo en la máquina con las rodillas justo fuera del banco y el rodillo sobre los tobillos.",
+      "Sujeta las manijas y apoya bien la cadera.",
+      "Dobla las rodillas y lleva los talones hacia los glúteos.",
+      "Baja despacio hasta casi estirar las piernas."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Levantar la cadera del banco.",
+      "Bajar el peso de golpe.",
+      "Hacer medio recorrido."
+    ],
+    "variante_facil": "Menos peso y movimiento lento.",
+    "variante_dificil": "Bajada de cuatro segundos o a una pierna."
+  },
+  {
+    "id_externo": "Butt_Lift_Bridge",
+    "nombre": "Puente de glúteos",
+    "musculo_principal": "gluteos",
+    "musculos_secundarios": [
+      "isquiotibiales"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 45,
+    "pasos": [
+      "Acuéstate boca arriba con las rodillas dobladas, los pies apoyados al ancho de la cadera y los brazos a los lados.",
+      "Aprieta el abdomen y empuja el suelo con los talones.",
+      "Eleva la cadera hasta que rodillas, cadera y hombros queden en línea recta, apretando los glúteos.",
+      "Sostén un segundo arriba y baja despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Arquear la espalda baja en lugar de usar los glúteos.",
+      "Empujar con las puntas de los pies.",
+      "Separar las rodillas hacia fuera o juntarlas."
+    ],
+    "variante_facil": "Haz menos recorrido y sostén menos tiempo.",
+    "variante_dificil": "Puente de glúteos a una pierna."
+  },
+  {
+    "id_externo": "Barbell_Hip_Thrust",
+    "nombre": "Hip thrust con barra",
+    "musculo_principal": "gluteos",
+    "musculos_secundarios": [
+      "isquiotibiales"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Siéntate en el suelo con la parte alta de la espalda apoyada en un banco y una barra con protector sobre la cadera.",
+      "Apoya los pies al ancho de la cadera con las rodillas dobladas.",
+      "Empuja con los talones y eleva la cadera hasta que el tronco quede paralelo al suelo, con la barbilla hacia el pecho.",
+      "Aprieta los glúteos un segundo arriba y baja de forma controlada."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Arquear la zona lumbar al final.",
+      "Colocar los pies demasiado cerca o lejos.",
+      "No usar protector y lastimar la cadera."
+    ],
+    "variante_facil": "Puente de glúteos en el suelo sin peso.",
+    "variante_dificil": "Hip thrust a una pierna o con pausa de tres segundos arriba."
+  },
+  {
+    "id_externo": null,
+    "nombre": "Elevación de talones",
+    "musculo_principal": "pantorrillas",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 30,
+    "pasos": [
+      "Colócate de pie con las puntas de los pies sobre un escalón y los talones fuera; apóyate en una pared para mantener el equilibrio.",
+      "Baja los talones por debajo del escalón hasta sentir el estiramiento de la pantorrilla.",
+      "Sube sobre las puntas de los pies lo más alto que puedas.",
+      "Sostén un segundo arriba y baja despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Rebotar abajo.",
+      "Doblar las rodillas para ayudarte.",
+      "Hacer el movimiento muy rápido y corto."
+    ],
+    "variante_facil": "Hazlo en el suelo plano.",
+    "variante_dificil": "Hazlo a una pierna o con una mancuerna en la mano."
+  },
+  {
+    "id_externo": "Plank",
+    "nombre": "Plancha",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "isometrico",
+    "descanso_seg": 45,
+    "pasos": [
+      "Apoya los antebrazos en el suelo con los codos bajo los hombros.",
+      "Estira las piernas hacia atrás y apóyate en las puntas de los pies.",
+      "Aprieta abdomen y glúteos para que el cuerpo forme una línea recta de la cabeza a los talones.",
+      "Mantén la posición el tiempo indicado sin dejar caer la cadera y luego baja las rodillas al suelo."
+    ],
+    "respiracion": "Respira de forma lenta y continua; no contengas el aire.",
+    "errores_comunes": [
+      "Dejar caer la cadera.",
+      "Levantar demasiado los glúteos.",
+      "Contener la respiración."
+    ],
+    "variante_facil": "Plancha con las rodillas apoyadas.",
+    "variante_dificil": "Plancha levantando un brazo o una pierna alternando."
+  },
+  {
+    "id_externo": "Crunches",
+    "nombre": "Abdominales crunch",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 30,
+    "pasos": [
+      "Acuéstate boca arriba con las rodillas dobladas y los pies apoyados.",
+      "Coloca las manos cruzadas sobre el pecho o tocando suavemente las sienes.",
+      "Eleva los hombros del suelo contrayendo el abdomen, como si acercaras las costillas a la cadera.",
+      "Baja despacio sin apoyar del todo la cabeza."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Tirar del cuello con las manos.",
+      "Subir con impulso hasta sentarse.",
+      "Despegar la zona lumbar del suelo."
+    ],
+    "variante_facil": "Haz menos recorrido con las manos sobre los muslos.",
+    "variante_dificil": "Crunch con los pies elevados o sujetando un disco en el pecho."
+  },
+  {
+    "id_externo": "Flat_Bench_Lying_Leg_Raise",
+    "nombre": "Elevación de piernas",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 45,
+    "pasos": [
+      "Acuéstate boca arriba en un banco o en el suelo, con las piernas estiradas y las manos sujetando el banco o bajo la cadera.",
+      "Pega la zona lumbar al apoyo apretando el abdomen.",
+      "Eleva las piernas juntas hasta que queden verticales.",
+      "Bájalas despacio sin que la espalda se despegue y sin tocar el suelo con los pies."
+    ],
+    "respiracion": "Exhala al subir las piernas e inhala al bajarlas.",
+    "errores_comunes": [
+      "Arquear la espalda baja al bajar las piernas.",
+      "Usar impulso.",
+      "Dejar caer las piernas de golpe."
+    ],
+    "variante_facil": "Hazlo con las rodillas dobladas.",
+    "variante_dificil": "Elevación de piernas colgado de una barra."
+  },
+  {
+    "id_externo": "Mountain_Climbers",
+    "nombre": "Mountain climbers",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "abdomen",
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 45,
+    "pasos": [
+      "Colócate en posición de flexión con los brazos estirados y las manos bajo los hombros.",
+      "Aprieta el abdomen para mantener la cadera baja.",
+      "Lleva una rodilla hacia el pecho y regresa la pierna atrás mientras llevas la otra rodilla hacia delante.",
+      "Alterna las piernas a ritmo rápido durante el tiempo indicado."
+    ],
+    "respiracion": "Respira de forma rítmica, sin contener el aire.",
+    "errores_comunes": [
+      "Levantar mucho la cadera.",
+      "Rebotar con los hombros por delante de las manos.",
+      "Apoyar el pie que avanza con fuerza en el suelo."
+    ],
+    "variante_facil": "Hazlo despacio o con las manos sobre un banco.",
+    "variante_dificil": "Aumenta la velocidad o lleva la rodilla al codo contrario."
+  },
+  {
+    "id_externo": null,
+    "nombre": "Jumping jacks",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 30,
+    "pasos": [
+      "De pie con los pies juntos y los brazos a los lados.",
+      "Salta abriendo las piernas un poco más que el ancho de los hombros mientras subes los brazos por encima de la cabeza.",
+      "Salta de nuevo para juntar los pies y bajar los brazos.",
+      "Repite a ritmo constante aterrizando suave sobre la parte delantera del pie."
+    ],
+    "respiracion": "Respira de forma rítmica y continua.",
+    "errores_comunes": [
+      "Aterrizar con los talones de golpe.",
+      "Encorvar la espalda.",
+      "No subir los brazos del todo."
+    ],
+    "variante_facil": "Sin salto: abre una pierna cada vez al subir los brazos.",
+    "variante_dificil": "Aumenta la velocidad o alterna con sentadilla al abrir."
+  },
+  {
+    "id_externo": null,
+    "nombre": "Burpees",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "pecho",
+      "cuadriceps"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "avanzado",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie con los pies al ancho de los hombros.",
+      "Agáchate, apoya las manos en el suelo y lanza los pies hacia atrás hasta quedar en posición de flexión.",
+      "Haz una flexión, vuelve a recoger los pies junto a las manos de un salto.",
+      "Salta hacia arriba con los brazos por encima de la cabeza y aterriza suave para empezar la siguiente."
+    ],
+    "respiracion": "Respira de forma rítmica: exhala en el salto y en la flexión.",
+    "errores_comunes": [
+      "Dejar caer la cadera en la posición de flexión.",
+      "Aterrizar con las piernas rígidas.",
+      "Perder la técnica por ir demasiado rápido."
+    ],
+    "variante_facil": "Sin flexión y sin salto, dando los pasos hacia atrás de uno en uno.",
+    "variante_dificil": "Burpee con salto al cajón o con flexión de pecho al suelo."
+  },
+  {
+    "id_externo": "Rope_Jumping",
+    "nombre": "Cuerda de saltar",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "pantorrillas"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 45,
+    "pasos": [
+      "Sujeta los mangos de la cuerda con la cuerda detrás de los talones; al pisarla, los mangos deben llegar a las axilas.",
+      "Mantén los codos cerca del cuerpo y gira la cuerda con las muñecas.",
+      "Salta con los pies juntos lo justo para que pase la cuerda, aterrizando sobre la parte delantera del pie.",
+      "Mantén un ritmo constante durante el tiempo indicado."
+    ],
+    "respiracion": "Respira de forma relajada y rítmica.",
+    "errores_comunes": [
+      "Saltar demasiado alto.",
+      "Girar la cuerda con los brazos enteros.",
+      "Aterrizar con los talones."
+    ],
+    "variante_facil": "Salta sin cuerda simulando el movimiento.",
+    "variante_dificil": "Doble salto: la cuerda pasa dos veces por cada salto."
+  },
+  {
+    "id_externo": null,
+    "nombre": "Swing con kettlebell",
+    "musculo_principal": "cuerpo completo",
+    "musculos_secundarios": [
+      "gluteos",
+      "isquiotibiales",
+      "espalda"
+    ],
+    "equipo": "kettlebell",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "De pie con los pies algo más abiertos que la cadera y la kettlebell en el suelo un poco por delante.",
+      "Agárrala con las dos manos, lleva la cadera atrás con la espalda recta y balancéala entre las piernas.",
+      "Empuja la cadera hacia delante con fuerza para que la kettlebell suba hasta la altura del pecho, con los brazos relajados.",
+      "Deja que baje y acompáñala llevando de nuevo la cadera atrás para el siguiente balanceo."
+    ],
+    "respiracion": "Exhala con fuerza al empujar la cadera e inhala cuando la kettlebell baja.",
+    "errores_comunes": [
+      "Levantar la kettlebell con los brazos en lugar de con la cadera.",
+      "Convertirlo en una sentadilla.",
+      "Redondear la espalda abajo."
+    ],
+    "variante_facil": "Peso muerto con kettlebell para aprender la bisagra de cadera.",
+    "variante_dificil": "Swing a una mano."
+  },
+  {
+    "id_externo": "Barbell_Incline_Bench_Press_-_Medium_Grip",
+    "nombre": "Press inclinado con barra",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros",
+      "triceps"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Ajusta el banco inclinado a unos 30-45° y acuéstate con los ojos bajo la barra y los pies firmes en el suelo.",
+      "Agarra la barra un poco más abierto que los hombros, junta los omóplatos y sácala del soporte con los brazos estirados.",
+      "Baja la barra despacio hasta rozar la parte alta del pecho, bajo la clavícula, con los codos a unos 45-60° del torso.",
+      "Empuja hasta estirar los brazos sobre los hombros y devuelve la barra al soporte al terminar."
+    ],
+    "respiracion": "Toma aire antes de bajar y suéltalo al pasar la parte más difícil de la subida.",
+    "errores_comunes": [
+      "Bajar la barra hacia el cuello o el abdomen.",
+      "Despegar los glúteos del banco.",
+      "Abrir los codos a 90° del cuerpo."
+    ],
+    "variante_facil": "Press inclinado con mancuernas o en máquina.",
+    "variante_dificil": "Pausa de un segundo con la barra en el pecho."
+  },
+  {
+    "id_externo": "Decline_Barbell_Bench_Press",
+    "nombre": "Press declinado con barra",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "triceps",
+      "hombros"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Sujeta los pies bajo los rodillos del banco declinado y recuéstate con los ojos bajo la barra.",
+      "Agarra la barra un poco más abierto que los hombros y sácala del soporte, mejor con ayuda de un compañero.",
+      "Baja la barra despacio hasta la parte baja del pecho.",
+      "Empuja hasta estirar los brazos y, al terminar, devuelve la barra al soporte antes de incorporarte."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Rebotar la barra en el pecho.",
+      "Incorporarse con la barra aún en las manos.",
+      "Hacerlo pesado sin compañero."
+    ],
+    "variante_facil": "Fondos asistidos o press declinado en máquina.",
+    "variante_dificil": "Bajada lenta de tres segundos."
+  },
+  {
+    "id_externo": "Cable_Crossover",
+    "nombre": "Cruce de poleas",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros"
+    ],
+    "equipo": "polea",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "Coloca ambas poleas en la posición alta, agarra un maneral en cada mano y da un paso al frente con un pie adelantado.",
+      "Inclina ligeramente el tronco hacia delante con los brazos abiertos y los codos un poco doblados.",
+      "Junta las manos por delante del cuerpo, a la altura del ombligo, describiendo un arco y apretando el pecho.",
+      "Vuelve despacio por el mismo arco hasta sentir el estiramiento del pecho."
+    ],
+    "respiracion": "Exhala al juntar las manos e inhala al abrir.",
+    "errores_comunes": [
+      "Doblar y estirar los codos como en un press.",
+      "Dejar que las poleas tiren de los brazos hacia atrás de golpe.",
+      "Inclinarse demasiado y perder el equilibrio."
+    ],
+    "variante_facil": "Aperturas en máquina pec deck.",
+    "variante_dificil": "Cruza las manos al final y sostén un segundo."
+  },
+  {
+    "id_externo": "Butterfly",
+    "nombre": "Aperturas en máquina",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "Ajusta el asiento para que los agarres queden a la altura del pecho y siéntate con la espalda apoyada.",
+      "Agarra las manijas con los brazos abiertos y los codos ligeramente doblados.",
+      "Junta los brazos al frente apretando el pecho, sin despegar la espalda del respaldo.",
+      "Abre despacio hasta sentir un estiramiento cómodo, sin dejar que el peso toque la pila."
+    ],
+    "respiracion": "Exhala al cerrar e inhala al abrir.",
+    "errores_comunes": [
+      "Abrir demasiado y forzar el hombro.",
+      "Empujar con las manos en lugar de abrazar con los brazos.",
+      "Despegar la espalda del respaldo."
+    ],
+    "variante_facil": "Menos peso y recorrido más corto.",
+    "variante_dificil": "Pausa de dos segundos con los brazos cerrados."
+  },
+  {
+    "id_externo": "Leverage_Incline_Chest_Press",
+    "nombre": "Press inclinado en máquina",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros",
+      "triceps"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Ajusta el asiento para que los agarres queden a la altura de la parte alta del pecho y elige el peso.",
+      "Siéntate con la espalda apoyada y agarra las manijas.",
+      "Empuja hacia arriba y al frente hasta estirar los brazos sin bloquear los codos.",
+      "Regresa despacio hasta que las manos queden cerca del pecho."
+    ],
+    "respiracion": "Exhala al empujar e inhala al volver.",
+    "errores_comunes": [
+      "Encoger los hombros.",
+      "Despegar la espalda.",
+      "Dejar caer el peso al volver."
+    ],
+    "variante_facil": "Peso ligero y recorrido corto.",
+    "variante_dificil": "Hazlo a un brazo."
+  },
+  {
+    "id_externo": "Incline_Dumbbell_Flyes",
+    "nombre": "Aperturas inclinadas con mancuernas",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "Ajusta el banco a unos 30° y recuéstate con una mancuerna en cada mano sobre el pecho, palmas enfrentadas.",
+      "Dobla ligeramente los codos y mantén ese ángulo.",
+      "Abre los brazos en arco hacia los lados hasta sentir el estiramiento en la parte alta del pecho.",
+      "Cierra los brazos por el mismo arco hasta juntar casi las mancuernas."
+    ],
+    "respiracion": "Inhala al abrir y exhala al cerrar.",
+    "errores_comunes": [
+      "Bajar las mancuernas por debajo de la línea de los hombros.",
+      "Convertirlo en un press.",
+      "Usar demasiado peso."
+    ],
+    "variante_facil": "Aperturas en banco plano con poco peso.",
+    "variante_dificil": "Pausa de dos segundos en el estiramiento."
+  },
+  {
+    "id_externo": "Straight-Arm_Dumbbell_Pullover",
+    "nombre": "Pullover con mancuerna",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "espalda",
+      "triceps"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "Acuéstate de espaldas en un banco y sujeta una mancuerna con las dos manos por uno de sus discos, con los brazos estirados sobre el pecho.",
+      "Dobla un poco los codos y aprieta el abdomen para no arquear la espalda.",
+      "Lleva la mancuerna en arco por detrás de la cabeza hasta sentir el estiramiento en pecho y dorsales.",
+      "Vuelve por el mismo arco hasta tener la mancuerna sobre el pecho."
+    ],
+    "respiracion": "Inhala al bajar la mancuerna detrás de la cabeza y exhala al subirla.",
+    "errores_comunes": [
+      "Doblar mucho los codos y convertirlo en extensión de tríceps.",
+      "Arquear la espalda baja.",
+      "Bajar demasiado con peso pesado."
+    ],
+    "variante_facil": "Menos recorrido y mancuerna ligera.",
+    "variante_dificil": "Hazlo cruzado sobre el banco con la cadera más baja."
+  },
+  {
+    "id_externo": "Dips_-_Chest_Version",
+    "nombre": "Fondos en paralelas para pecho",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "triceps",
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 90,
+    "pasos": [
+      "Sujétate en las barras paralelas con los brazos estirados y el cuerpo suspendido.",
+      "Inclina el tronco hacia delante y dobla un poco las rodillas.",
+      "Baja doblando los codos, que se abren ligeramente, hasta que los hombros queden un poco por debajo de los codos o sientas estiramiento en el pecho.",
+      "Empuja hasta estirar los brazos manteniendo la inclinación."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Bajar más de lo que tus hombros toleran.",
+      "Balancearse.",
+      "Encoger los hombros hacia las orejas."
+    ],
+    "variante_facil": "Fondos asistidos con banda o en máquina.",
+    "variante_dificil": "Fondos con lastre."
+  },
+  {
+    "id_externo": "Incline_Push-Up",
+    "nombre": "Flexiones inclinadas",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "triceps",
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 45,
+    "pasos": [
+      "Apoya las manos en el borde de un banco, mesa firme o escalón, un poco más abiertas que los hombros.",
+      "Estira las piernas hacia atrás para que el cuerpo forme una línea recta.",
+      "Baja el pecho hacia el borde doblando los codos a unos 45°.",
+      "Empuja hasta estirar los brazos manteniendo el cuerpo recto."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Dejar caer la cadera.",
+      "Abrir los codos a 90°.",
+      "Usar una superficie que se desliza."
+    ],
+    "variante_facil": "Usa una superficie más alta, como la pared.",
+    "variante_dificil": "Usa una superficie más baja hasta llegar a la flexión en el suelo."
+  },
+  {
+    "id_externo": "Push-Ups_With_Feet_Elevated",
+    "nombre": "Flexiones con pies elevados",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros",
+      "triceps"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "Apoya los pies en un banco o escalón y las manos en el suelo, un poco más abiertas que los hombros.",
+      "Aprieta abdomen y glúteos para mantener el cuerpo recto.",
+      "Baja el pecho hacia el suelo doblando los codos a unos 45°.",
+      "Empuja hasta estirar los brazos sin dejar caer la cadera."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Hundir la cadera.",
+      "Bajar la cabeza antes que el pecho.",
+      "Elegir un apoyo demasiado alto al principio."
+    ],
+    "variante_facil": "Flexiones normales en el suelo.",
+    "variante_dificil": "Eleva más los pies o añade un chaleco con peso."
+  },
+  {
+    "id_externo": "Push-Up_Wide",
+    "nombre": "Flexiones abiertas",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros",
+      "triceps"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "Colócate en posición de flexión con las manos bastante más abiertas que los hombros.",
+      "Mantén el cuerpo en línea recta apretando el abdomen.",
+      "Baja el pecho hacia el suelo hasta quedar a pocos centímetros.",
+      "Empuja hasta estirar los brazos y vuelve arriba."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Abrir tanto las manos que duelan los hombros.",
+      "Dejar caer la cadera.",
+      "Hacer medio recorrido."
+    ],
+    "variante_facil": "Hazlas con las rodillas apoyadas.",
+    "variante_dificil": "Pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": "Plyo_Push-up",
+    "nombre": "Flexiones pliométricas",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "triceps",
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "avanzado",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 90,
+    "pasos": [
+      "Colócate en posición de flexión con las manos al ancho de los hombros.",
+      "Baja el pecho de forma controlada hacia el suelo.",
+      "Empuja con fuerza explosiva para que las manos se despeguen del suelo.",
+      "Aterriza con los codos ligeramente doblados y encadena la siguiente bajada."
+    ],
+    "respiracion": "Inhala al bajar y exhala con fuerza al empujar.",
+    "errores_comunes": [
+      "Aterrizar con los brazos rígidos.",
+      "Perder la línea del cuerpo.",
+      "Hacerlas cansado y sin control."
+    ],
+    "variante_facil": "Flexiones rápidas sin despegar las manos o con las manos sobre un banco.",
+    "variante_dificil": "Da una palmada en el aire antes de aterrizar."
+  },
+  {
+    "id_externo": "Cross_Over_-_With_Bands",
+    "nombre": "Aperturas con banda elástica",
+    "musculo_principal": "pecho",
+    "musculos_secundarios": [
+      "hombros"
+    ],
+    "equipo": "banda elastica",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Ancla la banda detrás de ti a la altura del pecho y sujeta un extremo en cada mano.",
+      "Da un paso al frente para tensar la banda, con los brazos abiertos y los codos un poco doblados.",
+      "Junta las manos por delante del pecho describiendo un arco.",
+      "Abre despacio resistiendo la tensión de la banda."
+    ],
+    "respiracion": "Exhala al juntar las manos e inhala al abrir.",
+    "errores_comunes": [
+      "Dejar que la banda tire de los brazos hacia atrás.",
+      "Doblar y estirar los codos.",
+      "Arquear la espalda."
+    ],
+    "variante_facil": "Usa una banda más suave o acércate al anclaje.",
+    "variante_dificil": "Usa una banda más dura o haz una pausa con las manos juntas."
+  },
+  {
+    "id_externo": "Chin-Up",
+    "nombre": "Dominadas supinas",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 120,
+    "pasos": [
+      "Cuélgate de una barra fija con las palmas hacia ti y las manos al ancho de los hombros.",
+      "Lleva los hombros abajo y atrás y aprieta el abdomen.",
+      "Tira con la espalda y los brazos hasta que la barbilla pase por encima de la barra.",
+      "Baja de forma controlada hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Balancearse para subir.",
+      "No estirar los brazos abajo.",
+      "Estirar el cuello para pasar la barbilla."
+    ],
+    "variante_facil": "Dominadas asistidas con banda o solo la bajada lenta.",
+    "variante_dificil": "Añade lastre o haz una pausa arriba."
+  },
+  {
+    "id_externo": "Band_Assisted_Pull-Up",
+    "nombre": "Dominadas asistidas con banda",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "banda elastica",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 90,
+    "pasos": [
+      "Ata la banda al centro de la barra y pasa por ella una rodilla o los pies.",
+      "Agarra la barra con las palmas hacia delante, un poco más abierto que los hombros, y estira los brazos.",
+      "Tira hasta que la barbilla pase la barra; la banda te ayuda en la parte más difícil.",
+      "Baja despacio hasta estirar los brazos sin soltar la banda de golpe."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Dejar que la banda te lance hacia arriba sin trabajar.",
+      "Bajar de golpe.",
+      "Encoger los hombros."
+    ],
+    "variante_facil": "Usa una banda más gruesa.",
+    "variante_dificil": "Usa una banda más delgada hasta lograr dominadas sin ayuda."
+  },
+  {
+    "id_externo": "Inverted_Row",
+    "nombre": "Remo invertido",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "Coloca una barra a la altura de la cintura y cuélgate debajo, agarrándola un poco más abierto que los hombros.",
+      "Estira las piernas y apoya los talones, con el cuerpo recto como en una plancha boca arriba.",
+      "Tira del pecho hacia la barra juntando los omóplatos.",
+      "Baja despacio hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Dejar caer la cadera.",
+      "Tirar con el cuello hacia la barra.",
+      "Bajar sin control."
+    ],
+    "variante_facil": "Dobla las rodillas o sube la barra.",
+    "variante_dificil": "Eleva los pies sobre un banco."
+  },
+  {
+    "id_externo": "Close-Grip_Front_Lat_Pulldown",
+    "nombre": "Jalón con agarre cerrado",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Siéntate en la máquina de jalón con las rodillas bajo el soporte y agarra la barra con las manos juntas o el maneral en V.",
+      "Inclina un poco el tronco hacia atrás con el pecho alto.",
+      "Tira hacia la parte alta del pecho llevando los codos hacia abajo y pegados al cuerpo.",
+      "Sube despacio hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al tirar e inhala al subir.",
+    "errores_comunes": [
+      "Balancear el tronco.",
+      "Tirar solo con los brazos.",
+      "Soltar el peso de golpe."
+    ],
+    "variante_facil": "Menos peso y pausa corta abajo.",
+    "variante_dificil": "Bajada de cuatro segundos."
+  },
+  {
+    "id_externo": "Straight-Arm_Pulldown",
+    "nombre": "Jalón con brazos rectos",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "triceps"
+    ],
+    "equipo": "polea",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie frente a la polea alta, agarra la barra con las palmas hacia abajo al ancho de los hombros.",
+      "Da un paso atrás, inclina un poco el tronco y estira los brazos al frente con los codos casi rectos.",
+      "Lleva la barra hacia los muslos en un arco, usando la espalda y sin doblar los codos.",
+      "Vuelve despacio a la altura de los ojos."
+    ],
+    "respiracion": "Exhala al bajar la barra e inhala al subirla.",
+    "errores_comunes": [
+      "Doblar los codos y convertirlo en extensión de tríceps.",
+      "Mover el tronco para ayudarte.",
+      "Encoger los hombros."
+    ],
+    "variante_facil": "Peso ligero y recorrido corto.",
+    "variante_dificil": "Pausa de dos segundos con la barra en los muslos."
+  },
+  {
+    "id_externo": "T-Bar_Row_with_Handle",
+    "nombre": "Remo en T",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Colócate a horcajadas sobre la barra en T con los pies al ancho de los hombros y agarra el maneral.",
+      "Inclina el torso hacia delante desde la cadera con la espalda recta y las rodillas un poco dobladas.",
+      "Tira del maneral hacia el pecho llevando los codos atrás.",
+      "Baja despacio hasta estirar los brazos sin perder la inclinación."
+    ],
+    "respiracion": "Exhala al tirar e inhala al bajar.",
+    "errores_comunes": [
+      "Redondear la espalda.",
+      "Levantar el torso para ayudarte.",
+      "Usar demasiado peso con poco recorrido."
+    ],
+    "variante_facil": "Remo con pecho apoyado en máquina.",
+    "variante_dificil": "Pausa de un segundo arriba."
+  },
+  {
+    "id_externo": "Bent_Over_Two-Dumbbell_Row",
+    "nombre": "Remo con dos mancuernas",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "De pie, sujeta una mancuerna en cada mano y flexiona ligeramente las rodillas.",
+      "Inclina el tronco desde la cadera con la espalda recta hasta casi quedar paralelo al suelo.",
+      "Tira de las mancuernas hacia los costados de la cadera llevando los codos atrás.",
+      "Baja despacio hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al tirar e inhala al bajar.",
+    "errores_comunes": [
+      "Encorvar la espalda.",
+      "Levantar el tronco.",
+      "Abrir mucho los codos."
+    ],
+    "variante_facil": "Remo a una mano apoyado en un banco.",
+    "variante_dificil": "Pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Leverage_High_Row",
+    "nombre": "Remo alto en máquina",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Ajusta el asiento para que alcances las manijas con los brazos estirados por encima de ti y fija las piernas bajo el soporte.",
+      "Agarra las manijas con el pecho alto.",
+      "Tira hacia abajo y atrás llevando los codos a los costados.",
+      "Vuelve despacio hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al tirar e inhala al volver.",
+    "errores_comunes": [
+      "Encoger los hombros.",
+      "Usar impulso del tronco.",
+      "Soltar el peso de golpe."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Hazlo a un brazo."
+  },
+  {
+    "id_externo": "Dumbbell_Incline_Row",
+    "nombre": "Remo con pecho apoyado",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps",
+      "hombros"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Ajusta un banco a unos 30° y túmbate boca abajo con el pecho apoyado y una mancuerna en cada mano.",
+      "Deja colgar los brazos estirados hacia el suelo.",
+      "Tira de las mancuernas hacia la cadera juntando los omóplatos.",
+      "Bájalas despacio hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al tirar e inhala al bajar.",
+    "errores_comunes": [
+      "Despegar el pecho del banco.",
+      "Tirar hacia los hombros.",
+      "Usar impulso."
+    ],
+    "variante_facil": "Mancuernas más ligeras.",
+    "variante_dificil": "Pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Barbell_Deadlift",
+    "nombre": "Peso muerto con barra",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "gluteos",
+      "isquiotibiales"
+    ],
+    "equipo": "barra",
+    "nivel": "avanzado",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 180,
+    "pasos": [
+      "Colócate con los pies al ancho de la cadera y la barra sobre la mitad del pie.",
+      "Dobla cadera y rodillas para agarrar la barra justo por fuera de las piernas, con la espalda recta y el pecho alto.",
+      "Toma aire, aprieta el abdomen y empuja el suelo con las piernas, manteniendo la barra pegada al cuerpo hasta quedar de pie.",
+      "Baja la barra llevando primero la cadera atrás y luego doblando las rodillas, sin redondear la espalda."
+    ],
+    "respiracion": "Toma aire y aprieta el abdomen antes de cada repetición; suéltalo arriba.",
+    "errores_comunes": [
+      "Redondear la espalda.",
+      "Alejar la barra de las piernas.",
+      "Echar el cuerpo hacia atrás al final."
+    ],
+    "variante_facil": "Peso muerto con kettlebell o desde bloques.",
+    "variante_dificil": "Peso muerto con pausa justo por debajo de las rodillas."
+  },
+  {
+    "id_externo": "Hyperextensions_Back_Extensions",
+    "nombre": "Hiperextensiones",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "gluteos",
+      "isquiotibiales"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "Ajusta el banco de hiperextensiones para que el borde del cojín quede justo bajo la cadera y fija los tobillos.",
+      "Cruza los brazos sobre el pecho con el cuerpo recto.",
+      "Baja el tronco despacio doblándote desde la cadera con la espalda recta.",
+      "Sube hasta que el cuerpo quede de nuevo en línea recta, sin pasar hacia atrás."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Arquear la espalda por encima de la línea del cuerpo.",
+      "Subir con impulso.",
+      "Redondear la espalda al bajar."
+    ],
+    "variante_facil": "Superman en el suelo.",
+    "variante_dificil": "Sujeta un disco contra el pecho."
+  },
+  {
+    "id_externo": "Dumbbell_Shrug",
+    "nombre": "Encogimientos con mancuernas",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie, con una mancuerna en cada mano a los lados del cuerpo y las palmas hacia dentro.",
+      "Mantén los brazos estirados y la espalda recta.",
+      "Sube los hombros hacia las orejas lo más alto que puedas.",
+      "Sostén un segundo y bájalos despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Girar los hombros en círculos.",
+      "Doblar los codos.",
+      "Mover la cabeza hacia delante."
+    ],
+    "variante_facil": "Mancuernas ligeras.",
+    "variante_dificil": "Pausa de tres segundos arriba."
+  },
+  {
+    "id_externo": "One-Arm_Kettlebell_Row",
+    "nombre": "Remo con kettlebell a una mano",
+    "musculo_principal": "espalda",
+    "musculos_secundarios": [
+      "biceps"
+    ],
+    "equipo": "kettlebell",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 60,
+    "pasos": [
+      "Da un paso atrás con una pierna y apoya la mano del mismo lado sobre la rodilla adelantada o un banco.",
+      "Sujeta la kettlebell con la otra mano y el brazo estirado, con la espalda recta.",
+      "Tira de la kettlebell hacia la cadera llevando el codo atrás.",
+      "Bájala despacio y repite; luego cambia de lado."
+    ],
+    "respiracion": "Exhala al tirar e inhala al bajar.",
+    "errores_comunes": [
+      "Girar el tronco.",
+      "Redondear la espalda.",
+      "Tirar hacia el hombro."
+    ],
+    "variante_facil": "Kettlebell más ligera.",
+    "variante_dificil": "Pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Front_Barbell_Squat",
+    "nombre": "Sentadilla frontal con barra",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos",
+      "abdomen"
+    ],
+    "equipo": "barra",
+    "nivel": "avanzado",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 150,
+    "pasos": [
+      "Coloca la barra en el soporte a la altura del pecho y apóyala sobre la parte delantera de los hombros, cerca del cuello, con los codos altos y al frente.",
+      "Saca la barra del soporte y separa los pies al ancho de los hombros.",
+      "Baja manteniendo el tronco lo más vertical posible y los codos altos, hasta que los muslos queden al menos paralelos al suelo.",
+      "Sube empujando el suelo con todo el pie sin dejar caer los codos y deja la barra en el soporte al terminar."
+    ],
+    "respiracion": "Toma aire arriba, mantenlo al bajar y suéltalo al terminar de subir.",
+    "errores_comunes": [
+      "Dejar caer los codos y que la barra ruede hacia delante.",
+      "Levantar los talones.",
+      "Inclinar el tronco hacia delante."
+    ],
+    "variante_facil": "Sentadilla goblet con mancuerna.",
+    "variante_dificil": "Sentadilla frontal con pausa abajo."
+  },
+  {
+    "id_externo": "Hack_Squat",
+    "nombre": "Sentadilla hack",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Colócate en la máquina con la espalda contra el respaldo, los hombros bajo las almohadillas y los pies al ancho de los hombros en la plataforma.",
+      "Estira las piernas y quita los seguros.",
+      "Baja doblando las rodillas hasta unos 90° o un poco más, sin despegar la espalda.",
+      "Empuja con todo el pie hasta casi estirar las piernas y pon los seguros al terminar."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Bloquear las rodillas arriba.",
+      "Levantar los talones.",
+      "Rodillas que se cierran hacia dentro."
+    ],
+    "variante_facil": "Menos peso y recorrido más corto.",
+    "variante_dificil": "Pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": "Split_Squat_with_Dumbbells",
+    "nombre": "Sentadilla dividida con mancuernas",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos",
+      "isquiotibiales"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Sujeta una mancuerna en cada mano y da un paso largo, quedando con un pie delante y otro detrás, apoyado en la punta.",
+      "Mantén el tronco erguido y el peso repartido sobre el pie de delante.",
+      "Baja la rodilla de atrás hacia el suelo hasta que ambas rodillas formen unos 90°.",
+      "Empuja con el pie de delante para subir sin mover los pies; termina las repeticiones y cambia de pierna."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Colocar los pies en línea y perder el equilibrio.",
+      "Dejar que la rodilla de delante se vaya hacia dentro.",
+      "Empujar con la pierna de atrás."
+    ],
+    "variante_facil": "Sin mancuernas y apoyándote en una pared.",
+    "variante_dificil": "Sentadilla búlgara con el pie de atrás sobre un banco."
+  },
+  {
+    "id_externo": "Dumbbell_Step_Ups",
+    "nombre": "Subida al cajón con mancuernas",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Colócate frente a un cajón o banco firme, a la altura de la rodilla, con una mancuerna en cada mano.",
+      "Apoya un pie completo sobre el cajón.",
+      "Empuja con esa pierna para subir hasta quedar de pie sobre el cajón, sin impulsarte con la pierna de abajo.",
+      "Baja de forma controlada con la misma pierna y repite; luego cambia."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Impulsarse con el pie de abajo.",
+      "Usar un cajón demasiado alto.",
+      "Inclinar mucho el tronco."
+    ],
+    "variante_facil": "Sin peso y con un escalón más bajo.",
+    "variante_dificil": "Cajón más alto o más peso."
+  },
+  {
+    "id_externo": "Dumbbell_Rear_Lunge",
+    "nombre": "Zancada inversa con mancuernas",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos",
+      "isquiotibiales"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "De pie, con una mancuerna en cada mano a los lados del cuerpo.",
+      "Da un paso largo hacia atrás con una pierna.",
+      "Baja hasta que la rodilla de atrás quede cerca del suelo y la de delante sobre el tobillo.",
+      "Empuja con el pie de delante para volver a juntar los pies y alterna."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Dar un paso demasiado corto.",
+      "Inclinar el tronco hacia delante.",
+      "Golpear la rodilla contra el suelo."
+    ],
+    "variante_facil": "Zancada inversa sin peso.",
+    "variante_dificil": "Zancada inversa desde un escalón para más recorrido."
+  },
+  {
+    "id_externo": "Freehand_Jump_Squat",
+    "nombre": "Sentadilla con salto",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos",
+      "pantorrillas"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie con los pies al ancho de los hombros y los brazos al frente.",
+      "Baja en sentadilla hasta que los muslos queden casi paralelos al suelo.",
+      "Salta hacia arriba con fuerza estirando cadera, rodillas y tobillos.",
+      "Aterriza suave sobre la parte delantera del pie y baja directamente a la siguiente sentadilla."
+    ],
+    "respiracion": "Inhala al bajar y exhala al saltar.",
+    "errores_comunes": [
+      "Aterrizar con las piernas rígidas.",
+      "Rodillas que se cierran al caer.",
+      "Hacer sentadillas muy cortas."
+    ],
+    "variante_facil": "Sentadilla normal subiendo a puntas de pie.",
+    "variante_dificil": "Sentadilla con salto con pausa abajo."
+  },
+  {
+    "id_externo": "Plie_Dumbbell_Squat",
+    "nombre": "Sentadilla sumo con mancuerna",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "De pie con los pies bastante más abiertos que los hombros y las puntas hacia fuera.",
+      "Sujeta una mancuerna con las dos manos colgando entre las piernas.",
+      "Baja la cadera recta hacia abajo con el pecho alto, empujando las rodillas en la dirección de los pies.",
+      "Sube apretando glúteos y la cara interna de los muslos."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Dejar que las rodillas se cierren.",
+      "Inclinar el tronco.",
+      "Levantar los talones."
+    ],
+    "variante_facil": "Sin peso.",
+    "variante_dificil": "Pies sobre dos escalones para bajar más."
+  },
+  {
+    "id_externo": "Smith_Machine_Squat",
+    "nombre": "Sentadilla en máquina Smith",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Ajusta la barra de la máquina Smith a la altura de los hombros y colócala sobre la parte alta de la espalda.",
+      "Adelanta un poco los pies respecto a la barra, al ancho de los hombros.",
+      "Gira la barra para liberarla y baja doblando rodillas y cadera hasta que los muslos queden paralelos al suelo.",
+      "Sube empujando con todo el pie y vuelve a trabar la barra al terminar."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Colocar los pies justo bajo la barra y cargar las rodillas.",
+      "No trabar la barra al terminar.",
+      "Despegar los talones."
+    ],
+    "variante_facil": "Menos peso y recorrido más corto.",
+    "variante_dificil": "Pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": "Squats_-_With_Bands",
+    "nombre": "Sentadilla con banda elástica",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "banda elastica",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 60,
+    "pasos": [
+      "Pisa la banda con los pies al ancho de los hombros y pasa los extremos por encima de los hombros, sujetándolos a la altura del pecho.",
+      "Mantén el pecho alto y el abdomen firme.",
+      "Baja en sentadilla hasta que los muslos queden paralelos al suelo.",
+      "Sube empujando el suelo contra la tensión de la banda."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Dejar que la banda te incline hacia delante.",
+      "Rodillas hacia dentro.",
+      "Soltar la banda de golpe."
+    ],
+    "variante_facil": "Banda más suave.",
+    "variante_dificil": "Banda más dura o pausa abajo."
+  },
+  {
+    "id_externo": "Barbell_Walking_Lunge",
+    "nombre": "Zancada caminando con barra",
+    "musculo_principal": "cuadriceps",
+    "musculos_secundarios": [
+      "gluteos",
+      "isquiotibiales"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Coloca la barra sobre la parte alta de la espalda y asegúrate de tener espacio libre por delante.",
+      "Da un paso largo al frente y baja hasta que la rodilla de atrás quede cerca del suelo.",
+      "Empuja con la pierna de delante y lleva la de atrás hacia delante para dar el siguiente paso.",
+      "Avanza alternando piernas con el tronco erguido."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Pasos cortos que cargan la rodilla.",
+      "Perder el equilibrio por pisar en línea.",
+      "Inclinar el tronco."
+    ],
+    "variante_facil": "Zancadas caminando sin peso o con mancuernas.",
+    "variante_dificil": "Más peso o pausa abajo en cada paso."
+  },
+  {
+    "id_externo": "Seated_Leg_Curl",
+    "nombre": "Curl femoral sentado",
+    "musculo_principal": "isquiotibiales",
+    "musculos_secundarios": [],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "Ajusta la máquina para que las rodillas queden alineadas con el eje y el rodillo bajo los tobillos.",
+      "Baja la almohadilla superior sobre los muslos para fijarlos.",
+      "Dobla las rodillas llevando los talones hacia abajo y atrás.",
+      "Vuelve despacio hasta casi estirar las piernas."
+    ],
+    "respiracion": "Exhala al doblar e inhala al volver.",
+    "errores_comunes": [
+      "Mover la cadera.",
+      "Soltar el peso de golpe.",
+      "Hacer medio recorrido."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "A una pierna con bajada lenta."
+  },
+  {
+    "id_externo": "Standing_Leg_Curl",
+    "nombre": "Curl femoral de pie",
+    "musculo_principal": "isquiotibiales",
+    "musculos_secundarios": [],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 60,
+    "pasos": [
+      "Colócate en la máquina con el muslo apoyado en el cojín y el rodillo detrás del tobillo de la pierna que trabaja.",
+      "Sujeta las manijas y mantén la cadera quieta.",
+      "Dobla la rodilla llevando el talón hacia el glúteo.",
+      "Baja despacio y, al terminar, cambia de pierna."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Arquear la espalda.",
+      "Balancear la pierna.",
+      "Bajar de golpe."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Good_Morning",
+    "nombre": "Buenos días con barra",
+    "musculo_principal": "isquiotibiales",
+    "musculos_secundarios": [
+      "gluteos",
+      "espalda"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Coloca una barra ligera sobre la parte alta de la espalda, como en una sentadilla, con los pies al ancho de la cadera.",
+      "Dobla ligeramente las rodillas.",
+      "Lleva la cadera hacia atrás e inclina el tronco con la espalda recta hasta sentir tensión en los isquiotibiales.",
+      "Sube empujando la cadera hacia delante hasta quedar erguido."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Redondear la espalda.",
+      "Usar demasiado peso.",
+      "Bajar más de lo que permite tu flexibilidad."
+    ],
+    "variante_facil": "Buenos días con una banda elástica o un palo.",
+    "variante_dificil": "Pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": "Sumo_Deadlift",
+    "nombre": "Peso muerto sumo",
+    "musculo_principal": "isquiotibiales",
+    "musculos_secundarios": [
+      "gluteos",
+      "cuadriceps",
+      "espalda"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 150,
+    "pasos": [
+      "Colócate con los pies muy abiertos, las puntas hacia fuera y la barra sobre la mitad del pie.",
+      "Agarra la barra con las manos por dentro de las piernas, con los brazos estirados y el pecho alto.",
+      "Empuja el suelo hacia los lados con los pies y sube la barra pegada al cuerpo hasta quedar erguido.",
+      "Baja de forma controlada llevando la cadera atrás y doblando las rodillas."
+    ],
+    "respiracion": "Toma aire y aprieta el abdomen antes de subir; suéltalo arriba.",
+    "errores_comunes": [
+      "Dejar que las rodillas se cierren.",
+      "Redondear la espalda.",
+      "Levantar la cadera antes que la barra."
+    ],
+    "variante_facil": "Sentadilla sumo con mancuerna.",
+    "variante_dificil": "Pausa justo debajo de las rodillas."
+  },
+  {
+    "id_externo": "Kettlebell_One-Legged_Deadlift",
+    "nombre": "Peso muerto a una pierna con kettlebell",
+    "musculo_principal": "isquiotibiales",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "kettlebell",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "De pie sobre una pierna, sujeta la kettlebell con la mano del lado contrario.",
+      "Dobla un poco la rodilla de apoyo.",
+      "Inclina el tronco hacia delante desde la cadera mientras la pierna libre se estira hacia atrás, hasta que el tronco quede casi paralelo al suelo.",
+      "Vuelve a la posición erguida apretando el glúteo de la pierna de apoyo."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Girar la cadera hacia fuera.",
+      "Redondear la espalda.",
+      "Doblar mucho la rodilla de apoyo."
+    ],
+    "variante_facil": "Sin peso y tocando una pared con la mano.",
+    "variante_dificil": "Más peso o pausa abajo."
+  },
+  {
+    "id_externo": "Natural_Glute_Ham_Raise",
+    "nombre": "Curl nórdico",
+    "musculo_principal": "isquiotibiales",
+    "musculos_secundarios": [
+      "gluteos"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "avanzado",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 120,
+    "pasos": [
+      "Arrodíllate sobre una colchoneta y fija los tobillos bajo un mueble firme o pide a alguien que los sujete.",
+      "Mantén el cuerpo recto de las rodillas a la cabeza y las manos listas delante del pecho.",
+      "Inclínate hacia delante muy despacio frenando con los isquiotibiales todo lo que puedas.",
+      "Cuando no puedas frenar más, apóyate con las manos, empújate y vuelve a la posición inicial."
+    ],
+    "respiracion": "Inhala antes de bajar y exhala al volver.",
+    "errores_comunes": [
+      "Doblarse por la cadera.",
+      "Caer de golpe sin frenar.",
+      "Usar un anclaje inestable."
+    ],
+    "variante_facil": "Baja solo una parte del recorrido o usa una banda para ayudarte.",
+    "variante_dificil": "Haz el recorrido completo subiendo también con los isquiotibiales."
+  },
+  {
+    "id_externo": "Single_Leg_Glute_Bridge",
+    "nombre": "Puente de glúteo a una pierna",
+    "musculo_principal": "gluteos",
+    "musculos_secundarios": [
+      "isquiotibiales"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 45,
+    "pasos": [
+      "Acuéstate boca arriba con una rodilla doblada y el pie apoyado; estira la otra pierna hacia arriba.",
+      "Apoya los brazos a los lados.",
+      "Empuja con el talón apoyado y eleva la cadera hasta alinear rodilla, cadera y hombros.",
+      "Baja despacio sin que la cadera se incline hacia un lado; termina y cambia de pierna."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Dejar caer la cadera hacia un lado.",
+      "Arquear la espalda baja.",
+      "Empujar con la punta del pie."
+    ],
+    "variante_facil": "Puente de glúteos con las dos piernas.",
+    "variante_dificil": "Pie apoyado sobre un banco."
+  },
+  {
+    "id_externo": "Barbell_Glute_Bridge",
+    "nombre": "Puente de glúteo con barra",
+    "musculo_principal": "gluteos",
+    "musculos_secundarios": [
+      "isquiotibiales"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Acuéstate boca arriba con una barra con protector sobre la cadera y las rodillas dobladas.",
+      "Sujeta la barra con las manos para que no ruede.",
+      "Empuja con los talones y eleva la cadera hasta alinear rodillas, cadera y hombros.",
+      "Aprieta los glúteos un segundo y baja despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Arquear la zona lumbar.",
+      "Usar la barra sin protector.",
+      "Bajar de golpe."
+    ],
+    "variante_facil": "Puente de glúteos sin peso.",
+    "variante_dificil": "Hip thrust con la espalda apoyada en un banco."
+  },
+  {
+    "id_externo": "Glute_Kickback",
+    "nombre": "Patada de glúteo",
+    "musculo_principal": "gluteos",
+    "musculos_secundarios": [
+      "isquiotibiales"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 30,
+    "pasos": [
+      "Colócate en cuatro apoyos con las manos bajo los hombros y las rodillas bajo la cadera.",
+      "Aprieta el abdomen para mantener la espalda recta.",
+      "Lleva una pierna hacia atrás y arriba, con la rodilla doblada a 90° y la planta mirando al techo, hasta que el muslo quede alineado con el tronco.",
+      "Baja despacio sin apoyar la rodilla y repite; luego cambia de pierna."
+    ],
+    "respiracion": "Exhala al subir la pierna e inhala al bajarla.",
+    "errores_comunes": [
+      "Arquear la espalda baja.",
+      "Girar la cadera hacia fuera.",
+      "Hacer el movimiento con impulso."
+    ],
+    "variante_facil": "Menos recorrido.",
+    "variante_dificil": "Añade una tobillera con peso o una banda."
+  },
+  {
+    "id_externo": "One-Legged_Cable_Kickback",
+    "nombre": "Patada de glúteo en polea",
+    "musculo_principal": "gluteos",
+    "musculos_secundarios": [
+      "isquiotibiales"
+    ],
+    "equipo": "polea",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Coloca la tobillera en la polea baja y sujétala a un tobillo.",
+      "Ponte de frente a la máquina, sujétate y apoya el peso en la otra pierna.",
+      "Lleva la pierna hacia atrás con la rodilla casi estirada, apretando el glúteo, sin arquear la espalda.",
+      "Vuelve despacio y cambia de pierna al terminar."
+    ],
+    "respiracion": "Exhala al llevar la pierna atrás e inhala al volver.",
+    "errores_comunes": [
+      "Arquear la espalda.",
+      "Balancear la pierna.",
+      "Usar demasiado peso."
+    ],
+    "variante_facil": "Menos peso o patada de glúteo en el suelo.",
+    "variante_dificil": "Pausa de dos segundos atrás."
+  },
+  {
+    "id_externo": "Pull_Through",
+    "nombre": "Pull through en polea",
+    "musculo_principal": "gluteos",
+    "musculos_secundarios": [
+      "isquiotibiales"
+    ],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Coloca la cuerda en la polea baja y ponte de espaldas a la máquina, con la cuerda pasando entre las piernas.",
+      "Da unos pasos al frente con los pies algo más abiertos que la cadera.",
+      "Lleva la cadera hacia atrás con la espalda recta, dejando que la cuerda pase entre las piernas.",
+      "Empuja la cadera hacia delante hasta quedar erguido, apretando los glúteos."
+    ],
+    "respiracion": "Inhala al llevar la cadera atrás y exhala al empujar.",
+    "errores_comunes": [
+      "Tirar con los brazos.",
+      "Redondear la espalda.",
+      "Convertirlo en una sentadilla."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa arriba de dos segundos."
+  },
+  {
+    "id_externo": "Thigh_Abductor",
+    "nombre": "Abducción de cadera en máquina",
+    "musculo_principal": "gluteos",
+    "musculos_secundarios": [],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Siéntate en la máquina con la espalda apoyada y la parte externa de las rodillas contra las almohadillas.",
+      "Sujeta las manijas laterales.",
+      "Abre las piernas hacia fuera lo más que puedas apretando los glúteos.",
+      "Ciérralas despacio sin que el peso golpee."
+    ],
+    "respiracion": "Exhala al abrir e inhala al cerrar.",
+    "errores_comunes": [
+      "Usar impulso.",
+      "Despegar la espalda.",
+      "Cerrar de golpe."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Inclina el tronco hacia delante y sostén abierto dos segundos."
+  },
+  {
+    "id_externo": "Monster_Walk",
+    "nombre": "Caminata lateral con banda",
+    "musculo_principal": "gluteos",
+    "musculos_secundarios": [],
+    "equipo": "banda elastica",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 30,
+    "pasos": [
+      "Coloca una mini banda alrededor de los tobillos o justo encima de las rodillas.",
+      "Separa los pies hasta tensar la banda y flexiona un poco cadera y rodillas.",
+      "Da pasos laterales cortos manteniendo la tensión de la banda en todo momento.",
+      "Da los pasos indicados hacia un lado y vuelve hacia el otro."
+    ],
+    "respiracion": "Respira de forma continua.",
+    "errores_comunes": [
+      "Juntar los pies y perder la tensión.",
+      "Balancear el tronco de lado a lado.",
+      "Dejar que las rodillas se cierren."
+    ],
+    "variante_facil": "Banda más suave o colocada sobre las rodillas.",
+    "variante_dificil": "Banda más dura colocada en los tobillos."
+  },
+  {
+    "id_externo": "Standing_Military_Press",
+    "nombre": "Press militar de pie con barra",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "triceps",
+      "abdomen"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Coloca la barra en el soporte a la altura del pecho y agárrala un poco más abierto que los hombros, con las palmas hacia delante.",
+      "Saca la barra y apóyala sobre la parte alta del pecho, con los pies al ancho de la cadera y glúteos y abdomen apretados.",
+      "Empuja la barra hacia arriba apartando un poco la cabeza hacia atrás y, cuando pase la frente, mete la cabeza bajo la barra hasta estirar los brazos.",
+      "Baja la barra de forma controlada hasta el pecho."
+    ],
+    "respiracion": "Toma aire antes de empujar y suéltalo arriba.",
+    "errores_comunes": [
+      "Arquear la espalda baja para empujar.",
+      "Empujar la barra hacia delante en lugar de en línea recta.",
+      "Doblar las rodillas para impulsarse."
+    ],
+    "variante_facil": "Press de hombros sentado con mancuernas.",
+    "variante_dificil": "Pausa de un segundo con la barra en el pecho."
+  },
+  {
+    "id_externo": "Arnold_Dumbbell_Press",
+    "nombre": "Press Arnold",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "triceps"
+    ],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Siéntate con la espalda apoyada y sujeta las mancuernas frente a los hombros, con las palmas hacia ti y los codos doblados.",
+      "Empieza a empujar hacia arriba mientras giras las muñecas para que las palmas terminen mirando al frente.",
+      "Estira los brazos por encima de la cabeza sin chocar las mancuernas.",
+      "Baja deshaciendo el giro hasta volver a la posición inicial."
+    ],
+    "respiracion": "Exhala al empujar e inhala al bajar.",
+    "errores_comunes": [
+      "Hacer el giro y el empuje por separado.",
+      "Arquear la espalda.",
+      "Usar demasiado peso."
+    ],
+    "variante_facil": "Press militar con mancuernas sin giro.",
+    "variante_dificil": "Hazlo de pie."
+  },
+  {
+    "id_externo": "Machine_Shoulder_Military_Press",
+    "nombre": "Press de hombros en máquina",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "triceps"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Ajusta el asiento para que las manijas queden a la altura de los hombros.",
+      "Siéntate con la espalda apoyada y agarra las manijas.",
+      "Empuja hacia arriba hasta estirar los brazos sin bloquear los codos.",
+      "Baja despacio hasta la altura de los hombros."
+    ],
+    "respiracion": "Exhala al empujar e inhala al bajar.",
+    "errores_comunes": [
+      "Despegar la espalda.",
+      "Encoger los hombros.",
+      "Bajar de golpe."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Bajada de cuatro segundos."
+  },
+  {
+    "id_externo": "Standing_Low-Pulley_Deltoid_Raise",
+    "nombre": "Elevación lateral en polea",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [],
+    "equipo": "polea",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Colócate de lado a la polea baja y agarra el maneral con la mano más alejada, con el cable cruzando por delante del cuerpo.",
+      "Sujétate a la máquina con la otra mano y mantén el codo ligeramente doblado.",
+      "Eleva el brazo hacia el lado hasta la altura del hombro.",
+      "Baja despacio y, al terminar, cambia de lado."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Inclinar el tronco para subir.",
+      "Subir por encima del hombro.",
+      "Doblar mucho el codo."
+    ],
+    "variante_facil": "Elevaciones laterales con mancuernas ligeras.",
+    "variante_dificil": "Pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Reverse_Machine_Flyes",
+    "nombre": "Pájaros en máquina",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "espalda"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Siéntate de frente al respaldo de la máquina de aperturas con el pecho apoyado.",
+      "Agarra las manijas con los brazos al frente y los codos un poco doblados.",
+      "Abre los brazos hacia atrás hasta que queden alineados con el cuerpo.",
+      "Vuelve despacio sin que el peso golpee."
+    ],
+    "respiracion": "Exhala al abrir e inhala al volver.",
+    "errores_comunes": [
+      "Encoger los hombros.",
+      "Despegar el pecho.",
+      "Usar demasiado peso."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa de dos segundos con los brazos abiertos."
+  },
+  {
+    "id_externo": "Upright_Barbell_Row",
+    "nombre": "Remo al mentón con barra",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "espalda"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "De pie, sujeta la barra con las palmas hacia ti y las manos un poco más abiertas que los hombros.",
+      "Deja la barra apoyada en los muslos con los brazos estirados.",
+      "Sube la barra pegada al cuerpo llevando los codos hacia arriba y a los lados, hasta la parte baja del pecho.",
+      "Bájala despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Agarre demasiado estrecho, que molesta los hombros.",
+      "Subir la barra hasta la barbilla.",
+      "Balancear el cuerpo."
+    ],
+    "variante_facil": "Remo al mentón con mancuernas o banda.",
+    "variante_dificil": "Pausa de un segundo arriba."
+  },
+  {
+    "id_externo": "Face_Pull",
+    "nombre": "Face pull",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "espalda"
+    ],
+    "equipo": "polea",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Coloca la cuerda en la polea a la altura de la cara y agárrala con las palmas hacia dentro.",
+      "Da un paso atrás hasta estirar los brazos.",
+      "Tira de la cuerda hacia la cara separando las manos y llevando los codos altos y hacia atrás.",
+      "Vuelve despacio estirando los brazos."
+    ],
+    "respiracion": "Exhala al tirar e inhala al volver.",
+    "errores_comunes": [
+      "Tirar con los codos bajos.",
+      "Inclinar el tronco hacia atrás.",
+      "Usar demasiado peso."
+    ],
+    "variante_facil": "Separación de banda.",
+    "variante_dificil": "Pausa de dos segundos con las manos junto a las orejas."
+  },
+  {
+    "id_externo": "Lateral_Raise_-_With_Bands",
+    "nombre": "Elevaciones laterales con banda",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [],
+    "equipo": "banda elastica",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Pisa el centro de la banda con los pies juntos y sujeta un extremo en cada mano a los lados del cuerpo.",
+      "Dobla ligeramente los codos.",
+      "Eleva los brazos hacia los lados hasta la altura de los hombros.",
+      "Baja despacio resistiendo la banda."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Encoger los hombros.",
+      "Dejar que la banda baje los brazos de golpe.",
+      "Inclinar el tronco."
+    ],
+    "variante_facil": "Banda más suave.",
+    "variante_dificil": "Pausa arriba de dos segundos."
+  },
+  {
+    "id_externo": "Band_Pull_Apart",
+    "nombre": "Separación de banda",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "espalda"
+    ],
+    "equipo": "banda elastica",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 30,
+    "pasos": [
+      "De pie, sujeta la banda con las dos manos al ancho de los hombros y los brazos estirados al frente a la altura del pecho.",
+      "Mantén los codos casi rectos.",
+      "Separa las manos estirando la banda hasta que toque el pecho, juntando los omóplatos.",
+      "Vuelve despacio a la posición inicial."
+    ],
+    "respiracion": "Exhala al separar e inhala al volver.",
+    "errores_comunes": [
+      "Doblar los codos.",
+      "Arquear la espalda.",
+      "Encoger los hombros."
+    ],
+    "variante_facil": "Sujeta la banda con las manos más separadas.",
+    "variante_dificil": "Banda más dura."
+  },
+  {
+    "id_externo": "Handstand_Push-Ups",
+    "nombre": "Flexiones de pino",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "triceps"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "avanzado",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "calistenia",
+      "casa"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 120,
+    "pasos": [
+      "Colócate de espaldas a una pared, apoya las manos en el suelo al ancho de los hombros y sube las piernas hasta apoyar los pies en la pared.",
+      "Mantén el cuerpo recto y el abdomen firme.",
+      "Dobla los codos y baja la cabeza hasta casi tocar el suelo, sobre una colchoneta.",
+      "Empuja hasta estirar los brazos."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Arquear mucho la espalda.",
+      "Bajar sin control y golpear la cabeza.",
+      "Abrir mucho los codos."
+    ],
+    "variante_facil": "Pike push-up con los pies sobre un banco.",
+    "variante_dificil": "Hazlas con las manos en paralelas para bajar más."
+  },
+  {
+    "id_externo": "Alternating_Kettlebell_Press",
+    "nombre": "Press de hombros con kettlebell",
+    "musculo_principal": "hombros",
+    "musculos_secundarios": [
+      "triceps"
+    ],
+    "equipo": "kettlebell",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "De pie, sujeta una kettlebell en cada mano a la altura de los hombros, con la bola apoyada en la parte externa del antebrazo.",
+      "Aprieta glúteos y abdomen.",
+      "Empuja una kettlebell hacia arriba hasta estirar el brazo.",
+      "Bájala despacio y alterna con el otro brazo."
+    ],
+    "respiracion": "Exhala al empujar e inhala al bajar.",
+    "errores_comunes": [
+      "Inclinar el cuerpo hacia el lado contrario.",
+      "Arquear la espalda.",
+      "Doblar la muñeca hacia atrás."
+    ],
+    "variante_facil": "Una sola kettlebell más ligera.",
+    "variante_dificil": "Empuja las dos a la vez."
+  },
+  {
+    "id_externo": "Preacher_Curl",
+    "nombre": "Curl predicador",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "barra",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 60,
+    "pasos": [
+      "Siéntate en el banco Scott con la parte trasera de los brazos apoyada en el cojín.",
+      "Agarra la barra con las palmas hacia arriba al ancho de los hombros.",
+      "Sube la barra doblando los codos hasta que los antebrazos queden casi verticales.",
+      "Bájala despacio hasta casi estirar los brazos, sin bloquear los codos de golpe."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Despegar los brazos del cojín.",
+      "Dejar caer la barra en la bajada.",
+      "Levantar la cadera del asiento."
+    ],
+    "variante_facil": "Menos peso o con mancuerna a un brazo.",
+    "variante_dificil": "Bajada de cuatro segundos."
+  },
+  {
+    "id_externo": "Concentration_Curls",
+    "nombre": "Curl concentrado",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "Siéntate en un banco con las piernas abiertas y sujeta una mancuerna con una mano.",
+      "Apoya la parte trasera del brazo contra la cara interna del muslo, con el brazo estirado.",
+      "Sube la mancuerna hacia el hombro doblando el codo.",
+      "Bájala despacio y, al terminar, cambia de brazo."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Mover el hombro para ayudarte.",
+      "Separar el brazo del muslo.",
+      "Bajar de golpe."
+    ],
+    "variante_facil": "Mancuerna más ligera.",
+    "variante_dificil": "Pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Incline_Dumbbell_Curl",
+    "nombre": "Curl inclinado con mancuernas",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 60,
+    "pasos": [
+      "Ajusta un banco a unos 45° y siéntate con la espalda apoyada y una mancuerna en cada mano, brazos colgando.",
+      "Gira las palmas hacia delante.",
+      "Sube las mancuernas doblando los codos sin adelantar los brazos.",
+      "Bájalas despacio hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Adelantar los codos.",
+      "Despegar la espalda.",
+      "Usar demasiado peso."
+    ],
+    "variante_facil": "Curl sentado con el banco vertical.",
+    "variante_dificil": "Bajada de cuatro segundos."
+  },
+  {
+    "id_externo": "Standing_Biceps_Cable_Curl",
+    "nombre": "Curl en polea",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "De pie frente a la polea baja, agarra la barra con las palmas hacia arriba al ancho de los hombros.",
+      "Pega los codos al cuerpo.",
+      "Sube la barra doblando los codos hasta el pecho.",
+      "Bájala despacio hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Inclinarse hacia atrás.",
+      "Mover los codos.",
+      "Soltar el peso de golpe."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Cable_Hammer_Curls_-_Rope_Attachment",
+    "nombre": "Curl martillo con cuerda",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "Coloca la cuerda en la polea baja y agárrala con las palmas enfrentadas.",
+      "De pie, pega los codos al cuerpo con los brazos estirados.",
+      "Sube la cuerda doblando los codos hasta la altura del pecho, sin girar las muñecas.",
+      "Baja despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Separar los codos del cuerpo.",
+      "Balancear el tronco.",
+      "Bajar de golpe."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Bajada de cuatro segundos."
+  },
+  {
+    "id_externo": "Machine_Bicep_Curl",
+    "nombre": "Curl en máquina",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "Ajusta el asiento para que los codos queden alineados con el eje de la máquina y los brazos apoyados en el cojín.",
+      "Agarra las manijas con las palmas hacia arriba.",
+      "Dobla los codos hasta llevar las manos cerca de los hombros.",
+      "Baja despacio sin bloquear los codos."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Despegar los brazos del cojín.",
+      "Levantar la cadera.",
+      "Soltar el peso."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "A un brazo con pausa arriba."
+  },
+  {
+    "id_externo": "Zottman_Curl",
+    "nombre": "Curl Zottman",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie, con una mancuerna en cada mano y las palmas hacia delante.",
+      "Sube las mancuernas doblando los codos como en un curl normal.",
+      "Arriba, gira las muñecas para que las palmas miren hacia abajo.",
+      "Baja despacio con las palmas hacia abajo y, abajo, vuelve a girarlas hacia delante."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Bajar rápido y perder la parte más útil del ejercicio.",
+      "Mover los codos.",
+      "Usar demasiado peso para la bajada."
+    ],
+    "variante_facil": "Curl martillo.",
+    "variante_dificil": "Bajada de cinco segundos."
+  },
+  {
+    "id_externo": "EZ-Bar_Curl",
+    "nombre": "Curl con barra Z",
+    "musculo_principal": "biceps",
+    "musculos_secundarios": [],
+    "equipo": "barra",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie, agarra la barra Z por la parte ondulada con las palmas hacia arriba.",
+      "Pega los codos al cuerpo con los brazos estirados.",
+      "Sube la barra doblando los codos hasta la altura del pecho.",
+      "Bájala despacio hasta estirar los brazos."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Balancear el cuerpo.",
+      "Adelantar los codos.",
+      "No estirar abajo."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa a mitad de recorrido."
+  },
+  {
+    "id_externo": "Triceps_Pushdown_-_Rope_Attachment",
+    "nombre": "Extensión de tríceps con cuerda",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "Coloca la cuerda en la polea alta y agárrala con las palmas enfrentadas.",
+      "Pega los codos al cuerpo con los antebrazos paralelos al suelo.",
+      "Empuja hacia abajo estirando los codos y separa las puntas de la cuerda al final.",
+      "Sube despacio hasta que los antebrazos queden de nuevo paralelos al suelo."
+    ],
+    "respiracion": "Exhala al empujar e inhala al subir.",
+    "errores_comunes": [
+      "Separar los codos.",
+      "Inclinarse sobre la cuerda.",
+      "Subir de golpe."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": "Triceps_Overhead_Extension_with_Rope",
+    "nombre": "Extensión sobre la cabeza con cuerda",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [],
+    "equipo": "polea",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 60,
+    "pasos": [
+      "Coloca la cuerda en la polea baja o media, agárrala y date la vuelta de espaldas a la máquina.",
+      "Da un paso al frente con la cuerda detrás de la cabeza y los codos apuntando al frente.",
+      "Estira los codos llevando las manos hacia delante y arriba.",
+      "Vuelve despacio doblando los codos sin moverlos de sitio."
+    ],
+    "respiracion": "Exhala al estirar e inhala al volver.",
+    "errores_comunes": [
+      "Abrir los codos.",
+      "Arquear la espalda.",
+      "Mover los brazos en lugar de solo los codos."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Bajada lenta de cuatro segundos."
+  },
+  {
+    "id_externo": "Close-Grip_Barbell_Bench_Press",
+    "nombre": "Press de banca con agarre cerrado",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [
+      "pecho",
+      "hombros"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 120,
+    "pasos": [
+      "Acuéstate en el banco y agarra la barra con las manos al ancho de los hombros.",
+      "Saca la barra del soporte con los brazos estirados.",
+      "Baja la barra hacia la parte baja del pecho con los codos cerca del cuerpo.",
+      "Empuja hasta estirar los brazos y deja la barra en el soporte al terminar."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Juntar demasiado las manos y forzar las muñecas.",
+      "Abrir los codos.",
+      "Rebotar la barra en el pecho."
+    ],
+    "variante_facil": "Flexiones cerradas.",
+    "variante_dificil": "Pausa de un segundo en el pecho."
+  },
+  {
+    "id_externo": "Dips_-_Triceps_Version",
+    "nombre": "Fondos en paralelas",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [
+      "pecho",
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 90,
+    "pasos": [
+      "Sujétate en las barras paralelas con los brazos estirados y el cuerpo vertical.",
+      "Mantén el tronco lo más recto posible y los codos apuntando atrás.",
+      "Baja doblando los codos hasta que formen unos 90°.",
+      "Empuja hasta estirar los brazos sin bloquear los codos de golpe."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Abrir los codos hacia los lados.",
+      "Bajar demasiado.",
+      "Balancear las piernas."
+    ],
+    "variante_facil": "Fondos en banco o asistidos con banda.",
+    "variante_dificil": "Fondos con lastre."
+  },
+  {
+    "id_externo": "Push-Ups_-_Close_Triceps_Position",
+    "nombre": "Flexiones cerradas",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [
+      "pecho",
+      "hombros"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "peso_corporal",
+    "descanso_seg": 60,
+    "pasos": [
+      "Colócate en posición de flexión con las manos juntas bajo el pecho, al ancho de la cara o menos.",
+      "Mantén el cuerpo recto.",
+      "Baja el pecho hacia las manos con los codos pegados al cuerpo.",
+      "Empuja hasta estirar los brazos."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Abrir los codos.",
+      "Dejar caer la cadera.",
+      "Hacer medio recorrido."
+    ],
+    "variante_facil": "Hazlas con las rodillas apoyadas o en un banco.",
+    "variante_dificil": "Pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": "EZ-Bar_Skullcrusher",
+    "nombre": "Rompecráneos con barra Z",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 60,
+    "pasos": [
+      "Acuéstate en un banco plano y sujeta la barra Z con las palmas hacia arriba, brazos estirados sobre el pecho.",
+      "Inclina un poco los brazos hacia la cabeza.",
+      "Dobla los codos y baja la barra hacia la frente o justo detrás de la cabeza, sin mover los brazos.",
+      "Estira los codos para volver arriba."
+    ],
+    "respiracion": "Inhala al bajar y exhala al subir.",
+    "errores_comunes": [
+      "Abrir los codos.",
+      "Mover los brazos como en un pullover.",
+      "Bajar sin control hacia la cara."
+    ],
+    "variante_facil": "Extensión con mancuernas en el suelo.",
+    "variante_dificil": "Bajada de cuatro segundos."
+  },
+  {
+    "id_externo": "Band_Skull_Crusher",
+    "nombre": "Extensión de tríceps con banda",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [],
+    "equipo": "banda elastica",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_brazos",
+    "descanso_seg": 45,
+    "pasos": [
+      "Acuéstate boca arriba con la banda anclada detrás de la cabeza a baja altura y sujeta los extremos.",
+      "Lleva los brazos hacia arriba con los codos doblados apuntando al techo.",
+      "Estira los codos hasta que los brazos queden rectos.",
+      "Vuelve despacio a doblar los codos."
+    ],
+    "respiracion": "Exhala al estirar e inhala al volver.",
+    "errores_comunes": [
+      "Abrir los codos.",
+      "Soltar la banda de golpe.",
+      "Mover los hombros."
+    ],
+    "variante_facil": "Banda más suave.",
+    "variante_dificil": "Banda más dura."
+  },
+  {
+    "id_externo": "Dip_Machine",
+    "nombre": "Fondos en máquina",
+    "musculo_principal": "triceps",
+    "musculos_secundarios": [
+      "pecho"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Siéntate en la máquina y ajusta el asiento para que las manijas queden a la altura del pecho.",
+      "Agarra las manijas con los codos doblados apuntando atrás.",
+      "Empuja hacia abajo hasta estirar los brazos.",
+      "Sube despacio hasta que los codos formen unos 90°."
+    ],
+    "respiracion": "Exhala al empujar e inhala al subir.",
+    "errores_comunes": [
+      "Abrir los codos.",
+      "Encoger los hombros.",
+      "Soltar el peso."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": "Cable_Crunch",
+    "nombre": "Crunch en polea",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 45,
+    "pasos": [
+      "Coloca la cuerda en la polea alta y arrodíllate frente a ella, sujetando la cuerda junto a la cabeza.",
+      "Mantén la cadera quieta, un poco por detrás de las rodillas.",
+      "Flexiona el tronco llevando los codos hacia los muslos, contrayendo el abdomen.",
+      "Vuelve despacio hasta estirar el tronco sin soltar la tensión."
+    ],
+    "respiracion": "Exhala al bajar los codos e inhala al volver.",
+    "errores_comunes": [
+      "Sentarse sobre los talones y tirar con la cadera.",
+      "Tirar con los brazos.",
+      "Usar demasiado peso."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa de dos segundos abajo."
+  },
+  {
+    "id_externo": "Reverse_Crunch",
+    "nombre": "Crunch inverso",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 30,
+    "pasos": [
+      "Acuéstate boca arriba con los brazos a los lados y las piernas elevadas con las rodillas dobladas a 90°.",
+      "Pega la zona lumbar al suelo.",
+      "Lleva las rodillas hacia el pecho despegando un poco la cadera del suelo con el abdomen.",
+      "Baja despacio hasta la posición inicial."
+    ],
+    "respiracion": "Exhala al subir la cadera e inhala al bajar.",
+    "errores_comunes": [
+      "Usar impulso de las piernas.",
+      "Dejar caer la cadera de golpe.",
+      "Empujar con las manos."
+    ],
+    "variante_facil": "Haz menos recorrido.",
+    "variante_dificil": "Hazlo en un banco declinado."
+  },
+  {
+    "id_externo": "Side_Bridge",
+    "nombre": "Plancha lateral",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [
+      "hombros",
+      "gluteos"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "isometrico",
+    "descanso_seg": 30,
+    "pasos": [
+      "Acuéstate de lado apoyado en el antebrazo, con el codo bajo el hombro y las piernas estiradas una sobre otra.",
+      "Eleva la cadera hasta que el cuerpo forme una línea recta de la cabeza a los pies.",
+      "Mantén la posición el tiempo indicado sin dejar caer la cadera.",
+      "Baja despacio y repite del otro lado."
+    ],
+    "respiracion": "Respira de forma lenta y continua.",
+    "errores_comunes": [
+      "Dejar caer la cadera.",
+      "Girar el tronco hacia delante.",
+      "Encoger el hombro de apoyo."
+    ],
+    "variante_facil": "Apoya la rodilla de abajo.",
+    "variante_dificil": "Eleva la pierna de arriba."
+  },
+  {
+    "id_externo": "Dead_Bug",
+    "nombre": "Bicho muerto",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 30,
+    "pasos": [
+      "Acuéstate boca arriba con los brazos estirados hacia el techo y las rodillas dobladas a 90° sobre la cadera.",
+      "Pega la zona lumbar al suelo apretando el abdomen.",
+      "Estira a la vez un brazo hacia atrás y la pierna contraria hacia delante, sin tocar el suelo y sin despegar la espalda.",
+      "Vuelve al centro y alterna lados."
+    ],
+    "respiracion": "Exhala al estirar brazo y pierna e inhala al volver.",
+    "errores_comunes": [
+      "Despegar la zona lumbar del suelo.",
+      "Hacerlo rápido.",
+      "Mover brazo y pierna del mismo lado."
+    ],
+    "variante_facil": "Mueve solo las piernas.",
+    "variante_dificil": "Sujeta una mancuerna ligera en las manos."
+  },
+  {
+    "id_externo": "Russian_Twist",
+    "nombre": "Giros rusos",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia",
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 30,
+    "pasos": [
+      "Siéntate con las rodillas dobladas y los talones apoyados, e inclina el tronco hacia atrás unos 45° con la espalda recta.",
+      "Junta las manos frente al pecho.",
+      "Gira el tronco hacia un lado llevando las manos junto a la cadera.",
+      "Gira hacia el otro lado de forma controlada y alterna."
+    ],
+    "respiracion": "Exhala en cada giro.",
+    "errores_comunes": [
+      "Mover solo los brazos sin girar el tronco.",
+      "Encorvar la espalda.",
+      "Hacerlo con impulso."
+    ],
+    "variante_facil": "Con los pies apoyados y menos inclinación.",
+    "variante_dificil": "Con los pies elevados y un disco o mancuerna."
+  },
+  {
+    "id_externo": "Hanging_Leg_Raise",
+    "nombre": "Elevación de piernas colgado",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "avanzado",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 60,
+    "pasos": [
+      "Cuélgate de una barra fija con las manos al ancho de los hombros y los brazos estirados.",
+      "Aprieta el abdomen para no balancearte.",
+      "Eleva las piernas estiradas hasta que queden paralelas al suelo o más arriba.",
+      "Bájalas despacio sin balanceo."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Balancearse para subir.",
+      "Arquear la espalda al bajar.",
+      "Dejar caer las piernas."
+    ],
+    "variante_facil": "Elevación de rodillas colgado.",
+    "variante_dificil": "Sube los pies hasta la barra."
+  },
+  {
+    "id_externo": "Knee_Hip_Raise_On_Parallel_Bars",
+    "nombre": "Elevación de rodillas en paralelas",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 45,
+    "pasos": [
+      "Apoya los antebrazos en la estación de paralelas o sillón romano, con la espalda contra el respaldo y las piernas colgando.",
+      "Aprieta el abdomen.",
+      "Sube las rodillas hacia el pecho elevando un poco la cadera.",
+      "Baja despacio hasta estirar las piernas."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Balancear las piernas.",
+      "Encoger los hombros.",
+      "Bajar de golpe."
+    ],
+    "variante_facil": "Haz menos recorrido.",
+    "variante_dificil": "Con las piernas estiradas."
+  },
+  {
+    "id_externo": "Barbell_Ab_Rollout_-_On_Knees",
+    "nombre": "Rueda abdominal",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [
+      "hombros",
+      "espalda"
+    ],
+    "equipo": "barra",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 60,
+    "pasos": [
+      "Arrodíllate sobre una colchoneta y sujeta una barra con discos o una rueda abdominal bajo los hombros.",
+      "Aprieta abdomen y glúteos y redondea un poco la espalda alta.",
+      "Rueda hacia delante estirando el cuerpo hasta donde puedas sin que la espalda baja se hunda.",
+      "Vuelve tirando con el abdomen hasta la posición inicial."
+    ],
+    "respiracion": "Inhala al rodar hacia delante y exhala al volver.",
+    "errores_comunes": [
+      "Hundir la zona lumbar.",
+      "Ir más lejos de lo que puedes controlar.",
+      "Volver tirando con la cadera."
+    ],
+    "variante_facil": "Rueda hacia una pared para limitar el recorrido.",
+    "variante_dificil": "Hazlo de pie."
+  },
+  {
+    "id_externo": "Pallof_Press",
+    "nombre": "Pallof press",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "polea",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "isometrico",
+    "descanso_seg": 45,
+    "pasos": [
+      "Coloca la polea a la altura del pecho y ponte de lado a ella sujetando el maneral con las dos manos contra el pecho.",
+      "Da un paso lateral para tensar el cable, con los pies al ancho de los hombros.",
+      "Empuja el maneral al frente hasta estirar los brazos, sin dejar que el cable te gire.",
+      "Sostén un segundo y vuelve al pecho; termina y cambia de lado."
+    ],
+    "respiracion": "Exhala al empujar e inhala al volver.",
+    "errores_comunes": [
+      "Girar el tronco hacia la polea.",
+      "Usar demasiado peso.",
+      "Arquear la espalda."
+    ],
+    "variante_facil": "Con una banda elástica y menos tensión.",
+    "variante_dificil": "Sostén tres segundos con los brazos estirados."
+  },
+  {
+    "id_externo": "Standing_Cable_Wood_Chop",
+    "nombre": "Leñador en polea",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [
+      "hombros"
+    ],
+    "equipo": "polea",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 45,
+    "pasos": [
+      "Coloca la polea en la posición alta y ponte de lado a ella con los pies algo más abiertos que los hombros.",
+      "Sujeta el maneral con las dos manos por encima del hombro más cercano a la polea.",
+      "Tira en diagonal hacia la cadera contraria girando el tronco y pivotando el pie de atrás.",
+      "Vuelve despacio a la posición inicial; termina y cambia de lado."
+    ],
+    "respiracion": "Exhala al tirar e inhala al volver.",
+    "errores_comunes": [
+      "Tirar solo con los brazos.",
+      "Redondear la espalda.",
+      "Usar impulso."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "De abajo hacia arriba con pausa."
+  },
+  {
+    "id_externo": "Air_Bike",
+    "nombre": "Abdominal bicicleta",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 30,
+    "pasos": [
+      "Acuéstate boca arriba con las manos tocando suavemente las sienes y las piernas elevadas con las rodillas dobladas.",
+      "Eleva un poco los hombros del suelo.",
+      "Lleva un codo hacia la rodilla contraria mientras estiras la otra pierna.",
+      "Alterna los lados con un movimiento de pedaleo controlado."
+    ],
+    "respiracion": "Exhala en cada giro.",
+    "errores_comunes": [
+      "Tirar del cuello con las manos.",
+      "Ir demasiado rápido.",
+      "Bajar los hombros al suelo entre repeticiones."
+    ],
+    "variante_facil": "Mueve solo las piernas.",
+    "variante_dificil": "Ritmo más lento con pausa en cada giro."
+  },
+  {
+    "id_externo": "Jackknife_Sit-Up",
+    "nombre": "Navaja",
+    "musculo_principal": "abdomen",
+    "musculos_secundarios": [],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "abdomen",
+    "descanso_seg": 45,
+    "pasos": [
+      "Acuéstate boca arriba con las piernas estiradas y los brazos estirados por detrás de la cabeza.",
+      "Aprieta el abdomen.",
+      "Eleva a la vez las piernas estiradas y el tronco, llevando las manos hacia los pies.",
+      "Baja despacio hasta la posición inicial sin apoyar del todo."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Usar impulso de brazos.",
+      "Doblar mucho las rodillas.",
+      "Caer de golpe."
+    ],
+    "variante_facil": "Con las rodillas dobladas.",
+    "variante_dificil": "Pausa de un segundo arriba."
+  },
+  {
+    "id_externo": "Seated_Calf_Raise",
+    "nombre": "Elevación de talones sentado",
+    "musculo_principal": "pantorrillas",
+    "musculos_secundarios": [],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Siéntate en la máquina con las puntas de los pies sobre la plataforma y la almohadilla sobre los muslos, cerca de las rodillas.",
+      "Quita el seguro.",
+      "Baja los talones hasta sentir el estiramiento.",
+      "Sube sobre las puntas lo más alto que puedas y baja despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Rebotar abajo.",
+      "Hacer recorridos cortos.",
+      "Ir demasiado rápido."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Standing_Calf_Raises",
+    "nombre": "Elevación de talones de pie en máquina",
+    "musculo_principal": "pantorrillas",
+    "musculos_secundarios": [],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Colócate bajo las almohadillas de la máquina con las puntas de los pies en el borde de la plataforma.",
+      "Estira las piernas con las rodillas ligeramente flexionadas.",
+      "Baja los talones hasta sentir el estiramiento.",
+      "Sube sobre las puntas lo más alto que puedas y baja despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Doblar las rodillas para empujar.",
+      "Rebotar.",
+      "Hacer medio recorrido."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "A una pierna."
+  },
+  {
+    "id_externo": "Standing_Dumbbell_Calf_Raise",
+    "nombre": "Elevación de talones con mancuernas",
+    "musculo_principal": "pantorrillas",
+    "musculos_secundarios": [],
+    "equipo": "mancuernas",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "De pie con una mancuerna en cada mano y las puntas de los pies sobre un escalón o disco.",
+      "Mantén el cuerpo erguido.",
+      "Baja los talones hasta sentir el estiramiento.",
+      "Sube sobre las puntas lo más alto que puedas y baja despacio."
+    ],
+    "respiracion": "Exhala al subir e inhala al bajar.",
+    "errores_comunes": [
+      "Rebotar abajo.",
+      "Perder el equilibrio por no apoyarse.",
+      "Doblar las rodillas."
+    ],
+    "variante_facil": "Sin mancuernas.",
+    "variante_dificil": "A una pierna con una mancuerna."
+  },
+  {
+    "id_externo": "Calf_Press_On_The_Leg_Press_Machine",
+    "nombre": "Pantorrilla en prensa",
+    "musculo_principal": "pantorrillas",
+    "musculos_secundarios": [],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "aislamiento",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "carga_aislamiento",
+    "descanso_seg": 45,
+    "pasos": [
+      "Siéntate en la prensa y coloca solo las puntas de los pies en el borde inferior de la plataforma.",
+      "Estira las piernas sin bloquear las rodillas y deja puestos los seguros si la máquina lo permite.",
+      "Empuja la plataforma con las puntas estirando los tobillos.",
+      "Vuelve despacio hasta sentir el estiramiento."
+    ],
+    "respiracion": "Exhala al empujar e inhala al volver.",
+    "errores_comunes": [
+      "Doblar las rodillas.",
+      "Dejar que los pies resbalen de la plataforma.",
+      "Rebotar."
+    ],
+    "variante_facil": "Menos peso.",
+    "variante_dificil": "Pausa de dos segundos arriba."
+  },
+  {
+    "id_externo": "Bicycling_Stationary",
+    "nombre": "Bicicleta estática",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "cuadriceps"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 60,
+    "pasos": [
+      "Ajusta el sillín para que la rodilla quede apenas doblada cuando el pedal está abajo.",
+      "Siéntate con la espalda recta y las manos apoyadas suavemente en el manillar.",
+      "Pedalea a un ritmo cómodo durante 3-5 minutos para calentar.",
+      "Sube la resistencia o la velocidad hasta un esfuerzo en el que puedas hablar con frases cortas y mantenlo el tiempo indicado; termina bajando el ritmo."
+    ],
+    "respiracion": "Respira de forma rítmica por nariz y boca.",
+    "errores_comunes": [
+      "Sillín demasiado bajo, que carga las rodillas.",
+      "Apoyar todo el peso en los brazos.",
+      "Empezar a máxima intensidad sin calentar."
+    ],
+    "variante_facil": "Menos resistencia y menos tiempo.",
+    "variante_dificil": "Intervalos: 30 segundos fuertes y 90 suaves."
+  },
+  {
+    "id_externo": "Jogging_Treadmill",
+    "nombre": "Trotar en cinta",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "cuadriceps",
+      "pantorrillas"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 60,
+    "pasos": [
+      "Súbete a la cinta con los pies a los lados y engancha el cable de seguridad a la ropa.",
+      "Empieza caminando unos minutos a velocidad baja.",
+      "Sube poco a poco la velocidad hasta un trote cómodo, con pasos cortos y los brazos relajados.",
+      "Mantén el ritmo el tiempo indicado y termina caminando hasta recuperar."
+    ],
+    "respiracion": "Respira de forma rítmica y relajada.",
+    "errores_comunes": [
+      "Sujetarse de las barras.",
+      "Dar zancadas muy largas.",
+      "Mirar los pies en lugar de al frente."
+    ],
+    "variante_facil": "Camina con inclinación.",
+    "variante_dificil": "Intervalos de carrera más rápida."
+  },
+  {
+    "id_externo": "Rowing_Stationary",
+    "nombre": "Remo ergómetro",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "espalda",
+      "cuadriceps"
+    ],
+    "equipo": "maquina",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 60,
+    "pasos": [
+      "Siéntate en la máquina, sujeta los pies con las correas y agarra el maneral con los brazos estirados.",
+      "Empuja primero con las piernas, luego inclina un poco el tronco hacia atrás y por último tira del maneral hacia el abdomen.",
+      "Vuelve en orden inverso: estira los brazos, inclina el tronco al frente y dobla las rodillas.",
+      "Mantén un ritmo constante durante el tiempo indicado."
+    ],
+    "respiracion": "Exhala al empujar con las piernas e inhala al volver.",
+    "errores_comunes": [
+      "Tirar con los brazos antes que con las piernas.",
+      "Encorvar la espalda.",
+      "Doblar las rodillas antes de estirar los brazos al volver."
+    ],
+    "variante_facil": "Ritmo suave y menos tiempo.",
+    "variante_dificil": "Intervalos de 500 metros a ritmo alto."
+  },
+  {
+    "id_externo": "Elliptical_Trainer",
+    "nombre": "Elíptica",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "cuadriceps",
+      "gluteos"
+    ],
+    "equipo": "maquina",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 60,
+    "pasos": [
+      "Súbete a los pedales y sujeta las manijas móviles.",
+      "Empieza a pedalear a un ritmo suave durante unos minutos.",
+      "Aumenta la resistencia o la velocidad hasta un esfuerzo moderado, empujando y tirando con los brazos.",
+      "Mantén el ritmo el tiempo indicado y termina bajando la intensidad."
+    ],
+    "respiracion": "Respira de forma rítmica.",
+    "errores_comunes": [
+      "Apoyar el peso en las manijas.",
+      "Encorvar la espalda.",
+      "Levantar los talones de los pedales."
+    ],
+    "variante_facil": "Menos resistencia.",
+    "variante_dificil": "Intervalos de resistencia alta."
+  },
+  {
+    "id_externo": "Stairmaster",
+    "nombre": "Escaladora",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "cuadriceps",
+      "gluteos"
+    ],
+    "equipo": "maquina",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 60,
+    "pasos": [
+      "Súbete a la máquina y elige un programa o velocidad baja.",
+      "Apoya el pie completo en cada escalón con el tronco erguido.",
+      "Sube a ritmo constante usando las barandas solo para equilibrarte.",
+      "Mantén el tiempo indicado y baja la velocidad para terminar."
+    ],
+    "respiracion": "Respira de forma rítmica.",
+    "errores_comunes": [
+      "Apoyarse con todo el peso en las barandas.",
+      "Pisar solo con la punta.",
+      "Encorvar el tronco."
+    ],
+    "variante_facil": "Velocidad más baja.",
+    "variante_dificil": "Sube de dos en dos escalones."
+  },
+  {
+    "id_externo": "Knee_Tuck_Jump",
+    "nombre": "Saltos con rodillas al pecho",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "cuadriceps",
+      "abdomen"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 60,
+    "pasos": [
+      "De pie con los pies al ancho de los hombros y las rodillas un poco dobladas.",
+      "Baja ligeramente y salta hacia arriba con fuerza.",
+      "En el aire, lleva las rodillas hacia el pecho.",
+      "Aterriza suave con las rodillas dobladas y encadena el siguiente salto."
+    ],
+    "respiracion": "Exhala en cada salto.",
+    "errores_comunes": [
+      "Aterrizar con las piernas rígidas.",
+      "Encorvar la espalda para acercar las rodillas.",
+      "Seguir saltando con mala técnica por el cansancio."
+    ],
+    "variante_facil": "Elevación de rodillas sin salto.",
+    "variante_dificil": "Más repeticiones seguidas."
+  },
+  {
+    "id_externo": "Star_Jump",
+    "nombre": "Saltos de estrella",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "cuadriceps"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 45,
+    "pasos": [
+      "De pie, agáchate un poco con los brazos cerca del cuerpo.",
+      "Salta hacia arriba abriendo brazos y piernas en forma de estrella.",
+      "Junta brazos y piernas antes de aterrizar.",
+      "Aterriza suave con las rodillas dobladas y repite."
+    ],
+    "respiracion": "Exhala en cada salto.",
+    "errores_comunes": [
+      "Aterrizar con las piernas abiertas.",
+      "Caer con los talones.",
+      "Encorvar la espalda."
+    ],
+    "variante_facil": "Jumping jacks.",
+    "variante_dificil": "Más altura y más repeticiones."
+  },
+  {
+    "id_externo": "Fast_Skipping",
+    "nombre": "Skipping rápido",
+    "musculo_principal": "cardio",
+    "musculos_secundarios": [
+      "cuadriceps",
+      "pantorrillas"
+    ],
+    "equipo": "peso corporal",
+    "nivel": "principiante",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "casa",
+      "calistenia"
+    ],
+    "tipo_recomendacion": "cardio",
+    "descanso_seg": 30,
+    "pasos": [
+      "De pie con los pies al ancho de la cadera.",
+      "Corre en el sitio subiendo las rodillas hasta la altura de la cadera.",
+      "Acompaña con los brazos como al correr y apoya la parte delantera del pie.",
+      "Mantén un ritmo rápido durante el tiempo indicado."
+    ],
+    "respiracion": "Respira de forma rítmica.",
+    "errores_comunes": [
+      "Inclinar el tronco hacia atrás.",
+      "Apoyar los talones de golpe.",
+      "No subir las rodillas."
+    ],
+    "variante_facil": "Marcha en el sitio subiendo las rodillas.",
+    "variante_dificil": "Más velocidad o intervalos más largos."
+  },
+  {
+    "id_externo": "Kettlebell_Thruster",
+    "nombre": "Thruster con kettlebell",
+    "musculo_principal": "cuerpo completo",
+    "musculos_secundarios": [
+      "cuadriceps",
+      "hombros",
+      "gluteos"
+    ],
+    "equipo": "kettlebell",
+    "nivel": "intermedio",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Sujeta una kettlebell en cada mano a la altura de los hombros, con los pies al ancho de los hombros.",
+      "Baja en sentadilla manteniendo el pecho alto y las pesas en los hombros.",
+      "Sube con fuerza y aprovecha el impulso para empujar las kettlebells por encima de la cabeza hasta estirar los brazos.",
+      "Bájalas a los hombros y encadena la siguiente sentadilla."
+    ],
+    "respiracion": "Inhala al bajar y exhala al empujar.",
+    "errores_comunes": [
+      "Separar el press de la sentadilla y perder el impulso.",
+      "Arquear la espalda arriba.",
+      "Dejar caer los codos en la sentadilla."
+    ],
+    "variante_facil": "Una sola kettlebell sujeta con las dos manos.",
+    "variante_dificil": "Más peso o más repeticiones seguidas."
+  },
+  {
+    "id_externo": "Kettlebell_Turkish_Get-Up_Squat_style",
+    "nombre": "Levantada turca con kettlebell",
+    "musculo_principal": "cuerpo completo",
+    "musculos_secundarios": [
+      "hombros",
+      "abdomen",
+      "gluteos"
+    ],
+    "equipo": "kettlebell",
+    "nivel": "avanzado",
+    "mecanica": "compuesto",
+    "ambientes": [
+      "gimnasio",
+      "casa"
+    ],
+    "tipo_recomendacion": "carga_compuesto",
+    "descanso_seg": 90,
+    "pasos": [
+      "Acuéstate boca arriba con la kettlebell en una mano, el brazo estirado hacia el techo y la rodilla del mismo lado doblada.",
+      "Apóyate en el codo y luego en la mano libre para sentarte, sin dejar de mirar la kettlebell.",
+      "Eleva la cadera, pasa la pierna estirada por debajo hasta apoyar la rodilla y levántate hasta quedar de pie con el brazo siempre estirado.",
+      "Deshaz los pasos en orden inverso hasta volver al suelo y cambia de lado."
+    ],
+    "respiracion": "Respira de forma controlada en cada paso, sin contener el aire mucho tiempo.",
+    "errores_comunes": [
+      "Doblar el codo del brazo con la kettlebell.",
+      "Hacer los pasos deprisa.",
+      "Perder de vista la kettlebell."
+    ],
+    "variante_facil": "Practica sin peso o con un zapato equilibrado en el puño.",
+    "variante_dificil": "Más peso."
+  }
+]

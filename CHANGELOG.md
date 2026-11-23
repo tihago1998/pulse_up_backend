@@ -23,6 +23,16 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - Perfil físico (`/api/perfil-fisico/`): ver, guardar (crea o reemplaza) y borrar la fecha de
   nacimiento, sexo, peso, estatura y nivel, con la edad calculada en hora de Colombia y
   validación de rangos. Al eliminar un usuario se borra también su perfil físico.
+- Catálogo ampliado a 150 ejercicios de gimnasio, casa y calistenia
+  (`pulseup/seeds/catalogo_seleccion.json`), con pasos, respiración, errores comunes,
+  variantes y descanso en español. Los 48 existentes se actualizan sin cambiar su id.
+- Fotos de posición inicial y final de free-exercise-db: tabla `ejercicio_imagen` e importador
+  idempotente `python -m tools.importar_catalogo`; Flask las sirve en `/static/ejercicios/`.
+- `GET /api/ejercicios/`: filtro `ambiente`, `total` y paginación opcional (`limit`, `offset`,
+  `items`) sin cambiar la respuesta de siempre. El detalle añade pasos, fotos y
+  `recomendacion` (`null` por ahora) con `recomendacion_motivo`.
+- `GET /api/ejercicios/creditos` con fuentes, licencias y atribuciones de las fotos, y
+  `ambientes` en `GET /api/ejercicios/filtros`.
 
 ### Changed
 

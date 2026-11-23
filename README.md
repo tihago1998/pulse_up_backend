@@ -17,7 +17,8 @@ token y permisos por rol, validados siempre en el servidor.
 - Roles: Administrador, Usuario y SuperAdministrador.
 - Administración de usuarios: listar, cambiar rol, eliminar y estadísticas.
 - Perfil: editar datos y cambiar contraseña.
-- Catálogo de ejercicios y rutinas (plantillas y propias).
+- Catálogo de 150 ejercicios de gimnasio, casa y calistenia, con 2 fotos (posición inicial y final),
+  pasos, respiración, errores comunes y variantes en español; rutinas plantilla y propias.
 - Plan semanal con regla de descanso muscular de 48 h, rutina del día y calendario con racha.
 - Perfil físico (fecha de nacimiento, sexo, peso, estatura y nivel), base para recomendar cargas.
 
@@ -40,17 +41,55 @@ token y permisos por rol, validados siempre en el servidor.
 
 | Método | Ruta                          | Descripción                                          |
 | ------ | ----------------------------- | ---------------------------------------------------- |
-| GET    | `/api/ejercicios/`            | Catálogo. Filtros: `musculo`, `equipo`, `nivel`, `q` |
-| GET    | `/api/ejercicios/filtros`     | Valores disponibles para los filtros                 |
-| GET    | `/api/ejercicios/<id>`        | Detalle con instrucciones                            |
+| GET    | `/api/ejercicios/`            | Catálogo. Filtros: `musculo`, `equipo`, `nivel`, `ambiente`, `q`; paginación: `limit`, `offset` |
+| GET    | `/api/ejercicios/filtros`     | Valores disponibles para los filtros (músculos, equipos, niveles, ambientes) |
+| GET    | `/api/ejercicios/creditos`    | Fuentes, licencias y atribuciones de las fotos       |
+| GET    | `/api/ejercicios/<id>`        | Detalle: pasos, respiración, errores, variantes, fotos y recomendación |
 | GET    | `/api/rutinas/`               | Plantillas + rutinas propias. Filtros: `objetivo`, `nivel` |
 | GET    | `/api/rutinas/<id>`           | Rutina con sus ejercicios en orden                   |
 | POST   | `/api/rutinas/`               | Crear rutina propia                                  |
 | DELETE | `/api/rutinas/<id>`           | Eliminar una rutina propia (las plantillas no)       |
 
-El catálogo (48 ejercicios) y las 7 rutinas plantilla se cargan solos al
+El catálogo (150 ejercicios) y las 7 rutinas plantilla se cargan solos al
 arrancar, sin duplicarse (`pulseup/seeds/`). Una rutina que está en el plan
 semanal no se puede eliminar (409): primero hay que quitarla del plan.
+
+**Listado.** Siempre responde `{"ejercicios": [...], "total": n}`. Sin `limit` ni `offset`
+devuelve todos los ejercicios, como antes (así no se rompe la app actual). Con `limit`,
+`offset` o `formato=paginado` pagina (`limit` por defecto 20, máximo 100) y añade `items`
+(la misma lista), `limit` y `offset`. Cada ejercicio trae, además de los campos de siempre,
+`musculo_principal`, `ambientes` (`gimnasio`, `casa`, `calistenia`), `mecanica` e
+`imagen_miniatura` (foto de la posición inicial o `null`).
+
+**Detalle.** Añade `pasos`, `respiracion`, `errores_comunes`, `variante_facil`,
+`variante_dificil`, `descanso_seg`, `imagenes` (`[{"orden": 0, "url": ...}, {"orden": 1, ...}]`),
+`recomendacion` y `recomendacion_motivo`. Por ahora `recomendacion` siempre es `null`: sin
+perfil físico el motivo es "Completa tu perfil físico para ver el peso recomendado"; con
+perfil, la recomendación queda pendiente hasta que exista el módulo de recomendaciones.
+Las `url` de las fotos son relativas al servidor (`/static/ejercicios/...`).
+
+### Catálogo ampliado y fotos
+
+La selección curada está en `pulseup/seeds/catalogo_seleccion.json`: 150 ejercicios con su
+`id_externo` de [free-exercise-db](https://github.com/yuhonas/free-exercise-db) y textos
+redactados en español. Al arrancar se aplica como upsert: los ejercicios que ya existían se
+actualizan sin cambiar su id, nombre ni grupo muscular (las rutinas y el plan dependen de
+ellos) y los nuevos se crean.
+
+Las fotos no se guardan en el repositorio. Para descargarlas (unos 18 MB) y registrarlas:
+
+```bash
+python -m tools.importar_catalogo              # base de datos de PULSEUP_DB_NAME o pulseup.db
+python -m tools.importar_catalogo --verificar  # además comprueba los ids contra el dataset
+python -m tools.importar_catalogo --forzar     # vuelve a descargar las que ya están
+```
+
+Quedan en `pulseup/static/ejercicios/<id_externo>/0.jpg` y `1.jpg` (en `.gitignore`) y Flask
+las sirve en `/static/ejercicios/...`. Es seguro repetirlo: no duplica filas ni vuelve a bajar
+lo que ya existe. Si una foto falla se anota en `pulseup/static/ejercicios/errores_importacion.log`
+y sigue con las demás. Licencia: el repositorio free-exercise-db es Unlicense, pero el origen de
+las fotos no está documentado; la fuente y la licencia se guardan por foto en `ejercicio_imagen`
+para poder cambiar de proveedor sin tocar el resto del catálogo.
 
 ### Endpoints del plan semanal y calendario (requieren token)
 
@@ -218,6 +257,10 @@ pulseup/
     plan/              Plan semanal, regla de 48 h, rutina del día y calendario
     perfil_fisico/     Perfil físico (edad, peso, estatura y nivel)
     <módulo>/          routes.py (HTTP) → service.py (reglas) → repository.py (SQL)
+  seeds/               ejercicios.json (base), catalogo_seleccion.json (ampliado), rutinas.json
+  static/ejercicios/   Fotos descargadas por el importador (no se suben al repositorio)
+tools/
+  importar_catalogo.py Descarga y registra las fotos del catálogo
 tests/                 Pruebas del contrato de la API
 ```
 

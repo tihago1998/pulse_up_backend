@@ -24,3 +24,7 @@ PESO_MIN_KG = 30
 PESO_MAX_KG = 300
 ESTATURA_MIN_CM = 100
 ESTATURA_MAX_CM = 250
+
+# Catálogo de ejercicios: dónde se puede hacer y tipo de movimiento
+AMBIENTES = ("gimnasio", "casa", "calistenia")
+MECANICAS = ("compuesto", "aislamiento")

@@ -30,10 +30,11 @@ def create_app(overrides=None):
     from pulseup.modules.ejercicios.routes import ejercicios_bp
     from pulseup.modules.perfil_fisico.routes import perfil_fisico_bp
     from pulseup.modules.plan.routes import plan_bp
+    from pulseup.modules.recomendaciones.routes import recomendaciones_bp
     from pulseup.modules.rutinas.routes import rutinas_bp
     from pulseup.modules.usuarios.routes import usuarios_bp
 
-    for blueprint in (auth_bp, usuarios_bp, ejercicios_bp, rutinas_bp, plan_bp, perfil_fisico_bp):
+    for blueprint in (auth_bp, usuarios_bp, ejercicios_bp, rutinas_bp, plan_bp, perfil_fisico_bp, recomendaciones_bp):
         app.register_blueprint(blueprint)
 
     registrar_manejadores(app)

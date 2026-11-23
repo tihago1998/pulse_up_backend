@@ -10,7 +10,7 @@ import pytest
 from pulseup import inicializar_base_de_datos
 from pulseup.core.esquema import crear_esquema
 from pulseup.core.semillas import sembrar_catalogo, sembrar_ejercicios_base, sembrar_rutinas
-from pulseup.modules.ejercicios.service import MOTIVO_PENDIENTE, MOTIVO_SIN_PERFIL
+from pulseup.modules.recomendaciones.service import MOTIVO_SIN_PERFIL
 from tests.helpers import cabeceras, usuario_con_token
 from tools import importar_catalogo
 
@@ -227,18 +227,20 @@ def test_recomendacion_sin_perfil_fisico(client, h):
     item = _por_nombre(client, h, "Press de banca con barra")
     detalle = client.get(f"{URL}{item['id']}", headers=h).get_json()["ejercicio"]
     assert detalle["recomendacion"] is None
-    assert detalle["recomendacion_motivo"] == MOTIVO_SIN_PERFIL == "Completa tu perfil físico para ver el peso recomendado"
+    assert detalle["recomendacion_motivo"] == MOTIVO_SIN_PERFIL == "Completa tu perfil físico para ver la recomendación"
 
 
+# Antes del módulo de recomendaciones esto devolvía null; el detalle de cada tipo se prueba en
+# test_recomendaciones.py
 @pytest.mark.parametrize("nombre", ["Press de banca con barra", "Flexiones", "Plancha", "Curl martillo"])
-def test_recomendacion_con_perfil_queda_pendiente(client, h, nombre):
+def test_recomendacion_con_perfil_ya_se_calcula(client, h, nombre):
     perfil = {"fecha_nacimiento": "1998-03-10", "sexo": "hombre", "peso_kg": 72.5, "estatura_cm": 175,
               "nivel": "intermedio"}
     assert client.put("/api/perfil-fisico/", json=perfil, headers=h).status_code == 200
     item = _por_nombre(client, h, nombre)
     detalle = client.get(f"{URL}{item['id']}", headers=h).get_json()["ejercicio"]
-    assert detalle["recomendacion"] is None
-    assert detalle["recomendacion_motivo"] == MOTIVO_PENDIENTE
+    assert detalle["recomendacion"]["nivel"] == "intermedio"
+    assert detalle["recomendacion_motivo"] is None
 
 
 # ---- Créditos y archivos estáticos ----------------------------------------------------

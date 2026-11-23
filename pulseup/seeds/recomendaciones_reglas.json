@@ -1,0 +1,47 @@
+{
+  "descripcion": "Reglas de recomendación. Se aplican al arrancar como upsert: editar este archivo y reiniciar actualiza las tablas recomendacion_regla y referencia_fuerza_ratio sin tocar código. 'proporciones': 1RM como múltiplo del peso corporal según la guía (beginner, novice, intermediate, advanced); el nivel principiante de la app usa el promedio de beginner y novice, intermedio usa intermediate y avanzado usa advanced. Si una fila trae directamente principiante/intermedio/avanzado (prensa) se usan tal cual.",
+  "reglas": [
+    {"tipo": "carga_compuesto", "nivel": "principiante", "unidad": "repeticiones", "reps_min": 8, "reps_max": 12, "series_min": 2, "series_max": 3, "descanso_seg": 105, "rir": "2-3", "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "carga_compuesto", "nivel": "intermedio", "unidad": "repeticiones", "reps_min": 6, "reps_max": 12, "series_min": 3, "series_max": 4, "descanso_seg": 150, "rir": "2-3", "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "carga_compuesto", "nivel": "avanzado", "unidad": "repeticiones", "reps_min": 5, "reps_max": 10, "series_min": 3, "series_max": 5, "descanso_seg": 180, "rir": "2-3", "dias_semana": null, "rpe": null, "nota": null},
+
+    {"tipo": "carga_aislamiento", "nivel": "principiante", "unidad": "repeticiones", "reps_min": 10, "reps_max": 15, "series_min": 2, "series_max": 3, "descanso_seg": 75, "rir": "2-3", "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "carga_aislamiento", "nivel": "intermedio", "unidad": "repeticiones", "reps_min": 8, "reps_max": 15, "series_min": 3, "series_max": 4, "descanso_seg": 75, "rir": "0-2", "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "carga_aislamiento", "nivel": "avanzado", "unidad": "repeticiones", "reps_min": 8, "reps_max": 20, "series_min": 3, "series_max": 5, "descanso_seg": 90, "rir": "0-2", "dias_semana": null, "rpe": null, "nota": null},
+
+    {"tipo": "carga_brazos", "nivel": "principiante", "unidad": "repeticiones", "reps_min": 10, "reps_max": 12, "series_min": 2, "series_max": 3, "descanso_seg": 75, "rir": null, "dias_semana": null, "rpe": null, "nota": "Usa un peso que puedas controlar y con el que cumplas todas las repeticiones. Si no llegas al mínimo del rango, baja el peso; si llegas al máximo con facilidad, súbelo poco a poco."},
+    {"tipo": "carga_brazos", "nivel": "intermedio", "unidad": "repeticiones", "reps_min": 8, "reps_max": 15, "series_min": 3, "series_max": 4, "descanso_seg": 75, "rir": null, "dias_semana": null, "rpe": null, "nota": "Usa un peso que puedas controlar y con el que cumplas todas las repeticiones. Si no llegas al mínimo del rango, baja el peso; si llegas al máximo con facilidad, súbelo poco a poco."},
+    {"tipo": "carga_brazos", "nivel": "avanzado", "unidad": "repeticiones", "reps_min": 8, "reps_max": 15, "series_min": 3, "series_max": 4, "descanso_seg": 90, "rir": null, "dias_semana": null, "rpe": null, "nota": "Usa un peso que puedas controlar y con el que cumplas todas las repeticiones. Si no llegas al mínimo del rango, baja el peso; si llegas al máximo con facilidad, súbelo poco a poco."},
+
+    {"tipo": "peso_corporal", "nivel": "principiante", "unidad": "repeticiones", "reps_min": 5, "reps_max": 10, "series_min": 2, "series_max": 3, "descanso_seg": 60, "rir": null, "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "peso_corporal", "nivel": "intermedio", "unidad": "repeticiones", "reps_min": 10, "reps_max": 20, "series_min": 3, "series_max": 4, "descanso_seg": 75, "rir": null, "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "peso_corporal", "nivel": "avanzado", "unidad": "repeticiones", "reps_min": 20, "reps_max": 25, "series_min": 3, "series_max": 4, "descanso_seg": 90, "rir": null, "dias_semana": null, "rpe": null, "nota": "Si pasas de 20 repeticiones con facilidad, usa una variante más difícil o añade lastre."},
+
+    {"tipo": "abdomen", "nivel": "principiante", "unidad": "repeticiones", "reps_min": 8, "reps_max": 12, "series_min": 2, "series_max": 3, "descanso_seg": 45, "rir": null, "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "abdomen", "nivel": "intermedio", "unidad": "repeticiones", "reps_min": 15, "reps_max": 20, "series_min": 3, "series_max": 4, "descanso_seg": 60, "rir": null, "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "abdomen", "nivel": "avanzado", "unidad": "repeticiones", "reps_min": 20, "reps_max": 25, "series_min": 3, "series_max": 4, "descanso_seg": 60, "rir": null, "dias_semana": null, "rpe": null, "nota": "Pasar de 25 repeticiones aporta poco: usa una variante más difícil."},
+
+    {"tipo": "isometrico", "nivel": "principiante", "unidad": "segundos", "reps_min": 20, "reps_max": 30, "series_min": 2, "series_max": 3, "descanso_seg": 45, "rir": null, "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "isometrico", "nivel": "intermedio", "unidad": "segundos", "reps_min": 30, "reps_max": 45, "series_min": 3, "series_max": 3, "descanso_seg": 45, "rir": null, "dias_semana": null, "rpe": null, "nota": null},
+    {"tipo": "isometrico", "nivel": "avanzado", "unidad": "segundos", "reps_min": 45, "reps_max": 60, "series_min": 3, "series_max": 3, "descanso_seg": 45, "rir": null, "dias_semana": null, "rpe": null, "nota": "Si aguantas 60 segundos con facilidad, usa una variante más difícil."},
+
+    {"tipo": "cardio", "nivel": "principiante", "unidad": "minutos", "reps_min": 20, "reps_max": 30, "series_min": 1, "series_max": 1, "descanso_seg": null, "rir": null, "dias_semana": "3", "rpe": "4-6", "nota": "Opción de intervalos: 30 s fuertes y 30 s suaves, 1 día por semana, 2 rondas de 5 minutos. Meta de la OMS: 150-300 minutos por semana de actividad moderada o 75-150 de actividad vigorosa."},
+    {"tipo": "cardio", "nivel": "intermedio", "unidad": "minutos", "reps_min": 30, "reps_max": 40, "series_min": 1, "series_max": 1, "descanso_seg": null, "rir": null, "dias_semana": "3-4", "rpe": "5-6", "nota": "Opción de intervalos: 30 s fuertes y 30 s suaves, 1-2 días por semana, 2-3 rondas de 5 minutos. Meta de la OMS: 150-300 minutos por semana de actividad moderada o 75-150 de actividad vigorosa."},
+    {"tipo": "cardio", "nivel": "avanzado", "unidad": "minutos", "reps_min": 40, "reps_max": 60, "series_min": 1, "series_max": 1, "descanso_seg": null, "rir": null, "dias_semana": "3-5", "rpe": "5-7", "nota": "Opción de intervalos: 30 s fuertes y 30 s suaves, 2-3 días por semana, 3-4 rondas de 5 minutos. Meta de la OMS: 150-300 minutos por semana de actividad moderada o 75-150 de actividad vigorosa."}
+  ],
+  "proporciones": [
+    {"clave": "sentadilla", "sexo": "hombre", "beginner": 0.75, "novice": 1.25, "intermediate": 1.75, "advanced": 2.25},
+    {"clave": "sentadilla", "sexo": "mujer", "beginner": 0.5, "novice": 0.75, "intermediate": 1.25, "advanced": 1.75},
+    {"clave": "press_banca", "sexo": "hombre", "beginner": 0.5, "novice": 1.0, "intermediate": 1.25, "advanced": 1.5},
+    {"clave": "press_banca", "sexo": "mujer", "beginner": 0.3, "novice": 0.5, "intermediate": 0.75, "advanced": 1.1},
+    {"clave": "peso_muerto", "sexo": "hombre", "beginner": 1.0, "novice": 1.5, "intermediate": 2.0, "advanced": 2.5},
+    {"clave": "peso_muerto", "sexo": "mujer", "beginner": 0.75, "novice": 1.0, "intermediate": 1.5, "advanced": 2.0},
+    {"clave": "press_militar", "sexo": "hombre", "beginner": 0.35, "novice": 0.55, "intermediate": 0.8, "advanced": 1.05},
+    {"clave": "press_militar", "sexo": "mujer", "beginner": 0.2, "novice": 0.35, "intermediate": 0.5, "advanced": 0.7},
+    {"clave": "remo_barra", "sexo": "hombre", "beginner": 0.5, "novice": 0.75, "intermediate": 1.0, "advanced": 1.5},
+    {"clave": "remo_barra", "sexo": "mujer", "beginner": 0.3, "novice": 0.45, "intermediate": 0.7, "advanced": 0.95},
+    {"clave": "jalon_pecho", "sexo": "hombre", "beginner": 0.6, "novice": 0.8, "intermediate": 1.05, "advanced": 1.35},
+    {"clave": "jalon_pecho", "sexo": "mujer", "beginner": 0.35, "novice": 0.55, "intermediate": 0.75, "advanced": 0.95},
+    {"clave": "prensa", "sexo": "todos", "principiante": 1.2, "intermedio": 2.0, "avanzado": 3.0}
+  ]
+}

@@ -148,6 +148,41 @@ TABLAS = [
         UNIQUE (id_usuario, fecha)
     )
     """,
+    # Reglas de recomendación por tipo de ejercicio (tipo_recomendacion) y nivel del usuario.
+    # Se siembran desde pulseup/seeds/recomendaciones_reglas.json. unidad: repeticiones | segundos |
+    # minutos (en cardio reps_min/reps_max son minutos por sesión). rir, dias_semana y rpe son rangos
+    # en texto ("2-3").
+    """
+    CREATE TABLE IF NOT EXISTS recomendacion_regla (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        tipo TEXT NOT NULL,
+        nivel TEXT NOT NULL,
+        unidad TEXT NOT NULL,
+        reps_min INTEGER NOT NULL,
+        reps_max INTEGER NOT NULL,
+        series_min INTEGER NOT NULL,
+        series_max INTEGER NOT NULL,
+        descanso_seg INTEGER,
+        rir TEXT,
+        dias_semana TEXT,
+        rpe TEXT,
+        nota TEXT,
+        UNIQUE (tipo, nivel)
+    )
+    """,
+    # 1RM de referencia como múltiplo del peso corporal, por levantamiento, sexo y nivel de la app.
+    # sexo: hombre | mujer | todos (prensa). Ver core/semillas.py para cómo se pasa de los 4 niveles
+    # de la guía (Beginner, Novice, Intermediate, Advanced) a los 3 de la app.
+    """
+    CREATE TABLE IF NOT EXISTS referencia_fuerza_ratio (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        clave TEXT NOT NULL,
+        sexo TEXT NOT NULL,
+        nivel TEXT NOT NULL,
+        ratio REAL NOT NULL,
+        UNIQUE (clave, sexo, nivel)
+    )
+    """,
     # Perfil físico: uno por usuario (base para recomendar repeticiones y pesos por nivel).
     # La edad no se guarda: se calcula con la fecha de hoy. actualizado_en es ISO con zona horaria.
     """
@@ -180,6 +215,10 @@ COLUMNAS_EJERCICIO = [
     ("tipo_recomendacion", "TEXT"),
     ("id_externo", "TEXT"),  # id en free-exercise-db
     ("fuente", "TEXT"),
+    # Recomendaciones: levantamiento de referencia para estimar el peso (solo la variante exacta,
+    # ver referencia_fuerza_ratio) y reglas propias del ejercicio en JSON (hoy solo Dominadas)
+    ("referencia_fuerza", "TEXT"),
+    ("recomendacion_override", "TEXT"),
 ]
 
 

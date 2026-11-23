@@ -217,6 +217,13 @@ def test_carga_compuesto_sin_referencia(client, token):
                                       nota=rec.NOTA_SIN_PESO)
 
 
+def test_peso_muerto_rumano_no_tiene_referencia(client, token):
+    _perfil(client, token)
+    recomendacion, _ = _rec(client, token, "Peso muerto rumano")
+    assert recomendacion == _esperada(reps_min=6, reps_max=12, series_min=3, series_max=4, descanso_seg=150, rir="2-3",
+                                      nota=rec.NOTA_SIN_PESO)
+
+
 def test_carga_aislamiento(client, token):
     _perfil(client, token)
     recomendacion, _ = _rec(client, token, "Elevaciones laterales")
@@ -316,7 +323,6 @@ def test_referencia_solo_en_las_variantes_exactas(conn):
         "Press de banca con barra": "press_banca",
         "Sentadilla con barra": "sentadilla",
         "Peso muerto con barra": "peso_muerto",
-        "Peso muerto rumano": "peso_muerto",
         "Press militar de pie con barra": "press_militar",
         "Remo con barra": "remo_barra",
         "Jalón al pecho": "jalon_pecho",

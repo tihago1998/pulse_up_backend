@@ -1,0 +1,275 @@
+[
+ {
+  "nombre": "Pecho y tríceps",
+  "descripcion": "Empuje de tren superior con barra y mancuernas.",
+  "objetivo": "hipertrofia",
+  "nivel": "intermedio",
+  "duracion_min": 55,
+  "ejercicios": [
+   {
+    "ejercicio": "Press de banca con barra",
+    "series": 4,
+    "repeticiones": "8-10",
+    "descanso_seg": 90
+   },
+   {
+    "ejercicio": "Press inclinado con mancuernas",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 75
+   },
+   {
+    "ejercicio": "Aperturas con mancuernas",
+    "series": 3,
+    "repeticiones": "12-15",
+    "descanso_seg": 60
+   },
+   {
+    "ejercicio": "Extensión de tríceps con polea",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 60
+   },
+   {
+    "ejercicio": "Press francés con mancuerna",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 60
+   }
+  ]
+ },
+ {
+  "nombre": "Espalda y bíceps",
+  "descripcion": "Tirón de tren superior para una espalda fuerte.",
+  "objetivo": "hipertrofia",
+  "nivel": "intermedio",
+  "duracion_min": 55,
+  "ejercicios": [
+   {
+    "ejercicio": "Jalón al pecho",
+    "series": 4,
+    "repeticiones": "8-12",
+    "descanso_seg": 75
+   },
+   {
+    "ejercicio": "Remo con barra",
+    "series": 4,
+    "repeticiones": "8-10",
+    "descanso_seg": 90
+   },
+   {
+    "ejercicio": "Remo en polea baja",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 75
+   },
+   {
+    "ejercicio": "Curl con barra",
+    "series": 3,
+    "repeticiones": "8-12",
+    "descanso_seg": 60
+   },
+   {
+    "ejercicio": "Curl martillo",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 60
+   }
+  ]
+ },
+ {
+  "nombre": "Pierna completa",
+  "descripcion": "Base de piernas y glúteos con máquinas y barra.",
+  "objetivo": "fuerza",
+  "nivel": "intermedio",
+  "duracion_min": 60,
+  "ejercicios": [
+   {
+    "ejercicio": "Sentadilla con barra",
+    "series": 4,
+    "repeticiones": "6-8",
+    "descanso_seg": 120
+   },
+   {
+    "ejercicio": "Prensa de piernas",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 90
+   },
+   {
+    "ejercicio": "Peso muerto rumano",
+    "series": 3,
+    "repeticiones": "8-10",
+    "descanso_seg": 90
+   },
+   {
+    "ejercicio": "Curl femoral",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 60
+   },
+   {
+    "ejercicio": "Elevación de talones",
+    "series": 4,
+    "repeticiones": "15-20",
+    "descanso_seg": 45
+   }
+  ]
+ },
+ {
+  "nombre": "Hombros y core",
+  "descripcion": "Hombros definidos y abdomen firme.",
+  "objetivo": "general",
+  "nivel": "intermedio",
+  "duracion_min": 45,
+  "ejercicios": [
+   {
+    "ejercicio": "Press militar con mancuernas",
+    "series": 4,
+    "repeticiones": "8-10",
+    "descanso_seg": 90
+   },
+   {
+    "ejercicio": "Elevaciones laterales",
+    "series": 3,
+    "repeticiones": "12-15",
+    "descanso_seg": 60
+   },
+   {
+    "ejercicio": "Pájaros con mancuernas",
+    "series": 3,
+    "repeticiones": "12-15",
+    "descanso_seg": 60
+   },
+   {
+    "ejercicio": "Plancha",
+    "series": 3,
+    "repeticiones": "40 s",
+    "descanso_seg": 45
+   },
+   {
+    "ejercicio": "Elevación de piernas",
+    "series": 3,
+    "repeticiones": "12-15",
+    "descanso_seg": 45
+   }
+  ]
+ },
+ {
+  "nombre": "Cuerpo completo para empezar",
+  "descripcion": "Primera rutina en el gimnasio: máquinas y mancuernas ligeras.",
+  "objetivo": "general",
+  "nivel": "principiante",
+  "duracion_min": 45,
+  "ejercicios": [
+   {
+    "ejercicio": "Prensa de piernas",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 75
+   },
+   {
+    "ejercicio": "Press en máquina de pecho",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 75
+   },
+   {
+    "ejercicio": "Jalón al pecho",
+    "series": 3,
+    "repeticiones": "10-12",
+    "descanso_seg": 75
+   },
+   {
+    "ejercicio": "Elevaciones laterales",
+    "series": 2,
+    "repeticiones": "12-15",
+    "descanso_seg": 60
+   },
+   {
+    "ejercicio": "Plancha",
+    "series": 3,
+    "repeticiones": "30 s",
+    "descanso_seg": 45
+   }
+  ]
+ },
+ {
+  "nombre": "Cuerpo completo en casa",
+  "descripcion": "Sin equipo: solo tu peso corporal.",
+  "objetivo": "general",
+  "nivel": "principiante",
+  "duracion_min": 35,
+  "ejercicios": [
+   {
+    "ejercicio": "Sentadilla",
+    "series": 3,
+    "repeticiones": "12-15",
+    "descanso_seg": 60
+   },
+   {
+    "ejercicio": "Flexiones en rodillas",
+    "series": 3,
+    "repeticiones": "8-12",
+    "descanso_seg": 60
+   },
+   {
+    "ejercicio": "Puente de glúteos",
+    "series": 3,
+    "repeticiones": "15",
+    "descanso_seg": 45
+   },
+   {
+    "ejercicio": "Superman",
+    "series": 3,
+    "repeticiones": "12",
+    "descanso_seg": 45
+   },
+   {
+    "ejercicio": "Plancha",
+    "series": 3,
+    "repeticiones": "30 s",
+    "descanso_seg": 45
+   }
+  ]
+ },
+ {
+  "nombre": "Cardio en casa",
+  "descripcion": "Intervalos para subir pulsaciones sin equipo.",
+  "objetivo": "resistencia",
+  "nivel": "principiante",
+  "duracion_min": 25,
+  "ejercicios": [
+   {
+    "ejercicio": "Jumping jacks",
+    "series": 4,
+    "repeticiones": "40 s",
+    "descanso_seg": 20
+   },
+   {
+    "ejercicio": "Mountain climbers",
+    "series": 4,
+    "repeticiones": "30 s",
+    "descanso_seg": 30
+   },
+   {
+    "ejercicio": "Zancadas",
+    "series": 3,
+    "repeticiones": "12",
+    "descanso_seg": 30
+   },
+   {
+    "ejercicio": "Burpees",
+    "series": 3,
+    "repeticiones": "8",
+    "descanso_seg": 45
+   },
+   {
+    "ejercicio": "Cuerda de saltar",
+    "series": 3,
+    "repeticiones": "60 s",
+    "descanso_seg": 30
+   }
+  ]
+ }
+]

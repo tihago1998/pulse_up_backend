@@ -1,0 +1,14 @@
+"""Roles del sistema. Los ids coinciden con la tabla `rol`."""
+ADMINISTRADOR = "Administrador"
+USUARIO = "Usuario"
+SUPERADMINISTRADOR = "SuperAdministrador"
+
+ID_ADMINISTRADOR = 1
+ID_USUARIO = 2
+ID_SUPERADMINISTRADOR = 3
+
+ROLES_BASE = (
+    (ID_ADMINISTRADOR, ADMINISTRADOR),
+    (ID_USUARIO, USUARIO),
+    (ID_SUPERADMINISTRADOR, SUPERADMINISTRADOR),
+)

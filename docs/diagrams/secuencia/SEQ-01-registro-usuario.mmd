@@ -1,0 +1,21 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant A as App Android<br/>(RegisterScreen)
+    participant API as API Flask<br/>(auth_controller)
+    participant DB as SQLite<br/>(pulseup.db)
+
+    U->>A: Ingresa nombre, correo y contraseña
+    A->>A: Valida que los campos no estén vacíos
+    A->>API: POST /api/auth/register<br/>{nombre, email, password}
+    API->>DB: Verifica si el correo ya existe
+    DB-->>API: Resultado
+    alt Correo disponible
+        API->>DB: Inserta usuario (contraseña con hash) y rol Usuario
+        DB-->>API: id_usuario
+        API-->>A: Éxito {message, id_usuario}
+        A-->>U: Muestra registro exitoso y vuelve al login
+    else Correo ya registrado o datos inválidos
+        API-->>A: Error {message}
+        A-->>U: Muestra el mensaje de error
+    end

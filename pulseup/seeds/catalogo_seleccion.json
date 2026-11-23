@@ -78,6 +78,7 @@
       "gimnasio"
     ],
     "tipo_recomendacion": "carga_compuesto",
+    "referencia_fuerza": "press_banca",
     "descanso_seg": 120,
     "pasos": [
       "Acuéstate en el banco con los ojos bajo la barra, los pies firmes en el suelo y los omóplatos juntos y hacia abajo.",
@@ -355,6 +356,26 @@
       "calistenia"
     ],
     "tipo_recomendacion": "peso_corporal",
+    "recomendacion_override": {
+      "principiante": {
+        "reps_min": 3,
+        "reps_max": 5,
+        "series_min": 3,
+        "series_max": 3
+      },
+      "intermedio": {
+        "reps_min": 5,
+        "reps_max": 10,
+        "series_min": 3,
+        "series_max": 4
+      },
+      "avanzado": {
+        "reps_min": 10,
+        "reps_max": 15,
+        "series_min": 3,
+        "series_max": 4
+      }
+    },
     "descanso_seg": 120,
     "pasos": [
       "Cuélgate de una barra fija con las palmas hacia delante, las manos un poco más abiertas que los hombros y los brazos estirados.",
@@ -385,6 +406,7 @@
       "gimnasio"
     ],
     "tipo_recomendacion": "carga_compuesto",
+    "referencia_fuerza": "jalon_pecho",
     "descanso_seg": 90,
     "pasos": [
       "Ajusta el soporte de rodillas para que las piernas queden fijas y agarra la barra con las palmas hacia delante, más abierto que los hombros.",
@@ -447,6 +469,7 @@
       "gimnasio"
     ],
     "tipo_recomendacion": "carga_compuesto",
+    "referencia_fuerza": "remo_barra",
     "descanso_seg": 120,
     "pasos": [
       "De pie con los pies al ancho de la cadera, agarra la barra con las palmas hacia ti o hacia abajo, un poco más abierto que los hombros.",
@@ -930,6 +953,7 @@
       "gimnasio"
     ],
     "tipo_recomendacion": "carga_compuesto",
+    "referencia_fuerza": "sentadilla",
     "descanso_seg": 150,
     "pasos": [
       "Coloca la barra en el soporte a la altura del pecho, pasa por debajo y apóyala sobre la parte alta de la espalda, no sobre el cuello.",
@@ -1056,6 +1080,7 @@
       "gimnasio"
     ],
     "tipo_recomendacion": "carga_compuesto",
+    "referencia_fuerza": "prensa",
     "descanso_seg": 120,
     "pasos": [
       "Siéntate en la máquina con la espalda y la cadera bien apoyadas y coloca los pies en la plataforma al ancho de los hombros.",
@@ -2166,6 +2191,7 @@
       "gimnasio"
     ],
     "tipo_recomendacion": "carga_compuesto",
+    "referencia_fuerza": "peso_muerto",
     "descanso_seg": 180,
     "pasos": [
       "Colócate con los pies al ancho de la cadera y la barra sobre la mitad del pie.",
@@ -2989,6 +3015,7 @@
       "gimnasio"
     ],
     "tipo_recomendacion": "carga_compuesto",
+    "referencia_fuerza": "press_militar",
     "descanso_seg": 120,
     "pasos": [
       "Coloca la barra en el soporte a la altura del pecho y agárrala un poco más abierto que los hombros, con las palmas hacia delante.",

@@ -4,14 +4,10 @@ from pulseup.core.dominio import AMBIENTES, NIVELES
 from pulseup.core.errors import NoEncontrado, SolicitudInvalida
 from pulseup.modules.ejercicios import repository as repo
 from pulseup.modules.ejercicios.schemas import ejercicio_detalle_a_json, ejercicio_resumen_a_json
-from pulseup.modules.perfil_fisico import repository as perfil_fisico_repo
+from pulseup.modules.recomendaciones import service as recomendaciones
 
 LIMIT_POR_DEFECTO = 20
 LIMIT_MAXIMO = 100
-
-MOTIVO_SIN_PERFIL = "Completa tu perfil físico para ver el peso recomendado"
-# Pendiente: aún no existe el módulo de recomendaciones (series, repeticiones y peso)
-MOTIVO_PENDIENTE = "La recomendación personalizada todavía no está disponible"
 
 
 def _entero(valor, nombre, minimo):
@@ -55,20 +51,12 @@ def listar(musculo=None, equipo=None, nivel=None, texto=None, ambiente=None, lim
     return respuesta
 
 
-def _recomendacion(conn, id_usuario):
-    """(recomendacion, motivo). Por ahora la recomendación siempre es None: queda pendiente
-    hasta que exista el módulo de recomendaciones; el motivo le dice a la app qué mostrar."""
-    if perfil_fisico_repo.buscar(conn, id_usuario) is None:
-        return None, MOTIVO_SIN_PERFIL
-    return None, MOTIVO_PENDIENTE
-
-
 def detalle(id_ejercicio, id_usuario):
     with conexion() as conn:
         fila = repo.buscar_por_id(conn, id_ejercicio)
         if fila is None:
             raise NoEncontrado("Ejercicio no encontrado")
-        recomendacion, motivo = _recomendacion(conn, id_usuario)
+        recomendacion, motivo = recomendaciones.para_usuario(conn, fila, id_usuario)
         return ejercicio_detalle_a_json(fila, repo.imagenes(conn, id_ejercicio), recomendacion, motivo)
 
 

@@ -14,6 +14,7 @@ def sembrar_catalogo(conn):
     sembrar_ejercicios_base(conn)
     sembrar_catalogo_ampliado(conn)
     sembrar_rutinas(conn)
+    sembrar_recomendaciones(conn)
 
 
 def sembrar_ejercicios_base(conn):
@@ -66,7 +67,8 @@ def sembrar_rutinas(conn):
 _CAMPOS_AMPLIADOS = (
     "musculo_principal", "musculos_secundarios", "equipo", "nivel", "mecanica", "ambientes", "pasos",
     "instrucciones", "respiracion", "errores_comunes", "variante_facil", "variante_dificil",
-    "descanso_seg", "tipo_recomendacion", "id_externo", "fuente",
+    "descanso_seg", "tipo_recomendacion", "id_externo", "fuente", "referencia_fuerza",
+    "recomendacion_override",
 )
 _LISTAS = ("musculos_secundarios", "ambientes", "pasos", "instrucciones", "errores_comunes")
 
@@ -77,6 +79,8 @@ def _valores_ampliados(e):
     datos["fuente"] = "free-exercise-db" if e.get("id_externo") else "PulseUp"
     for campo in _LISTAS:
         datos[campo] = json.dumps(datos[campo], ensure_ascii=False)
+    if datos.get("recomendacion_override") is not None:
+        datos["recomendacion_override"] = json.dumps(datos["recomendacion_override"], ensure_ascii=False)
     return [datos.get(campo) for campo in _CAMPOS_AMPLIADOS]
 
 
@@ -103,4 +107,54 @@ def sembrar_catalogo_ampliado(conn):
             conn.execute(
                 f"INSERT INTO ejercicio (nombre, grupo_muscular, {columnas}) VALUES (?, ?, {marcas})",
                 (e["nombre"], e["musculo_principal"], *valores),
+            )
+
+
+# ---- Recomendaciones -----------------------------------------------------------------
+
+_CAMPOS_REGLA = (
+    "unidad", "reps_min", "reps_max", "series_min", "series_max", "descanso_seg", "rir", "dias_semana", "rpe", "nota",
+)
+
+
+def ratios_por_nivel_app(fila):
+    """Pasa una fila de proporciones de la guía a los 3 niveles de la app.
+
+    La guía tiene 4 niveles (beginner, novice, intermediate, advanced) y la app 3. Decisión:
+    principiante = promedio de beginner y novice (alguien que empieza pero ya pasó las primeras
+    semanas), intermedio = intermediate y avanzado = advanced. Si la fila ya trae los niveles de la
+    app (por ejemplo la prensa, que no distingue sexo) se usan tal cual.
+    """
+    if "principiante" in fila:
+        return {nivel: fila[nivel] for nivel in ("principiante", "intermedio", "avanzado")}
+    return {
+        "principiante": round((fila["beginner"] + fila["novice"]) / 2, 4),
+        "intermedio": fila["intermediate"],
+        "avanzado": fila["advanced"],
+    }
+
+
+def sembrar_recomendaciones(conn):
+    """Reglas y proporciones de fuerza (recomendaciones_reglas.json). Upsert idempotente: editar el
+    JSON y reiniciar actualiza los valores sin duplicar filas."""
+    datos = _leer("recomendaciones_reglas.json")
+    columnas = ", ".join(_CAMPOS_REGLA)
+    marcas = ", ".join("?" * len(_CAMPOS_REGLA))
+    actualizar = ", ".join(f"{c} = excluded.{c}" for c in _CAMPOS_REGLA)
+    for r in datos["reglas"]:
+        conn.execute(
+            f"""
+            INSERT INTO recomendacion_regla (tipo, nivel, {columnas}) VALUES (?, ?, {marcas})
+            ON CONFLICT (tipo, nivel) DO UPDATE SET {actualizar}
+            """,
+            (r["tipo"], r["nivel"], *[r.get(c) for c in _CAMPOS_REGLA]),
+        )
+    for fila in datos["proporciones"]:
+        for nivel, ratio in ratios_por_nivel_app(fila).items():
+            conn.execute(
+                """
+                INSERT INTO referencia_fuerza_ratio (clave, sexo, nivel, ratio) VALUES (?, ?, ?, ?)
+                ON CONFLICT (clave, sexo, nivel) DO UPDATE SET ratio = excluded.ratio
+                """,
+                (fila["clave"], fila["sexo"], nivel, ratio),
             )

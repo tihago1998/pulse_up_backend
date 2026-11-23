@@ -74,7 +74,7 @@ El detalle (y `GET /api/ejercicios/<id>/recomendacion`) devuelve, según el nive
 ```json
 {"nivel": "intermedio", "unidad": "repeticiones", "reps_min": 6, "reps_max": 12,
  "series_min": 3, "series_max": 4, "descanso_seg": 150, "rir": "2-3", "dias_semana": null,
- "rpe": null, "peso_kg": 75.0, "nota": null,
+ "rpe": null, "peso_kg": 72.5, "nota": null,
  "aviso": "Es una guía general y no reemplaza a un entrenador ni a un médico."}
 ```
 
@@ -86,12 +86,17 @@ El detalle (y `GET /api/ejercicios/<id>/recomendacion`) devuelve, según el nive
   del nivel. Están en `pulseup/seeds/recomendaciones_reglas.json`: se editan ahí y se aplican
   al reiniciar, sin tocar código. Dominadas tiene sus propias series y repeticiones
   (`recomendacion_override` en `catalogo_seleccion.json`).
-- **Peso** (`peso_kg`): solo para los 8 ejercicios que son exactamente un levantamiento de
+- **Peso** (`peso_kg`): solo para los 7 ejercicios que son exactamente un levantamiento de
   referencia (`referencia_fuerza`: press de banca, sentadilla y press militar con barra, peso
-  muerto convencional y rumano, remo con barra, jalón al pecho y prensa). Se calcula así:
-  1RM = proporción × peso corporal (máximo 113 kg); peso = 1RM / (1 + reps/30) (Epley, con el
-  punto medio del rango de repeticiones); × 0.80 si tiene menos de 18 años y × 0.85 si tiene
-  más de 50; redondeado hacia abajo a múltiplos de 2.5 kg, mínimo 2.5 kg.
+  muerto convencional, remo con barra, jalón al pecho y prensa). El peso muerto rumano no la
+  tiene: con la proporción del convencional daba un peso demasiado alto. Se calcula así:
+  1RM = proporción × peso corporal (máximo 113 kg); peso = 1RM / (1 + reps/30) (Epley);
+  × 0.80 si tiene menos de 18 años y × 0.85 si tiene más de 50; redondeado hacia abajo a
+  múltiplos de 2.5 kg, mínimo 2.5 kg.
+- **Repeticiones para Epley = punto medio del rango + 2.** Epley da el peso máximo con el que
+  se llega justo a esas repeticiones; sumar 2 deja unas 2 repeticiones en reserva (RIR ~2),
+  como pide la guía. Ejemplo: intermedio 6–12 → 9 + 2 = 11; hombre de 80 kg, press de banca:
+  1RM 100 kg → 100 / (1 + 11/30) = 73.2 → 72.5 kg.
 - **Niveles de la guía.** Las proporciones de fuerza tienen 4 niveles (Beginner, Novice,
   Intermediate, Advanced) y la app 3: principiante = promedio de Beginner y Novice,
   intermedio = Intermediate y avanzado = Advanced. La prensa trae directamente los 3 niveles

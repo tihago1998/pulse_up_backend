@@ -31,6 +31,11 @@ def test_reps_objetivo_es_el_punto_medio_redondeado(rango, esperado):
     assert rec.reps_objetivo(*rango) == esperado
 
 
+@pytest.mark.parametrize("rango, esperado", [((8, 12), 12), ((6, 12), 11), ((5, 10), 10)])
+def test_reps_para_epley_dejan_2_en_reserva(rango, esperado):
+    assert rec.reps_para_epley(*rango) == esperado
+
+
 @pytest.mark.parametrize("kg, esperado", [(77.0, 75.0), (74.99, 72.5), (75.0, 75.0), (2.6, 2.5), (2.4, 0.0), (0.3 * 25, 7.5)])
 def test_redondeo_hacia_abajo_a_2_5(kg, esperado):
     assert rec.redondear_abajo(kg) == esperado
@@ -125,9 +130,10 @@ def test_perfil_sin_sexo_usa_la_columna_de_mujer(conn):
     banca = _ejercicio(conn, "Press de banca con barra")
     sin_sexo = {k: v for k, v in PERFIL.items() if k != "sexo"}
     mujer = {**PERFIL, "sexo": "mujer"}
-    assert rec.recomendacion_para(conn, banca, sin_sexo, HOY)[0]["peso_kg"] == 45.0
-    assert rec.recomendacion_para(conn, banca, mujer, HOY)[0]["peso_kg"] == 45.0
-    assert rec.recomendacion_para(conn, banca, PERFIL, HOY)[0]["peso_kg"] == 75.0
+    # Intermedio: 6-12 → 9 + 2 = 11 repeticiones para Epley
+    assert rec.recomendacion_para(conn, banca, sin_sexo, HOY)[0]["peso_kg"] == 42.5  # 0.75 × 80 / (1 + 11/30)
+    assert rec.recomendacion_para(conn, banca, mujer, HOY)[0]["peso_kg"] == 42.5
+    assert rec.recomendacion_para(conn, banca, PERFIL, HOY)[0]["peso_kg"] == 72.5  # 1.25 × 80 / (1 + 11/30)
 
 
 @pytest.mark.parametrize("perfil", [None, {}, {**PERFIL, "nivel": None}, {**PERFIL, "nivel": "experto"}])
@@ -185,11 +191,11 @@ def test_carga_compuesto_con_referencia(client, token):
     recomendacion, motivo = _rec(client, token, "Press de banca con barra")
     assert motivo is None
     assert recomendacion == _esperada(reps_min=6, reps_max=12, series_min=3, series_max=4, descanso_seg=150, rir="2-3",
-                                      peso_kg=75.0)
+                                      peso_kg=72.5)
 
 
-@pytest.mark.parametrize("nivel, banca, sentadilla, prensa", [("intermedio", 75.0, 107.5, 122.5),
-                                                              ("principiante", 45.0, 60.0, 70.0)])
+@pytest.mark.parametrize("nivel, banca, sentadilla, prensa", [("intermedio", 72.5, 100.0, 115.0),
+                                                              ("principiante", 42.5, 55.0, 67.5)])
 def test_tabla_de_ejemplo_hombre_80_kg_25_anos(client, token, nivel, banca, sentadilla, prensa):
     _perfil(client, token, nivel=nivel)
     pesos = [_rec(client, token, n)[0]["peso_kg"] for n in ("Press de banca con barra", "Sentadilla con barra",
@@ -197,17 +203,17 @@ def test_tabla_de_ejemplo_hombre_80_kg_25_anos(client, token, nivel, banca, sent
     assert pesos == [banca, sentadilla, prensa]
 
 
-@pytest.mark.parametrize("nacimiento, peso", [("2009-11-17", 60.0), ("2008-11-16", 75.0), ("1976-11-16", 75.0),
-                                              ("1975-11-16", 65.0)])
+@pytest.mark.parametrize("nacimiento, peso", [("2009-11-17", 57.5), ("2008-11-16", 72.5), ("1976-11-16", 72.5),
+                                              ("1975-11-16", 60.0)])
 def test_ajuste_por_edad_en_la_api(client, token, nacimiento, peso):
-    # 2009-11-17 → 16 años; 2008-11-16 → 18; 1976-11-16 → 50; 1975-11-16 → 51
+    # 2009-11-17 → 16 años; 2008-11-16 → 18; 1976-11-16 → 50; 1975-11-16 → 51. Base 73.2 kg (× 0.80 / × 0.85)
     _perfil(client, token, fecha_nacimiento=nacimiento)
     assert _rec(client, token, "Press de banca con barra")[0]["peso_kg"] == peso
 
 
 def test_sexo_no_indica_usa_la_columna_de_mujer(client, token):
     _perfil(client, token, sexo="no_indica")
-    assert _rec(client, token, "Press de banca con barra")[0]["peso_kg"] == 45.0
+    assert _rec(client, token, "Press de banca con barra")[0]["peso_kg"] == 42.5
 
 
 def test_carga_compuesto_sin_referencia(client, token):

@@ -35,7 +35,8 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
   `ambientes` en `GET /api/ejercicios/filtros`.
 - Recomendación personalizada por ejercicio según el nivel y el perfil físico: series,
   repeticiones (o segundos / minutos), descanso, RIR, días y RPE para cardio, y peso estimado
-  (Epley, ajuste por edad, tope de 113 kg, redondeo a 2.5 kg) en los 8 ejercicios con
+  (Epley con el punto medio del rango + 2 repeticiones en reserva, ajuste por edad, tope de
+  113 kg, redondeo a 2.5 kg) en los 7 ejercicios con
   `referencia_fuerza`. Reglas y proporciones editables en
   `pulseup/seeds/recomendaciones_reglas.json` (tablas `recomendacion_regla` y
   `referencia_fuerza_ratio`). Nuevo `GET /api/ejercicios/<id>/recomendacion`.

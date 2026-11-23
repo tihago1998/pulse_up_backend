@@ -6,9 +6,11 @@ de datos, sembradas desde pulseup/seeds/recomendaciones_reglas.json. Aquí solo 
 Peso de trabajo (solo ejercicios con referencia_fuerza, es decir, la variante exacta de un
 levantamiento de referencia):
     1RM de referencia = ratio(levantamiento, sexo, nivel) × min(peso corporal, 113 kg)
-    peso = 1RM / (1 + reps / 30)            (Epley, reps = punto medio del rango del nivel)
+    peso = 1RM / (1 + reps / 30)            (Epley, reps = punto medio del rango del nivel + 2)
     × 0.80 si tiene menos de 18 años, × 0.85 si tiene más de 50
     redondeado hacia ABAJO a múltiplos de 2.5 kg, mínimo 2.5 kg
+Se suman 2 repeticiones al punto medio para que el peso deje unas 2 repeticiones en reserva
+(RIR ~2, como pide la guía): Epley estima el peso máximo para esas repeticiones, no uno cómodo.
 El nivel principiante usa el promedio de Beginner y Novice de la guía (ver core/semillas.py).
 Si el sexo no es "hombre" (no_indica u otro valor) se usa la columna de mujer: es la más
 conservadora. Sin peso corporal o sin edad no se estima el peso (peso_kg = None).
@@ -31,6 +33,7 @@ INCREMENTO_KG = 2.5
 PESO_MINIMO_KG = 2.5
 FACTOR_MENOR_DE_18 = 0.80
 FACTOR_MAYOR_DE_50 = 0.85
+REPS_EN_RESERVA = 2
 
 TIPOS_CON_CARGA = ("carga_compuesto", "carga_aislamiento", "carga_brazos")
 
@@ -55,6 +58,11 @@ def peso_epley(una_rm, reps):
 def reps_objetivo(reps_min, reps_max):
     """Punto medio del rango, redondeado hacia arriba en los .5 (8–12 → 10, 5–10 → 8)."""
     return math.floor((reps_min + reps_max) / 2 + 0.5)
+
+
+def reps_para_epley(reps_min, reps_max):
+    """Repeticiones con las que se estima el peso: punto medio del rango + 2 en reserva (8–12 → 12)."""
+    return reps_objetivo(reps_min, reps_max) + REPS_EN_RESERVA
 
 
 def redondear_abajo(kg, paso=INCREMENTO_KG):
@@ -150,7 +158,7 @@ def recomendacion_para(conn, ejercicio, perfil, hoy):
     if tipo in TIPOS_CON_CARGA and clave and peso_corporal and edad is not None:
         ratio = repo.ratio(conn, clave, sexo_para_ratio(_dato(perfil, "sexo")), nivel)
         if ratio is not None:
-            reps = reps_objetivo(regla["reps_min"], regla["reps_max"])
+            reps = reps_para_epley(regla["reps_min"], regla["reps_max"])
             peso_kg = calcular_peso_kg(ratio, peso_corporal, reps, edad)
     return armar_recomendacion(nivel, regla, peso_kg, nota_para(tipo, regla, peso_kg)), None
 

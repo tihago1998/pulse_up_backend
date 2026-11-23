@@ -16,7 +16,6 @@ token y permisos por rol, validados siempre en el servidor.
 - Registro e inicio de sesión con JWT.
 - Roles: Administrador, Usuario y SuperAdministrador.
 - Administración de usuarios: listar, cambiar rol, eliminar y estadísticas.
-- Hábitos por usuario.
 - Perfil: editar datos y cambiar contraseña.
 - Catálogo de ejercicios y rutinas (plantillas y propias).
 - Plan semanal con regla de descanso muscular de 48 h, rutina del día y calendario con racha.
@@ -29,7 +28,6 @@ token y permisos por rol, validados siempre en el servidor.
 | Autenticación (registro, login, JWT)      | Implementado |
 | Roles y administración de usuarios        | Implementado |
 | Perfil (editar datos, cambiar contraseña) | Implementado |
-| Hábitos                                   | Implementado |
 | Catálogo de ejercicios y rutinas          | Implementado |
 | Plan semanal, rutina del día y calendario | Implementado |
 | Perfil físico                             | Implementado |
@@ -182,7 +180,7 @@ Pega la clave generada en `PULSEUP_SECRET_KEY` dentro de `.env`. Ese archivo no 
 
 PulseUp es solo para Colombia: todos los usuarios comparten la zona `PULSEUP_TZ`
 (`America/Bogota`, UTC-5, sin horario de verano). Con ella se decide qué día es "hoy" en el
-plan semanal, el calendario y los hábitos creados sin fecha, sin importar la zona horaria del
+plan semanal y el calendario, sin importar la zona horaria del
 servidor. Solo el vencimiento de los tokens usa UTC.
 
 ## Ejecución
@@ -215,7 +213,6 @@ pulseup/
   modules/
     auth/              Registro e inicio de sesión
     usuarios/          Usuarios, perfil y roles
-    habitos/           Hábitos y resumen del calendario
     ejercicios/        Catálogo de ejercicios con filtros
     rutinas/           Plantillas y rutinas propias
     plan/              Plan semanal, regla de 48 h, rutina del día y calendario

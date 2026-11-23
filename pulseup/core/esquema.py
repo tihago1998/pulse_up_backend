@@ -55,6 +55,23 @@ TABLAS = [
     """,
     "CREATE INDEX IF NOT EXISTS ix_ejercicio_grupo ON ejercicio(grupo_muscular)",
     "CREATE INDEX IF NOT EXISTS ix_ejercicio_equipo ON ejercicio(equipo)",
+    # Fotos de cada ejercicio: orden 0 = posición inicial, 1 = posición final. La url es relativa
+    # (/static/ejercicios/...). fuente, licencia, autor y atribucion van por imagen para poder
+    # cambiar de proveedor después sin tocar el resto del catálogo.
+    """
+    CREATE TABLE IF NOT EXISTS ejercicio_imagen (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ejercicio_id INTEGER NOT NULL,
+        orden INTEGER NOT NULL,
+        url TEXT NOT NULL,
+        fuente TEXT NOT NULL,
+        licencia TEXT NOT NULL,
+        autor TEXT,
+        atribucion TEXT,
+        FOREIGN KEY (ejercicio_id) REFERENCES ejercicio(id),
+        UNIQUE (ejercicio_id, orden)
+    )
+    """,
     # Rutinas: con id_usuario NULL son plantillas del sistema; con id_usuario son del usuario
     """
     CREATE TABLE IF NOT EXISTS rutina (
@@ -148,9 +165,41 @@ TABLAS = [
 ]
 
 
+# Columnas que el catálogo ampliado agrega a `ejercicio` (todas opcionales). Las listas se guardan
+# como JSON en texto. grupo_muscular sigue siendo el grupo que usa el plan semanal (regla de 48 h).
+COLUMNAS_EJERCICIO = [
+    ("musculo_principal", "TEXT"),
+    ("mecanica", "TEXT"),  # compuesto | aislamiento
+    ("ambientes", "TEXT"),  # ["gimnasio", "casa", "calistenia"]
+    ("pasos", "TEXT"),
+    ("respiracion", "TEXT"),
+    ("errores_comunes", "TEXT"),
+    ("variante_facil", "TEXT"),
+    ("variante_dificil", "TEXT"),
+    ("descanso_seg", "INTEGER"),
+    ("tipo_recomendacion", "TEXT"),
+    ("id_externo", "TEXT"),  # id en free-exercise-db
+    ("fuente", "TEXT"),
+]
+
+
+def _agregar_columnas_faltantes(conn, tabla, columnas):
+    """ALTER TABLE ADD COLUMN solo para las columnas que aún no existen (migración aditiva)."""
+    existentes = {fila[1] for fila in conn.execute(f"PRAGMA table_info({tabla})").fetchall()}
+    for nombre, tipo in columnas:
+        if nombre not in existentes:
+            conn.execute(f"ALTER TABLE {tabla} ADD COLUMN {nombre} {tipo}")
+
+
 def crear_esquema(conn):
     for sentencia in TABLAS:
         conn.execute(sentencia)
+    # Migración: catálogo ampliado (columnas nuevas de ejercicio)
+    _agregar_columnas_faltantes(conn, "ejercicio", COLUMNAS_EJERCICIO)
+    conn.execute(
+        "CREATE UNIQUE INDEX IF NOT EXISTS ux_ejercicio_id_externo ON ejercicio(id_externo)"
+        " WHERE id_externo IS NOT NULL"
+    )
     # Migración: bases creadas antes de existir "completado" en habito (tabla sin uso, ver arriba)
     columnas = [fila["name"] for fila in conn.execute("PRAGMA table_info(habito)").fetchall()]
     if "completado" not in columnas:

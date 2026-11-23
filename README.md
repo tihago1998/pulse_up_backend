@@ -20,6 +20,7 @@ token y permisos por rol, validados siempre en el servidor.
 - Perfil: editar datos y cambiar contraseña.
 - Catálogo de ejercicios y rutinas (plantillas y propias).
 - Plan semanal con regla de descanso muscular de 48 h, rutina del día y calendario con racha.
+- Perfil físico (fecha de nacimiento, sexo, peso, estatura y nivel), base para recomendar cargas.
 
 ## Estado de los módulos
 
@@ -31,6 +32,7 @@ token y permisos por rol, validados siempre en el servidor.
 | Hábitos                                   | Implementado |
 | Catálogo de ejercicios y rutinas          | Implementado |
 | Plan semanal, rutina del día y calendario | Implementado |
+| Perfil físico                             | Implementado |
 | Progreso detallado (series y cargas)      | Pendiente    |
 | Notificación de rutinas incumplidas       | Pendiente    |
 | Alimentación                              | Pendiente    |
@@ -99,6 +101,43 @@ cada rutina (`plan_historial`). El calendario, la racha y `/incumplidos` evalúa
 cada fecha con la rutina que estaba planificada **en esa fecha**: cambiar o quitar
 un día del plan aplica desde hoy y no borra los incumplidos que ya ocurrieron.
 Cambios hechos y deshechos el mismo día no dejan rastro.
+
+### Endpoints del perfil físico (requieren token)
+
+Cada usuario tiene como máximo un perfil físico. Es la base para recomendar
+repeticiones y pesos según el nivel.
+
+| Método | Ruta                  | Descripción                                                        |
+| ------ | --------------------- | ------------------------------------------------------------------ |
+| GET    | `/api/perfil-fisico/` | `{"perfil": null}` si aún no lo llenó; si existe, `{"perfil": {...}}` |
+| PUT    | `/api/perfil-fisico/` | Crea o reemplaza el perfil. Responde `{"message": "Perfil guardado", "perfil": {...}}` |
+| DELETE | `/api/perfil-fisico/` | Borra el perfil (200 aunque no existiera)                          |
+
+Cuerpo del `PUT`:
+
+```json
+{"fecha_nacimiento": "1998-03-10", "sexo": "hombre", "peso_kg": 72.5, "estatura_cm": 175, "nivel": "intermedio"}
+```
+
+El `perfil` que devuelven `GET` y `PUT` trae `fecha_nacimiento`, `edad`, `sexo`,
+`peso_kg`, `estatura_cm`, `nivel` y `actualizado_en` (ISO 8601 con zona, por ejemplo
+`2026-11-16T18:30:00-05:00`). La `edad` no se guarda: se calcula en cada respuesta con la
+fecha de hoy en Colombia (`PULSEUP_TZ`).
+
+**Validaciones** (400 con `{"error": "..."}`):
+
+| Campo              | Regla                                                                         |
+| ------------------ | ----------------------------------------------------------------------------- |
+| `fecha_nacimiento` | Obligatoria, `YYYY-MM-DD`, no futura; edad entre 14 y 100 años               |
+| `peso_kg`          | Obligatorio, número (no texto ni booleano) entre 30 y 300; se guarda con 1 decimal |
+| `estatura_cm`      | Obligatoria, número (no texto ni booleano) entre 100 y 250; se guarda con 1 decimal |
+| `nivel`            | Obligatorio: `principiante`, `intermedio` o `avanzado`                        |
+| `sexo`             | Opcional: `hombre`, `mujer` o `no_indica` (por defecto `no_indica`)           |
+
+Si faltan campos obligatorios el mensaje los nombra todos
+(`"Faltan campos obligatorios: peso_kg, nivel"`). Los campos desconocidos se ignoran.
+Los rangos están en `pulseup/core/dominio.py`. Al eliminar un usuario se borra también
+su perfil físico.
 
 ## Tecnologías
 
@@ -180,6 +219,7 @@ pulseup/
     ejercicios/        Catálogo de ejercicios con filtros
     rutinas/           Plantillas y rutinas propias
     plan/              Plan semanal, regla de 48 h, rutina del día y calendario
+    perfil_fisico/     Perfil físico (edad, peso, estatura y nivel)
     <módulo>/          routes.py (HTTP) → service.py (reglas) → repository.py (SQL)
 tests/                 Pruebas del contrato de la API
 ```

@@ -21,6 +21,9 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - Calendario mensual (`/api/calendario/`) con estados cumplido, pendiente, incumplido y descanso, y racha.
 - `GET /api/plan/incumplidos` con los días recientes sin cumplir (base de la notificación del Sprint 2).
 - Variables `PULSEUP_TZ` (zona horaria, `America/Bogota`) y `PULSEUP_DESCANSO_MUSCULAR_HORAS` (`48`).
+- Perfil físico (`/api/perfil-fisico/`): ver, guardar (crea o reemplaza) y borrar la fecha de
+  nacimiento, sexo, peso, estatura y nivel, con la edad calculada en hora de Colombia y
+  validación de rangos. Al eliminar un usuario se borra también su perfil físico.
 
 ### Changed
 

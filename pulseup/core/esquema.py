@@ -130,6 +130,20 @@ TABLAS = [
         UNIQUE (id_usuario, fecha)
     )
     """,
+    # Perfil físico: uno por usuario (base para recomendar repeticiones y pesos por nivel).
+    # La edad no se guarda: se calcula con la fecha de hoy. actualizado_en es ISO con zona horaria.
+    """
+    CREATE TABLE IF NOT EXISTS perfil_fisico (
+        id_usuario INTEGER PRIMARY KEY,
+        fecha_nacimiento TEXT NOT NULL,
+        sexo TEXT NOT NULL DEFAULT 'no_indica',
+        peso_kg REAL NOT NULL,
+        estatura_cm REAL NOT NULL,
+        nivel TEXT NOT NULL,
+        actualizado_en TEXT NOT NULL,
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+    )
+    """,
 ]
 
 

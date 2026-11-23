@@ -60,6 +60,15 @@ def reemplazar_roles(conn, id_usuario, role_ids):
         conn.execute("INSERT INTO usuario_rol (id_usuario, id_rol) VALUES (?, ?)", (id_usuario, id_rol))
 
 
+def eliminar_habitos_legado(conn, id_usuario):
+    """Borra las filas de la tabla `habito`, sin uso desde que se retiró el módulo de hábitos.
+
+    Se mantiene para no dejar datos huérfanos (ni violar la clave foránea) al eliminar un usuario
+    cuya cuenta tenía hábitos de antes. Se podrá quitar cuando una migración elimine la tabla.
+    """
+    conn.execute("DELETE FROM habito WHERE id_usuario = ?", (id_usuario,))
+
+
 def eliminar(conn, id_usuario):
     conn.execute("DELETE FROM usuario_rol WHERE id_usuario = ?", (id_usuario,))
     conn.execute("DELETE FROM usuario WHERE id_usuario = ?", (id_usuario,))

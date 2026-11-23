@@ -27,8 +27,9 @@ TABLAS = [
         PRIMARY KEY (id_usuario, id_rol)
     )
     """,
-    # Hábitos con fecha. Ya NO alimentan las llamas del Home: estas salen del calendario de rutinas
-    # (/api/calendario/). Los endpoints de hábitos se conservan hasta migrar la app.
+    # Hábitos: tabla SIN USO desde la retirada del módulo de hábitos (TK001). Ya no hay endpoints
+    # que la lean ni escriban; se conserva para no destruir datos (el esquema es aditivo) y podrá
+    # eliminarse en una migración futura. Al borrar un usuario se borran sus filas.
     """
     CREATE TABLE IF NOT EXISTS habito (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -150,7 +151,7 @@ TABLAS = [
 def crear_esquema(conn):
     for sentencia in TABLAS:
         conn.execute(sentencia)
-    # Migración: bases creadas antes de existir "completado" en habito
+    # Migración: bases creadas antes de existir "completado" en habito (tabla sin uso, ver arriba)
     columnas = [fila["name"] for fila in conn.execute("PRAGMA table_info(habito)").fetchall()]
     if "completado" not in columnas:
         conn.execute("ALTER TABLE habito ADD COLUMN completado INTEGER NOT NULL DEFAULT 0")

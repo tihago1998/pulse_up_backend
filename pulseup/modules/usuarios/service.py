@@ -3,7 +3,6 @@ from pulseup.core import roles as R
 from pulseup.core.database import conexion
 from pulseup.core.errors import Conflicto, NoEncontrado, Prohibido, SolicitudInvalida
 from pulseup.core.security import hashear_password, password_correcta
-from pulseup.modules.habitos import repository as habitos_repo
 from pulseup.modules.perfil_fisico import repository as perfil_fisico_repo
 from pulseup.modules.plan import repository as plan_repo
 from pulseup.modules.rutinas import repository as rutinas_repo
@@ -48,7 +47,7 @@ def eliminar_usuario(id_solicitante, id_objetivo):
         raise SolicitudInvalida("No puedes eliminar tu propia cuenta")
     with conexion() as conn:
         # Se limpian también los datos del usuario para no dejar registros huérfanos
-        habitos_repo.eliminar_de_usuario(conn, id_objetivo)
+        repo.eliminar_habitos_legado(conn, id_objetivo)
         perfil_fisico_repo.eliminar_de_usuario(conn, id_objetivo)
         plan_repo.eliminar_de_usuario(conn, id_objetivo)  # antes que las rutinas que referencia
         rutinas_repo.eliminar_de_usuario(conn, id_objetivo)

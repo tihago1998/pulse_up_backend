@@ -10,7 +10,6 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - Registro e inicio de sesión con JWT.
 - Roles: Administrador, Usuario y SuperAdministrador.
 - Administración de usuarios: listar, cambiar rol, eliminar y estadísticas.
-- Módulo de hábitos: crear y listar por usuario.
 - Módulo de perfil: editar datos y cambiar contraseña.
 - Catálogo de 48 ejercicios (filtros por músculo, equipo y nivel) y 7 rutinas plantilla.
 - Rutinas propias: crear, ver y eliminar.
@@ -29,17 +28,22 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 
 - Reorganización por capas (routes → service → repository) sin cambiar los endpoints.
 - `app.py` expone `app = create_app()`; la base de datos se inicializa al arrancar.
-- Al eliminar un usuario también se eliminan sus hábitos, su plan semanal y sus sesiones.
+- Al eliminar un usuario también se eliminan su plan semanal y sus sesiones.
 - `DELETE /api/rutinas/<id>` responde 409 si la rutina está en el plan semanal.
 - Nueva dependencia `tzdata` para que las zonas horarias funcionen en Windows.
+
+### Removed
+
+- Módulo de hábitos (TK001): ya no existen `/api/habitos/` (listar y registrar),
+  `/api/habitos/<id>/completado` ni `/api/habitos/resumen`; ahora responden 404. La app
+  Android dejó de usarlos. La tabla `habito` se conserva sin uso, con sus datos, y podrá
+  eliminarse en una migración futura. Al eliminar un usuario se siguen borrando sus filas.
 
 ### Fixed
 
 - Historial del plan semanal (`plan_historial`): el calendario, la racha y los incumplidos
   usan la rutina vigente en cada fecha. Quitar o cambiar un día ya no convierte en
   descanso los incumplidos anteriores. Los planes existentes se migran solos al arrancar.
-- Los hábitos creados sin fecha quedan en el día de Colombia (`PULSEUP_TZ`) y no en el del
-  reloj del servidor, igual que el plan semanal y el calendario.
 
 ### Security
 

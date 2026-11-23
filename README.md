@@ -45,6 +45,7 @@ token y permisos por rol, validados siempre en el servidor.
 | GET    | `/api/ejercicios/filtros`     | Valores disponibles para los filtros (músculos, equipos, niveles, ambientes) |
 | GET    | `/api/ejercicios/creditos`    | Fuentes, licencias y atribuciones de las fotos       |
 | GET    | `/api/ejercicios/<id>`        | Detalle: pasos, respiración, errores, variantes, fotos y recomendación |
+| GET    | `/api/ejercicios/<id>/recomendacion` | Solo la recomendación (para armar rutinas)    |
 | GET    | `/api/rutinas/`               | Plantillas + rutinas propias. Filtros: `objetivo`, `nivel` |
 | GET    | `/api/rutinas/<id>`           | Rutina con sus ejercicios en orden                   |
 | POST   | `/api/rutinas/`               | Crear rutina propia                                  |
@@ -63,10 +64,41 @@ devuelve todos los ejercicios, como antes (así no se rompe la app actual). Con 
 
 **Detalle.** Añade `pasos`, `respiracion`, `errores_comunes`, `variante_facil`,
 `variante_dificil`, `descanso_seg`, `imagenes` (`[{"orden": 0, "url": ...}, {"orden": 1, ...}]`),
-`recomendacion` y `recomendacion_motivo`. Por ahora `recomendacion` siempre es `null`: sin
-perfil físico el motivo es "Completa tu perfil físico para ver el peso recomendado"; con
-perfil, la recomendación queda pendiente hasta que exista el módulo de recomendaciones.
+`recomendacion` y `recomendacion_motivo` (ver la sección siguiente).
 Las `url` de las fotos son relativas al servidor (`/static/ejercicios/...`).
+
+### Recomendación personalizada
+
+El detalle (y `GET /api/ejercicios/<id>/recomendacion`) devuelve, según el nivel del perfil físico:
+
+```json
+{"nivel": "intermedio", "unidad": "repeticiones", "reps_min": 6, "reps_max": 12,
+ "series_min": 3, "series_max": 4, "descanso_seg": 150, "rir": "2-3", "dias_semana": null,
+ "rpe": null, "peso_kg": 75.0, "nota": null,
+ "aviso": "Es una guía general y no reemplaza a un entrenador ni a un médico."}
+```
+
+- `unidad` es `repeticiones`, `segundos` (isométricos, como la plancha) o `minutos` (cardio,
+  con `dias_semana` y `rpe`). Sin perfil físico: `recomendacion: null` y
+  `recomendacion_motivo: "Completa tu perfil físico para ver la recomendación"`.
+- Las reglas dependen de `tipo_recomendacion` del ejercicio (`carga_compuesto`,
+  `carga_aislamiento`, `carga_brazos`, `peso_corporal`, `isometrico`, `abdomen`, `cardio`) y
+  del nivel. Están en `pulseup/seeds/recomendaciones_reglas.json`: se editan ahí y se aplican
+  al reiniciar, sin tocar código. Dominadas tiene sus propias series y repeticiones
+  (`recomendacion_override` en `catalogo_seleccion.json`).
+- **Peso** (`peso_kg`): solo para los 8 ejercicios que son exactamente un levantamiento de
+  referencia (`referencia_fuerza`: press de banca, sentadilla y press militar con barra, peso
+  muerto convencional y rumano, remo con barra, jalón al pecho y prensa). Se calcula así:
+  1RM = proporción × peso corporal (máximo 113 kg); peso = 1RM / (1 + reps/30) (Epley, con el
+  punto medio del rango de repeticiones); × 0.80 si tiene menos de 18 años y × 0.85 si tiene
+  más de 50; redondeado hacia abajo a múltiplos de 2.5 kg, mínimo 2.5 kg.
+- **Niveles de la guía.** Las proporciones de fuerza tienen 4 niveles (Beginner, Novice,
+  Intermediate, Advanced) y la app 3: principiante = promedio de Beginner y Novice,
+  intermedio = Intermediate y avanzado = Advanced. La prensa trae directamente los 3 niveles
+  y no distingue sexo. Si el sexo es `no_indica` se usa la columna de mujer (la más conservadora).
+- En el resto de ejercicios con carga `peso_kg` es `null` y la nota explica cómo elegir el peso;
+  bíceps y tríceps tienen su propia nota. Peso corporal, abdomen, isométricos y cardio no llevan
+  peso.
 
 ### Catálogo ampliado y fotos
 
@@ -256,8 +288,10 @@ pulseup/
     rutinas/           Plantillas y rutinas propias
     plan/              Plan semanal, regla de 48 h, rutina del día y calendario
     perfil_fisico/     Perfil físico (edad, peso, estatura y nivel)
+    recomendaciones/   Series, repeticiones, descanso y peso recomendados por ejercicio
     <módulo>/          routes.py (HTTP) → service.py (reglas) → repository.py (SQL)
-  seeds/               ejercicios.json (base), catalogo_seleccion.json (ampliado), rutinas.json
+  seeds/               ejercicios.json (base), catalogo_seleccion.json (ampliado), rutinas.json,
+                       recomendaciones_reglas.json (reglas y proporciones de fuerza)
   static/ejercicios/   Fotos descargadas por el importador (no se suben al repositorio)
 tools/
   importar_catalogo.py Descarga y registra las fotos del catálogo

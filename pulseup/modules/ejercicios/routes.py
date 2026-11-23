@@ -1,5 +1,5 @@
 """Rutas HTTP del catálogo de ejercicios."""
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, g, jsonify, request
 
 from pulseup.core.auth import requiere_token
 from pulseup.modules.ejercicios import service
@@ -11,18 +11,33 @@ ejercicios_bp = Blueprint("ejercicios", __name__)
 @requiere_token
 def listar():
     a = request.args
-    ejercicios = service.listar(a.get("musculo"), a.get("equipo"), a.get("nivel"), a.get("q"))
-    return jsonify({"ejercicios": ejercicios}), 200
+    respuesta = service.listar(
+        musculo=a.get("musculo"),
+        equipo=a.get("equipo"),
+        nivel=a.get("nivel"),
+        texto=a.get("q"),
+        ambiente=a.get("ambiente"),
+        limit=a.get("limit"),
+        offset=a.get("offset"),
+        formato=a.get("formato"),
+    )
+    return jsonify(respuesta), 200
 
 
-# Esta ruta va antes que /<id> para que "filtros" no se confunda con un id
+# Estas rutas van antes que /<id> para que "filtros" y "creditos" no se confundan con un id
 @ejercicios_bp.get("/api/ejercicios/filtros")
 @requiere_token
 def filtros():
     return jsonify(service.filtros()), 200
 
 
+@ejercicios_bp.get("/api/ejercicios/creditos")
+@requiere_token
+def creditos():
+    return jsonify(service.creditos()), 200
+
+
 @ejercicios_bp.get("/api/ejercicios/<int:id_ejercicio>")
 @requiere_token
 def detalle(id_ejercicio):
-    return jsonify({"ejercicio": service.detalle(id_ejercicio)}), 200
+    return jsonify({"ejercicio": service.detalle(id_ejercicio, g.id_usuario)}), 200

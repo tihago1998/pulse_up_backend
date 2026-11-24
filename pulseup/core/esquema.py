@@ -222,6 +222,20 @@ COLUMNAS_EJERCICIO = [
 ]
 
 
+# Ejercicios de una rutina: peso de trabajo opcional y unidad. Con unidad "segundos" o "minutos",
+# `repeticiones` (texto) guarda la duración ("30" = 30 segundos) y se interpreta según `unidad`.
+COLUMNAS_RUTINA_EJERCICIO = [
+    ("peso_kg", "REAL"),
+    ("unidad", "TEXT NOT NULL DEFAULT 'repeticiones'"),  # repeticiones | segundos | minutos
+]
+
+# Rutinas: origen 'plan' = creada automáticamente al agregar ejercicios a un día del plan;
+# NULL = creada por el usuario en su pantalla de rutinas (o plantilla del sistema).
+COLUMNAS_RUTINA = [
+    ("origen", "TEXT"),
+]
+
+
 def _agregar_columnas_faltantes(conn, tabla, columnas):
     """ALTER TABLE ADD COLUMN solo para las columnas que aún no existen (migración aditiva)."""
     existentes = {fila[1] for fila in conn.execute(f"PRAGMA table_info({tabla})").fetchall()}
@@ -235,6 +249,9 @@ def crear_esquema(conn):
         conn.execute(sentencia)
     # Migración: catálogo ampliado (columnas nuevas de ejercicio)
     _agregar_columnas_faltantes(conn, "ejercicio", COLUMNAS_EJERCICIO)
+    # Migración: ejercicios agregados directamente a un día del plan (peso, unidad y origen)
+    _agregar_columnas_faltantes(conn, "rutina_ejercicio", COLUMNAS_RUTINA_EJERCICIO)
+    _agregar_columnas_faltantes(conn, "rutina", COLUMNAS_RUTINA)
     conn.execute(
         "CREATE UNIQUE INDEX IF NOT EXISTS ux_ejercicio_id_externo ON ejercicio(id_externo)"
         " WHERE id_externo IS NOT NULL"

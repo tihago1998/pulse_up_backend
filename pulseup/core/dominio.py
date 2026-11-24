@@ -28,3 +28,9 @@ ESTATURA_MAX_CM = 250
 # Catálogo de ejercicios: dónde se puede hacer y tipo de movimiento
 AMBIENTES = ("gimnasio", "casa", "calistenia")
 MECANICAS = ("compuesto", "aislamiento")
+
+# Unidad de los ejercicios de una rutina (con segundos o minutos, "repeticiones" guarda la duración)
+UNIDADES = ("repeticiones", "segundos", "minutos")
+
+# Origen de una rutina creada automáticamente por el plan semanal
+ORIGEN_PLAN = "plan"

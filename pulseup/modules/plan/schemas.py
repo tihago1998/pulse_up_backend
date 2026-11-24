@@ -9,8 +9,24 @@ def rutina_corta(id_rutina, nombre):
     return {"id": id_rutina, "nombre": nombre}
 
 
-def dia_plan_a_json(dia_semana, fila=None, grupos=()):
-    """Un día del plan. `fila` None significa día de descanso."""
+def item_a_json(fila):
+    """Un ejercicio de la rutina de un día. Con unidad segundos o minutos, `repeticiones` es la duración."""
+    return {
+        "item_id": fila["item_id"],
+        "ejercicio_id": fila["id_ejercicio"],
+        "nombre": fila["nombre"],
+        "musculo_principal": fila["musculo_principal"],
+        "imagen_miniatura": fila["imagen_miniatura"],
+        "series": fila["series"],
+        "repeticiones": fila["repeticiones"],
+        "unidad": fila["unidad"],
+        "peso_kg": fila["peso_kg"],
+        "descanso_seg": fila["descanso_seg"],
+    }
+
+
+def dia_plan_a_json(dia_semana, fila=None, grupos=(), ejercicios=()):
+    """Un día del plan. `fila` None significa día de descanso (y `ejercicios` vacío)."""
     rutina = None
     if fila is not None:
         rutina = {
@@ -18,11 +34,20 @@ def dia_plan_a_json(dia_semana, fila=None, grupos=()):
             "nombre": fila["nombre"],
             "grupos_musculares": sorted(grupos),
         }
-    return {"dia_semana": dia_semana, "nombre_dia": DIAS_SEMANA[dia_semana], "rutina": rutina}
+    return {
+        "dia_semana": dia_semana,
+        "nombre_dia": DIAS_SEMANA[dia_semana],
+        "rutina": rutina,
+        "ejercicios": [item_a_json(f) for f in ejercicios] if fila is not None else [],
+    }
 
 
 def conflicto_a_json(grupo, dia_semana):
     return {"grupo": grupo, "dia_semana": dia_semana, "nombre_dia": DIAS_SEMANA[dia_semana]}
+
+
+def aviso_a_json(musculo, dia_conflicto, mensaje):
+    return {"tipo": "descanso_48h", "musculo": musculo, "dia_conflicto": dia_conflicto, "mensaje": mensaje}
 
 
 def dia_calendario_a_json(fecha, estado, rutina):

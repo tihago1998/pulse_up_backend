@@ -3,7 +3,7 @@ from flask import Blueprint, g, jsonify, request
 
 from pulseup.core.auth import requiere_token
 from pulseup.core.validacion import cuerpo_json
-from pulseup.modules.plan import service
+from pulseup.modules.plan import ejercicios_service, service
 
 plan_bp = Blueprint("plan", __name__)
 
@@ -17,8 +17,9 @@ def ver():
 @plan_bp.put("/api/plan/<int:dia>")
 @requiere_token
 def asignar(dia):
-    dia_plan = service.asignar(g.id_usuario, dia, cuerpo_json(request))
-    return jsonify({"message": "Rutina asignada", "dia": dia_plan}), 200
+    # La regla de 48 h no bloquea: si hay choques se guarda igual y vienen en "avisos"
+    dia_plan, avisos = service.asignar(g.id_usuario, dia, cuerpo_json(request))
+    return jsonify({"message": "Rutina asignada", "dia": dia_plan, "avisos": avisos}), 200
 
 
 @plan_bp.delete("/api/plan/<int:dia>")
@@ -26,6 +27,36 @@ def asignar(dia):
 def quitar(dia):
     dia_plan = service.quitar(g.id_usuario, dia)
     return jsonify({"message": "Día marcado como descanso", "dia": dia_plan}), 200
+
+
+# ---- Ejercicios del catálogo en un día del plan ---------------------------------------
+
+@plan_bp.get("/api/plan/previsualizar")
+@requiere_token
+def previsualizar():
+    dias = ejercicios_service.previsualizar(
+        g.id_usuario, request.args.get("ejercicio_id"), request.args.get("rutina_id")
+    )
+    return jsonify({"dias": dias}), 200
+
+
+@plan_bp.post("/api/plan/<int:dia>/ejercicios")
+@requiere_token
+def agregar_ejercicio(dia):
+    return jsonify(ejercicios_service.agregar(g.id_usuario, dia, cuerpo_json(request))), 201
+
+
+@plan_bp.put("/api/plan/<int:dia>/ejercicios/<int:item_id>")
+@requiere_token
+def editar_ejercicio(dia, item_id):
+    return jsonify(ejercicios_service.editar(g.id_usuario, dia, item_id, cuerpo_json(request))), 200
+
+
+@plan_bp.delete("/api/plan/<int:dia>/ejercicios/<int:item_id>")
+@requiere_token
+def quitar_ejercicio(dia, item_id):
+    resultado = ejercicios_service.quitar(g.id_usuario, dia, item_id)
+    return jsonify({"message": "Ejercicio quitado del día", **resultado}), 200
 
 
 @plan_bp.post("/api/plan/validar")

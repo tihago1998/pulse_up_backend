@@ -1,0 +1,39 @@
+sequenceDiagram
+    autonumber
+    actor AD as Administrador /<br/>SuperAdministrador
+    participant A as App Android<br/>(UsersScreen)
+    participant API as API Flask<br/>(users: rutas y servicio)
+    participant MW as Control de acceso<br/>(token + rol)
+    participant DB as SQLite<br/>(usuario, rol, usuario_rol)
+
+    AD->>A: Abre "Administrar usuarios" desde el menú de perfil<br/>(el botón solo se muestra a los roles de administración)
+    A->>API: GET /api/users/ y GET /api/users/stats<br/>Authorization: Bearer token
+    API->>MW: Valida el token y el rol
+    alt Tiene permiso
+        MW-->>API: OK
+        API->>DB: Lista de usuarios con sus roles y conteo por rol
+        DB-->>API: Usuarios y estadísticas
+        API-->>A: {usuarios}, {total, por_rol}
+        A-->>AD: Muestra la lista y el total por rol
+    else Sin permiso (403)
+        MW-->>A: {error}
+        A-->>AD: Muestra el mensaje del servidor
+    end
+
+    opt Cambiar rol
+        AD->>A: Elige "Hacer admin" o "Quitar admin"
+        A->>API: PUT /api/users/{id}/roles {role_ids}
+        Note over API: Un Administrador no modifica a otros<br/>Administradores ni asigna SuperAdministrador
+        API->>DB: Reemplaza los roles del usuario
+        API-->>A: {message}
+        A-->>AD: Refresca la lista
+    end
+
+    opt Eliminar usuario (solo SuperAdministrador)
+        AD->>A: Toca "Eliminar"
+        A->>API: DELETE /api/users/{id}
+        Note over API: Rechaza la auto-eliminación (400).<br/>Borra los datos del usuario en una transacción
+        API->>DB: Elimina perfil, plan, rutinas propias, roles y usuario
+        API-->>A: {message}
+        A-->>AD: Refresca la lista
+    end

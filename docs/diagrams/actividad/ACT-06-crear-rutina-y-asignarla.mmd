@@ -1,0 +1,20 @@
+flowchart TD
+    I([Inicio]) --> A[Abrir «Nueva rutina»]
+    A --> B[Escribir el nombre y agregar ejercicios<br/>con series, repeticiones, peso y descanso]
+    B --> C{¿Nombre, al menos un ejercicio,<br/>series 1–10, descanso 0–600 s<br/>y duración 5–240 min?}
+    C -- No --> D[Mostrar el error de validación]
+    D --> B
+    C -- Sí --> E[Guardar la rutina]
+    E --> F{¿Quiere ponerla en su plan?}
+    F -- Ahora no --> G[Quedar en «Rutinas»]
+    G --> Z([Fin])
+    F -- Sí --> H[Elegir uno o varios días]
+    H --> J[Consultar los avisos de 48 h por día]
+    J --> K{¿Algún día ya tiene contenido?}
+    K -- Sí --> L[Pedir «Reemplazar» o «Cancelar»]
+    L --> M{¿Reemplaza?}
+    M -- No --> H
+    M -- Sí --> N
+    K -- No --> N[Asignar la rutina a cada día elegido]
+    N --> O[Mostrar el resumen: días agregados,<br/>avisos de descanso y errores]
+    O --> Z

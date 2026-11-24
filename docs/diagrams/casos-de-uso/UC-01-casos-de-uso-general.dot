@@ -1,0 +1,33 @@
+digraph UC {
+  rankdir=LR; splines=true; nodesep=0.28; ranksep=1.3; bgcolor=white;
+  fontname="Arial"; node [fontname="Arial", fontsize=12]; edge [fontname="Arial", fontsize=10, arrowhead=none];
+  U  [label="Usuario", shape=box, style="rounded", penwidth=1.6, width=1.3];
+  AD [label="Administrador", shape=box, style="rounded", penwidth=1.6, width=1.3];
+  SA [label="SuperAdministrador", shape=box, style="rounded", penwidth=1.6, width=1.3];
+  subgraph cluster_sys {
+    label="Sistema PulseUp"; labeljust=l; fontsize=14; style=solid; color=black; penwidth=1.4;
+    node [shape=ellipse, style=solid, penwidth=1, color=black];
+    UC1  [label="Registrarse"];
+    UC2  [label="Iniciar y cerrar sesión"];
+    UC3  [label="Editar perfil y contraseña"];
+    UC4  [label="Completar perfil físico"];
+    UC5  [label="Explorar el catálogo"];
+    UC6  [label="Ver detalle del ejercicio"];
+    UC7  [label="Ver recomendación\npersonalizada"];
+    UC8  [label="Crear y eliminar rutinas"];
+    UC9  [label="Armar el plan semanal"];
+    UC10 [label="Agregar ejercicio al plan"];
+    UC11 [label="Editar el plan del día"];
+    UC12 [label="Marcar la rutina de hoy"];
+    UC13 [label="Ver calendario y racha"];
+    UC14 [label="Ver usuarios y estadísticas"];
+    UC15 [label="Cambiar roles"];
+    UC16 [label="Eliminar usuarios"];
+  }
+  U -> UC1; U -> UC2; U -> UC3; U -> UC4; U -> UC5; U -> UC8; U -> UC9; U -> UC10; U -> UC11; U -> UC12; U -> UC13;
+  AD -> UC14; AD -> UC15; SA -> UC16;
+  SA -> AD [arrowhead=empty, label="hereda de", style=solid];
+  UC5  -> UC6  [style=dashed, arrowhead=vee, label="«incluye»"];
+  UC6  -> UC7  [style=dashed, arrowhead=vee, label="«incluye»"];
+  UC10 -> UC6  [style=dashed, arrowhead=vee, label="«extiende»"];
+}

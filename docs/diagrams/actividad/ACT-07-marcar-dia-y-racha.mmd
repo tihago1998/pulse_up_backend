@@ -1,0 +1,19 @@
+flowchart TD
+    I([Inicio]) --> A[Abrir el Home o el Calendario]
+    A --> B[Consultar el calendario del mes]
+    B --> C[Calcular el estado de cada día<br/>y la racha actual y la mejor]
+    C --> D{¿Hoy tiene rutina<br/>y está pendiente?}
+    D -- No --> E[El botón «Marcar rutina de hoy»<br/>no se habilita]
+    E --> Z([Fin])
+    D -- Sí --> F[Tocar «Marcar rutina de hoy»]
+    F --> G{¿Es hoy, no es descanso<br/>y no está ya marcado?}
+    G -- No --> H[Mostrar el mensaje del servidor]
+    H --> Z
+    G -- Sí --> J[Guardar la sesión del día]
+    J --> K[Mostrar el mensaje de cumplimiento]
+    K --> L[Pintar el día como cumplido<br/>y actualizar la racha]
+    L --> M{¿El día quedó sin marcar<br/>al cambiar la fecha?}
+    M -- Sí --> N[Pasa a incumplido y no se recupera<br/>La racha vuelve a 0]
+    M -- No --> O[El día sigue cumplido]
+    N --> Z
+    O --> Z

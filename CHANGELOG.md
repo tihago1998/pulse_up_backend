@@ -50,6 +50,8 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - Columnas opcionales `peso_kg` y `unidad` (`repeticiones | segundos | minutos`) en
   `rutina_ejercicio`, aceptadas y devueltas por `/api/rutinas/`, y `origen` en `rutina`
   (`plan` para las rutinas creadas por el plan). Migración aditiva.
+- Documentación actualizada: acta, interesados, requisitos e historias de usuario, y diagramas de
+  actividad, secuencia, casos de uso y BPMN alineados con la implementación.
 
 ### Changed
 

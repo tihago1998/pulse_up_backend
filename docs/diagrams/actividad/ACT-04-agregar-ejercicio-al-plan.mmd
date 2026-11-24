@@ -1,0 +1,23 @@
+flowchart TD
+    I([Inicio]) --> A[En el detalle del ejercicio,<br/>tocar «Agregar a mi plan»]
+    A --> B[Consultar los avisos de descanso<br/>de los 7 días]
+    B --> C[Mostrar «¿Qué día?»<br/>con cada día y su aviso]
+    C --> D[Elegir un día]
+    D --> E{¿El grupo muscular principal<br/>se trabaja en un día vecino<br/>y no está exento?}
+    E -- Sí --> F[Mostrar el aviso de 48 h de descanso]
+    F --> G{¿Agregar igual?}
+    G -- No --> C
+    G -- Sí --> H
+    E -- No --> H{¿El día ya tiene<br/>20 ejercicios?}
+    H -- Sí --> X[Mostrar «Máximo 20 ejercicios por día»]
+    X --> Z([Fin])
+    H -- No --> J{¿El ejercicio ya está ese día?}
+    J -- Sí --> K[Mostrar «Ya está en tu plan del día. Elige otro día»]
+    K --> C
+    J -- No --> L{¿El día tiene rutina<br/>plantilla, propia o compartida?}
+    L -- Sí --> M[Copiar la rutina solo para ese día]
+    L -- No --> N[Crear una rutina del plan para ese día]
+    M --> O[Agregar el ejercicio con los valores<br/>de la recomendación]
+    N --> O
+    O --> P[Confirmar y mostrar los avisos]
+    P --> Z

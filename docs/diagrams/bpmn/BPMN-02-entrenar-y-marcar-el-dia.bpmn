@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_dia" targetNamespace="http://pulseup/bpmn">
+  <bpmn:collaboration id="Collab_dia"><bpmn:participant id="Part_dia" name="PulseUp" processRef="Proc_dia"/></bpmn:collaboration>
+  <bpmn:process id="Proc_dia" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_U" name="Usuario">
+        <bpmn:flowNodeRef>S1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T4</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T5</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_A" name="App Android">
+        <bpmn:flowNodeRef>T3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>E0</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>E1</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_S" name="API PulseUp">
+        <bpmn:flowNodeRef>T2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TM</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T8</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>E2</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="S1" name="Llega un día del plan"><bpmn:outgoing>Flow_1</bpmn:outgoing></bpmn:startEvent>
+    <bpmn:task id="T1" name="Abrir el Home o el Calendario"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T2" name="Calcular el estado del día y la racha"><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T3" name="Mostrar «Hoy toca» y la racha"><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:task>
+    <bpmn:exclusiveGateway id="G1" name="¿Hoy tiene rutina?"><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:exclusiveGateway>
+    <bpmn:endEvent id="E0" name="Día de descanso"><bpmn:incoming>Flow_5</bpmn:incoming></bpmn:endEvent>
+    <bpmn:task id="T4" name="Hacer el entrenamiento del día"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:task>
+    <bpmn:exclusiveGateway id="G2" name="¿Marca la rutina hoy?"><bpmn:incoming>Flow_7</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing><bpmn:outgoing>Flow_9</bpmn:outgoing></bpmn:exclusiveGateway>
+    <bpmn:task id="T5" name="Tocar «Marcar rutina de hoy»"><bpmn:incoming>Flow_8</bpmn:incoming><bpmn:outgoing>Flow_10</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T6" name="Validar y guardar la sesión del día"><bpmn:incoming>Flow_10</bpmn:incoming><bpmn:outgoing>Flow_11</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T7" name="Mostrar mensaje, fuego y racha actualizada"><bpmn:incoming>Flow_11</bpmn:incoming><bpmn:outgoing>Flow_12</bpmn:outgoing></bpmn:task>
+    <bpmn:endEvent id="E1" name="Día cumplido"><bpmn:incoming>Flow_12</bpmn:incoming></bpmn:endEvent>
+    <bpmn:intermediateCatchEvent id="TM" name="Cambia la fecha a las 00:00"><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:outgoing>Flow_13</bpmn:outgoing><bpmn:timerEventDefinition id="TED_TM"/></bpmn:intermediateCatchEvent>
+    <bpmn:task id="T8" name="Pasar el día a incumplido y reiniciar la racha"><bpmn:incoming>Flow_13</bpmn:incoming><bpmn:outgoing>Flow_14</bpmn:outgoing></bpmn:task>
+    <bpmn:endEvent id="E2" name="Día incumplido"><bpmn:incoming>Flow_14</bpmn:incoming></bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="S1" targetRef="T1"/>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="T1" targetRef="T2"/>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="T2" targetRef="T3"/>
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="T3" targetRef="G1"/>
+    <bpmn:sequenceFlow id="Flow_5" name="No" sourceRef="G1" targetRef="E0"/>
+    <bpmn:sequenceFlow id="Flow_6" name="Sí" sourceRef="G1" targetRef="T4"/>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="T4" targetRef="G2"/>
+    <bpmn:sequenceFlow id="Flow_8" name="Sí" sourceRef="G2" targetRef="T5"/>
+    <bpmn:sequenceFlow id="Flow_9" name="No" sourceRef="G2" targetRef="TM"/>
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="T5" targetRef="T6"/>
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="T6" targetRef="T7"/>
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="T7" targetRef="E1"/>
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="TM" targetRef="T8"/>
+    <bpmn:sequenceFlow id="Flow_14" sourceRef="T8" targetRef="E2"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_dia"><bpmndi:BPMNPlane id="Plane_dia" bpmnElement="Collab_dia">
+    <bpmndi:BPMNShape id="Shape_Part" bpmnElement="Part_dia" isHorizontal="true"><dc:Bounds x="10" y="60" width="1760" height="510"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Lane_U" bpmnElement="Lane_U" isHorizontal="true"><dc:Bounds x="40" y="60" width="1730" height="170"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Lane_A" bpmnElement="Lane_A" isHorizontal="true"><dc:Bounds x="40" y="230" width="1730" height="170"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Lane_S" bpmnElement="Lane_S" isHorizontal="true"><dc:Bounds x="40" y="400" width="1730" height="170"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_S1" bpmnElement="S1"><dc:Bounds x="127" y="127" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T1" bpmnElement="T1"><dc:Bounds x="240" y="112" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T2" bpmnElement="T2"><dc:Bounds x="390" y="452" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T3" bpmnElement="T3"><dc:Bounds x="540" y="282" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_G1" bpmnElement="G1"><dc:Bounds x="722" y="292" width="46" height="46"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_E0" bpmnElement="E0"><dc:Bounds x="877" y="297" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T4" bpmnElement="T4"><dc:Bounds x="840" y="112" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_G2" bpmnElement="G2"><dc:Bounds x="1022" y="122" width="46" height="46"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T5" bpmnElement="T5"><dc:Bounds x="1140" y="112" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T6" bpmnElement="T6"><dc:Bounds x="1290" y="407" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T7" bpmnElement="T7"><dc:Bounds x="1440" y="282" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_E1" bpmnElement="E1"><dc:Bounds x="1627" y="297" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_TM" bpmnElement="TM"><dc:Bounds x="1177" y="512" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T8" bpmnElement="T8"><dc:Bounds x="1290" y="497" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_E2" bpmnElement="E2"><dc:Bounds x="1477" y="512" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNEdge id="Edge_Flow_1" bpmnElement="Flow_1"><di:waypoint x="163" y="145"/><di:waypoint x="240" y="145"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_2" bpmnElement="Flow_2"><di:waypoint x="350" y="145"/><di:waypoint x="370" y="145"/><di:waypoint x="370" y="485"/><di:waypoint x="390" y="485"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_3" bpmnElement="Flow_3"><di:waypoint x="500" y="485"/><di:waypoint x="520" y="485"/><di:waypoint x="520" y="315"/><di:waypoint x="540" y="315"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_4" bpmnElement="Flow_4"><di:waypoint x="650" y="315"/><di:waypoint x="722" y="315"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_5" bpmnElement="Flow_5"><di:waypoint x="768" y="315"/><di:waypoint x="877" y="315"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_6" bpmnElement="Flow_6"><di:waypoint x="745" y="292"/><di:waypoint x="745" y="145"/><di:waypoint x="840" y="145"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_7" bpmnElement="Flow_7"><di:waypoint x="950" y="145"/><di:waypoint x="1022" y="145"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_8" bpmnElement="Flow_8"><di:waypoint x="1068" y="145"/><di:waypoint x="1140" y="145"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_9" bpmnElement="Flow_9"><di:waypoint x="1045" y="168"/><di:waypoint x="1045" y="530"/><di:waypoint x="1177" y="530"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_10" bpmnElement="Flow_10"><di:waypoint x="1250" y="145"/><di:waypoint x="1270" y="145"/><di:waypoint x="1270" y="440"/><di:waypoint x="1290" y="440"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_11" bpmnElement="Flow_11"><di:waypoint x="1400" y="440"/><di:waypoint x="1420" y="440"/><di:waypoint x="1420" y="315"/><di:waypoint x="1440" y="315"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_12" bpmnElement="Flow_12"><di:waypoint x="1550" y="315"/><di:waypoint x="1627" y="315"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_13" bpmnElement="Flow_13"><di:waypoint x="1213" y="530"/><di:waypoint x="1290" y="530"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_14" bpmnElement="Flow_14"><di:waypoint x="1400" y="530"/><di:waypoint x="1477" y="530"/></bpmndi:BPMNEdge>
+  </bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</bpmn:definitions>

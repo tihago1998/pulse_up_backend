@@ -1,360 +1,139 @@
-**ACTA DE CONSTITUCIÓN DEL PROYECTO**
+# DOC-02. Gestión de interesados y del proyecto — PulseUp
 
-**PulseUp**
+**PulseUp: aplicación móvil de entrenamiento con plan semanal**
 
-Aplicación Móvil de Hábitos Saludables
+**Elaborado por:** Santiago Varela Peña y Sebastián Navarro López  
+**Instructor:** Richard Betancur  
+**Programa:** Tecnología en Análisis y Desarrollo de Software — Ficha 3223873  
+**Institución:** Servicio Nacional de Aprendizaje (SENA)  
+**Versión:** 2.0 — 24 de noviembre de 2026
 
-**Elaborado por:**
+---
 
-Santiago Varela Peña
+## Contenido
 
-Sebastián Navarro López
+1. [Propósito del documento](#1-propósito-del-documento)
+2. [Definición de interesado](#2-definición-de-interesado)
+3. [Interesados](#3-interesados)
+4. [Resultados de la encuesta de identificación de usuarios](#4-resultados-de-la-encuesta-de-identificación-de-usuarios)
+5. [Tabla de identificación de interesados](#5-tabla-de-identificación-de-interesados)
+6. [Mapa de interesados](#6-mapa-de-interesados)
+7. [Estrategia de comunicación](#7-estrategia-de-comunicación)
+8. [Riesgos asociados a los interesados](#8-riesgos-asociados-a-los-interesados)
+9. [Responsable de la gestión de interesados](#9-responsable-de-la-gestión-de-interesados)
+10. [Control de cambios](#10-control-de-cambios)
 
-Servicio Nacional de Aprendizaje – SENA
+---
 
-Tecnología en Análisis y Desarrollo de Software
+## 1. Propósito del documento
 
-2026
+Este documento identifica a las personas, grupos u organizaciones que tienen interés o influencia en el proyecto PulseUp. Define sus roles, necesidades, expectativas, nivel de influencia y participación esperada, para asegurar una comunicación adecuada y una buena toma de decisiones durante todo el ciclo del proyecto.
 
-"PulseUp: Aplicación Móvil de Hábitos Saludables"
+Complementa el Acta de Constitución (DOC-01) y sirve de base para la estrategia de comunicación y la validación del sistema. La caracterización de los usuarios se apoya en una encuesta aplicada a usuarios potenciales.
 
-**Propósito del documento de stakeholders**
+## 2. Definición de interesado
 
-Este documento identifica a las personas, grupos u organizaciones que tienen interés o influencia en el proyecto PulseUp.
+Un interesado (*stakeholder*) es cualquier persona u organización que puede afectar, verse afectada o percibirse como afectada por un proyecto. En PulseUp incluye al equipo de desarrollo, al instructor y a los usuarios finales.
 
-Su objetivo es definir los roles, necesidades, expectativas, nivel de influencia y grado de participación de cada stakeholder, para asegurar una comunicación adecuada y una correcta toma de decisiones durante todo el ciclo de vida del proyecto.
+## 3. Interesados
 
-Esta información complementa el Acta de Constitución del Proyecto y sirve de base para la estrategia de comunicación y validación del sistema. Los datos presentados en este documento fueron recopilados a través de una encuesta aplicada a usuarios potenciales de la aplicación.
+| Nombre / Grupo | Rol | Interés en el proyecto |
+|---|---|---|
+| Instructor del SENA | Asesor y evaluador | Guiar el desarrollo y evaluar los entregables |
+| Usuarios finales | Usuario | Contar con una herramienta para organizar su entrenamiento |
+| Compañeros de clase | Observadores | Ver el proceso como referencia de aprendizaje |
 
-**Definición de Stakeholder**
+Dentro de la aplicación existen tres **roles de sistema** (Usuario, Administrador y SuperAdministrador). No son interesados externos: son perfiles de acceso descritos en el DOC-03.
 
-Un Stakeholder es cualquier persona u organización que puede afectar, verse afectada o percibirse como afectada por un proyecto. En el caso de PulseUp, los stakeholders incluyen tanto al equipo de desarrollo como a los usuarios finales identificados a través de la encuesta realizada.
+## 4. Resultados de la encuesta de identificación de usuarios
 
-# **Interesados (Stakeholders)**
+La encuesta se aplicó en mayo de 2026 a **6 personas**, cuando la idea del proyecto incluía ejercicio, alimentación y sueño. Para proteger su privacidad, **las respuestas se presentan de forma anónima**: no se publican nombres ni correos, y solo se conservan el rango de edad y la ocupación.
 
-**Nombre / Grupo**
+**Participantes**
 
-**Rol**
+| # | Participante | Edad | Ocupación |
+|---|---|---|---|
+| 1 | Encuestado 1 | Menos de 18 años | Estudiante |
+| 2 | Encuestado 2 | 26–35 años | Trabajador |
+| 3 | Encuestado 3 | 26–35 años | Trabajador |
+| 4 | Encuestado 4 | 26–35 años | Trabajador |
+| 5 | Encuestado 5 | 18–25 años | Estudiante |
+| 6 | Encuestado 6 | 26–35 años | Estudio y trabajo |
 
-**Interés en el proyecto**
+**Hallazgos clave**
 
-Instructor del SENA
+- El 100 % de los encuestados no lleva ningún control de sus hábitos saludables; solo uno lo hace de forma manual.
+- El hábito más difícil de mantener es el ejercicio físico.
+- El 83 % estaría dispuesto a usar PulseUp como usuario piloto.
+- Las funciones más solicitadas fueron: registro de rutinas de ejercicio, contador de calorías, control de horas de sueño, recordatorios y alarmas, y gráficas de progreso semanal.
+- El sistema operativo predominante es Android (83 %); un encuestado usa iPhone.
+- La utilidad de reunir ejercicio, comida y sueño en una sola aplicación fue calificada con 4 o 5 sobre 5 por todos los encuestados.
 
-Asesor
+**Cómo se reflejan los hallazgos en la versión actual**
 
-Guiar el desarrollo y evaluar los entregables
+| Función solicitada | Estado en PulseUp | Referencia |
+|---|---|---|
+| Registro de rutinas de ejercicio | Implementado: rutinas propias, plan semanal y marcado diario | HU012, HU016, HU018 |
+| Gráficas de progreso semanal | Parcial: progreso de la semana en el inicio, calendario y racha | HU019–HU021 |
+| Recordatorios y alarmas | Planeado (Sprint 2) | HU023–HU025 |
+| Contador de calorías | Fuera de alcance de esta versión | DOC-03, sección 9 |
+| Control de horas de sueño | Fuera de alcance de esta versión | DOC-03, sección 9 |
+| Plataforma Android | Implementado; no hay versión iOS | RNF-004 |
 
-Usuarios finales
+Como el ejercicio fue el hábito más difícil de sostener, el equipo concentró el producto en el entrenamiento. Se recomienda repetir una encuesta breve con la versión actual durante las pruebas de usabilidad.
 
-Usuario
+## 5. Tabla de identificación de interesados
 
-Contar con una herramienta para mejorar sus hábitos
+| ID | Nombre / Grupo | Rol | Interés | Influencia | Expectativas | Participación esperada |
+|---|---|---|---|---|---|---|
+| STK-01 | Santiago Varela Peña | Líder del proyecto | Alta | Alta | Coordinar el equipo, cumplir el cronograma y entregar con calidad | Toma de decisiones y gestión del proyecto |
+| STK-02 | Sebastián Navarro López | Desarrollador y diseño | Alta | Alta | Requisitos claros y buen diseño de interfaz | Diseño e implementación de la aplicación |
+| STK-03 | Instructor del SENA | Asesor y evaluador | Alta | Alta | Validar entregables y guiar el proceso de desarrollo | Retroalimentación y aprobación de avances |
+| STK-04 | Usuarios finales | Usuarios potenciales | Alta | Media | Una aplicación fácil de usar que les ayude a entrenar con orden | Pruebas de usuario y validación de funciones |
+| STK-05 | Compañeros de clase | Observadores y testers | Media | Baja | Ver el proceso como referencia de aprendizaje | Retroalimentación durante las pruebas |
 
-Compañeros de clase
+## 6. Mapa de interesados
 
-Observadores
+Matriz de interés frente a influencia:
 
-Ver el proceso como referencia de aprendizaje
+|  | **Bajo interés** | **Alto interés** |
+|---|---|---|
+| **Alta influencia** | Mantener satisfechos (no aplica en este proyecto) | **Gestión activa:** STK-01 Santiago Varela, STK-02 Sebastián Navarro, STK-03 Instructor |
+| **Baja influencia** | **Monitorear:** STK-05 Compañeros de clase | **Mantener informados:** STK-04 Usuarios finales |
 
-**Resultados de la Encuesta de Identificación de Usuarios**
+**Estrategia por cuadrante**
 
-Con el fin de identificar y caracterizar a los stakeholders del proyecto, se aplicó una encuesta a 6 personas. A continuación, se presentan los hallazgos más relevantes:
+- **Gestión activa:** comunicación constante, reuniones de seguimiento y validación de entregables.
+- **Mantener informados:** encuestas, pruebas de usabilidad y aviso de avances.
+- **Monitorear:** actualizaciones ocasionales y participación en pruebas.
 
-**Participantes que respondieron la encuesta:**
+## 7. Estrategia de comunicación
 
-**#**
+| Interesado | Estrategia | Frecuencia | Medio |
+|---|---|---|---|
+| Instructor del SENA | Entrega de avances y reuniones de seguimiento | Semanal | Presencial o Teams |
+| Santiago Varela (líder) | Reuniones de planeación y revisión de tareas | Diaria | WhatsApp y reuniones |
+| Sebastián Navarro (desarrollador) | Coordinación de tareas de diseño y desarrollo | Diaria | WhatsApp, GitHub y Jira |
+| Usuarios finales | Pruebas de usabilidad y encuestas de validación | Por iteración | Formulario en línea y presencial |
+| Compañeros de clase | Presentaciones de avance | Al finalizar cada sprint | Presencial o video |
 
-**Nombre**
+## 8. Riesgos asociados a los interesados
 
-**Edad**
+| Interesado | Riesgo | Plan de mitigación |
+|---|---|---|
+| Instructor del SENA | Cambios tardíos en los requisitos evaluados | Validaciones frecuentes con entregas parciales |
+| Usuarios finales | Baja disponibilidad para las pruebas de usabilidad | Pruebas breves y flexibles, programadas con anticipación |
+| Equipo de desarrollo | Falta de tiempo por otras materias del SENA | Calendario de trabajo semanal compartido |
+| Compañeros de clase | Retroalimentación poco útil o superficial | Criterios claros de evaluación antes de cada presentación |
+| Participantes de la encuesta | Exposición de datos personales | Respuestas anónimas; no se publican nombres ni correos |
 
-**Género**
+## 9. Responsable de la gestión de interesados
 
-**Ocupación**
+**Santiago Varela Peña — líder del proyecto.** Gestiona las comunicaciones, coordina las validaciones con el instructor, facilita las pruebas con los usuarios finales y mantiene actualizada la documentación.
 
-1
+## 10. Control de cambios
 
-Anónimo
-
-Menos de 18 años
-
-Femenino
-
-Estudiante
-
-2
-
-Jennifer Catalina Ibarra Peña
-
-26 – 35 años
-
-Femenino
-
-Trabajador
-
-3
-
-Daniel Peña
-
-26 – 35 años
-
-Masculino
-
-Trabajador
-
-4
-
-Zuly Dayana Vélez
-
-26 – 35 años
-
-Femenino
-
-Trabajador
-
-5
-
-Carolina Varela Peña
-
-18 – 25 años
-
-Femenino
-
-Estudiante
-
-6
-
-Mauricio
-
-26 – 35 años
-
-Masculino
-
-Ambos (estudio y trabajo)
-
-**Hallazgos clave:**
-
--   El 100% de los encuestados no lleva ningún control de sus hábitos saludables (excepto Mauricio, que lo hace manualmente).
--   El hábito más difícil de mantener es el ejercicio físico, seguido de todos los hábitos por igual.
--   El 83% de los encuestados estaría dispuesto a usar PulseUp como usuario piloto.
--   Las funciones más solicitadas fueron: registro de rutinas de ejercicio, contador de calorías, control de horas de sueño, recordatorios y alarmas, y gráficas de progreso semanal.
--   El sistema operativo predominante es Android (83%), aunque un encuestado usa iPhone (iOS).
--   La utilidad de tener ejercicio, comida y sueño en una sola app fue calificada con 4 o 5 sobre 5 por todos los encuestados.
-
-**Tabla de Identificación de Stakeholders**
-
-**ID**
-
-**Nombre / Grupo**
-
-**Rol**
-
-**Interés**
-
-**Influencia**
-
-**Expectativas**
-
-**Participación esperada**
-
-STK-01
-
-Santiago Varela Peña
-
-Líder del proyecto
-
-Alta
-
-Alta
-
-Coordinar el equipo, cumplir cronograma y entregar con calidad
-
-Toma de decisiones y gestión del proyecto
-
-STK-02
-
-Sebastián Navarro Lopes
-
-Desarrollador Fullstack / Diseño
-
-Alta
-
-Alta
-
-Definición clara de requisitos y diseño de interfaz
-
-Diseño e implementación de la app
-
-STK-03
-
-Instructor del SENA
-
-Asesor y evaluador
-
-Alta
-
-Alta
-
-Validar entregables y guiar el proceso de desarrollo
-
-Retroalimentación y aprobación de avances
-
-STK-04
-
-Usuarios finales (encuestados)
-
-Usuarios potenciales
-
-Alta
-
-Media
-
-Una app fácil de usar que les ayude a mejorar sus hábitos
-
-Pruebas de usuario y validación de funcionalidades
-
-STK-05
-
-Compañeros de clase
-
-Observadores / Testers
-
-Media
-
-Baja
-
-Ver el proceso como referencia de aprendizaje
-
-Retroalimentación durante pruebas
-
-**Mapa de Stakeholders (Matriz Interés vs Influencia)**
-
-La siguiente matriz ubica a cada stakeholder según su nivel de interés en el proyecto y su capacidad de influencia sobre las decisiones del mismo:
-
-**BAJO INTERÉS**
-
-**ALTO INTERÉS**
-
-**ALTA INFLUENCIA**
-
-Mantener satisfechos(No aplica en este proyecto)
-
-Gestión activaSTK-01 Santiago Varela (Líder)STK-02 Sebastián Navarro (Dev)STK-03 Instructor SENA
-
-**BAJA INFLUENCIA**
-
-MonitorearSTK-05 Compañeros de clase
-
-Mantener informadosSTK-04 Usuarios finales (encuestados)
-
-**Estrategia por cuadrante:**
-
--   Gestión activa (alta influencia, alto interés): Santiago, Sebastián e Instructor – comunicación constante, reuniones de seguimiento y validación de entregables.
--   Mantener informados (baja influencia, alto interés): Usuarios finales – encuestas, pruebas de usabilidad y notificación de avances.
--   Monitorear (baja influencia, bajo interés): Compañeros de clase – actualizaciones ocasionales y participación en pruebas.
-
-**Análisis y Estrategia de Comunicación**
-
-**Stakeholder**
-
-**Estrategia de Comunicación**
-
-**Frecuencia**
-
-**Medio**
-
-Instructor del SENA
-
-Entrega de avances y reuniones de seguimiento
-
-Semanal
-
-Presencial o Teams
-
-Santiago Varela (Líder)
-
-Reuniones de planning y revisión de tareas
-
-Diario
-
-WhatsApp + reuniones
-
-Sebastián Navarro (Dev)
-
-Coordinación de tareas de diseño y desarrollo
-
-Diario
-
-WhatsApp + GitHub
-
-Usuarios finales
-
-Pruebas de usabilidad y encuestas de validación
-
-Por iteración
-
-Formulario Google + presencial
-
-Compañeros de clase
-
-Presentaciones de avance
-
-Al finalizar sprints
-
-Presencial / video
-
-**Riesgos Asociados a Stakeholders**
-
-**Stakeholder**
-
-**Riesgo**
-
-**Plan de Mitigación**
-
-Instructor del SENA
-
-Cambios tardíos en los requisitos evaluados
-
-Validaciones frecuentes por entregas parciales
-
-Usuarios finales
-
-Baja disponibilidad para pruebas de usabilidad
-
-Programar pruebas breves y flexibles con anticipación
-
-Equipo de desarrollo
-
-Falta de tiempo por otras materias del SENA
-
-Organizar un calendario de trabajo semanal compartido
-
-Compañeros de clase
-
-Retroalimentación poco útil o superficial
-
-Definir criterios claros de evaluación antes de cada presentación
-
-**Responsable de la Gestión de Stakeholders**
-
-Santiago Varela Peña – Líder del Proyecto.
-
-Como líder, Santiago es el encargado de gestionar las comunicaciones, coordinar las validaciones con el instructor, facilitar las pruebas con los usuarios finales y mantener actualizada la documentación entre todos los stakeholders del proyecto PulseUp.
-
-**Control de Cambios**
-
-**Versión**
-
-**Fecha**
-
-**Descripción del Cambio**
-
-**Responsable**
-
-1.0
-
-Mayo 2026
-
-Creación inicial del documento basada en encuesta aplicada a 6 usuarios
-
-Santiago Varela Peña
+| Versión | Fecha | Descripción del cambio | Responsable |
+|---|---|---|---|
+| 1.0 | Mayo 2026 | Creación inicial del documento a partir de una encuesta aplicada a 6 usuarios | Santiago Varela Peña |
+| 2.0 | 24 de noviembre de 2026 | Anonimización de la encuesta; correspondencia entre hallazgos y funciones actuales; apellido de STK-02 corregido; riesgos y comunicación actualizados | Santiago Varela Peña |

@@ -1,0 +1,26 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant A as App Android<br/>(EjercicioDetalleScreen)
+    participant API as API Flask<br/>(ejercicios y recomendaciones)
+    participant DB as SQLite<br/>(ejercicio, perfil_fisico,<br/>recomendacion_regla,<br/>referencia_fuerza_ratio)
+
+    U->>A: Toca un ejercicio del catálogo
+    A->>API: GET /api/ejercicios/{id}<br/>Authorization: Bearer token
+    API->>DB: Datos del ejercicio, fotos, pasos y errores comunes
+    API->>DB: Perfil físico del usuario
+    DB-->>API: Ejercicio y perfil (o ninguno)
+    alt El usuario tiene perfil y el ejercicio tiene regla
+        API->>DB: Regla por tipo de ejercicio y nivel
+        API->>DB: Razón de fuerza (solo 7 ejercicios con peso estimado)
+        DB-->>API: Regla y razón
+        API->>API: Calcula series, repeticiones, descanso y peso:<br/>1RM = razón × peso corporal (tope 113 kg),<br/>peso = 1RM / (1 + repeticiones/30),<br/>ajuste por edad y redondeo a 2,5 kg
+        API-->>A: {ejercicio, recomendacion}
+        A-->>U: Foto inicial y final, pasos, errores comunes<br/>y tarjeta "Recomendado para ti"
+    else Sin perfil físico
+        API-->>A: {ejercicio, recomendacion: null, motivo}
+        A-->>U: Detalle con el motivo y el botón "Ir a mi perfil físico"
+    else El ejercicio no tiene regla
+        API-->>A: {ejercicio, recomendacion: null}
+        A-->>U: "Este ejercicio todavía no tiene recomendación"
+    end

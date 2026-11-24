@@ -1,0 +1,33 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant A as App Android<br/>(CrearRutinaScreen)
+    participant API as API Flask<br/>(rutinas y plan)
+    participant DB as SQLite<br/>(rutina, rutina_ejercicio, plan_dia)
+
+    U->>A: Escribe el nombre y agrega ejercicios con series,<br/>repeticiones, peso y descanso
+    A->>A: Valida nombre, al menos un ejercicio, series 1–10,<br/>descanso 0–600 s y duración 5–240 min
+    A->>API: POST /api/rutinas/
+    API->>DB: Inserta la rutina y sus ejercicios
+    DB-->>API: id de la rutina
+    API-->>A: 201 {message, id}
+    A-->>U: Pregunta "¿Quieres ponerla en tu plan?"
+
+    alt Elige días
+        U->>A: Selecciona uno o varios días
+        A->>API: GET /api/plan/previsualizar?rutina_id={id}
+        API-->>A: Avisos de descanso de 48 h por día
+        A-->>U: Muestra los avisos
+        opt Algún día ya tiene contenido
+            A-->>U: "Esto reemplazará los ejercicios de ..."
+            U->>A: Confirma "Reemplazar"
+        end
+        loop Por cada día elegido
+            A->>API: PUT /api/plan/{dia} {id_rutina}
+            API->>DB: Asigna la rutina al día
+            API-->>A: 200 {message, avisos}
+        end
+        A-->>U: Resume los días agregados, los avisos y los errores
+    else "Ahora no"
+        A-->>U: Termina, la rutina queda en "Rutinas"
+    end

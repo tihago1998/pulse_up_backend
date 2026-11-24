@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_plan" targetNamespace="http://pulseup/bpmn">
+  <bpmn:collaboration id="Collab_plan"><bpmn:participant id="Part_plan" name="PulseUp" processRef="Proc_plan"/></bpmn:collaboration>
+  <bpmn:process id="Proc_plan" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_U" name="Usuario">
+        <bpmn:flowNodeRef>S1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>E1</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_A" name="App Android">
+        <bpmn:flowNodeRef>T2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T5</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T8</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_S" name="API PulseUp">
+        <bpmn:flowNodeRef>T4</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T7</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="S1" name="Quiere armar su semana"><bpmn:outgoing>Flow_1</bpmn:outgoing></bpmn:startEvent>
+    <bpmn:task id="T1" name="Elegir un ejercicio del catálogo"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:incoming>Flow_15</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T2" name="Mostrar detalle y recomendación"><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T3" name="Tocar «Agregar a mi plan»"><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T4" name="Calcular avisos de descanso de 48 h"><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T5" name="Mostrar los 7 días con sus avisos"><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T6" name="Elegir un día"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:incoming>Flow_11</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:task>
+    <bpmn:exclusiveGateway id="G1" name="¿El día tiene aviso?"><bpmn:incoming>Flow_7</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing><bpmn:outgoing>Flow_9</bpmn:outgoing></bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="G2" name="¿Agrega igual?"><bpmn:incoming>Flow_8</bpmn:incoming><bpmn:outgoing>Flow_10</bpmn:outgoing><bpmn:outgoing>Flow_11</bpmn:outgoing></bpmn:exclusiveGateway>
+    <bpmn:task id="T7" name="Agregar el ejercicio al día (copia la rutina si hace falta)"><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:incoming>Flow_10</bpmn:incoming><bpmn:outgoing>Flow_12</bpmn:outgoing></bpmn:task>
+    <bpmn:task id="T8" name="Confirmar y mostrar los avisos"><bpmn:incoming>Flow_12</bpmn:incoming><bpmn:outgoing>Flow_13</bpmn:outgoing></bpmn:task>
+    <bpmn:exclusiveGateway id="G3" name="¿Agrega otro ejercicio?"><bpmn:incoming>Flow_13</bpmn:incoming><bpmn:outgoing>Flow_14</bpmn:outgoing><bpmn:outgoing>Flow_15</bpmn:outgoing></bpmn:exclusiveGateway>
+    <bpmn:endEvent id="E1" name="Plan semanal armado"><bpmn:incoming>Flow_14</bpmn:incoming></bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="S1" targetRef="T1"/>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="T1" targetRef="T2"/>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="T2" targetRef="T3"/>
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="T3" targetRef="T4"/>
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="T4" targetRef="T5"/>
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="T5" targetRef="T6"/>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="T6" targetRef="G1"/>
+    <bpmn:sequenceFlow id="Flow_8" name="Sí" sourceRef="G1" targetRef="G2"/>
+    <bpmn:sequenceFlow id="Flow_9" name="No" sourceRef="G1" targetRef="T7"/>
+    <bpmn:sequenceFlow id="Flow_10" name="Sí" sourceRef="G2" targetRef="T7"/>
+    <bpmn:sequenceFlow id="Flow_11" name="No" sourceRef="G2" targetRef="T6"/>
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="T7" targetRef="T8"/>
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="T8" targetRef="G3"/>
+    <bpmn:sequenceFlow id="Flow_14" name="No" sourceRef="G3" targetRef="E1"/>
+    <bpmn:sequenceFlow id="Flow_15" name="Sí" sourceRef="G3" targetRef="T1"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_plan"><bpmndi:BPMNPlane id="Plane_plan" bpmnElement="Collab_plan">
+    <bpmndi:BPMNShape id="Shape_Part" bpmnElement="Part_plan" isHorizontal="true"><dc:Bounds x="10" y="60" width="2060" height="450"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Lane_U" bpmnElement="Lane_U" isHorizontal="true"><dc:Bounds x="40" y="60" width="2030" height="150"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Lane_A" bpmnElement="Lane_A" isHorizontal="true"><dc:Bounds x="40" y="210" width="2030" height="150"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_Lane_S" bpmnElement="Lane_S" isHorizontal="true"><dc:Bounds x="40" y="360" width="2030" height="150"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_S1" bpmnElement="S1"><dc:Bounds x="127" y="117" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T1" bpmnElement="T1"><dc:Bounds x="240" y="102" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T2" bpmnElement="T2"><dc:Bounds x="390" y="252" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T3" bpmnElement="T3"><dc:Bounds x="540" y="102" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T4" bpmnElement="T4"><dc:Bounds x="690" y="402" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T5" bpmnElement="T5"><dc:Bounds x="840" y="252" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T6" bpmnElement="T6"><dc:Bounds x="990" y="102" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_G1" bpmnElement="G1"><dc:Bounds x="1172" y="112" width="46" height="46"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_G2" bpmnElement="G2"><dc:Bounds x="1322" y="112" width="46" height="46"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T7" bpmnElement="T7"><dc:Bounds x="1440" y="402" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_T8" bpmnElement="T8"><dc:Bounds x="1590" y="252" width="110" height="66"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_G3" bpmnElement="G3"><dc:Bounds x="1772" y="112" width="46" height="46"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNShape id="Shape_E1" bpmnElement="E1"><dc:Bounds x="1927" y="117" width="36" height="36"/></bpmndi:BPMNShape>
+    <bpmndi:BPMNEdge id="Edge_Flow_1" bpmnElement="Flow_1"><di:waypoint x="163" y="135"/><di:waypoint x="240" y="135"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_2" bpmnElement="Flow_2"><di:waypoint x="350" y="135"/><di:waypoint x="370" y="135"/><di:waypoint x="370" y="285"/><di:waypoint x="390" y="285"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_3" bpmnElement="Flow_3"><di:waypoint x="500" y="285"/><di:waypoint x="520" y="285"/><di:waypoint x="520" y="135"/><di:waypoint x="540" y="135"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_4" bpmnElement="Flow_4"><di:waypoint x="650" y="135"/><di:waypoint x="670" y="135"/><di:waypoint x="670" y="435"/><di:waypoint x="690" y="435"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_5" bpmnElement="Flow_5"><di:waypoint x="800" y="435"/><di:waypoint x="820" y="435"/><di:waypoint x="820" y="285"/><di:waypoint x="840" y="285"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_6" bpmnElement="Flow_6"><di:waypoint x="950" y="285"/><di:waypoint x="970" y="285"/><di:waypoint x="970" y="135"/><di:waypoint x="990" y="135"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_7" bpmnElement="Flow_7"><di:waypoint x="1100" y="135"/><di:waypoint x="1172" y="135"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_8" bpmnElement="Flow_8"><di:waypoint x="1218" y="135"/><di:waypoint x="1322" y="135"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_9" bpmnElement="Flow_9"><di:waypoint x="1195" y="158"/><di:waypoint x="1195" y="435"/><di:waypoint x="1440" y="435"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_10" bpmnElement="Flow_10"><di:waypoint x="1368" y="135"/><di:waypoint x="1404" y="135"/><di:waypoint x="1404" y="435"/><di:waypoint x="1440" y="435"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_11" bpmnElement="Flow_11"><di:waypoint x="1345" y="112"/><di:waypoint x="1345" y="84"/><di:waypoint x="1045" y="84"/><di:waypoint x="1045" y="102"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_12" bpmnElement="Flow_12"><di:waypoint x="1550" y="435"/><di:waypoint x="1570" y="435"/><di:waypoint x="1570" y="285"/><di:waypoint x="1590" y="285"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_13" bpmnElement="Flow_13"><di:waypoint x="1700" y="285"/><di:waypoint x="1736" y="285"/><di:waypoint x="1736" y="135"/><di:waypoint x="1772" y="135"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_14" bpmnElement="Flow_14"><di:waypoint x="1818" y="135"/><di:waypoint x="1927" y="135"/></bpmndi:BPMNEdge>
+    <bpmndi:BPMNEdge id="Edge_Flow_15" bpmnElement="Flow_15"><di:waypoint x="1795" y="112"/><di:waypoint x="1795" y="70"/><di:waypoint x="295" y="70"/><di:waypoint x="295" y="102"/></bpmndi:BPMNEdge>
+  </bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</bpmn:definitions>

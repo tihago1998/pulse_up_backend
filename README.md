@@ -1,7 +1,9 @@
 # PulseUp Backend
 
-API REST de PulseUp, app móvil de hábitos saludables. Proyecto académico SENA,
+API REST de PulseUp, aplicación móvil de entrenamiento con plan semanal. Proyecto académico SENA,
 Tecnología en Análisis y Desarrollo de Software (ADSO), Ficha 3223873.
+
+> Documentación del proyecto (acta, interesados, requisitos, historias de usuario y diagramas): [docs/README.md](docs/README.md).
 
 > El cliente móvil Android está en el repositorio `pulseup_adroid_studio`.
 

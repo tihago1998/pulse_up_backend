@@ -1,0 +1,37 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant A as App Android<br/>(PlanDiaScreen)
+    participant API as API Flask<br/>(plan: rutas y servicio)
+    participant DB as SQLite<br/>(plan_dia, rutina,<br/>rutina_ejercicio, plan_historial)
+
+    U->>A: Abre un día del plan
+    A->>API: GET /api/plan/
+    API->>DB: Plan semanal vigente
+    DB-->>API: Rutinas y ejercicios por día
+    API-->>A: Plan
+    A-->>U: Ejercicios del día con series, repeticiones y peso
+
+    opt Editar un ejercicio
+        U->>A: Cambia series, repeticiones, peso o descanso
+        A->>API: PUT /api/plan/{dia}/ejercicios/{item_id}
+        API->>DB: Copia la rutina solo para ese día si es plantilla,<br/>propia o compartida, y guarda los cambios
+        API-->>A: 200 {item, rutina_copiada}
+        A->>API: GET /api/plan/
+        A-->>U: Plan actualizado
+    end
+
+    opt Quitar un ejercicio
+        U->>A: Toca quitar y confirma
+        A->>API: DELETE /api/plan/{dia}/ejercicios/{item_id}
+        API->>DB: Elimina el ejercicio
+        alt Era el último ejercicio
+            API->>DB: El día queda en descanso
+            API-->>A: {dia_en_descanso: true}
+            A-->>U: "El día quedó en descanso"
+        else Quedan ejercicios
+            API-->>A: 200
+            A-->>U: Plan actualizado
+        end
+    end
+    Note over API,DB: Un día ya cumplido no se deshace al editar el plan.<br/>El historial de días pasados no cambia

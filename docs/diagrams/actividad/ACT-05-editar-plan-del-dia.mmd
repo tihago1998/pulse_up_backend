@@ -1,0 +1,27 @@
+flowchart TD
+    I([Inicio]) --> A[Abrir un día del plan]
+    A --> B{¿Qué quiere hacer?}
+    B -- Editar --> C[Cambiar series, repeticiones o duración,<br/>peso y descanso]
+    C --> D{¿Valores válidos?<br/>Series 1–10 · peso 0–500 kg<br/>descanso 0–600 s}
+    D -- No --> E[Mostrar el error]
+    E --> C
+    D -- Sí --> F{¿La rutina es plantilla,<br/>propia o compartida?}
+    F -- Sí --> G[Copiar la rutina solo para ese día]
+    F -- No --> H[Guardar en la rutina del plan]
+    G --> H
+    B -- Quitar --> K[Confirmar «¿Quitar el ejercicio?»]
+    K --> L{¿Era el último ejercicio?}
+    L -- Sí --> M[El día queda en descanso]
+    L -- No --> H
+    B -- Agregar --> N[Elegir otro ejercicio<br/>del catálogo]
+    N --> O{¿Hay menos de 20 ejercicios?}
+    O -- Sí --> H
+    O -- No --> P[El botón se desactiva:<br/>«Máximo 20 ejercicios por día»]
+    H --> R[Recargar el plan]
+    M --> R
+    P --> R
+    R --> S{¿El día ya estaba cumplido?}
+    S -- Sí --> T[Conservar el día como cumplido]
+    S -- No --> U[Aplicar el cambio desde hoy]
+    T --> Z([Fin])
+    U --> Z

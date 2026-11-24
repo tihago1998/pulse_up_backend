@@ -37,6 +37,30 @@ def test_valores_por_defecto_desde_la_recomendacion():
     cardio = {**rec, "series_max": 1, "reps_min": 30, "reps_max": 40, "unidad": "minutos", "descanso_seg": None,
               "peso_kg": None}
     assert svc.valores_por_defecto(cardio)["descanso_seg"] == 0
+    assert svc.valores_por_defecto(cardio)["repeticiones"] == "35"  # 30–40 min
+
+
+@pytest.mark.parametrize(
+    "unidad, rango, esperado",
+    [
+        ("segundos", (30, 45), "40"),  # punto medio 38 -> 40
+        ("segundos", (20, 30), "25"),
+        ("segundos", (45, 60), "55"),  # 53 -> 55
+        ("minutos", (30, 40), "35"),
+        ("minutos", (40, 60), "50"),
+        ("repeticiones", (6, 12), "9"),  # repeticiones no se redondea a 5
+        ("repeticiones", (10, 15), "13"),
+    ],
+)
+def test_duracion_por_defecto_al_multiplo_de_5(unidad, rango, esperado):
+    rec = {"series_max": 3, "reps_min": rango[0], "reps_max": rango[1], "unidad": unidad, "descanso_seg": 45,
+           "peso_kg": None}
+    assert svc.valores_por_defecto(rec)["repeticiones"] == esperado
+
+
+@pytest.mark.parametrize("valor, esperado", [(38, 40), (37, 35), (35, 35), (33, 35), (32, 30), (53, 55)])
+def test_redondear_a_multiplo_de_5(valor, esperado):
+    assert svc.redondear_a_multiplo(valor, 5) == esperado
 
 
 def test_nombres_de_rutina_del_plan():
@@ -226,7 +250,7 @@ def test_valores_por_defecto_con_perfil(client, ana):
         4, "9", "repeticiones", 150, 72.5,
     )
     plancha = _agregar(client, ana, LUNES, _id(client, ana, "Plancha")).get_json()["item"]
-    assert (plancha["series"], plancha["repeticiones"], plancha["unidad"], plancha["peso_kg"]) == (3, "38", "segundos", None)
+    assert (plancha["series"], plancha["repeticiones"], plancha["unidad"], plancha["peso_kg"]) == (3, "40", "segundos", None)
 
 
 def test_lo_que_envia_el_usuario_gana_a_la_recomendacion(client, ana):

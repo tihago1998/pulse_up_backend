@@ -184,8 +184,9 @@ ejercicios: cada día apunta a una rutina.
     (`"<Día> · <nombre>"`), se reasigna el día a la copia y la respuesta trae
     `rutina_copiada: true`. Los demás días y la rutina original no cambian.
   - Lo que no se envía sale de la recomendación personalizada: `series = series_max`,
-    `repeticiones` = punto medio del rango, `unidad`, `descanso_seg` (0 en cardio) y
-    `peso_kg`. Sin recomendación (sin perfil físico): 3 series, 10 repeticiones, 60 s y
+    `repeticiones` = punto medio del rango (con `segundos` o `minutos`, redondeado al
+    múltiplo de 5 más cercano: 30–45 s → 40, 30–40 min → 35), `unidad`, `descanso_seg`
+    (0 en cardio) y `peso_kg`. Sin recomendación (sin perfil físico): 3 series, 10 repeticiones, 60 s y
     peso `null`.
   - Si el ejercicio ya está en ese día: 409 `"Ese ejercicio ya está en este día"`.
 - **Editar** y **quitar** usan el `item_id` que devuelve `GET /api/plan/` y aplican la misma

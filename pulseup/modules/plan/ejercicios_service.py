@@ -9,6 +9,8 @@ editar o quitar un ejercicio de un día:
   este día (copia al escribir) y se devuelve rutina_copiada = true. Los demás días no cambian.
 - La regla de descanso de 48 h solo devuelve avisos; nunca impide guardar.
 """
+import math
+
 from pulseup.core import tiempo
 from pulseup.core.database import conexion
 from pulseup.core.dominio import DIAS_SEMANA, ORIGEN_PLAN
@@ -32,22 +34,34 @@ _VALIDADORES = {
     "descanso_seg": rutinas_service.validar_descanso,
 }
 SEPARADOR_NOMBRE = " · "
+# Con segundos o minutos, el valor por defecto se redondea al múltiplo de 5 más cercano (30–45 s -> 40)
+UNIDADES_DE_DURACION = ("segundos", "minutos")
+PASO_DURACION = 5
 
 
 # ---- Funciones puras ------------------------------------------------------------------
 
+def redondear_a_multiplo(valor, paso):
+    """Múltiplo de `paso` más cercano; en el punto medio redondea hacia arriba (38 -> 40, 35 -> 35)."""
+    return math.floor(valor / paso + 0.5) * paso
+
+
 def valores_por_defecto(recomendacion):
     """Series, repeticiones, unidad, descanso y peso a partir de la recomendación personalizada.
 
-    series = series_max, repeticiones = punto medio del rango (redondeado), y unidad, descanso y
+    series = series_max, repeticiones = punto medio del rango (redondeado; con segundos o minutos,
+    además, al múltiplo de 5 más cercano), y unidad, descanso y
     peso tal como vienen. Sin recomendación: 3 series de 10 repeticiones, 60 s y sin peso.
     """
     if recomendacion is None:
         return dict(POR_DEFECTO)
     descanso = recomendacion["descanso_seg"]
+    valor = recomendaciones.reps_objetivo(recomendacion["reps_min"], recomendacion["reps_max"])
+    if recomendacion["unidad"] in UNIDADES_DE_DURACION:
+        valor = redondear_a_multiplo(valor, PASO_DURACION)
     return {
         "series": recomendacion["series_max"],
-        "repeticiones": str(recomendaciones.reps_objetivo(recomendacion["reps_min"], recomendacion["reps_max"])),
+        "repeticiones": str(valor),
         "unidad": recomendacion["unidad"],
         # Cardio no trae descanso (es una sola serie continua): se guarda 0
         "descanso_seg": descanso if descanso is not None else 0,

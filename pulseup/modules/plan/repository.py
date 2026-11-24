@@ -45,6 +45,20 @@ def quitar(conn, id_usuario, dia_semana):
     conn.execute("DELETE FROM plan_dia WHERE id_usuario = ? AND dia_semana = ?", (id_usuario, dia_semana))
 
 
+def dias_con_rutina(conn, id_usuario, id_rutina):
+    """Días del plan del usuario que usan esa rutina."""
+    filas = conn.execute(
+        "SELECT dia_semana FROM plan_dia WHERE id_usuario = ? AND id_rutina = ? ORDER BY dia_semana",
+        (id_usuario, id_rutina),
+    ).fetchall()
+    return [f["dia_semana"] for f in filas]
+
+
+def rutina_con_sesiones(conn, id_rutina):
+    """True si alguna sesión cumplida apunta a la rutina (el calendario muestra su nombre)."""
+    return conn.execute("SELECT 1 FROM sesion WHERE id_rutina = ? LIMIT 1", (id_rutina,)).fetchone() is not None
+
+
 def rutina_en_algun_plan(conn, id_rutina):
     return conn.execute("SELECT 1 FROM plan_dia WHERE id_rutina = ? LIMIT 1", (id_rutina,)).fetchone() is not None
 

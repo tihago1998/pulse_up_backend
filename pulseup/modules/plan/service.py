@@ -1,4 +1,4 @@
-"""Reglas de negocio del plan semanal, la regla de descanso muscular, la rutina del día y el calendario."""
+"""Reglas de negocio del plan semanal, la regla de descanso muscular (solo avisa), la rutina del día y el calendario."""
 import calendar
 import math
 import re
@@ -14,6 +14,7 @@ from pulseup.core.errors import Conflicto, NoEncontrado, SolicitudInvalida
 from pulseup.core.validacion import exigir_fecha
 from pulseup.modules.plan import repository as repo
 from pulseup.modules.plan.schemas import (
+    aviso_a_json,
     conflicto_a_json,
     dia_calendario_a_json,
     dia_plan_a_json,
@@ -61,14 +62,14 @@ def distancia_circular(dia_a, dia_b):
     return min(diferencia, 7 - diferencia)
 
 
-def conflictos_de_descanso(dia_semana, grupos_nuevos, grupos_por_dia):
-    """Lista de conflictos de poner `grupos_nuevos` en `dia_semana`.
+def conflictos_entre_dias(dia_semana, grupos_nuevos, grupos_por_dia, dias_minimos):
+    """Función pura de la regla de descanso: conflictos de poner `grupos_nuevos` en `dia_semana`.
 
-    `grupos_por_dia` es {dia_semana: grupos} del plan actual. El propio día se ignora:
-    al reemplazar su rutina, la anterior deja de contar. Solo cuentan los grupos
+    `grupos_por_dia` es {dia_semana: grupos} del plan actual. El propio día se ignora: al
+    reemplazar su rutina la anterior deja de contar, y varios ejercicios del mismo músculo en el
+    mismo día no son conflicto (la regla mide la distancia ENTRE días). Solo cuentan los grupos
     principales y no los exentos (abdomen, pantorrillas, cardio, cuerpo completo).
     """
-    minimo = dias_minimos_de_descanso()
     nuevos = set(grupos_nuevos) - set(GRUPOS_SIN_DESCANSO)
     conflictos = []
     # Primero los días más cercanos: son los que dan el mensaje más claro
@@ -77,11 +78,49 @@ def conflictos_de_descanso(dia_semana, grupos_nuevos, grupos_por_dia):
         key=lambda d: (distancia_circular(dia_semana, d), d),
     )
     for otro_dia in otros:
-        if distancia_circular(dia_semana, otro_dia) >= minimo:
+        if distancia_circular(dia_semana, otro_dia) >= dias_minimos:
             continue
         for grupo in sorted(nuevos & set(grupos_por_dia[otro_dia])):
             conflictos.append(conflicto_a_json(grupo, otro_dia))
     return conflictos
+
+
+def conflictos_de_descanso(dia_semana, grupos_nuevos, grupos_por_dia):
+    """La regla con las horas de descanso configuradas (DESCANSO_MUSCULAR_HORAS)."""
+    return conflictos_entre_dias(dia_semana, grupos_nuevos, grupos_por_dia, dias_minimos_de_descanso())
+
+
+# Nombres con tilde para los mensajes (los grupos se guardan sin tilde) y grupos en plural
+_NOMBRE_MUSCULO = {"cuadriceps": "cuádriceps", "biceps": "bíceps", "triceps": "tríceps", "gluteos": "glúteos"}
+_MUSCULOS_EN_PLURAL = ("hombros", "gluteos", "isquiotibiales", "pantorrillas")
+
+
+def mensaje_aviso(grupo, nombre_dia, horas):
+    """Mensaje claro para la app: "El martes ya trabajas pecho: tu pecho necesita 48 horas de descanso"."""
+    nombre = _NOMBRE_MUSCULO.get(grupo, grupo)
+    if grupo in _MUSCULOS_EN_PLURAL:
+        return f"El {nombre_dia} ya trabajas {nombre}: tus {nombre} necesitan {horas} horas de descanso"
+    return f"El {nombre_dia} ya trabajas {nombre}: tu {nombre} necesita {horas} horas de descanso"
+
+
+def avisos_desde_conflictos(conflictos, horas):
+    """Función pura: convierte los conflictos de la regla en avisos para la app (no bloquean)."""
+    return [
+        aviso_a_json(c["grupo"], c["dia_semana"], mensaje_aviso(c["grupo"], c["nombre_dia"], horas))
+        for c in conflictos
+    ]
+
+
+def avisos_de_descanso(dia_semana, grupos_nuevos, grupos_por_dia):
+    conflictos = conflictos_de_descanso(dia_semana, grupos_nuevos, grupos_por_dia)
+    return avisos_desde_conflictos(conflictos, current_app.config["DESCANSO_MUSCULAR_HORAS"])
+
+
+def grupos_del_plan(conn, id_usuario, ids_extra=()):
+    """({dia_semana: grupos} del plan actual, {id_rutina: grupos} incluyendo `ids_extra`)."""
+    plan = repo.listar(conn, id_usuario)
+    grupos = repo.grupos_por_rutina(conn, list(ids_extra) + [f["id_rutina"] for f in plan])
+    return {f["dia_semana"]: grupos[f["id_rutina"]] for f in plan}, grupos
 
 
 def _mensaje_conflicto(conflictos):
@@ -101,9 +140,7 @@ def _evaluar_asignacion(conn, id_usuario, dia_semana, id_rutina):
     rutina = rutinas_repo.buscar_visible(conn, id_rutina, id_usuario)
     if rutina is None:
         raise NoEncontrado("Rutina no encontrada")
-    plan = repo.listar(conn, id_usuario)
-    grupos = repo.grupos_por_rutina(conn, [id_rutina] + [f["id_rutina"] for f in plan])
-    grupos_por_dia = {f["dia_semana"]: grupos[f["id_rutina"]] for f in plan}
+    grupos_por_dia, grupos = grupos_del_plan(conn, id_usuario, [id_rutina])
     return rutina, conflictos_de_descanso(dia_semana, grupos[id_rutina], grupos_por_dia)
 
 
@@ -112,38 +149,64 @@ def _evaluar_asignacion(conn, id_usuario, dia_semana, id_rutina):
 def ver_plan(id_usuario):
     with conexion() as conn:
         plan = {f["dia_semana"]: f for f in repo.listar(conn, id_usuario)}
-        grupos = repo.grupos_por_rutina(conn, [f["id_rutina"] for f in plan.values()])
+        ids = [f["id_rutina"] for f in plan.values()]
+        grupos = repo.grupos_por_rutina(conn, ids)
+        ejercicios = rutinas_repo.items_de_rutinas(conn, ids)
     return [
-        dia_plan_a_json(dia, plan.get(dia), grupos.get(plan[dia]["id_rutina"], ()) if dia in plan else ())
+        dia_plan_a_json(dia, plan[dia], grupos[plan[dia]["id_rutina"]], ejercicios[plan[dia]["id_rutina"]])
+        if dia in plan
+        else dia_plan_a_json(dia)
         for dia in DIAS_SEMANA
     ]
 
 
+def dia_a_json(conn, id_usuario, dia_semana):
+    """El día del plan tal como lo devuelve GET /api/plan/ (dentro de una conexión abierta)."""
+    fila = repo.buscar_dia(conn, id_usuario, dia_semana)
+    if fila is None:
+        return dia_plan_a_json(dia_semana)
+    id_rutina = fila["id_rutina"]
+    return dia_plan_a_json(
+        dia_semana,
+        fila,
+        repo.grupos_por_rutina(conn, [id_rutina])[id_rutina],
+        rutinas_repo.items_de_rutinas(conn, [id_rutina])[id_rutina],
+    )
+
+
+def asignar_rutina(conn, id_usuario, dia_semana, id_rutina, nombre_rutina, hoy):
+    """Pone la rutina en el día respetando el historial. Lo usan PUT /api/plan/<dia> y los
+    ejercicios agregados directamente a un día (plan/ejercicios_service.py)."""
+    actual = repo.buscar_dia(conn, id_usuario, dia_semana)
+    if actual is None or actual["id_rutina"] != id_rutina:
+        # El cambio aplica desde hoy: los días anteriores conservan la rutina que tenían
+        repo.cerrar_vigencia(conn, id_usuario, dia_semana, hoy)
+        repo.abrir_vigencia(conn, id_usuario, dia_semana, id_rutina, nombre_rutina, hoy)
+    repo.asignar(conn, id_usuario, dia_semana, id_rutina, hoy)
+
+
+def quitar_dia(conn, id_usuario, dia_semana, hoy):
+    """Deja el día en descanso desde hoy; los días pasados siguen evaluándose con su rutina."""
+    repo.cerrar_vigencia(conn, id_usuario, dia_semana, hoy)
+    repo.quitar(conn, id_usuario, dia_semana)
+
+
 def asignar(id_usuario, dia_semana, datos):
+    """Asigna la rutina al día. La regla de 48 h solo AVISA: siempre se guarda. Devuelve (día, avisos)."""
     _exigir_dia(dia_semana)
     id_rutina = _exigir_id_rutina(datos.get("id_rutina"))
     hoy = tiempo.hoy().isoformat()
     with conexion() as conn:
         rutina, conflictos = _evaluar_asignacion(conn, id_usuario, dia_semana, id_rutina)
-        if conflictos:
-            raise Conflicto(_mensaje_conflicto(conflictos), extra={"conflictos": conflictos})
-        actual = repo.buscar_dia(conn, id_usuario, dia_semana)
-        if actual is None or actual["id_rutina"] != id_rutina:
-            # El cambio aplica desde hoy: los días anteriores conservan la rutina que tenían
-            repo.cerrar_vigencia(conn, id_usuario, dia_semana, hoy)
-            repo.abrir_vigencia(conn, id_usuario, dia_semana, id_rutina, rutina["nombre"], hoy)
-        repo.asignar(conn, id_usuario, dia_semana, id_rutina, hoy)
-        fila = repo.buscar_dia(conn, id_usuario, dia_semana)
-        grupos = repo.grupos_por_rutina(conn, [id_rutina])[id_rutina]
-    return dia_plan_a_json(dia_semana, fila, grupos)
+        asignar_rutina(conn, id_usuario, dia_semana, id_rutina, rutina["nombre"], hoy)
+        dia = dia_a_json(conn, id_usuario, dia_semana)
+    return dia, avisos_desde_conflictos(conflictos, current_app.config["DESCANSO_MUSCULAR_HORAS"])
 
 
 def quitar(id_usuario, dia_semana):
     _exigir_dia(dia_semana)
     with conexion() as conn:
-        # Desde hoy el día es descanso; los días pasados siguen evaluándose con su rutina
-        repo.cerrar_vigencia(conn, id_usuario, dia_semana, tiempo.hoy().isoformat())
-        repo.quitar(conn, id_usuario, dia_semana)
+        quitar_dia(conn, id_usuario, dia_semana, tiempo.hoy().isoformat())
     return dia_plan_a_json(dia_semana)
 
 

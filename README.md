@@ -48,12 +48,20 @@ token y permisos por rol, validados siempre en el servidor.
 | GET    | `/api/ejercicios/<id>/recomendacion` | Solo la recomendación (para armar rutinas)    |
 | GET    | `/api/rutinas/`               | Plantillas + rutinas propias. Filtros: `objetivo`, `nivel` |
 | GET    | `/api/rutinas/<id>`           | Rutina con sus ejercicios en orden                   |
-| POST   | `/api/rutinas/`               | Crear rutina propia                                  |
+| POST   | `/api/rutinas/`               | Crear rutina propia (cada ejercicio admite `peso_kg` y `unidad` opcionales) |
 | DELETE | `/api/rutinas/<id>`           | Eliminar una rutina propia (las plantillas no)       |
 
 El catálogo (150 ejercicios) y las 7 rutinas plantilla se cargan solos al
 arrancar, sin duplicarse (`pulseup/seeds/`). Una rutina que está en el plan
 semanal no se puede eliminar (409): primero hay que quitarla del plan.
+
+**Peso y unidad de cada ejercicio de una rutina.** `rutina_ejercicio` tiene dos columnas
+opcionales: `peso_kg` (número de 0 a 500 o `null`) y `unidad` (`repeticiones` por defecto,
+`segundos` o `minutos`). Con `segundos` o `minutos`, el campo de texto `repeticiones` guarda
+la **duración** y se interpreta según `unidad`: `{"repeticiones": "30", "unidad": "segundos"}`
+es una plancha de 30 s. Los clientes que no envían estos campos siguen funcionando igual y
+el detalle de la rutina los devuelve siempre. Cada rutina trae además `origen`: `"plan"` si
+la creó el plan semanal al agregar ejercicios a un día, `null` si la creó el usuario.
 
 **Listado.** Siempre responde `{"ejercicios": [...], "total": n}`. Sin `limit` ni `offset`
 devuelve todos los ejercicios, como antes (así no se rompe la app actual). Con `limit`,
@@ -134,25 +142,64 @@ Los días van de `1` (lunes) a `7` (domingo). Un día sin rutina es día de desc
 
 | Método | Ruta                          | Descripción                                                    |
 | ------ | ----------------------------- | -------------------------------------------------------------- |
-| GET    | `/api/plan/`                  | Los 7 días con su rutina y grupos musculares (`null` = descanso) |
-| PUT    | `/api/plan/<dia>`             | Asigna o reemplaza la rutina del día. Cuerpo: `{"id_rutina": N}` |
+| GET    | `/api/plan/`                  | Los 7 días con su rutina, grupos musculares y `ejercicios` (`null` = descanso) |
+| PUT    | `/api/plan/<dia>`             | Asigna o reemplaza la rutina del día. Cuerpo: `{"id_rutina": N}` → `{"dia", "avisos"}` |
+| GET    | `/api/plan/previsualizar`     | Avisos de 48 h de poner `ejercicio_id=N` o `rutina_id=N` en cada uno de los 7 días |
+| POST   | `/api/plan/<dia>/ejercicios`  | Agrega un ejercicio del catálogo al día (201) → `{"item", "rutina_copiada", "avisos"}` |
+| PUT    | `/api/plan/<dia>/ejercicios/<item_id>` | Edita `series`, `repeticiones`, `peso_kg`, `unidad` o `descanso_seg` |
+| DELETE | `/api/plan/<dia>/ejercicios/<item_id>` | Quita el ejercicio; si el día queda vacío pasa a descanso |
 | DELETE | `/api/plan/<dia>`             | Deja el día en descanso                                        |
 | POST   | `/api/plan/validar`           | Dice si se podría asignar, sin guardar. Cuerpo: `{"dia_semana": N, "id_rutina": N}` → `{"valido", "conflictos"}` |
 | POST   | `/api/plan/completar`         | Marca como cumplida la rutina de **hoy** (201)                 |
 | GET    | `/api/plan/incumplidos`       | Días pasados con rutina y sin cumplir. Filtro: `desde=YYYY-MM-DD` (por defecto ayer) |
 | GET    | `/api/calendario/`            | Mes con el estado de cada día y la racha. Filtro: `mes=YYYY-MM` (por defecto el actual) |
 
-**Regla de descanso muscular (48 h).** Un grupo muscular no puede entrenarse dos
-días seguidos: entre dos días que trabajan el mismo grupo debe haber al menos
-`PULSEUP_DESCANSO_MUSCULAR_HORAS / 24` días (2 por defecto). Se aplica al asignar
-(`PUT`) y en `/validar`:
+**Regla de descanso muscular (48 h): avisa, no bloquea.** Entre dos días que trabajan
+el mismo grupo debería haber al menos `PULSEUP_DESCANSO_MUSCULAR_HORAS / 24` días
+(2 por defecto). El usuario **siempre puede guardar**: `PUT /api/plan/<dia>`, `POST
+/api/plan/<dia>/ejercicios` y `/previsualizar` devuelven los choques en `avisos` y
+`/validar` los sigue informando en `conflictos`:
 
 - Cuenta el grupo **principal** de cada ejercicio; los músculos secundarios no bloquean.
 - Abdomen, pantorrillas, cardio y cuerpo completo están exentos.
 - La semana es circular: domingo y lunes son consecutivos.
 - Al reemplazar la rutina de un día, la rutina anterior de ese día no cuenta.
-- Si hay conflicto responde 409:
-  `{"error": "Pecho ya se entrena el lunes; necesita 48 h de descanso antes de volver a trabajarlo", "conflictos": [{"grupo": "pecho", "dia_semana": 1, "nombre_dia": "lunes"}]}`
+- La regla mide la distancia **entre** días: varios ejercicios del mismo músculo el
+  mismo día están permitidos y no avisan.
+- Cada aviso: `{"tipo": "descanso_48h", "musculo": "pecho", "dia_conflicto": 1,
+  "mensaje": "El lunes ya trabajas pecho: tu pecho necesita 48 horas de descanso"}`.
+  `dia_conflicto` es el día del plan que ya trabaja ese músculo.
+
+**Ejercicios del catálogo en un día del plan.** Detrás sigue el modelo plan → rutina →
+ejercicios: cada día apunta a una rutina.
+
+- **Agregar** (`POST /api/plan/<dia>/ejercicios`, cuerpo `{"ejercicio_id", "series"?,
+  "repeticiones"?, "peso_kg"?, "unidad"?, "descanso_seg"?}`):
+  - Día sin rutina: se crea una rutina del usuario con `origen = "plan"` y nombre
+    `"<Día> · <músculo principal>"` (por ejemplo `"Lunes · pecho"`), y se asigna con el
+    mismo servicio que `PUT /api/plan/<dia>`, así queda en el historial del plan.
+  - Día con una rutina propia de origen `plan` que no está en otros días: se agrega a esa.
+  - Día con una plantilla, una rutina creada por el usuario en su pantalla de rutinas o
+    una rutina asignada también a otros días: se crea una **copia** solo para este día
+    (`"<Día> · <nombre>"`), se reasigna el día a la copia y la respuesta trae
+    `rutina_copiada: true`. Los demás días y la rutina original no cambian.
+  - Lo que no se envía sale de la recomendación personalizada: `series = series_max`,
+    `repeticiones` = punto medio del rango (con `segundos` o `minutos`, redondeado al
+    múltiplo de 5 más cercano: 30–45 s → 40, 30–40 min → 35), `unidad`, `descanso_seg`
+    (0 en cardio) y `peso_kg`. Sin recomendación (sin perfil físico): 3 series, 10 repeticiones, 60 s y
+    peso `null`.
+  - Si el ejercicio ya está en ese día: 409 `"Ese ejercicio ya está en este día"`.
+- **Editar** y **quitar** usan el `item_id` que devuelve `GET /api/plan/` y aplican la misma
+  copia si la rutina está compartida. Validaciones: `series` 1–10, `peso_kg` 0–500 o `null`,
+  `descanso_seg` 0–600 y `unidad` en `repeticiones | segundos | minutos` (400 con mensaje).
+- Al quitar el último ejercicio de una rutina de origen `plan`, la rutina se elimina y el día
+  queda en descanso (por el mismo servicio que `DELETE /api/plan/<dia>`). Si una sesión
+  cumplida usa esa rutina (por ejemplo la de hoy), la rutina se conserva para que el
+  calendario no pierda su nombre.
+- Día fuera de 1–7, día sin rutina o `item_id` que no es de ese día: 404. Solo se tocan
+  rutinas del usuario autenticado. No se puede mover un ejercicio entre días.
+- **Hoy ya cumplido:** el cambio se guarda, pero la sesión de hoy no se toca: el día sigue
+  `cumplido` en el calendario, la racha no cambia y `/completar` sigue respondiendo 409.
 
 **Rutina del día.** Solo se puede marcar la rutina planificada para hoy. En día de
 descanso responde 400, si ya está marcada 409, y no se aceptan otras fechas ni otra

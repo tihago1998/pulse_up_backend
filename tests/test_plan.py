@@ -106,24 +106,36 @@ def test_cada_usuario_ve_solo_su_plan(client, ana):
     assert all(d["rutina"] is None for d in _plan(client, token_luis))
 
 
-# ---- Regla de descanso muscular de 48 h -------------------------------------------
+# ---- Regla de descanso muscular de 48 h (solo avisa, nunca bloquea) ----------------
 
-def test_mismo_grupo_lunes_y_martes_da_409(client, ana):
+def test_mismo_grupo_lunes_y_martes_avisa_y_guarda(client, ana):
     _asignar(client, ana, LUNES, rutina_de_grupos(client, ana, "pecho", nombre="Pecho A"))
-    r = _asignar(client, ana, MARTES, rutina_de_grupos(client, ana, "pecho", nombre="Pecho B"))
-    assert r.status_code == 409
-    cuerpo = r.get_json()
-    assert cuerpo["error"] == "Pecho ya se entrena el lunes; necesita 48 h de descanso antes de volver a trabajarlo"
-    assert cuerpo["conflictos"] == [{"grupo": "pecho", "dia_semana": 1, "nombre_dia": "lunes"}]
-    assert _plan(client, ana)[1]["rutina"] is None  # no se guardó
+    pecho_b = rutina_de_grupos(client, ana, "pecho", nombre="Pecho B")
+    r = _asignar(client, ana, MARTES, pecho_b)
+    assert r.status_code == 200
+    assert r.get_json()["avisos"] == [
+        {
+            "tipo": "descanso_48h",
+            "musculo": "pecho",
+            "dia_conflicto": 1,
+            "mensaje": "El lunes ya trabajas pecho: tu pecho necesita 48 horas de descanso",
+        }
+    ]
+    assert _plan(client, ana)[1]["rutina"]["id"] == pecho_b  # se guardó igual
+
+
+def test_asignar_sin_conflicto_trae_avisos_vacios(client, ana):
+    r = _asignar(client, ana, LUNES, rutina_de_grupos(client, ana, "pecho"))
+    assert r.status_code == 200
+    assert r.get_json()["avisos"] == []
 
 
 def test_el_conflicto_es_simetrico(client, ana):
-    """Poner el lunes algo que choca con el martes también se bloquea."""
+    """Poner el lunes algo que choca con el martes también avisa."""
     _asignar(client, ana, MARTES, rutina_de_grupos(client, ana, "espalda", nombre="Espalda A"))
     r = _asignar(client, ana, LUNES, rutina_de_grupos(client, ana, "espalda", nombre="Espalda B"))
-    assert r.status_code == 409
-    assert r.get_json()["conflictos"][0]["nombre_dia"] == "martes"
+    assert r.status_code == 200
+    assert r.get_json()["avisos"][0]["dia_conflicto"] == MARTES
 
 
 def test_mismo_grupo_lunes_y_miercoles_es_valido(client, ana):
@@ -136,46 +148,56 @@ def test_domingo_y_lunes_son_consecutivos(client, ana):
     id_r = rutina_de_grupos(client, ana, "cuadriceps")
     _asignar(client, ana, DOMINGO, id_r)
     r = _asignar(client, ana, LUNES, id_r)
-    assert r.status_code == 409
-    assert r.get_json()["conflictos"] == [{"grupo": "cuadriceps", "dia_semana": 7, "nombre_dia": "domingo"}]
+    assert r.status_code == 200
+    assert r.get_json()["avisos"] == [
+        {
+            "tipo": "descanso_48h",
+            "musculo": "cuadriceps",
+            "dia_conflicto": 7,
+            "mensaje": "El domingo ya trabajas cuádriceps: tu cuádriceps necesita 48 horas de descanso",
+        }
+    ]
 
 
 @pytest.mark.parametrize("grupo", ["abdomen", "cardio", "pantorrillas"])
 def test_grupos_exentos_se_pueden_repetir(client, ana, grupo):
     id_r = rutina_de_grupos(client, ana, grupo)
     _asignar(client, ana, LUNES, id_r)
-    assert _asignar(client, ana, MARTES, id_r).status_code == 200
+    r = _asignar(client, ana, MARTES, id_r)
+    assert r.status_code == 200 and r.get_json()["avisos"] == []
 
 
 def test_los_musculos_secundarios_no_bloquean(client, ana):
     # Un ejercicio de pecho que trabaja tríceps de forma secundaria
     pecho = next(e for e in ejercicios_de_grupo(client, ana, "pecho") if "triceps" in e["musculos_secundarios"])
     _asignar(client, ana, LUNES, crear_rutina(client, ana, [pecho["id"]], "Pecho"))
-    assert _asignar(client, ana, MARTES, rutina_de_grupos(client, ana, "triceps")).status_code == 200
+    r = _asignar(client, ana, MARTES, rutina_de_grupos(client, ana, "triceps"))
+    assert r.status_code == 200 and r.get_json()["avisos"] == []
 
 
 def test_reemplazar_el_mismo_dia_no_se_bloquea_a_si_mismo(client, ana):
     _asignar(client, ana, LUNES, rutina_de_grupos(client, ana, "pecho", nombre="Pecho A"))
-    assert _asignar(client, ana, LUNES, rutina_de_grupos(client, ana, "pecho", nombre="Pecho B")).status_code == 200
+    r = _asignar(client, ana, LUNES, rutina_de_grupos(client, ana, "pecho", nombre="Pecho B"))
+    assert r.status_code == 200 and r.get_json()["avisos"] == []
 
 
 def test_un_conflicto_por_cada_grupo_repetido(client, ana):
     _asignar(client, ana, LUNES, rutina_de_grupos(client, ana, "pecho", "triceps", "abdomen", nombre="Empuje"))
     r = _asignar(client, ana, MARTES, rutina_de_grupos(client, ana, "pecho", "triceps", "abdomen", nombre="Empuje 2"))
-    assert r.status_code == 409
-    assert [c["grupo"] for c in r.get_json()["conflictos"]] == ["pecho", "triceps"]  # abdomen está exento
+    assert r.status_code == 200
+    assert [a["musculo"] for a in r.get_json()["avisos"]] == ["pecho", "triceps"]  # abdomen está exento
 
 
 def test_las_horas_de_descanso_son_configurables(client, app, ana):
     app.config["DESCANSO_MUSCULAR_HORAS"] = 24  # 1 día: martes ya no choca con lunes
     id_r = rutina_de_grupos(client, ana, "pecho")
     _asignar(client, ana, LUNES, id_r)
-    assert _asignar(client, ana, MARTES, id_r).status_code == 200
+    assert _asignar(client, ana, MARTES, id_r).get_json()["avisos"] == []
 
     app.config["DESCANSO_MUSCULAR_HORAS"] = 72  # 3 días: miércoles choca con lunes
     r = _asignar(client, ana, MIERCOLES, id_r)
-    assert r.status_code == 409
-    assert "72 h" in r.get_json()["error"]
+    assert r.status_code == 200
+    assert "72 horas" in r.get_json()["avisos"][0]["mensaje"]
 
 
 def test_validar_informa_sin_guardar(client, ana):

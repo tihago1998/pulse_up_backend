@@ -1,6 +1,6 @@
 """Reglas de negocio de rutinas."""
 from pulseup.core.database import conexion
-from pulseup.core.dominio import NIVELES, OBJETIVOS
+from pulseup.core.dominio import NIVELES, OBJETIVOS, UNIDADES
 from pulseup.core.errors import Conflicto, NoEncontrado, Prohibido, SolicitudInvalida
 from pulseup.modules.ejercicios import repository as ejercicios_repo
 from pulseup.modules.plan import repository as plan_repo
@@ -8,6 +8,7 @@ from pulseup.modules.rutinas import repository as repo
 from pulseup.modules.rutinas.schemas import rutina_a_json, rutina_detalle_a_json
 
 MAX_EJERCICIOS = 20
+PESO_MAX_KG = 500
 
 
 def listar(id_usuario, objetivo=None, nivel=None):
@@ -33,6 +34,37 @@ def _entero(valor, campo, minimo, maximo):
     return valor
 
 
+# Validaciones de los campos de un ejercicio de rutina (las reutiliza el plan semanal)
+
+def validar_series(valor):
+    return _entero(valor, "series", 1, 10)
+
+
+def validar_descanso(valor):
+    return _entero(valor, "descanso_seg", 0, 600)
+
+
+def validar_repeticiones(valor):
+    if isinstance(valor, bool) or not isinstance(valor, (str, int)) or not str(valor).strip():
+        raise SolicitudInvalida("repeticiones es obligatorio (por ejemplo 8-12, o 30 si la unidad es segundos)")
+    return str(valor).strip()[:20]
+
+
+def validar_peso_kg(valor):
+    """Peso de trabajo opcional: null o un número entre 0 y 500."""
+    if valor is None:
+        return None
+    if isinstance(valor, bool) or not isinstance(valor, (int, float)) or not 0 <= valor <= PESO_MAX_KG:
+        raise SolicitudInvalida(f"peso_kg debe ser un número entre 0 y {PESO_MAX_KG}, o null")
+    return float(valor)
+
+
+def validar_unidad(valor):
+    if valor not in UNIDADES:
+        raise SolicitudInvalida("unidad no válida. Usa: " + ", ".join(UNIDADES))
+    return valor
+
+
 def _validar_items(items):
     if not isinstance(items, list) or not items:
         raise SolicitudInvalida("La rutina necesita al menos un ejercicio")
@@ -48,9 +80,12 @@ def _validar_items(items):
         limpios.append(
             {
                 "id_ejercicio": _entero(it.get("id_ejercicio"), "id_ejercicio", 1, 10**9),
-                "series": _entero(it.get("series"), "series", 1, 10),
+                "series": validar_series(it.get("series")),
                 "repeticiones": repeticiones[:20],
-                "descanso_seg": _entero(it.get("descanso_seg", 60), "descanso_seg", 0, 600),
+                "descanso_seg": validar_descanso(it.get("descanso_seg", 60)),
+                # Opcionales: los clientes que no los envían siguen funcionando igual
+                "peso_kg": validar_peso_kg(it.get("peso_kg")),
+                "unidad": validar_unidad(it.get("unidad", "repeticiones")),
             }
         )
     return limpios

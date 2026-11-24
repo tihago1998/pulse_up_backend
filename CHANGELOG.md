@@ -40,6 +40,16 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
   `referencia_fuerza`. Reglas y proporciones editables en
   `pulseup/seeds/recomendaciones_reglas.json` (tablas `recomendacion_regla` y
   `referencia_fuerza_ratio`). Nuevo `GET /api/ejercicios/<id>/recomendacion`.
+- Ejercicios del catálogo directamente en un día del plan: `POST /api/plan/<dia>/ejercicios`,
+  `PUT` y `DELETE /api/plan/<dia>/ejercicios/<item_id>`, con valores por defecto tomados de la
+  recomendación personalizada, copia automática de rutinas compartidas (`rutina_copiada`) y
+  limpieza de la rutina del plan cuando queda vacía. `GET /api/plan/` añade `ejercicios` a
+  cada día.
+- `GET /api/plan/previsualizar?ejercicio_id=N` o `?rutina_id=N`: avisos de 48 h para los 7
+  días antes de elegir. `PUT /api/plan/<dia>` devuelve también `avisos`.
+- Columnas opcionales `peso_kg` y `unidad` (`repeticiones | segundos | minutos`) en
+  `rutina_ejercicio`, aceptadas y devueltas por `/api/rutinas/`, y `origen` en `rutina`
+  (`plan` para las rutinas creadas por el plan). Migración aditiva.
 
 ### Changed
 
@@ -47,6 +57,8 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - `app.py` expone `app = create_app()`; la base de datos se inicializa al arrancar.
 - Al eliminar un usuario también se eliminan su plan semanal y sus sesiones.
 - `DELETE /api/rutinas/<id>` responde 409 si la rutina está en el plan semanal.
+- La regla de descanso de 48 h ya no bloquea: `PUT /api/plan/<dia>` guarda siempre y
+  devuelve los choques en `avisos` en lugar de responder 409. `POST /api/plan/validar` no cambia.
 - Nueva dependencia `tzdata` para que las zonas horarias funcionen en Windows.
 
 ### Removed

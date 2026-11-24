@@ -312,6 +312,19 @@ def test_previsualizar_rutina_usa_todos_sus_musculos(client, ana):
     assert dias[4]["avisos"] == []  # viernes libre
 
 
+def test_previsualizar_rutina_con_musculo_repetido_da_un_solo_aviso_por_dia(client, ana):
+    _agregar(client, ana, LUNES, _id(client, ana, "Press de banca con barra"))
+    dos_de_pecho = crear_rutina(
+        client, ana, [_id(client, ana, "Aperturas con mancuernas"), _id(client, ana, "Flexiones")], "Doble pecho"
+    )
+    dias = client.get(f"/api/plan/previsualizar?rutina_id={dos_de_pecho}", headers=cabeceras(ana)).get_json()["dias"]
+    assert len(dias) == 7
+    assert {d["dia"]: d["avisos"] for d in dias if d["avisos"]} == {
+        MARTES: [AVISO_PECHO_LUNES],  # uno solo, aunque la rutina tenga dos ejercicios de pecho
+        DOMINGO: [AVISO_PECHO_LUNES],
+    }
+
+
 def test_previsualizar_con_datos_invalidos(client, ana):
     h = cabeceras(ana)
     assert client.get("/api/plan/previsualizar", headers=h).status_code == 400

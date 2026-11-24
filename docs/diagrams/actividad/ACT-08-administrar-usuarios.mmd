@@ -1,0 +1,19 @@
+flowchart TD
+    I([Inicio]) --> A{¿Tiene rol Administrador<br/>o SuperAdministrador?}
+    A -- No --> B[No ve la opción «Administrar usuarios»]
+    B --> Z([Fin])
+    A -- Sí --> C[Abrir «Administrar usuarios»]
+    C --> D[Mostrar la lista de usuarios<br/>y el total por rol]
+    D --> E{¿Qué quiere hacer?}
+    E -- Cambiar rol --> F{¿El usuario objetivo es Administrador<br/>o SuperAdministrador?}
+    F -- Sí y es Administrador --> G[El servidor lo rechaza: solo el<br/>SuperAdministrador modifica ese rol]
+    F -- No --> H[Reemplazar los roles del usuario]
+    E -- Eliminar --> I{¿Es SuperAdministrador<br/>y no es su propia cuenta?}
+    I -- No --> J[No se muestra el botón o el servidor responde 400 o 403]
+    I -- Sí --> K[Eliminar al usuario y sus datos]
+    G --> L[Mostrar el mensaje]
+    H --> M[Refrescar la lista]
+    J --> L
+    K --> M
+    L --> Z
+    M --> Z

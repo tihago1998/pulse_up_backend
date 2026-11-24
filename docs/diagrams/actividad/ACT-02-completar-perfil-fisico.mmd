@@ -1,0 +1,18 @@
+flowchart TD
+    I([Inicio]) --> A[Abrir «Mi perfil físico»]
+    A --> B{¿Ya tiene perfil?}
+    B -- Sí --> C[Mostrar los datos guardados]
+    B -- No --> D[Mostrar el formulario vacío]
+    C --> E
+    D --> E[Ingresar fecha de nacimiento, peso,<br/>estatura, nivel y sexo opcional]
+    E --> F{¿Datos válidos?<br/>Edad 14–100 años · peso 30–300 kg<br/>estatura 100–250 cm · nivel elegido}
+    F -- No --> G[Mostrar el mensaje de cada campo]
+    G --> E
+    F -- Sí --> H[Guardar el perfil en el servidor]
+    H --> J[Calcular la edad desde la fecha de nacimiento]
+    J --> K[Volver al detalle del ejercicio<br/>o al Home y recargar la recomendación]
+    K --> L{¿Quiere borrar sus datos?}
+    L -- Sí --> M[Confirmar «¿Borrar tus datos físicos?»]
+    M --> N[Eliminar el perfil]
+    N --> O([Fin])
+    L -- No --> O

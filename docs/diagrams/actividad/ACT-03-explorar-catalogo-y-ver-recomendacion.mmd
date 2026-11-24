@@ -1,0 +1,21 @@
+flowchart TD
+    I([Inicio]) --> A[Abrir «Ejercicios»]
+    A --> B[Cargar los filtros y la primera página de 20 ejercicios con fotos]
+    B --> C{¿Quiere buscar o filtrar?}
+    C -- Sí --> D[Escribir texto o elegir dónde entrena,<br/>músculo, equipo y nivel]
+    D --> E[Consultar el catálogo con los filtros combinados]
+    E --> F{¿Hay resultados?}
+    F -- No --> G[Mostrar «No hay ejercicios con estos filtros»<br/>y el botón «Quitar filtros»]
+    G --> C
+    F -- Sí --> H[Mostrar la lista]
+    C -- No --> H
+    H --> J[Elegir un ejercicio]
+    J --> K[Mostrar fotos de posición inicial y final,<br/>pasos, errores comunes y variantes]
+    K --> L{¿Tiene perfil físico?}
+    L -- Sí --> M{¿El ejercicio tiene regla?}
+    M -- Sí --> N[Mostrar «Recomendado para ti»:<br/>series, repeticiones, descanso y peso]
+    M -- No --> O[Mostrar «Este ejercicio todavía<br/>no tiene recomendación»]
+    L -- No --> P[Mostrar el motivo y el botón<br/>«Ir a mi perfil físico»]
+    N --> Q([Fin])
+    O --> Q
+    P --> Q

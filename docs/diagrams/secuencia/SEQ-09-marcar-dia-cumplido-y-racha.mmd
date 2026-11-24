@@ -1,0 +1,31 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant A as App Android<br/>(Home y Calendario)
+    participant API as API Flask<br/>(plan: rutas y servicio)
+    participant DB as SQLite<br/>(plan_dia, sesion, plan_historial)
+
+    U->>A: Abre el Home o el Calendario
+    A->>API: GET /api/calendario/?mes=YYYY-MM
+    API->>DB: Plan vigente, historial y sesiones del mes
+    DB-->>API: Datos
+    API->>API: Calcula el estado de cada día (cumplido, pendiente,<br/>incumplido o descanso) y la racha (actual y mejor)
+    API-->>A: {dias, racha}
+    A-->>U: Calendario con fuego, tira de la semana, "Hoy toca" y racha
+
+    alt Hoy tiene rutina y está pendiente
+        U->>A: Toca "Marcar rutina de hoy"
+        A->>API: POST /api/plan/completar
+        API->>API: Verifica que sea hoy, que no sea descanso<br/>y que no esté ya marcado
+        alt Válido
+            API->>DB: Guarda la sesión del día
+            API-->>A: 201 {message, sesion}
+            A->>API: GET /api/calendario/?mes=YYYY-MM
+            A-->>U: Muestra el mensaje, el fuego y la racha actualizada
+        else Descanso (400) o ya marcado (409)
+            API-->>A: {error}
+            A-->>U: Muestra el mensaje del servidor
+        end
+    else Hoy es descanso o ya está cumplido
+        A-->>U: El botón no se habilita
+    end

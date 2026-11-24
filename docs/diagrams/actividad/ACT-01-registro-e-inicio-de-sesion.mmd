@@ -1,0 +1,24 @@
+flowchart TD
+    I([Inicio]) --> A[Abrir la app]
+    A --> Q{¿Tiene cuenta?}
+    Q -- No --> R1[Ingresar nombre, correo,<br/>contraseña y confirmación]
+    R1 --> R2{¿Campos completos,<br/>contraseña de 8 o más<br/>y confirmación igual?}
+    R2 -- No --> R3[Mostrar el error en la pantalla]
+    R3 --> R1
+    R2 -- Sí --> R4[Enviar el registro al servidor]
+    R4 --> R5{¿Correo disponible?}
+    R5 -- No --> R6[Mostrar<br/>«Ese correo ya está registrado»]
+    R6 --> R1
+    R5 -- Sí --> R7[Crear la cuenta con rol Usuario]
+    R7 --> L1
+    Q -- Sí --> L1[Ingresar correo y contraseña]
+    L1 --> L2[Enviar el inicio de sesión]
+    L2 --> L3{¿Credenciales correctas?}
+    L3 -- No --> L4[Mostrar<br/>«Correo o contraseña incorrectos»]
+    L4 --> L1
+    L3 -- Sí --> L5[Guardar token y usuario en memoria<br/>y elegir una frase motivadora]
+    L5 --> H[Mostrar el Home]
+    H --> C{¿Cerrar sesión?}
+    C -- Sí --> C1[Confirmar y borrar la sesión]
+    C1 --> L1
+    C -- No --> F([Fin])

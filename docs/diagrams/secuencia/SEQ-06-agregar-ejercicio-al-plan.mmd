@@ -1,0 +1,30 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant A as App Android<br/>(EjercicioDetalleScreen)
+    participant API as API Flask<br/>(plan: rutas y servicio)
+    participant DB as SQLite<br/>(plan_dia, rutina,<br/>rutina_ejercicio)
+
+    U->>A: Toca "Agregar a mi plan"
+    A->>API: GET /api/plan/previsualizar?ejercicio_id={id}
+    API->>DB: Plan actual de los 7 días
+    DB-->>API: Rutinas y ejercicios por día
+    API->>API: Compara el grupo muscular principal con los días vecinos<br/>(descanso de 48 h, semana circular, grupos exentos)
+    API-->>A: Avisos por día
+    A-->>U: Hoja "¿Qué día?" con los 7 días y sus avisos
+    U->>A: Elige un día
+    alt El día tiene aviso de descanso
+        A-->>U: Muestra el aviso y pide "Agregar igual"
+        U->>A: Confirma
+    end
+    A->>API: POST /api/plan/{dia}/ejercicios {ejercicio_id}
+    alt Ejercicio válido
+        API->>DB: Crea o copia la rutina de ese día si hace falta
+        API->>DB: Inserta el ejercicio con los valores de la recomendación
+        DB-->>API: Item creado
+        API-->>A: 201 {item, rutina_copiada, avisos}
+        A-->>U: Confirma, si se copió la rutina, lo informa
+    else Ya está ese día (409) o el día tiene 20 ejercicios (400)
+        API-->>A: {error}
+        A-->>U: Muestra el mensaje del servidor
+    end

@@ -1,0 +1,35 @@
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant A as App Android<br/>(EjerciciosScreen)
+    participant API as API Flask<br/>(ejercicios: rutas y servicio)
+    participant DB as SQLite<br/>(ejercicio, ejercicio_imagen)
+    participant ST as Archivos estáticos<br/>(/static/ejercicios)
+
+    U->>A: Abre "Ejercicios"
+    A->>API: GET /api/ejercicios/filtros
+    API->>DB: Músculos y equipos distintos del catálogo
+    DB-->>API: Opciones de filtro
+    API-->>A: {musculos, equipos, ambientes, niveles}
+    A->>API: GET /api/ejercicios/?limit=20&offset=0
+    API->>DB: Consulta paginada
+    DB-->>API: Ejercicios y miniatura (foto 0)
+    API-->>A: {items, total, limit, offset}
+    A->>ST: Pide cada miniatura (Coil, con caché)
+    ST-->>A: Imágenes
+    A-->>U: Lista con fotos
+
+    opt Buscar o filtrar
+        U->>A: Escribe texto o elige dónde entrena, músculo, equipo o nivel
+        Note over A: Espera 300 ms tras la última tecla
+        A->>API: GET /api/ejercicios/?q=&ambiente=&musculo=&equipo=&nivel=&limit=20
+        API-->>A: Resultados (los filtros se combinan con AND)
+        A-->>U: Lista filtrada o "No hay ejercicios con estos filtros"
+    end
+
+    opt Seguir bajando
+        U->>A: Se acerca al final de la lista (4 elementos antes)
+        A->>API: GET /api/ejercicios/?...&offset=20
+        API-->>A: Siguiente página
+        A-->>U: Agrega los resultados o muestra "No hay más ejercicios"
+    end

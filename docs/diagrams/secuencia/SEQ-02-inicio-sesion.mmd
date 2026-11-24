@@ -3,7 +3,7 @@ sequenceDiagram
     actor U as Usuario
     participant A as App Android<br/>(LoginScreen)
     participant S as Session<br/>(memoria de la app)
-    participant API as API Flask<br/>(auth_controller)
+    participant API as API Flask<br/>(auth: rutas y servicio)
     participant DB as SQLite<br/>(pulseup.db)
 
     U->>A: Ingresa correo y contraseña
@@ -12,11 +12,19 @@ sequenceDiagram
     DB-->>API: Usuario + hash de contraseña + roles
     API->>API: Compara la contraseña con el hash
     alt Credenciales correctas
-        API->>API: Genera token JWT
-        API-->>A: Éxito {token, usuario{id_usuario, nombre, email, roles}}
+        API->>API: Genera token JWT (vigencia de 24 h)
+        API-->>A: 200 {token, usuario{id_usuario, nombre, email, roles}}
         A->>S: iniciarSesion(token, usuario)<br/>y elige una frase motivadora nueva
         A-->>U: Navega al Home
-    else Credenciales incorrectas
-        API-->>A: Error {message}
-        A-->>U: Muestra "credenciales incorrectas"
+    else Credenciales incorrectas (401)
+        API-->>A: {error: "Correo o contraseña incorrectos"}
+        A-->>U: Muestra "Correo o contraseña incorrectos"
+    end
+
+    opt Cerrar sesión
+        U->>A: Menú de perfil → "Cerrar sesión"
+        A-->>U: Pide confirmación
+        U->>A: Confirma
+        A->>S: cerrarSesion() borra token y usuario
+        A-->>U: Vuelve al inicio de sesión
     end

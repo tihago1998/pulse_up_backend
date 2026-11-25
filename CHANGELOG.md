@@ -52,6 +52,7 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
   (`plan` para las rutinas creadas por el plan). Migración aditiva.
 - Documentación actualizada: acta, interesados, requisitos e historias de usuario, y diagramas de
   actividad, secuencia, casos de uso y BPMN alineados con la implementación.
+- README en las carpetas de diagramas para ver las imágenes directamente en GitHub.
 
 ### Changed
 

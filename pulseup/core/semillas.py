@@ -15,6 +15,7 @@ def sembrar_catalogo(conn):
     sembrar_catalogo_ampliado(conn)
     sembrar_rutinas(conn)
     sembrar_recomendaciones(conn)
+    sembrar_met(conn)
 
 
 def sembrar_ejercicios_base(conn):
@@ -158,3 +159,16 @@ def sembrar_recomendaciones(conn):
                 """,
                 (fila["clave"], fila["sexo"], nivel, ratio),
             )
+
+
+# ---- MET para las calorías aproximadas ---------------------------------------------------
+
+def sembrar_met(conn):
+    """MET y código del Compendium de cada ejercicio (met_ejercicios.json). Es idempotente: solo
+    hace UPDATE por nombre, así que correrlo varias veces deja los mismos valores y nunca crea filas.
+    La categoría y la marca `verificado` quedan en el JSON como referencia (no se guardan)."""
+    for e in _leer("met_ejercicios.json")["ejercicios"]:
+        conn.execute(
+            "UPDATE ejercicio SET met = ?, codigo_compendio = ? WHERE nombre = ?",
+            (e["met"], e["codigo_compendio"], e["nombre"]),
+        )

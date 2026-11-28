@@ -136,10 +136,10 @@ def buscar_sesion(conn, id_usuario, fecha):
     ).fetchone()
 
 
-def crear_sesion(conn, id_usuario, fecha, id_rutina, completada_en):
+def crear_sesion(conn, id_usuario, fecha, id_rutina, completada_en, calorias_aprox=None):
     conn.execute(
-        "INSERT INTO sesion (id_usuario, fecha, id_rutina, completada_en) VALUES (?, ?, ?, ?)",
-        (id_usuario, fecha, id_rutina, completada_en),
+        "INSERT INTO sesion (id_usuario, fecha, id_rutina, completada_en, calorias_aprox) VALUES (?, ?, ?, ?, ?)",
+        (id_usuario, fecha, id_rutina, completada_en, calorias_aprox),
     )
 
 
@@ -147,7 +147,7 @@ def sesiones_entre(conn, id_usuario, desde, hasta):
     """Sesiones del rango con el nombre de la rutina (None si la rutina ya no existe)."""
     return conn.execute(
         """
-        SELECT s.fecha, s.id_rutina, r.nombre
+        SELECT s.fecha, s.id_rutina, s.calorias_aprox, r.nombre
         FROM sesion s
         LEFT JOIN rutina r ON r.id = s.id_rutina
         WHERE s.id_usuario = ? AND s.fecha BETWEEN ? AND ?

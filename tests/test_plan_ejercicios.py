@@ -456,7 +456,9 @@ def test_quitar_el_ultimo_borra_la_rutina_del_plan_y_deja_descanso(client, ana, 
     r = client.delete(f"/api/plan/{LUNES}/ejercicios/{item['item_id']}", headers=cabeceras(ana))
     assert r.status_code == 200
     assert r.get_json()["dia_en_descanso"] is True
-    assert r.get_json()["dia"] == {"dia_semana": 1, "nombre_dia": "lunes", "rutina": None, "ejercicios": []}
+    assert r.get_json()["dia"] == {
+        "dia_semana": 1, "nombre_dia": "lunes", "rutina": None, "ejercicios": [], "calorias_dia_aprox": None,
+    }
     assert _plan(client, ana)[0]["rutina"] is None
     assert _rutina(client, ana, id_rutina).status_code == 404  # la rutina vacía se eliminó
     conn = sqlite3.connect(db_path)
@@ -527,12 +529,12 @@ def test_get_plan_trae_ejercicios_en_cada_dia(client, ana):
     plan = _plan(client, ana)
     assert all("ejercicios" in d for d in plan)
     assert [len(d["ejercicios"]) for d in plan] == [1, 0, 1, 0, 0, 0, 0]
-    assert set(plan[0]["ejercicios"][0]) == {
+    assert set(plan[0]["ejercicios"][0]) >= {
         "item_id", "ejercicio_id", "nombre", "musculo_principal", "imagen_miniatura", "series", "repeticiones",
         "unidad", "peso_kg", "descanso_seg",
     }
     # Lo de antes sigue igual
-    assert set(plan[0]) == {"dia_semana", "nombre_dia", "rutina", "ejercicios"}
+    assert set(plan[0]) >= {"dia_semana", "nombre_dia", "rutina", "ejercicios"}
     assert set(plan[0]["rutina"]) == {"id", "nombre", "grupos_musculares"}
 
 

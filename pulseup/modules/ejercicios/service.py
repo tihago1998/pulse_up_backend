@@ -2,6 +2,7 @@
 from pulseup.core.database import conexion
 from pulseup.core.dominio import AMBIENTES, NIVELES
 from pulseup.core.errors import NoEncontrado, SolicitudInvalida
+from pulseup.modules.calorias import service as calorias
 from pulseup.modules.ejercicios import repository as repo
 from pulseup.modules.ejercicios.schemas import ejercicio_detalle_a_json, ejercicio_resumen_a_json
 from pulseup.modules.recomendaciones import service as recomendaciones
@@ -29,9 +30,17 @@ def _paginacion(limit, offset, formato):
     return limite, desde
 
 
-def listar(musculo=None, equipo=None, nivel=None, texto=None, ambiente=None, limit=None, offset=None, formato=None):
+def listar(
+    musculo=None, equipo=None, nivel=None, texto=None, ambiente=None, limit=None, offset=None, formato=None,
+    id_usuario=None,
+):
     """{"ejercicios": [...], "total": n}. Si se pagina (limit, offset o formato=paginado) añade
-    "items" (la misma lista), "limit" y "offset". Sin paginar devuelve todos, como antes."""
+    "items" (la misma lista), "limit" y "offset". Sin paginar devuelve todos, como antes.
+
+    Cada ejercicio trae "recomendacion_resumen" para el nivel y el perfil del usuario (None sin
+    perfil o si el ejercicio no tiene regla). El perfil, las reglas y las proporciones se cargan una
+    sola vez. Arriba van "recomendacion_motivo" (texto si falta el perfil, si no None) y
+    "calorias_nota". El filtro ?nivel= se mantiene por compatibilidad."""
     if nivel and nivel not in NIVELES:
         raise SolicitudInvalida("Nivel no válido. Usa: " + ", ".join(NIVELES))
     if ambiente and ambiente not in AMBIENTES:
@@ -44,8 +53,16 @@ def listar(musculo=None, equipo=None, nivel=None, texto=None, ambiente=None, lim
             filas = repo.listar(conn, **filtros)
         else:
             filas = repo.listar(conn, **filtros, limit=pagina[0], offset=pagina[1])
-        ejercicios = [ejercicio_resumen_a_json(f) for f in filas]
-    respuesta = {"ejercicios": ejercicios, "total": total}
+        recomendador = recomendaciones.RecomendadorDeLista(conn, id_usuario)
+        ejercicios = [
+            {**ejercicio_resumen_a_json(f), "recomendacion_resumen": recomendador.resumen(f)} for f in filas
+        ]
+    respuesta = {
+        "ejercicios": ejercicios,
+        "total": total,
+        "recomendacion_motivo": None if recomendador.con_perfil else recomendaciones.MOTIVO_LISTA_SIN_PERFIL,
+        "calorias_nota": calorias.NOTA,
+    }
     if pagina is not None:
         respuesta.update({"items": ejercicios, "limit": pagina[0], "offset": pagina[1]})
     return respuesta

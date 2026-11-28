@@ -20,3 +20,22 @@ def ratio(conn, clave, sexo, nivel):
         (clave, nivel, sexo, sexo),
     ).fetchone()
     return fila["ratio"] if fila is not None else None
+
+
+# ---- Carga completa (una sola vez por petición, para el listado de ejercicios) -------------
+
+def todas_las_reglas(conn):
+    """{(tipo, nivel): regla} con todas las reglas."""
+    return {(f["tipo"], f["nivel"]): dict(f) for f in conn.execute("SELECT * FROM recomendacion_regla").fetchall()}
+
+
+def todas_las_ratios(conn):
+    """{(clave, sexo, nivel): ratio} con todas las proporciones de fuerza."""
+    filas = conn.execute("SELECT clave, sexo, nivel, ratio FROM referencia_fuerza_ratio").fetchall()
+    return {(f["clave"], f["sexo"], f["nivel"]): f["ratio"] for f in filas}
+
+
+def ratio_en(ratios, clave, sexo, nivel):
+    """Lo mismo que ratio(), pero sobre las proporciones ya cargadas: primero la del sexo, luego 'todos'."""
+    valor = ratios.get((clave, sexo, nivel))
+    return valor if valor is not None else ratios.get((clave, "todos", nivel))

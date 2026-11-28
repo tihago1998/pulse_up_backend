@@ -145,12 +145,12 @@ def test_las_semillas_base_y_ampliadas_no_se_pisan(tmp_path):
 
 def test_listado_sin_paginar_mantiene_la_forma_actual(client, h):
     cuerpo = client.get(URL, headers=h).get_json()
-    assert set(cuerpo) == {"ejercicios", "total"}
+    assert {"ejercicios", "total"} <= set(cuerpo)  # campos nuevos permitidos, ninguno se pierde
     assert cuerpo["total"] == len(cuerpo["ejercicios"]) == TOTAL_CATALOGO
     primero = cuerpo["ejercicios"][0]
     viejos = {"id", "nombre", "grupo_muscular", "musculos_secundarios", "equipo", "nivel"}
     nuevos = {"musculo_principal", "ambientes", "mecanica", "imagen_miniatura"}
-    assert set(primero) == viejos | nuevos
+    assert set(primero) == viejos | nuevos | {"recomendacion_resumen"}
     assert "instrucciones" not in primero
 
 

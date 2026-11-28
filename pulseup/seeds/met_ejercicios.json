@@ -1,0 +1,1142 @@
+{
+  "descripcion": "MET de cada ejercicio para estimar calorías (kcal = MET x peso corporal kg x horas). Fuente: Compendium of Physical Activities 2024, sección Conditioning Exercise (https://pacompendium.com/conditioning-exercise). verificado = false: el ejercicio no tiene una fila exacta y se usó la fila más cercana (por verificar).",
+  "fuente": "https://pacompendium.com/conditioning-exercise",
+  "categorias": {
+    "pesas_moderado": {
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "descripcion": "Entrenamiento con pesas, varios ejercicios, 8-15 repeticiones, esfuerzo ligero o moderado",
+      "compendium": "2024"
+    },
+    "pesas_vigoroso": {
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "descripcion": "Entrenamiento con pesas (levantamiento de potencia o culturismo), esfuerzo vigoroso",
+      "compendium": "2024"
+    },
+    "sentadilla_peso_muerto": {
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "descripcion": "Entrenamiento con pesas: sentadillas y peso muerto",
+      "compendium": "2024"
+    },
+    "peso_corporal_general": {
+      "met": 3.0,
+      "codigo_compendio": "02056",
+      "descripcion": "Entrenamiento con el peso corporal, general",
+      "compendium": "2024"
+    },
+    "peso_corporal_alta_intensidad": {
+      "met": 6.5,
+      "codigo_compendio": "02057",
+      "descripcion": "Entrenamiento con el peso corporal, alta intensidad",
+      "compendium": "2024"
+    },
+    "calistenia_ligera": {
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "descripcion": "Calistenia ligera (abdominales, plancha)",
+      "compendium": "2024"
+    },
+    "calistenia_moderada": {
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "descripcion": "Calistenia moderada (flexiones, dominadas, zancadas)",
+      "compendium": "2024"
+    },
+    "calistenia_vigorosa": {
+      "met": 7.5,
+      "codigo_compendio": "02020",
+      "descripcion": "Calistenia vigorosa (jumping jacks, burpees)",
+      "compendium": "2024"
+    },
+    "intervalos_alta_intensidad": {
+      "met": 11.0,
+      "codigo_compendio": "02214",
+      "descripcion": "Burpees o mountain climbers a intervalos",
+      "compendium": "2024"
+    },
+    "cuerda_saltar": {
+      "met": 9.0,
+      "codigo_compendio": "02069",
+      "descripcion": "Cuerda de saltar, 120 saltos por minuto",
+      "compendium": "2024"
+    },
+    "remo_estatico": {
+      "met": 5.0,
+      "codigo_compendio": "02071",
+      "descripcion": "Remo estático (ergómetro), esfuerzo moderado",
+      "compendium": "2024"
+    },
+    "eliptica": {
+      "met": 5.0,
+      "codigo_compendio": "02048",
+      "descripcion": "Elíptica, esfuerzo moderado",
+      "compendium": "2024"
+    },
+    "estiramiento": {
+      "met": 2.3,
+      "codigo_compendio": "02101",
+      "descripcion": "Estiramiento suave",
+      "compendium": "2024"
+    },
+    "bicicleta_estatica": {
+      "met": 6.8,
+      "codigo_compendio": "02015",
+      "descripcion": "Bicicleta estática, general (Compendium 2011)",
+      "compendium": "2011"
+    }
+  },
+  "ejercicios": [
+    {
+      "nombre": "Flexiones",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Flexiones en rodillas",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Press de banca con barra",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": true
+    },
+    {
+      "nombre": "Press de pecho con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Press inclinado con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Aperturas con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Press en máquina de pecho",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Fondos en banco",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Extensión de tríceps con polea",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Press francés con mancuerna",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Patada de tríceps",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Dominadas",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Jalón al pecho",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo con mancuerna",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo con barra",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo en polea baja",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo con banda elástica",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Superman",
+      "categoria": "peso_corporal_general",
+      "met": 3.0,
+      "codigo_compendio": "02056",
+      "verificado": true
+    },
+    {
+      "nombre": "Peso muerto rumano",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Peso muerto con mancuernas",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Press militar con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevaciones laterales",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevaciones frontales",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Pájaros con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Pike push-up",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl de bíceps con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl martillo",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl con barra",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl con banda elástica",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Sentadilla",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Sentadilla con barra",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Sentadilla goblet",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Zancadas",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Zancadas con mancuernas",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": false
+    },
+    {
+      "nombre": "Prensa de piernas",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": false
+    },
+    {
+      "nombre": "Extensión de piernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl femoral",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Puente de glúteos",
+      "categoria": "peso_corporal_general",
+      "met": 3.0,
+      "codigo_compendio": "02056",
+      "verificado": true
+    },
+    {
+      "nombre": "Hip thrust con barra",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevación de talones",
+      "categoria": "peso_corporal_general",
+      "met": 3.0,
+      "codigo_compendio": "02056",
+      "verificado": true
+    },
+    {
+      "nombre": "Plancha",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Abdominales crunch",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevación de piernas",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Mountain climbers",
+      "categoria": "intervalos_alta_intensidad",
+      "met": 11.0,
+      "codigo_compendio": "02214",
+      "verificado": true
+    },
+    {
+      "nombre": "Jumping jacks",
+      "categoria": "calistenia_vigorosa",
+      "met": 7.5,
+      "codigo_compendio": "02020",
+      "verificado": true
+    },
+    {
+      "nombre": "Burpees",
+      "categoria": "calistenia_vigorosa",
+      "met": 7.5,
+      "codigo_compendio": "02020",
+      "verificado": true
+    },
+    {
+      "nombre": "Cuerda de saltar",
+      "categoria": "cuerda_saltar",
+      "met": 9.0,
+      "codigo_compendio": "02069",
+      "verificado": true
+    },
+    {
+      "nombre": "Swing con kettlebell",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": false
+    },
+    {
+      "nombre": "Press inclinado con barra",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": true
+    },
+    {
+      "nombre": "Press declinado con barra",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": true
+    },
+    {
+      "nombre": "Cruce de poleas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Aperturas en máquina",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Press inclinado en máquina",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Aperturas inclinadas con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Pullover con mancuerna",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Fondos en paralelas para pecho",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Flexiones inclinadas",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Flexiones con pies elevados",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Flexiones abiertas",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Flexiones pliométricas",
+      "categoria": "peso_corporal_alta_intensidad",
+      "met": 6.5,
+      "codigo_compendio": "02057",
+      "verificado": true
+    },
+    {
+      "nombre": "Aperturas con banda elástica",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Dominadas supinas",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Dominadas asistidas con banda",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo invertido",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Jalón con agarre cerrado",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Jalón con brazos rectos",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo en T",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo con dos mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo alto en máquina",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo con pecho apoyado",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Peso muerto con barra",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Hiperextensiones",
+      "categoria": "peso_corporal_general",
+      "met": 3.0,
+      "codigo_compendio": "02056",
+      "verificado": true
+    },
+    {
+      "nombre": "Encogimientos con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo con kettlebell a una mano",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Sentadilla frontal con barra",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Sentadilla hack",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Sentadilla dividida con mancuernas",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Subida al cajón con mancuernas",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": false
+    },
+    {
+      "nombre": "Zancada inversa con mancuernas",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": false
+    },
+    {
+      "nombre": "Sentadilla con salto",
+      "categoria": "peso_corporal_alta_intensidad",
+      "met": 6.5,
+      "codigo_compendio": "02057",
+      "verificado": true
+    },
+    {
+      "nombre": "Sentadilla sumo con mancuerna",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Sentadilla en máquina Smith",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Sentadilla con banda elástica",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Zancada caminando con barra",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": false
+    },
+    {
+      "nombre": "Curl femoral sentado",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl femoral de pie",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Buenos días con barra",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": false
+    },
+    {
+      "nombre": "Peso muerto sumo",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Peso muerto a una pierna con kettlebell",
+      "categoria": "sentadilla_peso_muerto",
+      "met": 5.0,
+      "codigo_compendio": "02052",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl nórdico",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Puente de glúteo a una pierna",
+      "categoria": "peso_corporal_general",
+      "met": 3.0,
+      "codigo_compendio": "02056",
+      "verificado": true
+    },
+    {
+      "nombre": "Puente de glúteo con barra",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": true
+    },
+    {
+      "nombre": "Patada de glúteo",
+      "categoria": "peso_corporal_general",
+      "met": 3.0,
+      "codigo_compendio": "02056",
+      "verificado": true
+    },
+    {
+      "nombre": "Patada de glúteo en polea",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Pull through en polea",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Abducción de cadera en máquina",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Caminata lateral con banda",
+      "categoria": "peso_corporal_general",
+      "met": 3.0,
+      "codigo_compendio": "02056",
+      "verificado": true
+    },
+    {
+      "nombre": "Press militar de pie con barra",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": true
+    },
+    {
+      "nombre": "Press Arnold",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Press de hombros en máquina",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevación lateral en polea",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Pájaros en máquina",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Remo al mentón con barra",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Face pull",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevaciones laterales con banda",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Separación de banda",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Flexiones de pino",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Press de hombros con kettlebell",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl predicador",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl concentrado",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl inclinado con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl en polea",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl martillo con cuerda",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl en máquina",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl Zottman",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Curl con barra Z",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Extensión de tríceps con cuerda",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Extensión sobre la cabeza con cuerda",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Press de banca con agarre cerrado",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": true
+    },
+    {
+      "nombre": "Fondos en paralelas",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Flexiones cerradas",
+      "categoria": "calistenia_moderada",
+      "met": 3.8,
+      "codigo_compendio": "02022",
+      "verificado": true
+    },
+    {
+      "nombre": "Rompecráneos con barra Z",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Extensión de tríceps con banda",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Fondos en máquina",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Crunch en polea",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Crunch inverso",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Plancha lateral",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Bicho muerto",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Giros rusos",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevación de piernas colgado",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevación de rodillas en paralelas",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Rueda abdominal",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Pallof press",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": false
+    },
+    {
+      "nombre": "Leñador en polea",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Abdominal bicicleta",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Navaja",
+      "categoria": "calistenia_ligera",
+      "met": 2.8,
+      "codigo_compendio": "02024",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevación de talones sentado",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevación de talones de pie en máquina",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Elevación de talones con mancuernas",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Pantorrilla en prensa",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": true
+    },
+    {
+      "nombre": "Bicicleta estática",
+      "categoria": "bicicleta_estatica",
+      "met": 6.8,
+      "codigo_compendio": "02015",
+      "verificado": false
+    },
+    {
+      "nombre": "Trotar en cinta",
+      "categoria": "eliptica",
+      "met": 5.0,
+      "codigo_compendio": "02048",
+      "verificado": false
+    },
+    {
+      "nombre": "Remo ergómetro",
+      "categoria": "remo_estatico",
+      "met": 5.0,
+      "codigo_compendio": "02071",
+      "verificado": true
+    },
+    {
+      "nombre": "Elíptica",
+      "categoria": "eliptica",
+      "met": 5.0,
+      "codigo_compendio": "02048",
+      "verificado": true
+    },
+    {
+      "nombre": "Escaladora",
+      "categoria": "eliptica",
+      "met": 5.0,
+      "codigo_compendio": "02048",
+      "verificado": false
+    },
+    {
+      "nombre": "Saltos con rodillas al pecho",
+      "categoria": "calistenia_vigorosa",
+      "met": 7.5,
+      "codigo_compendio": "02020",
+      "verificado": false
+    },
+    {
+      "nombre": "Saltos de estrella",
+      "categoria": "calistenia_vigorosa",
+      "met": 7.5,
+      "codigo_compendio": "02020",
+      "verificado": false
+    },
+    {
+      "nombre": "Skipping rápido",
+      "categoria": "calistenia_vigorosa",
+      "met": 7.5,
+      "codigo_compendio": "02020",
+      "verificado": false
+    },
+    {
+      "nombre": "Thruster con kettlebell",
+      "categoria": "pesas_vigoroso",
+      "met": 6.0,
+      "codigo_compendio": "02050",
+      "verificado": false
+    },
+    {
+      "nombre": "Levantada turca con kettlebell",
+      "categoria": "pesas_moderado",
+      "met": 3.5,
+      "codigo_compendio": "02054",
+      "verificado": false
+    }
+  ]
+}

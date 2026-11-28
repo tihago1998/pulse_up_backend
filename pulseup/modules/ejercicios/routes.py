@@ -20,6 +20,7 @@ def listar():
         limit=a.get("limit"),
         offset=a.get("offset"),
         formato=a.get("formato"),
+        id_usuario=g.id_usuario,
     )
     return jsonify(respuesta), 200
 

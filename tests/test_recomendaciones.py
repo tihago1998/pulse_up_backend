@@ -173,7 +173,17 @@ def _rec(client, token, nombre):
     detalle = client.get(f"{URL}{id_ejercicio}", headers=cabeceras(token)).get_json()["ejercicio"]
     propia = client.get(f"{URL}{id_ejercicio}/recomendacion", headers=cabeceras(token)).get_json()
     assert propia == {"recomendacion": detalle["recomendacion"], "recomendacion_motivo": detalle["recomendacion_motivo"]}
-    return detalle["recomendacion"], detalle["recomendacion_motivo"]
+    recomendacion = detalle["recomendacion"]
+    if recomendacion is not None:
+        # Campos nuevos (calorías y precaución): se prueban en test_calorias.py; aquí se comparan los de siempre
+        recomendacion = dict(recomendacion)
+        for campo in CAMPOS_NUEVOS:
+            assert campo in recomendacion
+            recomendacion.pop(campo)
+    return recomendacion, detalle["recomendacion_motivo"]
+
+
+CAMPOS_NUEVOS = ("calorias_aprox", "calorias_nota", "precaucion")
 
 
 def _esperada(**campos):

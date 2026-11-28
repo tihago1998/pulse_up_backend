@@ -9,8 +9,6 @@ editar o quitar un ejercicio de un día:
   este día (copia al escribir) y se devuelve rutina_copiada = true. Los demás días no cambian.
 - La regla de descanso de 48 h solo devuelve avisos; nunca impide guardar.
 """
-import math
-
 from pulseup.core import tiempo
 from pulseup.core.database import conexion
 from pulseup.core.dominio import DIAS_SEMANA, ORIGEN_PLAN
@@ -24,7 +22,7 @@ from pulseup.modules.rutinas import repository as rutinas_repo
 from pulseup.modules.rutinas import service as rutinas_service
 
 # Sin recomendación personalizada (sin perfil físico o ejercicio sin reglas)
-POR_DEFECTO = {"series": 3, "repeticiones": "10", "unidad": "repeticiones", "descanso_seg": 60, "peso_kg": None}
+POR_DEFECTO = recomendaciones.POR_DEFECTO
 CAMPOS_EDITABLES = ("series", "repeticiones", "peso_kg", "unidad", "descanso_seg")
 _VALIDADORES = {
     "series": rutinas_service.validar_series,
@@ -34,39 +32,20 @@ _VALIDADORES = {
     "descanso_seg": rutinas_service.validar_descanso,
 }
 SEPARADOR_NOMBRE = " · "
-# Con segundos o minutos, el valor por defecto se redondea al múltiplo de 5 más cercano (30–45 s -> 40)
-UNIDADES_DE_DURACION = ("segundos", "minutos")
-PASO_DURACION = 5
+UNIDADES_DE_DURACION = recomendaciones.UNIDADES_DE_DURACION
+PASO_DURACION = recomendaciones.PASO_DURACION
 
 
 # ---- Funciones puras ------------------------------------------------------------------
 
 def redondear_a_multiplo(valor, paso):
-    """Múltiplo de `paso` más cercano; en el punto medio redondea hacia arriba (38 -> 40, 35 -> 35)."""
-    return math.floor(valor / paso + 0.5) * paso
+    return recomendaciones.redondear_a_multiplo(valor, paso)
 
 
 def valores_por_defecto(recomendacion):
     """Series, repeticiones, unidad, descanso y peso a partir de la recomendación personalizada.
-
-    series = series_max, repeticiones = punto medio del rango (redondeado; con segundos o minutos,
-    además, al múltiplo de 5 más cercano), y unidad, descanso y
-    peso tal como vienen. Sin recomendación: 3 series de 10 repeticiones, 60 s y sin peso.
-    """
-    if recomendacion is None:
-        return dict(POR_DEFECTO)
-    descanso = recomendacion["descanso_seg"]
-    valor = recomendaciones.reps_objetivo(recomendacion["reps_min"], recomendacion["reps_max"])
-    if recomendacion["unidad"] in UNIDADES_DE_DURACION:
-        valor = redondear_a_multiplo(valor, PASO_DURACION)
-    return {
-        "series": recomendacion["series_max"],
-        "repeticiones": str(valor),
-        "unidad": recomendacion["unidad"],
-        # Cardio no trae descanso (es una sola serie continua): se guarda 0
-        "descanso_seg": descanso if descanso is not None else 0,
-        "peso_kg": recomendacion["peso_kg"],
-    }
+    Es el mismo cálculo que muestra el listado de ejercicios (recomendaciones.valores_sugeridos)."""
+    return recomendaciones.valores_sugeridos(recomendacion)
 
 
 def campos_validados(datos, exigir_alguno):
@@ -188,8 +167,9 @@ def agregar(id_usuario, dia_semana, datos):
         # El músculo del ejercicio contra los DEMÁS días (el propio día no cuenta)
         grupos_por_dia, _ = plan_service.grupos_del_plan(conn, id_usuario)
         avisos = plan_service.avisos_de_descanso(dia_semana, {ejercicio["grupo_muscular"]}, grupos_por_dia)
+        peso = plan_service.peso_corporal(conn, id_usuario)
 
-    return {"item": item_a_json(item), "rutina_copiada": copiada, "avisos": avisos}
+    return {"item": item_a_json(item, peso), "rutina_copiada": copiada, "avisos": avisos}
 
 
 def editar(id_usuario, dia_semana, item_id, datos):
@@ -201,7 +181,8 @@ def editar(id_usuario, dia_semana, item_id, datos):
         item = _item_en(conn, id_rutina, item, copiada)
         rutinas_repo.actualizar_item(conn, item["item_id"], cambios)
         item = rutinas_repo.buscar_item(conn, item["item_id"])
-    return {"item": item_a_json(item), "rutina_copiada": copiada}
+        peso = plan_service.peso_corporal(conn, id_usuario)
+    return {"item": item_a_json(item, peso), "rutina_copiada": copiada}
 
 
 def quitar(id_usuario, dia_semana, item_id):

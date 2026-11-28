@@ -53,6 +53,19 @@ El proyecto sigue [SemVer](https://semver.org/lang/es/).
 - Documentación actualizada: acta, interesados, requisitos e historias de usuario, y diagramas de
   actividad, secuencia, casos de uso y BPMN alineados con la implementación.
 - README en las carpetas de diagramas para ver las imágenes directamente en GitHub.
+- Calorías aproximadas (kcal = MET × peso corporal real × horas, redondeadas a múltiplos de 5,
+  mínimo 5; null sin perfil físico o sin MET). Columnas `ejercicio.met`, `ejercicio.codigo_compendio`
+  y `sesion.calorias_aprox` (migración aditiva) y semilla idempotente
+  `pulseup/seeds/met_ejercicios.json` con el MET y el código del Compendium of Physical Activities
+  2024 de los 150 ejercicios (los que no tienen fila exacta quedan con `verificado: false`).
+- `GET /api/ejercicios/` (con y sin paginación): `recomendacion_resumen` en cada ejercicio (nivel,
+  series, repeticiones, unidad, peso, descanso, calorías y precaución) para el perfil del usuario, y
+  `recomendacion_motivo` y `calorias_nota` arriba. El filtro `?nivel=` se mantiene.
+- Bloque `recomendacion` del detalle (y `GET /api/ejercicios/<id>/recomendacion`): `calorias_aprox`,
+  `calorias_nota` y `precaucion` (ejercicio avanzado para un usuario principiante).
+- `GET /api/plan/`: `calorias_aprox` en cada ejercicio con sus valores reales y `calorias_dia_aprox`
+  en cada día. `POST /api/plan/completar` guarda y devuelve las calorías del día, y
+  `GET /api/calendario/` las muestra en los días cumplidos.
 
 ### Changed
 

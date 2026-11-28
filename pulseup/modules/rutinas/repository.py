@@ -9,7 +9,7 @@ _BASE = """
 _ITEM = """
     SELECT re.id AS item_id, re.id_rutina, re.id_ejercicio, re.orden, re.series, re.repeticiones,
            re.unidad, re.peso_kg, re.descanso_seg,
-           e.nombre, e.grupo_muscular, COALESCE(e.musculo_principal, e.grupo_muscular) AS musculo_principal,
+           e.nombre, e.grupo_muscular, e.met, COALESCE(e.musculo_principal, e.grupo_muscular) AS musculo_principal,
            (SELECT url FROM ejercicio_imagen i WHERE i.ejercicio_id = e.id AND i.orden = 0) AS imagen_miniatura
     FROM rutina_ejercicio re
     JOIN ejercicio e ON e.id = re.id_ejercicio

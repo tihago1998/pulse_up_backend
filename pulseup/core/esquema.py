@@ -219,6 +219,10 @@ COLUMNAS_EJERCICIO = [
     # ver referencia_fuerza_ratio) y reglas propias del ejercicio en JSON (hoy solo Dominadas)
     ("referencia_fuerza", "TEXT"),
     ("recomendacion_override", "TEXT"),
+    # Calorías aproximadas: MET del Compendium of Physical Activities y su código de actividad
+    # (se siembran desde pulseup/seeds/met_ejercicios.json)
+    ("met", "REAL"),
+    ("codigo_compendio", "TEXT"),
 ]
 
 
@@ -233,6 +237,11 @@ COLUMNAS_RUTINA_EJERCICIO = [
 # NULL = creada por el usuario en su pantalla de rutinas (o plantilla del sistema).
 COLUMNAS_RUTINA = [
     ("origen", "TEXT"),
+]
+
+# Sesiones: calorías aproximadas del día, calculadas al marcarlo como cumplido (NULL sin perfil físico)
+COLUMNAS_SESION = [
+    ("calorias_aprox", "INTEGER"),
 ]
 
 
@@ -252,6 +261,8 @@ def crear_esquema(conn):
     # Migración: ejercicios agregados directamente a un día del plan (peso, unidad y origen)
     _agregar_columnas_faltantes(conn, "rutina_ejercicio", COLUMNAS_RUTINA_EJERCICIO)
     _agregar_columnas_faltantes(conn, "rutina", COLUMNAS_RUTINA)
+    # Migración: calorías aproximadas guardadas en cada sesión cumplida
+    _agregar_columnas_faltantes(conn, "sesion", COLUMNAS_SESION)
     conn.execute(
         "CREATE UNIQUE INDEX IF NOT EXISTS ux_ejercicio_id_externo ON ejercicio(id_externo)"
         " WHERE id_externo IS NOT NULL"

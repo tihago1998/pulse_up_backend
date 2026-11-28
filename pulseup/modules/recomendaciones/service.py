@@ -23,6 +23,7 @@ from pulseup.core import tiempo
 from pulseup.core.database import conexion
 from pulseup.core.dominio import NIVELES
 from pulseup.core.errors import NoEncontrado
+from pulseup.modules.calorias import service as calorias
 from pulseup.modules.ejercicios import repository as ejercicios_repo
 from pulseup.modules.perfil_fisico import repository as perfil_fisico_repo
 from pulseup.modules.perfil_fisico.service import calcular_edad
@@ -44,6 +45,16 @@ NOTA_SIN_PESO = (
 )
 MOTIVO_SIN_PERFIL = "Completa tu perfil físico para ver la recomendación"
 MOTIVO_SIN_REGLA = "Este ejercicio todavía no tiene recomendación"
+# Listado de ejercicios sin perfil físico
+MOTIVO_LISTA_SIN_PERFIL = "Completa tu perfil físico para ver tu recomendación y tus calorías"
+
+PRECAUCION_AVANZADO = "Es un ejercicio de técnica avanzada: empieza con poca carga o con una variante más fácil."
+
+# Valores por defecto al agregar un ejercicio sin recomendación (sin perfil o sin reglas)
+POR_DEFECTO = {"series": 3, "repeticiones": "10", "unidad": "repeticiones", "descanso_seg": 60, "peso_kg": None}
+# Con segundos o minutos, el valor sugerido se redondea al múltiplo de 5 más cercano (30–45 s -> 40)
+UNIDADES_DE_DURACION = ("segundos", "minutos")
+PASO_DURACION = 5
 
 _CAMPOS_OVERRIDE = ("reps_min", "reps_max", "series_min", "series_max")
 
@@ -119,6 +130,51 @@ def armar_recomendacion(nivel, regla, peso_kg, nota):
     }
 
 
+def redondear_a_multiplo(valor, paso):
+    """Múltiplo de `paso` más cercano; en el punto medio redondea hacia arriba (38 -> 40, 35 -> 35)."""
+    return math.floor(valor / paso + 0.5) * paso
+
+
+def valores_sugeridos(recomendacion):
+    """Series, repeticiones, unidad, descanso y peso concretos a partir de la recomendación.
+
+    series = series_max, repeticiones = punto medio del rango (redondeado; con segundos o minutos,
+    además, al múltiplo de 5 más cercano), y unidad, descanso y peso tal como vienen. Son los que se
+    guardan al agregar el ejercicio a un día del plan y los que muestra el listado.
+    Sin recomendación: 3 series de 10 repeticiones, 60 s y sin peso.
+    """
+    if recomendacion is None:
+        return dict(POR_DEFECTO)
+    descanso = recomendacion["descanso_seg"]
+    valor = reps_objetivo(recomendacion["reps_min"], recomendacion["reps_max"])
+    if recomendacion["unidad"] in UNIDADES_DE_DURACION:
+        valor = redondear_a_multiplo(valor, PASO_DURACION)
+    return {
+        "series": recomendacion["series_max"],
+        "repeticiones": str(valor),
+        "unidad": recomendacion["unidad"],
+        # Cardio no trae descanso (es una sola serie continua): se guarda 0
+        "descanso_seg": descanso if descanso is not None else 0,
+        "peso_kg": recomendacion["peso_kg"],
+    }
+
+
+def precaucion_para(nivel_ejercicio, nivel_usuario, variante_facil):
+    """Aviso solo si el ejercicio es avanzado y el usuario principiante; si no, None."""
+    if nivel_ejercicio != "avanzado" or nivel_usuario != "principiante":
+        return None
+    if variante_facil:
+        return f"{PRECAUCION_AVANZADO} Por ejemplo: {variante_facil}"
+    return PRECAUCION_AVANZADO
+
+
+def calorias_sugeridas(met, peso_corporal_kg, valores):
+    """kcal aproximadas con los valores sugeridos (series_max, punto medio, descanso recomendado)."""
+    return calorias.calorias_ejercicio(
+        met, peso_corporal_kg, valores["series"], valores["repeticiones"], valores["unidad"], valores["descanso_seg"]
+    )
+
+
 def edad_de(fecha_nacimiento, hoy):
     """Edad en años o None si la fecha falta o no es válida (código defensivo)."""
     if not fecha_nacimiento:
@@ -135,17 +191,34 @@ def _dato(perfil, campo):
     return dict(perfil).get(campo) if perfil is not None else None
 
 
-def recomendacion_para(conn, ejercicio, perfil, hoy):
+def _columna(ejercicio, campo):
+    """Columna opcional del ejercicio (fila o dict); None si no existe."""
+    try:
+        return ejercicio[campo]
+    except (KeyError, IndexError):
+        return None
+
+
+def recomendacion_para(conn, ejercicio, perfil, hoy, reglas=None, ratios=None):
     """(recomendacion, motivo) para un ejercicio (fila) y un perfil físico (fila, dict o None).
 
     El perfil se lee de forma defensiva: sin nivel no hay recomendación; con nivel pero sin peso
     corporal o sin edad se devuelven series y repeticiones con peso_kg = None.
+    `reglas` y `ratios` (de repo.todas_las_reglas / todas_las_ratios) evitan una consulta por
+    ejercicio cuando se recomienda para muchos (el listado); sin ellos se consulta la base.
+    El bloque incluye calorias_aprox (con los valores sugeridos), calorias_nota y precaucion.
     """
     nivel = _dato(perfil, "nivel")
     if nivel not in NIVELES:
         return None, MOTIVO_SIN_PERFIL
     tipo = ejercicio["tipo_recomendacion"]
-    regla = repo.regla(conn, tipo, nivel) if tipo else None
+    if not tipo:
+        regla = None
+    elif reglas is not None:
+        regla = reglas.get((tipo, nivel))
+        regla = dict(regla) if regla is not None else None
+    else:
+        regla = repo.regla(conn, tipo, nivel)
     if regla is None:
         return None, MOTIVO_SIN_REGLA
     override = ejercicio["recomendacion_override"]
@@ -156,11 +229,59 @@ def recomendacion_para(conn, ejercicio, perfil, hoy):
     edad = edad_de(_dato(perfil, "fecha_nacimiento"), hoy)
     clave = ejercicio["referencia_fuerza"]
     if tipo in TIPOS_CON_CARGA and clave and peso_corporal and edad is not None:
-        ratio = repo.ratio(conn, clave, sexo_para_ratio(_dato(perfil, "sexo")), nivel)
+        sexo = sexo_para_ratio(_dato(perfil, "sexo"))
+        if ratios is not None:
+            ratio = repo.ratio_en(ratios, clave, sexo, nivel)
+        else:
+            ratio = repo.ratio(conn, clave, sexo, nivel)
         if ratio is not None:
             reps = reps_para_epley(regla["reps_min"], regla["reps_max"])
             peso_kg = calcular_peso_kg(ratio, peso_corporal, reps, edad)
-    return armar_recomendacion(nivel, regla, peso_kg, nota_para(tipo, regla, peso_kg)), None
+    recomendacion = armar_recomendacion(nivel, regla, peso_kg, nota_para(tipo, regla, peso_kg))
+    # Calorías con el peso corporal REAL (sin el tope de 113 kg del cálculo del peso de trabajo)
+    recomendacion["calorias_aprox"] = calorias_sugeridas(
+        _columna(ejercicio, "met"), peso_corporal, valores_sugeridos(recomendacion)
+    )
+    recomendacion["calorias_nota"] = calorias.NOTA
+    recomendacion["precaucion"] = precaucion_para(ejercicio["nivel"], nivel, _columna(ejercicio, "variante_facil"))
+    return recomendacion, None
+
+
+def resumen_desde(recomendacion):
+    """Resumen corto para el listado de ejercicios (o None si no hay recomendación)."""
+    if recomendacion is None:
+        return None
+    valores = valores_sugeridos(recomendacion)
+    return {
+        "nivel": recomendacion["nivel"],
+        "series": valores["series"],
+        "repeticiones": valores["repeticiones"],
+        "unidad": valores["unidad"],
+        "peso_kg": valores["peso_kg"],
+        "descanso_seg": valores["descanso_seg"],
+        "calorias_aprox": recomendacion["calorias_aprox"],
+        "precaucion": recomendacion["precaucion"],
+    }
+
+
+class RecomendadorDeLista:
+    """Carga el perfil, las reglas y las proporciones UNA vez y recomienda para muchos ejercicios."""
+
+    def __init__(self, conn, id_usuario):
+        self.conn = conn
+        self.perfil = perfil_fisico_repo.buscar(conn, id_usuario)
+        self.hoy = tiempo.hoy()
+        self.con_perfil = _dato(self.perfil, "nivel") in NIVELES
+        self.reglas = repo.todas_las_reglas(conn) if self.con_perfil else {}
+        self.ratios = repo.todas_las_ratios(conn) if self.con_perfil else {}
+
+    def resumen(self, ejercicio):
+        if not self.con_perfil:
+            return None
+        recomendacion, _ = recomendacion_para(
+            self.conn, ejercicio, self.perfil, self.hoy, reglas=self.reglas, ratios=self.ratios
+        )
+        return resumen_desde(recomendacion)
 
 
 def para_usuario(conn, ejercicio, id_usuario):

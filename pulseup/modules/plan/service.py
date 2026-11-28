@@ -12,9 +12,12 @@ from pulseup.core.database import conexion
 from pulseup.core.dominio import DIAS_SEMANA, GRUPOS_SIN_DESCANSO
 from pulseup.core.errors import Conflicto, NoEncontrado, SolicitudInvalida
 from pulseup.core.validacion import exigir_fecha
+from pulseup.modules.calorias import service as calorias
+from pulseup.modules.perfil_fisico import repository as perfil_fisico_repo
 from pulseup.modules.plan import repository as repo
 from pulseup.modules.plan.schemas import (
     aviso_a_json,
+    calorias_item,
     conflicto_a_json,
     dia_calendario_a_json,
     dia_plan_a_json,
@@ -146,14 +149,20 @@ def _evaluar_asignacion(conn, id_usuario, dia_semana, id_rutina):
 
 # ---- Plan semanal -------------------------------------------------------------
 
+def peso_corporal(conn, id_usuario):
+    """Peso real del perfil físico para las calorías (None sin perfil)."""
+    return calorias.peso_corporal(perfil_fisico_repo.buscar(conn, id_usuario))
+
+
 def ver_plan(id_usuario):
     with conexion() as conn:
         plan = {f["dia_semana"]: f for f in repo.listar(conn, id_usuario)}
         ids = [f["id_rutina"] for f in plan.values()]
         grupos = repo.grupos_por_rutina(conn, ids)
         ejercicios = rutinas_repo.items_de_rutinas(conn, ids)
+        peso = peso_corporal(conn, id_usuario)
     return [
-        dia_plan_a_json(dia, plan[dia], grupos[plan[dia]["id_rutina"]], ejercicios[plan[dia]["id_rutina"]])
+        dia_plan_a_json(dia, plan[dia], grupos[plan[dia]["id_rutina"]], ejercicios[plan[dia]["id_rutina"]], peso)
         if dia in plan
         else dia_plan_a_json(dia)
         for dia in DIAS_SEMANA
@@ -171,6 +180,7 @@ def dia_a_json(conn, id_usuario, dia_semana):
         fila,
         repo.grupos_por_rutina(conn, [id_rutina])[id_rutina],
         rutinas_repo.items_de_rutinas(conn, [id_rutina])[id_rutina],
+        peso_corporal(conn, id_usuario),
     )
 
 
@@ -241,8 +251,12 @@ def completar(id_usuario, datos):
         if repo.buscar_sesion(conn, id_usuario, hoy.isoformat()) is not None:
             raise Conflicto("Ya marcaste la rutina de hoy")
         completada_en = tiempo.ahora().isoformat(timespec="seconds")
+        # Total del día EN ESTE MOMENTO (si luego cambia la rutina, la sesión conserva este valor)
+        peso = peso_corporal(conn, id_usuario)
+        items = rutinas_repo.items_de_rutinas(conn, [entrada["id_rutina"]])[entrada["id_rutina"]]
+        calorias_aprox = calorias.total(calorias_item(i, peso) for i in items)
         try:
-            repo.crear_sesion(conn, id_usuario, hoy.isoformat(), entrada["id_rutina"], completada_en)
+            repo.crear_sesion(conn, id_usuario, hoy.isoformat(), entrada["id_rutina"], completada_en, calorias_aprox)
         except sqlite3.IntegrityError:
             # Dos peticiones casi simultáneas: la restricción UNIQUE decide
             raise Conflicto("Ya marcaste la rutina de hoy")
@@ -253,6 +267,7 @@ def completar(id_usuario, datos):
         "nombre_dia": DIAS_SEMANA[hoy.isoweekday()],
         "rutina": rutina_corta(entrada["id_rutina"], entrada["nombre"]),
         "completada_en": completada_en,
+        "calorias_aprox": calorias_aprox,
     }
 
 
@@ -349,8 +364,10 @@ def calendario(id_usuario, mes=None):
     fecha = primero
     while fecha <= ultimo:
         estado = _estado_del_dia(fecha, hoy, historial, fechas_cumplidas)
-        rutina = _rutina_del_dia(estado, sesiones.get(fecha.isoformat()), _vigencia(historial, fecha))
-        dias.append(dia_calendario_a_json(fecha, estado, rutina))
+        sesion = sesiones.get(fecha.isoformat())
+        rutina = _rutina_del_dia(estado, sesion, _vigencia(historial, fecha))
+        kcal = sesion["calorias_aprox"] if estado == CUMPLIDO and sesion is not None else None
+        dias.append(dia_calendario_a_json(fecha, estado, rutina, kcal))
         fecha += timedelta(days=1)
 
     return {"mes": f"{anio:04d}-{numero:02d}", "dias": dias, "racha": _racha(hoy, historial, fechas_cumplidas)}
